@@ -1,0 +1,6152 @@
+[
+  {
+    "index": 0,
+    "speciesID": 1,
+    "name": "Bulbasaur",
+    "apiName": "bulbasaur"
+  },
+  {
+    "index": 1,
+    "speciesID": 2,
+    "name": "Ivysaur",
+    "apiName": "ivysaur"
+  },
+  {
+    "index": 2,
+    "speciesID": 3,
+    "name": "Venusaur",
+    "apiName": "venusaur"
+  },
+  {
+    "index": 3,
+    "speciesID": 4,
+    "name": "Charmander",
+    "apiName": "charmander"
+  },
+  {
+    "index": 4,
+    "speciesID": 5,
+    "name": "Charmeleon",
+    "apiName": "charmeleon"
+  },
+  {
+    "index": 5,
+    "speciesID": 6,
+    "name": "Charizard",
+    "apiName": "charizard"
+  },
+  {
+    "index": 6,
+    "speciesID": 7,
+    "name": "Squirtle",
+    "apiName": "squirtle"
+  },
+  {
+    "index": 7,
+    "speciesID": 8,
+    "name": "Wartortle",
+    "apiName": "wartortle"
+  },
+  {
+    "index": 8,
+    "speciesID": 9,
+    "name": "Blastoise",
+    "apiName": "blastoise"
+  },
+  {
+    "index": 9,
+    "speciesID": 10,
+    "name": "Caterpie",
+    "apiName": "caterpie"
+  },
+  {
+    "index": 10,
+    "speciesID": 11,
+    "name": "Metapod",
+    "apiName": "metapod"
+  },
+  {
+    "index": 11,
+    "speciesID": 12,
+    "name": "Butterfree",
+    "apiName": "butterfree"
+  },
+  {
+    "index": 12,
+    "speciesID": 13,
+    "name": "Weedle",
+    "apiName": "weedle"
+  },
+  {
+    "index": 13,
+    "speciesID": 14,
+    "name": "Kakuna",
+    "apiName": "kakuna"
+  },
+  {
+    "index": 14,
+    "speciesID": 15,
+    "name": "Beedrill",
+    "apiName": "beedrill"
+  },
+  {
+    "index": 15,
+    "speciesID": 16,
+    "name": "Pidgey",
+    "apiName": "pidgey"
+  },
+  {
+    "index": 16,
+    "speciesID": 17,
+    "name": "Pidgeotto",
+    "apiName": "pidgeotto"
+  },
+  {
+    "index": 17,
+    "speciesID": 18,
+    "name": "Pidgeot",
+    "apiName": "pidgeot"
+  },
+  {
+    "index": 18,
+    "speciesID": 19,
+    "name": "Rattata",
+    "apiName": "rattata"
+  },
+  {
+    "index": 19,
+    "speciesID": 20,
+    "name": "Raticate",
+    "apiName": "raticate"
+  },
+  {
+    "index": 20,
+    "speciesID": 21,
+    "name": "Spearow",
+    "apiName": "spearow"
+  },
+  {
+    "index": 21,
+    "speciesID": 22,
+    "name": "Fearow",
+    "apiName": "fearow"
+  },
+  {
+    "index": 22,
+    "speciesID": 23,
+    "name": "Ekans",
+    "apiName": "ekans"
+  },
+  {
+    "index": 23,
+    "speciesID": 24,
+    "name": "Arbok",
+    "apiName": "arbok"
+  },
+  {
+    "index": 24,
+    "speciesID": 25,
+    "name": "Pikachu",
+    "apiName": "pikachu"
+  },
+  {
+    "index": 25,
+    "speciesID": 26,
+    "name": "Raichu",
+    "apiName": "raichu"
+  },
+  {
+    "index": 26,
+    "speciesID": 27,
+    "name": "Sandshrew",
+    "apiName": "sandshrew"
+  },
+  {
+    "index": 27,
+    "speciesID": 28,
+    "name": "Sandslash",
+    "apiName": "sandslash"
+  },
+  {
+    "index": 28,
+    "speciesID": 29,
+    "name": "Nidoran♀",
+    "apiName": "nidoran-f"
+  },
+  {
+    "index": 29,
+    "speciesID": 30,
+    "name": "Nidorina",
+    "apiName": "nidorina"
+  },
+  {
+    "index": 30,
+    "speciesID": 31,
+    "name": "Nidoqueen",
+    "apiName": "nidoqueen"
+  },
+  {
+    "index": 31,
+    "speciesID": 32,
+    "name": "Nidoran♂",
+    "apiName": "nidoran-m"
+  },
+  {
+    "index": 32,
+    "speciesID": 33,
+    "name": "Nidorino",
+    "apiName": "nidorino"
+  },
+  {
+    "index": 33,
+    "speciesID": 34,
+    "name": "Nidoking",
+    "apiName": "nidoking"
+  },
+  {
+    "index": 34,
+    "speciesID": 35,
+    "name": "Clefairy",
+    "apiName": "clefairy"
+  },
+  {
+    "index": 35,
+    "speciesID": 36,
+    "name": "Clefable",
+    "apiName": "clefable"
+  },
+  {
+    "index": 36,
+    "speciesID": 37,
+    "name": "Vulpix",
+    "apiName": "vulpix"
+  },
+  {
+    "index": 37,
+    "speciesID": 38,
+    "name": "Ninetales",
+    "apiName": "ninetales"
+  },
+  {
+    "index": 38,
+    "speciesID": 39,
+    "name": "Jigglypuff",
+    "apiName": "jigglypuff"
+  },
+  {
+    "index": 39,
+    "speciesID": 40,
+    "name": "Wigglytuff",
+    "apiName": "wigglytuff"
+  },
+  {
+    "index": 40,
+    "speciesID": 41,
+    "name": "Zubat",
+    "apiName": "zubat"
+  },
+  {
+    "index": 41,
+    "speciesID": 42,
+    "name": "Golbat",
+    "apiName": "golbat"
+  },
+  {
+    "index": 42,
+    "speciesID": 43,
+    "name": "Oddish",
+    "apiName": "oddish"
+  },
+  {
+    "index": 43,
+    "speciesID": 44,
+    "name": "Gloom",
+    "apiName": "gloom"
+  },
+  {
+    "index": 44,
+    "speciesID": 45,
+    "name": "Vileplume",
+    "apiName": "vileplume"
+  },
+  {
+    "index": 45,
+    "speciesID": 46,
+    "name": "Paras",
+    "apiName": "paras"
+  },
+  {
+    "index": 46,
+    "speciesID": 47,
+    "name": "Parasect",
+    "apiName": "parasect"
+  },
+  {
+    "index": 47,
+    "speciesID": 48,
+    "name": "Venonat",
+    "apiName": "venonat"
+  },
+  {
+    "index": 48,
+    "speciesID": 49,
+    "name": "Venomoth",
+    "apiName": "venomoth"
+  },
+  {
+    "index": 49,
+    "speciesID": 50,
+    "name": "Diglett",
+    "apiName": "diglett"
+  },
+  {
+    "index": 50,
+    "speciesID": 51,
+    "name": "Dugtrio",
+    "apiName": "dugtrio"
+  },
+  {
+    "index": 51,
+    "speciesID": 52,
+    "name": "Meowth",
+    "apiName": "meowth"
+  },
+  {
+    "index": 52,
+    "speciesID": 53,
+    "name": "Persian",
+    "apiName": "persian"
+  },
+  {
+    "index": 53,
+    "speciesID": 54,
+    "name": "Psyduck",
+    "apiName": "psyduck"
+  },
+  {
+    "index": 54,
+    "speciesID": 55,
+    "name": "Golduck",
+    "apiName": "golduck"
+  },
+  {
+    "index": 55,
+    "speciesID": 56,
+    "name": "Mankey",
+    "apiName": "mankey"
+  },
+  {
+    "index": 56,
+    "speciesID": 57,
+    "name": "Primeape",
+    "apiName": "primeape"
+  },
+  {
+    "index": 57,
+    "speciesID": 58,
+    "name": "Growlithe",
+    "apiName": "growlithe"
+  },
+  {
+    "index": 58,
+    "speciesID": 59,
+    "name": "Arcanine",
+    "apiName": "arcanine"
+  },
+  {
+    "index": 59,
+    "speciesID": 60,
+    "name": "Poliwag",
+    "apiName": "poliwag"
+  },
+  {
+    "index": 60,
+    "speciesID": 61,
+    "name": "Poliwhirl",
+    "apiName": "poliwhirl"
+  },
+  {
+    "index": 61,
+    "speciesID": 62,
+    "name": "Poliwrath",
+    "apiName": "poliwrath"
+  },
+  {
+    "index": 62,
+    "speciesID": 63,
+    "name": "Abra",
+    "apiName": "abra"
+  },
+  {
+    "index": 63,
+    "speciesID": 64,
+    "name": "Kadabra",
+    "apiName": "kadabra"
+  },
+  {
+    "index": 64,
+    "speciesID": 65,
+    "name": "Alakazam",
+    "apiName": "alakazam"
+  },
+  {
+    "index": 65,
+    "speciesID": 66,
+    "name": "Machop",
+    "apiName": "machop"
+  },
+  {
+    "index": 66,
+    "speciesID": 67,
+    "name": "Machoke",
+    "apiName": "machoke"
+  },
+  {
+    "index": 67,
+    "speciesID": 68,
+    "name": "Machamp",
+    "apiName": "machamp"
+  },
+  {
+    "index": 68,
+    "speciesID": 69,
+    "name": "Bellsprout",
+    "apiName": "bellsprout"
+  },
+  {
+    "index": 69,
+    "speciesID": 70,
+    "name": "Weepinbell",
+    "apiName": "weepinbell"
+  },
+  {
+    "index": 70,
+    "speciesID": 71,
+    "name": "Victreebel",
+    "apiName": "victreebel"
+  },
+  {
+    "index": 71,
+    "speciesID": 72,
+    "name": "Tentacool",
+    "apiName": "tentacool"
+  },
+  {
+    "index": 72,
+    "speciesID": 73,
+    "name": "Tentacruel",
+    "apiName": "tentacruel"
+  },
+  {
+    "index": 73,
+    "speciesID": 74,
+    "name": "Geodude",
+    "apiName": "geodude"
+  },
+  {
+    "index": 74,
+    "speciesID": 75,
+    "name": "Graveler",
+    "apiName": "graveler"
+  },
+  {
+    "index": 75,
+    "speciesID": 76,
+    "name": "Golem",
+    "apiName": "golem"
+  },
+  {
+    "index": 76,
+    "speciesID": 77,
+    "name": "Ponyta",
+    "apiName": "ponyta"
+  },
+  {
+    "index": 77,
+    "speciesID": 78,
+    "name": "Rapidash",
+    "apiName": "rapidash"
+  },
+  {
+    "index": 78,
+    "speciesID": 79,
+    "name": "Slowpoke",
+    "apiName": "slowpoke"
+  },
+  {
+    "index": 79,
+    "speciesID": 80,
+    "name": "Slowbro",
+    "apiName": "slowbro"
+  },
+  {
+    "index": 80,
+    "speciesID": 81,
+    "name": "Magnemite",
+    "apiName": "magnemite"
+  },
+  {
+    "index": 81,
+    "speciesID": 82,
+    "name": "Magneton",
+    "apiName": "magneton"
+  },
+  {
+    "index": 82,
+    "speciesID": 83,
+    "name": "Farfetch'd",
+    "apiName": "farfetchd"
+  },
+  {
+    "index": 83,
+    "speciesID": 84,
+    "name": "Doduo",
+    "apiName": "doduo"
+  },
+  {
+    "index": 84,
+    "speciesID": 85,
+    "name": "Dodrio",
+    "apiName": "dodrio"
+  },
+  {
+    "index": 85,
+    "speciesID": 86,
+    "name": "Seel",
+    "apiName": "seel"
+  },
+  {
+    "index": 86,
+    "speciesID": 87,
+    "name": "Dewgong",
+    "apiName": "dewgong"
+  },
+  {
+    "index": 87,
+    "speciesID": 88,
+    "name": "Grimer",
+    "apiName": "grimer"
+  },
+  {
+    "index": 88,
+    "speciesID": 89,
+    "name": "Muk",
+    "apiName": "muk"
+  },
+  {
+    "index": 89,
+    "speciesID": 90,
+    "name": "Shellder",
+    "apiName": "shellder"
+  },
+  {
+    "index": 90,
+    "speciesID": 91,
+    "name": "Cloyster",
+    "apiName": "cloyster"
+  },
+  {
+    "index": 91,
+    "speciesID": 92,
+    "name": "Gastly",
+    "apiName": "gastly"
+  },
+  {
+    "index": 92,
+    "speciesID": 93,
+    "name": "Haunter",
+    "apiName": "haunter"
+  },
+  {
+    "index": 93,
+    "speciesID": 94,
+    "name": "Gengar",
+    "apiName": "gengar"
+  },
+  {
+    "index": 94,
+    "speciesID": 95,
+    "name": "Onix",
+    "apiName": "onix"
+  },
+  {
+    "index": 95,
+    "speciesID": 96,
+    "name": "Drowzee",
+    "apiName": "drowzee"
+  },
+  {
+    "index": 96,
+    "speciesID": 97,
+    "name": "Hypno",
+    "apiName": "hypno"
+  },
+  {
+    "index": 97,
+    "speciesID": 98,
+    "name": "Krabby",
+    "apiName": "krabby"
+  },
+  {
+    "index": 98,
+    "speciesID": 99,
+    "name": "Kingler",
+    "apiName": "kingler"
+  },
+  {
+    "index": 99,
+    "speciesID": 100,
+    "name": "Voltorb",
+    "apiName": "voltorb"
+  },
+  {
+    "index": 100,
+    "speciesID": 101,
+    "name": "Electrode",
+    "apiName": "electrode"
+  },
+  {
+    "index": 101,
+    "speciesID": 102,
+    "name": "Exeggcute",
+    "apiName": "exeggcute"
+  },
+  {
+    "index": 102,
+    "speciesID": 103,
+    "name": "Exeggutor",
+    "apiName": "exeggutor"
+  },
+  {
+    "index": 103,
+    "speciesID": 104,
+    "name": "Cubone",
+    "apiName": "cubone"
+  },
+  {
+    "index": 104,
+    "speciesID": 105,
+    "name": "Marowak",
+    "apiName": "marowak"
+  },
+  {
+    "index": 105,
+    "speciesID": 106,
+    "name": "Hitmonlee",
+    "apiName": "hitmonlee"
+  },
+  {
+    "index": 106,
+    "speciesID": 107,
+    "name": "Hitmonchan",
+    "apiName": "hitmonchan"
+  },
+  {
+    "index": 107,
+    "speciesID": 108,
+    "name": "Lickitung",
+    "apiName": "lickitung"
+  },
+  {
+    "index": 108,
+    "speciesID": 109,
+    "name": "Koffing",
+    "apiName": "koffing"
+  },
+  {
+    "index": 109,
+    "speciesID": 110,
+    "name": "Weezing",
+    "apiName": "weezing"
+  },
+  {
+    "index": 110,
+    "speciesID": 111,
+    "name": "Rhyhorn",
+    "apiName": "rhyhorn"
+  },
+  {
+    "index": 111,
+    "speciesID": 112,
+    "name": "Rhydon",
+    "apiName": "rhydon"
+  },
+  {
+    "index": 112,
+    "speciesID": 113,
+    "name": "Chansey",
+    "apiName": "chansey"
+  },
+  {
+    "index": 113,
+    "speciesID": 114,
+    "name": "Tangela",
+    "apiName": "tangela"
+  },
+  {
+    "index": 114,
+    "speciesID": 115,
+    "name": "Kangaskhan",
+    "apiName": "kangaskhan"
+  },
+  {
+    "index": 115,
+    "speciesID": 116,
+    "name": "Horsea",
+    "apiName": "horsea"
+  },
+  {
+    "index": 116,
+    "speciesID": 117,
+    "name": "Seadra",
+    "apiName": "seadra"
+  },
+  {
+    "index": 117,
+    "speciesID": 118,
+    "name": "Goldeen",
+    "apiName": "goldeen"
+  },
+  {
+    "index": 118,
+    "speciesID": 119,
+    "name": "Seaking",
+    "apiName": "seaking"
+  },
+  {
+    "index": 119,
+    "speciesID": 120,
+    "name": "Staryu",
+    "apiName": "staryu"
+  },
+  {
+    "index": 120,
+    "speciesID": 121,
+    "name": "Starmie",
+    "apiName": "starmie"
+  },
+  {
+    "index": 121,
+    "speciesID": 122,
+    "name": "Mr. Mime",
+    "apiName": "mr-mime"
+  },
+  {
+    "index": 122,
+    "speciesID": 123,
+    "name": "Scyther",
+    "apiName": "scyther"
+  },
+  {
+    "index": 123,
+    "speciesID": 124,
+    "name": "Jynx",
+    "apiName": "jynx"
+  },
+  {
+    "index": 124,
+    "speciesID": 125,
+    "name": "Electabuzz",
+    "apiName": "electabuzz"
+  },
+  {
+    "index": 125,
+    "speciesID": 126,
+    "name": "Magmar",
+    "apiName": "magmar"
+  },
+  {
+    "index": 126,
+    "speciesID": 127,
+    "name": "Pinsir",
+    "apiName": "pinsir"
+  },
+  {
+    "index": 127,
+    "speciesID": 128,
+    "name": "Tauros",
+    "apiName": "tauros"
+  },
+  {
+    "index": 128,
+    "speciesID": 129,
+    "name": "Magikarp",
+    "apiName": "magikarp"
+  },
+  {
+    "index": 129,
+    "speciesID": 130,
+    "name": "Gyarados",
+    "apiName": "gyarados"
+  },
+  {
+    "index": 130,
+    "speciesID": 131,
+    "name": "Lapras",
+    "apiName": "lapras"
+  },
+  {
+    "index": 131,
+    "speciesID": 132,
+    "name": "Ditto",
+    "apiName": "ditto"
+  },
+  {
+    "index": 132,
+    "speciesID": 133,
+    "name": "Eevee",
+    "apiName": "eevee"
+  },
+  {
+    "index": 133,
+    "speciesID": 134,
+    "name": "Vaporeon",
+    "apiName": "vaporeon"
+  },
+  {
+    "index": 134,
+    "speciesID": 135,
+    "name": "Jolteon",
+    "apiName": "jolteon"
+  },
+  {
+    "index": 135,
+    "speciesID": 136,
+    "name": "Flareon",
+    "apiName": "flareon"
+  },
+  {
+    "index": 136,
+    "speciesID": 137,
+    "name": "Porygon",
+    "apiName": "porygon"
+  },
+  {
+    "index": 137,
+    "speciesID": 138,
+    "name": "Omanyte",
+    "apiName": "omanyte"
+  },
+  {
+    "index": 138,
+    "speciesID": 139,
+    "name": "Omastar",
+    "apiName": "omastar"
+  },
+  {
+    "index": 139,
+    "speciesID": 140,
+    "name": "Kabuto",
+    "apiName": "kabuto"
+  },
+  {
+    "index": 140,
+    "speciesID": 141,
+    "name": "Kabutops",
+    "apiName": "kabutops"
+  },
+  {
+    "index": 141,
+    "speciesID": 142,
+    "name": "Aerodactyl",
+    "apiName": "aerodactyl"
+  },
+  {
+    "index": 142,
+    "speciesID": 143,
+    "name": "Snorlax",
+    "apiName": "snorlax"
+  },
+  {
+    "index": 143,
+    "speciesID": 144,
+    "name": "Articuno",
+    "apiName": "articuno"
+  },
+  {
+    "index": 144,
+    "speciesID": 145,
+    "name": "Zapdos",
+    "apiName": "zapdos"
+  },
+  {
+    "index": 145,
+    "speciesID": 146,
+    "name": "Moltres",
+    "apiName": "moltres"
+  },
+  {
+    "index": 146,
+    "speciesID": 147,
+    "name": "Dratini",
+    "apiName": "dratini"
+  },
+  {
+    "index": 147,
+    "speciesID": 148,
+    "name": "Dragonair",
+    "apiName": "dragonair"
+  },
+  {
+    "index": 148,
+    "speciesID": 149,
+    "name": "Dragonite",
+    "apiName": "dragonite"
+  },
+  {
+    "index": 149,
+    "speciesID": 150,
+    "name": "Mewtwo",
+    "apiName": "mewtwo"
+  },
+  {
+    "index": 150,
+    "speciesID": 151,
+    "name": "Mew",
+    "apiName": "mew"
+  },
+  {
+    "index": 151,
+    "speciesID": 152,
+    "name": "Chikorita",
+    "apiName": "chikorita"
+  },
+  {
+    "index": 152,
+    "speciesID": 153,
+    "name": "Bayleef",
+    "apiName": "bayleef"
+  },
+  {
+    "index": 153,
+    "speciesID": 154,
+    "name": "Meganium",
+    "apiName": "meganium"
+  },
+  {
+    "index": 154,
+    "speciesID": 155,
+    "name": "Cyndaquil",
+    "apiName": "cyndaquil"
+  },
+  {
+    "index": 155,
+    "speciesID": 156,
+    "name": "Quilava",
+    "apiName": "quilava"
+  },
+  {
+    "index": 156,
+    "speciesID": 157,
+    "name": "Typhlosion",
+    "apiName": "typhlosion"
+  },
+  {
+    "index": 157,
+    "speciesID": 158,
+    "name": "Totodile",
+    "apiName": "totodile"
+  },
+  {
+    "index": 158,
+    "speciesID": 159,
+    "name": "Croconaw",
+    "apiName": "croconaw"
+  },
+  {
+    "index": 159,
+    "speciesID": 160,
+    "name": "Feraligatr",
+    "apiName": "feraligatr"
+  },
+  {
+    "index": 160,
+    "speciesID": 161,
+    "name": "Sentret",
+    "apiName": "sentret"
+  },
+  {
+    "index": 161,
+    "speciesID": 162,
+    "name": "Furret",
+    "apiName": "furret"
+  },
+  {
+    "index": 162,
+    "speciesID": 163,
+    "name": "Hoothoot",
+    "apiName": "hoothoot"
+  },
+  {
+    "index": 163,
+    "speciesID": 164,
+    "name": "Noctowl",
+    "apiName": "noctowl"
+  },
+  {
+    "index": 164,
+    "speciesID": 165,
+    "name": "Ledyba",
+    "apiName": "ledyba"
+  },
+  {
+    "index": 165,
+    "speciesID": 166,
+    "name": "Ledian",
+    "apiName": "ledian"
+  },
+  {
+    "index": 166,
+    "speciesID": 167,
+    "name": "Spinarak",
+    "apiName": "spinarak"
+  },
+  {
+    "index": 167,
+    "speciesID": 168,
+    "name": "Ariados",
+    "apiName": "ariados"
+  },
+  {
+    "index": 168,
+    "speciesID": 169,
+    "name": "Crobat",
+    "apiName": "crobat"
+  },
+  {
+    "index": 169,
+    "speciesID": 170,
+    "name": "Chinchou",
+    "apiName": "chinchou"
+  },
+  {
+    "index": 170,
+    "speciesID": 171,
+    "name": "Lanturn",
+    "apiName": "lanturn"
+  },
+  {
+    "index": 171,
+    "speciesID": 172,
+    "name": "Pichu",
+    "apiName": "pichu"
+  },
+  {
+    "index": 172,
+    "speciesID": 173,
+    "name": "Cleffa",
+    "apiName": "cleffa"
+  },
+  {
+    "index": 173,
+    "speciesID": 174,
+    "name": "Igglybuff",
+    "apiName": "igglybuff"
+  },
+  {
+    "index": 174,
+    "speciesID": 175,
+    "name": "Togepi",
+    "apiName": "togepi"
+  },
+  {
+    "index": 175,
+    "speciesID": 176,
+    "name": "Togetic",
+    "apiName": "togetic"
+  },
+  {
+    "index": 176,
+    "speciesID": 177,
+    "name": "Natu",
+    "apiName": "natu"
+  },
+  {
+    "index": 177,
+    "speciesID": 178,
+    "name": "Xatu",
+    "apiName": "xatu"
+  },
+  {
+    "index": 178,
+    "speciesID": 179,
+    "name": "Mareep",
+    "apiName": "mareep"
+  },
+  {
+    "index": 179,
+    "speciesID": 180,
+    "name": "Flaaffy",
+    "apiName": "flaaffy"
+  },
+  {
+    "index": 180,
+    "speciesID": 181,
+    "name": "Ampharos",
+    "apiName": "ampharos"
+  },
+  {
+    "index": 181,
+    "speciesID": 182,
+    "name": "Bellossom",
+    "apiName": "bellossom"
+  },
+  {
+    "index": 182,
+    "speciesID": 183,
+    "name": "Marill",
+    "apiName": "marill"
+  },
+  {
+    "index": 183,
+    "speciesID": 184,
+    "name": "Azumarill",
+    "apiName": "azumarill"
+  },
+  {
+    "index": 184,
+    "speciesID": 185,
+    "name": "Sudowoodo",
+    "apiName": "sudowoodo"
+  },
+  {
+    "index": 185,
+    "speciesID": 186,
+    "name": "Politoed",
+    "apiName": "politoed"
+  },
+  {
+    "index": 186,
+    "speciesID": 187,
+    "name": "Hoppip",
+    "apiName": "hoppip"
+  },
+  {
+    "index": 187,
+    "speciesID": 188,
+    "name": "Skiploom",
+    "apiName": "skiploom"
+  },
+  {
+    "index": 188,
+    "speciesID": 189,
+    "name": "Jumpluff",
+    "apiName": "jumpluff"
+  },
+  {
+    "index": 189,
+    "speciesID": 190,
+    "name": "Aipom",
+    "apiName": "aipom"
+  },
+  {
+    "index": 190,
+    "speciesID": 191,
+    "name": "Sunkern",
+    "apiName": "sunkern"
+  },
+  {
+    "index": 191,
+    "speciesID": 192,
+    "name": "Sunflora",
+    "apiName": "sunflora"
+  },
+  {
+    "index": 192,
+    "speciesID": 193,
+    "name": "Yanma",
+    "apiName": "yanma"
+  },
+  {
+    "index": 193,
+    "speciesID": 194,
+    "name": "Wooper",
+    "apiName": "wooper"
+  },
+  {
+    "index": 194,
+    "speciesID": 195,
+    "name": "Quagsire",
+    "apiName": "quagsire"
+  },
+  {
+    "index": 195,
+    "speciesID": 196,
+    "name": "Espeon",
+    "apiName": "espeon"
+  },
+  {
+    "index": 196,
+    "speciesID": 197,
+    "name": "Umbreon",
+    "apiName": "umbreon"
+  },
+  {
+    "index": 197,
+    "speciesID": 198,
+    "name": "Murkrow",
+    "apiName": "murkrow"
+  },
+  {
+    "index": 198,
+    "speciesID": 199,
+    "name": "Slowking",
+    "apiName": "slowking"
+  },
+  {
+    "index": 199,
+    "speciesID": 200,
+    "name": "Misdreavus",
+    "apiName": "misdreavus"
+  },
+  {
+    "index": 200,
+    "speciesID": 201,
+    "name": "Unown",
+    "apiName": "unown"
+  },
+  {
+    "index": 201,
+    "speciesID": 202,
+    "name": "Wobbuffet",
+    "apiName": "wobbuffet"
+  },
+  {
+    "index": 202,
+    "speciesID": 203,
+    "name": "Girafarig",
+    "apiName": "girafarig"
+  },
+  {
+    "index": 203,
+    "speciesID": 204,
+    "name": "Pineco",
+    "apiName": "pineco"
+  },
+  {
+    "index": 204,
+    "speciesID": 205,
+    "name": "Forretress",
+    "apiName": "forretress"
+  },
+  {
+    "index": 205,
+    "speciesID": 206,
+    "name": "Dunsparce",
+    "apiName": "dunsparce"
+  },
+  {
+    "index": 206,
+    "speciesID": 207,
+    "name": "Gligar",
+    "apiName": "gligar"
+  },
+  {
+    "index": 207,
+    "speciesID": 208,
+    "name": "Steelix",
+    "apiName": "steelix"
+  },
+  {
+    "index": 208,
+    "speciesID": 209,
+    "name": "Snubbull",
+    "apiName": "snubbull"
+  },
+  {
+    "index": 209,
+    "speciesID": 210,
+    "name": "Granbull",
+    "apiName": "granbull"
+  },
+  {
+    "index": 210,
+    "speciesID": 211,
+    "name": "Qwilfish",
+    "apiName": "qwilfish"
+  },
+  {
+    "index": 211,
+    "speciesID": 212,
+    "name": "Scizor",
+    "apiName": "scizor"
+  },
+  {
+    "index": 212,
+    "speciesID": 213,
+    "name": "Shuckle",
+    "apiName": "shuckle"
+  },
+  {
+    "index": 213,
+    "speciesID": 214,
+    "name": "Heracross",
+    "apiName": "heracross"
+  },
+  {
+    "index": 214,
+    "speciesID": 215,
+    "name": "Sneasel",
+    "apiName": "sneasel"
+  },
+  {
+    "index": 215,
+    "speciesID": 216,
+    "name": "Teddiursa",
+    "apiName": "teddiursa"
+  },
+  {
+    "index": 216,
+    "speciesID": 217,
+    "name": "Ursaring",
+    "apiName": "ursaring"
+  },
+  {
+    "index": 217,
+    "speciesID": 218,
+    "name": "Slugma",
+    "apiName": "slugma"
+  },
+  {
+    "index": 218,
+    "speciesID": 219,
+    "name": "Magcargo",
+    "apiName": "magcargo"
+  },
+  {
+    "index": 219,
+    "speciesID": 220,
+    "name": "Swinub",
+    "apiName": "swinub"
+  },
+  {
+    "index": 220,
+    "speciesID": 221,
+    "name": "Piloswine",
+    "apiName": "piloswine"
+  },
+  {
+    "index": 221,
+    "speciesID": 222,
+    "name": "Corsola",
+    "apiName": "corsola"
+  },
+  {
+    "index": 222,
+    "speciesID": 223,
+    "name": "Remoraid",
+    "apiName": "remoraid"
+  },
+  {
+    "index": 223,
+    "speciesID": 224,
+    "name": "Octillery",
+    "apiName": "octillery"
+  },
+  {
+    "index": 224,
+    "speciesID": 225,
+    "name": "Delibird",
+    "apiName": "delibird"
+  },
+  {
+    "index": 225,
+    "speciesID": 226,
+    "name": "Mantine",
+    "apiName": "mantine"
+  },
+  {
+    "index": 226,
+    "speciesID": 227,
+    "name": "Skarmory",
+    "apiName": "skarmory"
+  },
+  {
+    "index": 227,
+    "speciesID": 228,
+    "name": "Houndour",
+    "apiName": "houndour"
+  },
+  {
+    "index": 228,
+    "speciesID": 229,
+    "name": "Houndoom",
+    "apiName": "houndoom"
+  },
+  {
+    "index": 229,
+    "speciesID": 230,
+    "name": "Kingdra",
+    "apiName": "kingdra"
+  },
+  {
+    "index": 230,
+    "speciesID": 231,
+    "name": "Phanpy",
+    "apiName": "phanpy"
+  },
+  {
+    "index": 231,
+    "speciesID": 232,
+    "name": "Donphan",
+    "apiName": "donphan"
+  },
+  {
+    "index": 232,
+    "speciesID": 233,
+    "name": "Porygon2",
+    "apiName": "porygon2"
+  },
+  {
+    "index": 233,
+    "speciesID": 234,
+    "name": "Stantler",
+    "apiName": "stantler"
+  },
+  {
+    "index": 234,
+    "speciesID": 235,
+    "name": "Smeargle",
+    "apiName": "smeargle"
+  },
+  {
+    "index": 235,
+    "speciesID": 236,
+    "name": "Tyrogue",
+    "apiName": "tyrogue"
+  },
+  {
+    "index": 236,
+    "speciesID": 237,
+    "name": "Hitmontop",
+    "apiName": "hitmontop"
+  },
+  {
+    "index": 237,
+    "speciesID": 238,
+    "name": "Smoochum",
+    "apiName": "smoochum"
+  },
+  {
+    "index": 238,
+    "speciesID": 239,
+    "name": "Elekid",
+    "apiName": "elekid"
+  },
+  {
+    "index": 239,
+    "speciesID": 240,
+    "name": "Magby",
+    "apiName": "magby"
+  },
+  {
+    "index": 240,
+    "speciesID": 241,
+    "name": "Miltank",
+    "apiName": "miltank"
+  },
+  {
+    "index": 241,
+    "speciesID": 242,
+    "name": "Blissey",
+    "apiName": "blissey"
+  },
+  {
+    "index": 242,
+    "speciesID": 243,
+    "name": "Raikou",
+    "apiName": "raikou"
+  },
+  {
+    "index": 243,
+    "speciesID": 244,
+    "name": "Entei",
+    "apiName": "entei"
+  },
+  {
+    "index": 244,
+    "speciesID": 245,
+    "name": "Suicune",
+    "apiName": "suicune"
+  },
+  {
+    "index": 245,
+    "speciesID": 246,
+    "name": "Larvitar",
+    "apiName": "larvitar"
+  },
+  {
+    "index": 246,
+    "speciesID": 247,
+    "name": "Pupitar",
+    "apiName": "pupitar"
+  },
+  {
+    "index": 247,
+    "speciesID": 248,
+    "name": "Tyranitar",
+    "apiName": "tyranitar"
+  },
+  {
+    "index": 248,
+    "speciesID": 249,
+    "name": "Lugia",
+    "apiName": "lugia"
+  },
+  {
+    "index": 249,
+    "speciesID": 250,
+    "name": "Ho-oh",
+    "apiName": "ho-oh"
+  },
+  {
+    "index": 250,
+    "speciesID": 251,
+    "name": "Celebi",
+    "apiName": "celebi"
+  },
+  {
+    "index": 251,
+    "speciesID": 252,
+    "name": "Treecko",
+    "apiName": "treecko"
+  },
+  {
+    "index": 252,
+    "speciesID": 253,
+    "name": "Grovyle",
+    "apiName": "grovyle"
+  },
+  {
+    "index": 253,
+    "speciesID": 254,
+    "name": "Sceptile",
+    "apiName": "sceptile"
+  },
+  {
+    "index": 254,
+    "speciesID": 255,
+    "name": "Torchic",
+    "apiName": "torchic"
+  },
+  {
+    "index": 255,
+    "speciesID": 256,
+    "name": "Combusken",
+    "apiName": "combusken"
+  },
+  {
+    "index": 256,
+    "speciesID": 257,
+    "name": "Blaziken",
+    "apiName": "blaziken"
+  },
+  {
+    "index": 257,
+    "speciesID": 258,
+    "name": "Mudkip",
+    "apiName": "mudkip"
+  },
+  {
+    "index": 258,
+    "speciesID": 259,
+    "name": "Marshtomp",
+    "apiName": "marshtomp"
+  },
+  {
+    "index": 259,
+    "speciesID": 260,
+    "name": "Swampert",
+    "apiName": "swampert"
+  },
+  {
+    "index": 260,
+    "speciesID": 261,
+    "name": "Poochyena",
+    "apiName": "poochyena"
+  },
+  {
+    "index": 261,
+    "speciesID": 262,
+    "name": "Mightyena",
+    "apiName": "mightyena"
+  },
+  {
+    "index": 262,
+    "speciesID": 263,
+    "name": "Zigzagoon",
+    "apiName": "zigzagoon"
+  },
+  {
+    "index": 263,
+    "speciesID": 264,
+    "name": "Linoone",
+    "apiName": "linoone"
+  },
+  {
+    "index": 264,
+    "speciesID": 265,
+    "name": "Wurmple",
+    "apiName": "wurmple"
+  },
+  {
+    "index": 265,
+    "speciesID": 266,
+    "name": "Silcoon",
+    "apiName": "silcoon"
+  },
+  {
+    "index": 266,
+    "speciesID": 267,
+    "name": "Beautifly",
+    "apiName": "beautifly"
+  },
+  {
+    "index": 267,
+    "speciesID": 268,
+    "name": "Cascoon",
+    "apiName": "cascoon"
+  },
+  {
+    "index": 268,
+    "speciesID": 269,
+    "name": "Dustox",
+    "apiName": "dustox"
+  },
+  {
+    "index": 269,
+    "speciesID": 270,
+    "name": "Lotad",
+    "apiName": "lotad"
+  },
+  {
+    "index": 270,
+    "speciesID": 271,
+    "name": "Lombre",
+    "apiName": "lombre"
+  },
+  {
+    "index": 271,
+    "speciesID": 272,
+    "name": "Ludicolo",
+    "apiName": "ludicolo"
+  },
+  {
+    "index": 272,
+    "speciesID": 273,
+    "name": "Seedot",
+    "apiName": "seedot"
+  },
+  {
+    "index": 273,
+    "speciesID": 274,
+    "name": "Nuzleaf",
+    "apiName": "nuzleaf"
+  },
+  {
+    "index": 274,
+    "speciesID": 275,
+    "name": "Shiftry",
+    "apiName": "shiftry"
+  },
+  {
+    "index": 275,
+    "speciesID": 276,
+    "name": "Taillow",
+    "apiName": "taillow"
+  },
+  {
+    "index": 276,
+    "speciesID": 277,
+    "name": "Swellow",
+    "apiName": "swellow"
+  },
+  {
+    "index": 277,
+    "speciesID": 278,
+    "name": "Wingull",
+    "apiName": "wingull"
+  },
+  {
+    "index": 278,
+    "speciesID": 279,
+    "name": "Pelipper",
+    "apiName": "pelipper"
+  },
+  {
+    "index": 279,
+    "speciesID": 280,
+    "name": "Ralts",
+    "apiName": "ralts"
+  },
+  {
+    "index": 280,
+    "speciesID": 281,
+    "name": "Kirlia",
+    "apiName": "kirlia"
+  },
+  {
+    "index": 281,
+    "speciesID": 282,
+    "name": "Gardevoir",
+    "apiName": "gardevoir"
+  },
+  {
+    "index": 282,
+    "speciesID": 283,
+    "name": "Surskit",
+    "apiName": "surskit"
+  },
+  {
+    "index": 283,
+    "speciesID": 284,
+    "name": "Masquerain",
+    "apiName": "masquerain"
+  },
+  {
+    "index": 284,
+    "speciesID": 285,
+    "name": "Shroomish",
+    "apiName": "shroomish"
+  },
+  {
+    "index": 285,
+    "speciesID": 286,
+    "name": "Breloom",
+    "apiName": "breloom"
+  },
+  {
+    "index": 286,
+    "speciesID": 287,
+    "name": "Slakoth",
+    "apiName": "slakoth"
+  },
+  {
+    "index": 287,
+    "speciesID": 288,
+    "name": "Vigoroth",
+    "apiName": "vigoroth"
+  },
+  {
+    "index": 288,
+    "speciesID": 289,
+    "name": "Slaking",
+    "apiName": "slaking"
+  },
+  {
+    "index": 289,
+    "speciesID": 290,
+    "name": "Nincada",
+    "apiName": "nincada"
+  },
+  {
+    "index": 290,
+    "speciesID": 291,
+    "name": "Ninjask",
+    "apiName": "ninjask"
+  },
+  {
+    "index": 291,
+    "speciesID": 292,
+    "name": "Shedinja",
+    "apiName": "shedinja"
+  },
+  {
+    "index": 292,
+    "speciesID": 293,
+    "name": "Whismur",
+    "apiName": "whismur"
+  },
+  {
+    "index": 293,
+    "speciesID": 294,
+    "name": "Loudred",
+    "apiName": "loudred"
+  },
+  {
+    "index": 294,
+    "speciesID": 295,
+    "name": "Exploud",
+    "apiName": "exploud"
+  },
+  {
+    "index": 295,
+    "speciesID": 296,
+    "name": "Makuhita",
+    "apiName": "makuhita"
+  },
+  {
+    "index": 296,
+    "speciesID": 297,
+    "name": "Hariyama",
+    "apiName": "hariyama"
+  },
+  {
+    "index": 297,
+    "speciesID": 298,
+    "name": "Azurill",
+    "apiName": "azurill"
+  },
+  {
+    "index": 298,
+    "speciesID": 299,
+    "name": "Nosepass",
+    "apiName": "nosepass"
+  },
+  {
+    "index": 299,
+    "speciesID": 300,
+    "name": "Skitty",
+    "apiName": "skitty"
+  },
+  {
+    "index": 300,
+    "speciesID": 301,
+    "name": "Delcatty",
+    "apiName": "delcatty"
+  },
+  {
+    "index": 301,
+    "speciesID": 302,
+    "name": "Sableye",
+    "apiName": "sableye"
+  },
+  {
+    "index": 302,
+    "speciesID": 303,
+    "name": "Mawile",
+    "apiName": "mawile"
+  },
+  {
+    "index": 303,
+    "speciesID": 304,
+    "name": "Aron",
+    "apiName": "aron"
+  },
+  {
+    "index": 304,
+    "speciesID": 305,
+    "name": "Lairon",
+    "apiName": "lairon"
+  },
+  {
+    "index": 305,
+    "speciesID": 306,
+    "name": "Aggron",
+    "apiName": "aggron"
+  },
+  {
+    "index": 306,
+    "speciesID": 307,
+    "name": "Meditite",
+    "apiName": "meditite"
+  },
+  {
+    "index": 307,
+    "speciesID": 308,
+    "name": "Medicham",
+    "apiName": "medicham"
+  },
+  {
+    "index": 308,
+    "speciesID": 309,
+    "name": "Electrike",
+    "apiName": "electrike"
+  },
+  {
+    "index": 309,
+    "speciesID": 310,
+    "name": "Manectric",
+    "apiName": "manectric"
+  },
+  {
+    "index": 310,
+    "speciesID": 311,
+    "name": "Plusle",
+    "apiName": "plusle"
+  },
+  {
+    "index": 311,
+    "speciesID": 312,
+    "name": "Minun",
+    "apiName": "minun"
+  },
+  {
+    "index": 312,
+    "speciesID": 313,
+    "name": "Volbeat",
+    "apiName": "volbeat"
+  },
+  {
+    "index": 313,
+    "speciesID": 314,
+    "name": "Illumise",
+    "apiName": "illumise"
+  },
+  {
+    "index": 314,
+    "speciesID": 315,
+    "name": "Roselia",
+    "apiName": "roselia"
+  },
+  {
+    "index": 315,
+    "speciesID": 316,
+    "name": "Gulpin",
+    "apiName": "gulpin"
+  },
+  {
+    "index": 316,
+    "speciesID": 317,
+    "name": "Swalot",
+    "apiName": "swalot"
+  },
+  {
+    "index": 317,
+    "speciesID": 318,
+    "name": "Carvanha",
+    "apiName": "carvanha"
+  },
+  {
+    "index": 318,
+    "speciesID": 319,
+    "name": "Sharpedo",
+    "apiName": "sharpedo"
+  },
+  {
+    "index": 319,
+    "speciesID": 320,
+    "name": "Wailmer",
+    "apiName": "wailmer"
+  },
+  {
+    "index": 320,
+    "speciesID": 321,
+    "name": "Wailord",
+    "apiName": "wailord"
+  },
+  {
+    "index": 321,
+    "speciesID": 322,
+    "name": "Numel",
+    "apiName": "numel"
+  },
+  {
+    "index": 322,
+    "speciesID": 323,
+    "name": "Camerupt",
+    "apiName": "camerupt"
+  },
+  {
+    "index": 323,
+    "speciesID": 324,
+    "name": "Torkoal",
+    "apiName": "torkoal"
+  },
+  {
+    "index": 324,
+    "speciesID": 325,
+    "name": "Spoink",
+    "apiName": "spoink"
+  },
+  {
+    "index": 325,
+    "speciesID": 326,
+    "name": "Grumpig",
+    "apiName": "grumpig"
+  },
+  {
+    "index": 326,
+    "speciesID": 327,
+    "name": "Spinda",
+    "apiName": "spinda"
+  },
+  {
+    "index": 327,
+    "speciesID": 328,
+    "name": "Trapinch",
+    "apiName": "trapinch"
+  },
+  {
+    "index": 328,
+    "speciesID": 329,
+    "name": "Vibrava",
+    "apiName": "vibrava"
+  },
+  {
+    "index": 329,
+    "speciesID": 330,
+    "name": "Flygon",
+    "apiName": "flygon"
+  },
+  {
+    "index": 330,
+    "speciesID": 331,
+    "name": "Cacnea",
+    "apiName": "cacnea"
+  },
+  {
+    "index": 331,
+    "speciesID": 332,
+    "name": "Cacturne",
+    "apiName": "cacturne"
+  },
+  {
+    "index": 332,
+    "speciesID": 333,
+    "name": "Swablu",
+    "apiName": "swablu"
+  },
+  {
+    "index": 333,
+    "speciesID": 334,
+    "name": "Altaria",
+    "apiName": "altaria"
+  },
+  {
+    "index": 334,
+    "speciesID": 335,
+    "name": "Zangoose",
+    "apiName": "zangoose"
+  },
+  {
+    "index": 335,
+    "speciesID": 336,
+    "name": "Seviper",
+    "apiName": "seviper"
+  },
+  {
+    "index": 336,
+    "speciesID": 337,
+    "name": "Lunatone",
+    "apiName": "lunatone"
+  },
+  {
+    "index": 337,
+    "speciesID": 338,
+    "name": "Solrock",
+    "apiName": "solrock"
+  },
+  {
+    "index": 338,
+    "speciesID": 339,
+    "name": "Barboach",
+    "apiName": "barboach"
+  },
+  {
+    "index": 339,
+    "speciesID": 340,
+    "name": "Whiscash",
+    "apiName": "whiscash"
+  },
+  {
+    "index": 340,
+    "speciesID": 341,
+    "name": "Corphish",
+    "apiName": "corphish"
+  },
+  {
+    "index": 341,
+    "speciesID": 342,
+    "name": "Crawdaunt",
+    "apiName": "crawdaunt"
+  },
+  {
+    "index": 342,
+    "speciesID": 343,
+    "name": "Baltoy",
+    "apiName": "baltoy"
+  },
+  {
+    "index": 343,
+    "speciesID": 344,
+    "name": "Claydol",
+    "apiName": "claydol"
+  },
+  {
+    "index": 344,
+    "speciesID": 345,
+    "name": "Lileep",
+    "apiName": "lileep"
+  },
+  {
+    "index": 345,
+    "speciesID": 346,
+    "name": "Cradily",
+    "apiName": "cradily"
+  },
+  {
+    "index": 346,
+    "speciesID": 347,
+    "name": "Anorith",
+    "apiName": "anorith"
+  },
+  {
+    "index": 347,
+    "speciesID": 348,
+    "name": "Armaldo",
+    "apiName": "armaldo"
+  },
+  {
+    "index": 348,
+    "speciesID": 349,
+    "name": "Feebas",
+    "apiName": "feebas"
+  },
+  {
+    "index": 349,
+    "speciesID": 350,
+    "name": "Milotic",
+    "apiName": "milotic"
+  },
+  {
+    "index": 350,
+    "speciesID": 351,
+    "name": "Castform",
+    "apiName": "castform"
+  },
+  {
+    "index": 351,
+    "speciesID": 352,
+    "name": "Kecleon",
+    "apiName": "kecleon"
+  },
+  {
+    "index": 352,
+    "speciesID": 353,
+    "name": "Shuppet",
+    "apiName": "shuppet"
+  },
+  {
+    "index": 353,
+    "speciesID": 354,
+    "name": "Banette",
+    "apiName": "banette"
+  },
+  {
+    "index": 354,
+    "speciesID": 355,
+    "name": "Duskull",
+    "apiName": "duskull"
+  },
+  {
+    "index": 355,
+    "speciesID": 356,
+    "name": "Dusclops",
+    "apiName": "dusclops"
+  },
+  {
+    "index": 356,
+    "speciesID": 357,
+    "name": "Tropius",
+    "apiName": "tropius"
+  },
+  {
+    "index": 357,
+    "speciesID": 358,
+    "name": "Chimecho",
+    "apiName": "chimecho"
+  },
+  {
+    "index": 358,
+    "speciesID": 359,
+    "name": "Absol",
+    "apiName": "absol"
+  },
+  {
+    "index": 359,
+    "speciesID": 360,
+    "name": "Wynaut",
+    "apiName": "wynaut"
+  },
+  {
+    "index": 360,
+    "speciesID": 361,
+    "name": "Snorunt",
+    "apiName": "snorunt"
+  },
+  {
+    "index": 361,
+    "speciesID": 362,
+    "name": "Glalie",
+    "apiName": "glalie"
+  },
+  {
+    "index": 362,
+    "speciesID": 363,
+    "name": "Spheal",
+    "apiName": "spheal"
+  },
+  {
+    "index": 363,
+    "speciesID": 364,
+    "name": "Sealeo",
+    "apiName": "sealeo"
+  },
+  {
+    "index": 364,
+    "speciesID": 365,
+    "name": "Walrein",
+    "apiName": "walrein"
+  },
+  {
+    "index": 365,
+    "speciesID": 366,
+    "name": "Clamperl",
+    "apiName": "clamperl"
+  },
+  {
+    "index": 366,
+    "speciesID": 367,
+    "name": "Huntail",
+    "apiName": "huntail"
+  },
+  {
+    "index": 367,
+    "speciesID": 368,
+    "name": "Gorebyss",
+    "apiName": "gorebyss"
+  },
+  {
+    "index": 368,
+    "speciesID": 369,
+    "name": "Relicanth",
+    "apiName": "relicanth"
+  },
+  {
+    "index": 369,
+    "speciesID": 370,
+    "name": "Luvdisc",
+    "apiName": "luvdisc"
+  },
+  {
+    "index": 370,
+    "speciesID": 371,
+    "name": "Bagon",
+    "apiName": "bagon"
+  },
+  {
+    "index": 371,
+    "speciesID": 372,
+    "name": "Shelgon",
+    "apiName": "shelgon"
+  },
+  {
+    "index": 372,
+    "speciesID": 373,
+    "name": "Salamence",
+    "apiName": "salamence"
+  },
+  {
+    "index": 373,
+    "speciesID": 374,
+    "name": "Beldum",
+    "apiName": "beldum"
+  },
+  {
+    "index": 374,
+    "speciesID": 375,
+    "name": "Metang",
+    "apiName": "metang"
+  },
+  {
+    "index": 375,
+    "speciesID": 376,
+    "name": "Metagross",
+    "apiName": "metagross"
+  },
+  {
+    "index": 376,
+    "speciesID": 377,
+    "name": "Regirock",
+    "apiName": "regirock"
+  },
+  {
+    "index": 377,
+    "speciesID": 378,
+    "name": "Regice",
+    "apiName": "regice"
+  },
+  {
+    "index": 378,
+    "speciesID": 379,
+    "name": "Registeel",
+    "apiName": "registeel"
+  },
+  {
+    "index": 379,
+    "speciesID": 380,
+    "name": "Latias",
+    "apiName": "latias"
+  },
+  {
+    "index": 380,
+    "speciesID": 381,
+    "name": "Latios",
+    "apiName": "latios"
+  },
+  {
+    "index": 381,
+    "speciesID": 382,
+    "name": "Kyogre",
+    "apiName": "kyogre"
+  },
+  {
+    "index": 382,
+    "speciesID": 383,
+    "name": "Groudon",
+    "apiName": "groudon"
+  },
+  {
+    "index": 383,
+    "speciesID": 384,
+    "name": "Rayquaza",
+    "apiName": "rayquaza"
+  },
+  {
+    "index": 384,
+    "speciesID": 385,
+    "name": "Jirachi",
+    "apiName": "jirachi"
+  },
+  {
+    "index": 385,
+    "speciesID": 386,
+    "name": "Deoxys",
+    "apiName": "deoxys-normal"
+  },
+  {
+    "index": 386,
+    "speciesID": 387,
+    "name": "Turtwig",
+    "apiName": "turtwig"
+  },
+  {
+    "index": 387,
+    "speciesID": 388,
+    "name": "Grotle",
+    "apiName": "grotle"
+  },
+  {
+    "index": 388,
+    "speciesID": 389,
+    "name": "Torterra",
+    "apiName": "torterra"
+  },
+  {
+    "index": 389,
+    "speciesID": 390,
+    "name": "Chimchar",
+    "apiName": "chimchar"
+  },
+  {
+    "index": 390,
+    "speciesID": 391,
+    "name": "Monferno",
+    "apiName": "monferno"
+  },
+  {
+    "index": 391,
+    "speciesID": 392,
+    "name": "Infernape",
+    "apiName": "infernape"
+  },
+  {
+    "index": 392,
+    "speciesID": 393,
+    "name": "Piplup",
+    "apiName": "piplup"
+  },
+  {
+    "index": 393,
+    "speciesID": 394,
+    "name": "Prinplup",
+    "apiName": "prinplup"
+  },
+  {
+    "index": 394,
+    "speciesID": 395,
+    "name": "Empoleon",
+    "apiName": "empoleon"
+  },
+  {
+    "index": 395,
+    "speciesID": 396,
+    "name": "Starly",
+    "apiName": "starly"
+  },
+  {
+    "index": 396,
+    "speciesID": 397,
+    "name": "Staravia",
+    "apiName": "staravia"
+  },
+  {
+    "index": 397,
+    "speciesID": 398,
+    "name": "Staraptor",
+    "apiName": "staraptor"
+  },
+  {
+    "index": 398,
+    "speciesID": 399,
+    "name": "Bidoof",
+    "apiName": "bidoof"
+  },
+  {
+    "index": 399,
+    "speciesID": 400,
+    "name": "Bibarel",
+    "apiName": "bibarel"
+  },
+  {
+    "index": 400,
+    "speciesID": 401,
+    "name": "Kricketot",
+    "apiName": "kricketot"
+  },
+  {
+    "index": 401,
+    "speciesID": 402,
+    "name": "Kricketune",
+    "apiName": "kricketune"
+  },
+  {
+    "index": 402,
+    "speciesID": 403,
+    "name": "Shinx",
+    "apiName": "shinx"
+  },
+  {
+    "index": 403,
+    "speciesID": 404,
+    "name": "Luxio",
+    "apiName": "luxio"
+  },
+  {
+    "index": 404,
+    "speciesID": 405,
+    "name": "Luxray",
+    "apiName": "luxray"
+  },
+  {
+    "index": 405,
+    "speciesID": 406,
+    "name": "Budew",
+    "apiName": "budew"
+  },
+  {
+    "index": 406,
+    "speciesID": 407,
+    "name": "Roserade",
+    "apiName": "roserade"
+  },
+  {
+    "index": 407,
+    "speciesID": 408,
+    "name": "Cranidos",
+    "apiName": "cranidos"
+  },
+  {
+    "index": 408,
+    "speciesID": 409,
+    "name": "Rampardos",
+    "apiName": "rampardos"
+  },
+  {
+    "index": 409,
+    "speciesID": 410,
+    "name": "Shieldon",
+    "apiName": "shieldon"
+  },
+  {
+    "index": 410,
+    "speciesID": 411,
+    "name": "Bastiodon",
+    "apiName": "bastiodon"
+  },
+  {
+    "index": 411,
+    "speciesID": 412,
+    "name": "Burmy",
+    "apiName": "burmy"
+  },
+  {
+    "index": 412,
+    "speciesID": 413,
+    "name": "Wormadam",
+    "apiName": "wormadam-plant"
+  },
+  {
+    "index": 413,
+    "speciesID": 414,
+    "name": "Mothim",
+    "apiName": "mothim"
+  },
+  {
+    "index": 414,
+    "speciesID": 415,
+    "name": "Combee",
+    "apiName": "combee"
+  },
+  {
+    "index": 415,
+    "speciesID": 416,
+    "name": "Vespiquen",
+    "apiName": "vespiquen"
+  },
+  {
+    "index": 416,
+    "speciesID": 417,
+    "name": "Pachirisu",
+    "apiName": "pachirisu"
+  },
+  {
+    "index": 417,
+    "speciesID": 418,
+    "name": "Buizel",
+    "apiName": "buizel"
+  },
+  {
+    "index": 418,
+    "speciesID": 419,
+    "name": "Floatzel",
+    "apiName": "floatzel"
+  },
+  {
+    "index": 419,
+    "speciesID": 420,
+    "name": "Cherubi",
+    "apiName": "cherubi"
+  },
+  {
+    "index": 420,
+    "speciesID": 421,
+    "name": "Cherrim",
+    "apiName": "cherrim"
+  },
+  {
+    "index": 421,
+    "speciesID": 422,
+    "name": "Shellos",
+    "apiName": "shellos"
+  },
+  {
+    "index": 422,
+    "speciesID": 423,
+    "name": "Gastrodon",
+    "apiName": "gastrodon"
+  },
+  {
+    "index": 423,
+    "speciesID": 424,
+    "name": "Ambipom",
+    "apiName": "ambipom"
+  },
+  {
+    "index": 424,
+    "speciesID": 425,
+    "name": "Drifloon",
+    "apiName": "drifloon"
+  },
+  {
+    "index": 425,
+    "speciesID": 426,
+    "name": "Drifblim",
+    "apiName": "drifblim"
+  },
+  {
+    "index": 426,
+    "speciesID": 427,
+    "name": "Buneary",
+    "apiName": "buneary"
+  },
+  {
+    "index": 427,
+    "speciesID": 428,
+    "name": "Lopunny",
+    "apiName": "lopunny"
+  },
+  {
+    "index": 428,
+    "speciesID": 429,
+    "name": "Mismagius",
+    "apiName": "mismagius"
+  },
+  {
+    "index": 429,
+    "speciesID": 430,
+    "name": "Honchkrow",
+    "apiName": "honchkrow"
+  },
+  {
+    "index": 430,
+    "speciesID": 431,
+    "name": "Glameow",
+    "apiName": "glameow"
+  },
+  {
+    "index": 431,
+    "speciesID": 432,
+    "name": "Purugly",
+    "apiName": "purugly"
+  },
+  {
+    "index": 432,
+    "speciesID": 433,
+    "name": "Chingling",
+    "apiName": "chingling"
+  },
+  {
+    "index": 433,
+    "speciesID": 434,
+    "name": "Stunky",
+    "apiName": "stunky"
+  },
+  {
+    "index": 434,
+    "speciesID": 435,
+    "name": "Skuntank",
+    "apiName": "skuntank"
+  },
+  {
+    "index": 435,
+    "speciesID": 436,
+    "name": "Bronzor",
+    "apiName": "bronzor"
+  },
+  {
+    "index": 436,
+    "speciesID": 437,
+    "name": "Bronzong",
+    "apiName": "bronzong"
+  },
+  {
+    "index": 437,
+    "speciesID": 438,
+    "name": "Bonsly",
+    "apiName": "bonsly"
+  },
+  {
+    "index": 438,
+    "speciesID": 439,
+    "name": "Mime Jr.",
+    "apiName": "mime-jr"
+  },
+  {
+    "index": 439,
+    "speciesID": 440,
+    "name": "Happiny",
+    "apiName": "happiny"
+  },
+  {
+    "index": 440,
+    "speciesID": 441,
+    "name": "Chatot",
+    "apiName": "chatot"
+  },
+  {
+    "index": 441,
+    "speciesID": 442,
+    "name": "Spiritomb",
+    "apiName": "spiritomb"
+  },
+  {
+    "index": 442,
+    "speciesID": 443,
+    "name": "Gible",
+    "apiName": "gible"
+  },
+  {
+    "index": 443,
+    "speciesID": 444,
+    "name": "Gabite",
+    "apiName": "gabite"
+  },
+  {
+    "index": 444,
+    "speciesID": 445,
+    "name": "Garchomp",
+    "apiName": "garchomp"
+  },
+  {
+    "index": 445,
+    "speciesID": 446,
+    "name": "Munchlax",
+    "apiName": "munchlax"
+  },
+  {
+    "index": 446,
+    "speciesID": 447,
+    "name": "Riolu",
+    "apiName": "riolu"
+  },
+  {
+    "index": 447,
+    "speciesID": 448,
+    "name": "Lucario",
+    "apiName": "lucario"
+  },
+  {
+    "index": 448,
+    "speciesID": 449,
+    "name": "Hippopotas",
+    "apiName": "hippopotas"
+  },
+  {
+    "index": 449,
+    "speciesID": 450,
+    "name": "Hippowdon",
+    "apiName": "hippowdon"
+  },
+  {
+    "index": 450,
+    "speciesID": 451,
+    "name": "Skorupi",
+    "apiName": "skorupi"
+  },
+  {
+    "index": 451,
+    "speciesID": 452,
+    "name": "Drapion",
+    "apiName": "drapion"
+  },
+  {
+    "index": 452,
+    "speciesID": 453,
+    "name": "Croagunk",
+    "apiName": "croagunk"
+  },
+  {
+    "index": 453,
+    "speciesID": 454,
+    "name": "Toxicroak",
+    "apiName": "toxicroak"
+  },
+  {
+    "index": 454,
+    "speciesID": 455,
+    "name": "Carnivine",
+    "apiName": "carnivine"
+  },
+  {
+    "index": 455,
+    "speciesID": 456,
+    "name": "Finneon",
+    "apiName": "finneon"
+  },
+  {
+    "index": 456,
+    "speciesID": 457,
+    "name": "Lumineon",
+    "apiName": "lumineon"
+  },
+  {
+    "index": 457,
+    "speciesID": 458,
+    "name": "Mantyke",
+    "apiName": "mantyke"
+  },
+  {
+    "index": 458,
+    "speciesID": 459,
+    "name": "Snover",
+    "apiName": "snover"
+  },
+  {
+    "index": 459,
+    "speciesID": 460,
+    "name": "Abomasnow",
+    "apiName": "abomasnow"
+  },
+  {
+    "index": 460,
+    "speciesID": 461,
+    "name": "Weavile",
+    "apiName": "weavile"
+  },
+  {
+    "index": 461,
+    "speciesID": 462,
+    "name": "Magnezone",
+    "apiName": "magnezone"
+  },
+  {
+    "index": 462,
+    "speciesID": 463,
+    "name": "Lickilicky",
+    "apiName": "lickilicky"
+  },
+  {
+    "index": 463,
+    "speciesID": 464,
+    "name": "Rhyperior",
+    "apiName": "rhyperior"
+  },
+  {
+    "index": 464,
+    "speciesID": 465,
+    "name": "Tangrowth",
+    "apiName": "tangrowth"
+  },
+  {
+    "index": 465,
+    "speciesID": 466,
+    "name": "Electivire",
+    "apiName": "electivire"
+  },
+  {
+    "index": 466,
+    "speciesID": 467,
+    "name": "Magmortar",
+    "apiName": "magmortar"
+  },
+  {
+    "index": 467,
+    "speciesID": 468,
+    "name": "Togekiss",
+    "apiName": "togekiss"
+  },
+  {
+    "index": 468,
+    "speciesID": 469,
+    "name": "Yanmega",
+    "apiName": "yanmega"
+  },
+  {
+    "index": 469,
+    "speciesID": 470,
+    "name": "Leafeon",
+    "apiName": "leafeon"
+  },
+  {
+    "index": 470,
+    "speciesID": 471,
+    "name": "Glaceon",
+    "apiName": "glaceon"
+  },
+  {
+    "index": 471,
+    "speciesID": 472,
+    "name": "Gliscor",
+    "apiName": "gliscor"
+  },
+  {
+    "index": 472,
+    "speciesID": 473,
+    "name": "Mamoswine",
+    "apiName": "mamoswine"
+  },
+  {
+    "index": 473,
+    "speciesID": 474,
+    "name": "Porygon-Z",
+    "apiName": "porygon-z"
+  },
+  {
+    "index": 474,
+    "speciesID": 475,
+    "name": "Gallade",
+    "apiName": "gallade"
+  },
+  {
+    "index": 475,
+    "speciesID": 476,
+    "name": "Probopass",
+    "apiName": "probopass"
+  },
+  {
+    "index": 476,
+    "speciesID": 477,
+    "name": "Dusknoir",
+    "apiName": "dusknoir"
+  },
+  {
+    "index": 477,
+    "speciesID": 478,
+    "name": "Froslass",
+    "apiName": "froslass"
+  },
+  {
+    "index": 478,
+    "speciesID": 479,
+    "name": "Rotom",
+    "apiName": "rotom"
+  },
+  {
+    "index": 479,
+    "speciesID": 480,
+    "name": "Uxie",
+    "apiName": "uxie"
+  },
+  {
+    "index": 480,
+    "speciesID": 481,
+    "name": "Mesprit",
+    "apiName": "mesprit"
+  },
+  {
+    "index": 481,
+    "speciesID": 482,
+    "name": "Azelf",
+    "apiName": "azelf"
+  },
+  {
+    "index": 482,
+    "speciesID": 483,
+    "name": "Dialga",
+    "apiName": "dialga"
+  },
+  {
+    "index": 483,
+    "speciesID": 484,
+    "name": "Palkia",
+    "apiName": "palkia"
+  },
+  {
+    "index": 484,
+    "speciesID": 485,
+    "name": "Heatran",
+    "apiName": "heatran"
+  },
+  {
+    "index": 485,
+    "speciesID": 486,
+    "name": "Regigigas",
+    "apiName": "regigigas"
+  },
+  {
+    "index": 486,
+    "speciesID": 487,
+    "name": "Giratina",
+    "apiName": "giratina-altered"
+  },
+  {
+    "index": 487,
+    "speciesID": 488,
+    "name": "Cresselia",
+    "apiName": "cresselia"
+  },
+  {
+    "index": 488,
+    "speciesID": 489,
+    "name": "Phione",
+    "apiName": "phione"
+  },
+  {
+    "index": 489,
+    "speciesID": 490,
+    "name": "Manaphy",
+    "apiName": "manaphy"
+  },
+  {
+    "index": 490,
+    "speciesID": 491,
+    "name": "Darkrai",
+    "apiName": "darkrai"
+  },
+  {
+    "index": 491,
+    "speciesID": 492,
+    "name": "Shaymin",
+    "apiName": "shaymin-land"
+  },
+  {
+    "index": 492,
+    "speciesID": 493,
+    "name": "Arceus",
+    "apiName": "arceus"
+  },
+  {
+    "index": 493,
+    "speciesID": 494,
+    "name": "Victini",
+    "apiName": "victini"
+  },
+  {
+    "index": 494,
+    "speciesID": 495,
+    "name": "Snivy",
+    "apiName": "snivy"
+  },
+  {
+    "index": 495,
+    "speciesID": 496,
+    "name": "Servine",
+    "apiName": "servine"
+  },
+  {
+    "index": 496,
+    "speciesID": 497,
+    "name": "Serperior",
+    "apiName": "serperior"
+  },
+  {
+    "index": 497,
+    "speciesID": 498,
+    "name": "Tepig",
+    "apiName": "tepig"
+  },
+  {
+    "index": 498,
+    "speciesID": 499,
+    "name": "Pignite",
+    "apiName": "pignite"
+  },
+  {
+    "index": 499,
+    "speciesID": 500,
+    "name": "Emboar",
+    "apiName": "emboar"
+  },
+  {
+    "index": 500,
+    "speciesID": 501,
+    "name": "Oshawott",
+    "apiName": "oshawott"
+  },
+  {
+    "index": 501,
+    "speciesID": 502,
+    "name": "Dewott",
+    "apiName": "dewott"
+  },
+  {
+    "index": 502,
+    "speciesID": 503,
+    "name": "Samurott",
+    "apiName": "samurott"
+  },
+  {
+    "index": 503,
+    "speciesID": 504,
+    "name": "Patrat",
+    "apiName": "patrat"
+  },
+  {
+    "index": 504,
+    "speciesID": 505,
+    "name": "Watchog",
+    "apiName": "watchog"
+  },
+  {
+    "index": 505,
+    "speciesID": 506,
+    "name": "Lillipup",
+    "apiName": "lillipup"
+  },
+  {
+    "index": 506,
+    "speciesID": 507,
+    "name": "Herdier",
+    "apiName": "herdier"
+  },
+  {
+    "index": 507,
+    "speciesID": 508,
+    "name": "Stoutland",
+    "apiName": "stoutland"
+  },
+  {
+    "index": 508,
+    "speciesID": 509,
+    "name": "Purrloin",
+    "apiName": "purrloin"
+  },
+  {
+    "index": 509,
+    "speciesID": 510,
+    "name": "Liepard",
+    "apiName": "liepard"
+  },
+  {
+    "index": 510,
+    "speciesID": 511,
+    "name": "Pansage",
+    "apiName": "pansage"
+  },
+  {
+    "index": 511,
+    "speciesID": 512,
+    "name": "Simisage",
+    "apiName": "simisage"
+  },
+  {
+    "index": 512,
+    "speciesID": 513,
+    "name": "Pansear",
+    "apiName": "pansear"
+  },
+  {
+    "index": 513,
+    "speciesID": 514,
+    "name": "Simisear",
+    "apiName": "simisear"
+  },
+  {
+    "index": 514,
+    "speciesID": 515,
+    "name": "Panpour",
+    "apiName": "panpour"
+  },
+  {
+    "index": 515,
+    "speciesID": 516,
+    "name": "Simipour",
+    "apiName": "simipour"
+  },
+  {
+    "index": 516,
+    "speciesID": 517,
+    "name": "Munna",
+    "apiName": "munna"
+  },
+  {
+    "index": 517,
+    "speciesID": 518,
+    "name": "Musharna",
+    "apiName": "musharna"
+  },
+  {
+    "index": 518,
+    "speciesID": 519,
+    "name": "Pidove",
+    "apiName": "pidove"
+  },
+  {
+    "index": 519,
+    "speciesID": 520,
+    "name": "Tranquill",
+    "apiName": "tranquill"
+  },
+  {
+    "index": 520,
+    "speciesID": 521,
+    "name": "Unfezant",
+    "apiName": "unfezant"
+  },
+  {
+    "index": 521,
+    "speciesID": 522,
+    "name": "Blitzle",
+    "apiName": "blitzle"
+  },
+  {
+    "index": 522,
+    "speciesID": 523,
+    "name": "Zebstrika",
+    "apiName": "zebstrika"
+  },
+  {
+    "index": 523,
+    "speciesID": 524,
+    "name": "Roggenrola",
+    "apiName": "roggenrola"
+  },
+  {
+    "index": 524,
+    "speciesID": 525,
+    "name": "Boldore",
+    "apiName": "boldore"
+  },
+  {
+    "index": 525,
+    "speciesID": 526,
+    "name": "Gigalith",
+    "apiName": "gigalith"
+  },
+  {
+    "index": 526,
+    "speciesID": 527,
+    "name": "Woobat",
+    "apiName": "woobat"
+  },
+  {
+    "index": 527,
+    "speciesID": 528,
+    "name": "Swoobat",
+    "apiName": "swoobat"
+  },
+  {
+    "index": 528,
+    "speciesID": 529,
+    "name": "Drilbur",
+    "apiName": "drilbur"
+  },
+  {
+    "index": 529,
+    "speciesID": 530,
+    "name": "Excadrill",
+    "apiName": "excadrill"
+  },
+  {
+    "index": 530,
+    "speciesID": 531,
+    "name": "Audino",
+    "apiName": "audino"
+  },
+  {
+    "index": 531,
+    "speciesID": 532,
+    "name": "Timburr",
+    "apiName": "timburr"
+  },
+  {
+    "index": 532,
+    "speciesID": 533,
+    "name": "Gurdurr",
+    "apiName": "gurdurr"
+  },
+  {
+    "index": 533,
+    "speciesID": 534,
+    "name": "Conkeldurr",
+    "apiName": "conkeldurr"
+  },
+  {
+    "index": 534,
+    "speciesID": 535,
+    "name": "Tympole",
+    "apiName": "tympole"
+  },
+  {
+    "index": 535,
+    "speciesID": 536,
+    "name": "Palpitoad",
+    "apiName": "palpitoad"
+  },
+  {
+    "index": 536,
+    "speciesID": 537,
+    "name": "Seismitoad",
+    "apiName": "seismitoad"
+  },
+  {
+    "index": 537,
+    "speciesID": 538,
+    "name": "Throh",
+    "apiName": "throh"
+  },
+  {
+    "index": 538,
+    "speciesID": 539,
+    "name": "Sawk",
+    "apiName": "sawk"
+  },
+  {
+    "index": 539,
+    "speciesID": 540,
+    "name": "Sewaddle",
+    "apiName": "sewaddle"
+  },
+  {
+    "index": 540,
+    "speciesID": 541,
+    "name": "Swadloon",
+    "apiName": "swadloon"
+  },
+  {
+    "index": 541,
+    "speciesID": 542,
+    "name": "Leavanny",
+    "apiName": "leavanny"
+  },
+  {
+    "index": 542,
+    "speciesID": 543,
+    "name": "Venipede",
+    "apiName": "venipede"
+  },
+  {
+    "index": 543,
+    "speciesID": 544,
+    "name": "Whirlipede",
+    "apiName": "whirlipede"
+  },
+  {
+    "index": 544,
+    "speciesID": 545,
+    "name": "Scolipede",
+    "apiName": "scolipede"
+  },
+  {
+    "index": 545,
+    "speciesID": 546,
+    "name": "Cottonee",
+    "apiName": "cottonee"
+  },
+  {
+    "index": 546,
+    "speciesID": 547,
+    "name": "Whimsicott",
+    "apiName": "whimsicott"
+  },
+  {
+    "index": 547,
+    "speciesID": 548,
+    "name": "Petilil",
+    "apiName": "petilil"
+  },
+  {
+    "index": 548,
+    "speciesID": 549,
+    "name": "Lilligant",
+    "apiName": "lilligant"
+  },
+  {
+    "index": 549,
+    "speciesID": 550,
+    "name": "Basculin",
+    "apiName": "basculin-red-striped"
+  },
+  {
+    "index": 550,
+    "speciesID": 551,
+    "name": "Sandile",
+    "apiName": "sandile"
+  },
+  {
+    "index": 551,
+    "speciesID": 552,
+    "name": "Krokorok",
+    "apiName": "krokorok"
+  },
+  {
+    "index": 552,
+    "speciesID": 553,
+    "name": "Krookodile",
+    "apiName": "krookodile"
+  },
+  {
+    "index": 553,
+    "speciesID": 554,
+    "name": "Darumaka",
+    "apiName": "darumaka"
+  },
+  {
+    "index": 554,
+    "speciesID": 555,
+    "name": "Darmanitan",
+    "apiName": "darmanitan-standard"
+  },
+  {
+    "index": 555,
+    "speciesID": 556,
+    "name": "Maractus",
+    "apiName": "maractus"
+  },
+  {
+    "index": 556,
+    "speciesID": 557,
+    "name": "Dwebble",
+    "apiName": "dwebble"
+  },
+  {
+    "index": 557,
+    "speciesID": 558,
+    "name": "Crustle",
+    "apiName": "crustle"
+  },
+  {
+    "index": 558,
+    "speciesID": 559,
+    "name": "Scraggy",
+    "apiName": "scraggy"
+  },
+  {
+    "index": 559,
+    "speciesID": 560,
+    "name": "Scrafty",
+    "apiName": "scrafty"
+  },
+  {
+    "index": 560,
+    "speciesID": 561,
+    "name": "Sigilyph",
+    "apiName": "sigilyph"
+  },
+  {
+    "index": 561,
+    "speciesID": 562,
+    "name": "Yamask",
+    "apiName": "yamask"
+  },
+  {
+    "index": 562,
+    "speciesID": 563,
+    "name": "Cofagrigus",
+    "apiName": "cofagrigus"
+  },
+  {
+    "index": 563,
+    "speciesID": 564,
+    "name": "Tirtouga",
+    "apiName": "tirtouga"
+  },
+  {
+    "index": 564,
+    "speciesID": 565,
+    "name": "Carracosta",
+    "apiName": "carracosta"
+  },
+  {
+    "index": 565,
+    "speciesID": 566,
+    "name": "Archen",
+    "apiName": "archen"
+  },
+  {
+    "index": 566,
+    "speciesID": 567,
+    "name": "Archeops",
+    "apiName": "archeops"
+  },
+  {
+    "index": 567,
+    "speciesID": 568,
+    "name": "Trubbish",
+    "apiName": "trubbish"
+  },
+  {
+    "index": 568,
+    "speciesID": 569,
+    "name": "Garbodor",
+    "apiName": "garbodor"
+  },
+  {
+    "index": 569,
+    "speciesID": 570,
+    "name": "Zorua",
+    "apiName": "zorua"
+  },
+  {
+    "index": 570,
+    "speciesID": 571,
+    "name": "Zoroark",
+    "apiName": "zoroark"
+  },
+  {
+    "index": 571,
+    "speciesID": 572,
+    "name": "Minccino",
+    "apiName": "minccino"
+  },
+  {
+    "index": 572,
+    "speciesID": 573,
+    "name": "Cinccino",
+    "apiName": "cinccino"
+  },
+  {
+    "index": 573,
+    "speciesID": 574,
+    "name": "Gothita",
+    "apiName": "gothita"
+  },
+  {
+    "index": 574,
+    "speciesID": 575,
+    "name": "Gothorita",
+    "apiName": "gothorita"
+  },
+  {
+    "index": 575,
+    "speciesID": 576,
+    "name": "Gothitelle",
+    "apiName": "gothitelle"
+  },
+  {
+    "index": 576,
+    "speciesID": 577,
+    "name": "Solosis",
+    "apiName": "solosis"
+  },
+  {
+    "index": 577,
+    "speciesID": 578,
+    "name": "Duosion",
+    "apiName": "duosion"
+  },
+  {
+    "index": 578,
+    "speciesID": 579,
+    "name": "Reuniclus",
+    "apiName": "reuniclus"
+  },
+  {
+    "index": 579,
+    "speciesID": 580,
+    "name": "Ducklett",
+    "apiName": "ducklett"
+  },
+  {
+    "index": 580,
+    "speciesID": 581,
+    "name": "Swanna",
+    "apiName": "swanna"
+  },
+  {
+    "index": 581,
+    "speciesID": 582,
+    "name": "Vanillite",
+    "apiName": "vanillite"
+  },
+  {
+    "index": 582,
+    "speciesID": 583,
+    "name": "Vanillish",
+    "apiName": "vanillish"
+  },
+  {
+    "index": 583,
+    "speciesID": 584,
+    "name": "Vanilluxe",
+    "apiName": "vanilluxe"
+  },
+  {
+    "index": 584,
+    "speciesID": 585,
+    "name": "Deerling",
+    "apiName": "deerling"
+  },
+  {
+    "index": 585,
+    "speciesID": 586,
+    "name": "Sawsbuck",
+    "apiName": "sawsbuck"
+  },
+  {
+    "index": 586,
+    "speciesID": 587,
+    "name": "Emolga",
+    "apiName": "emolga"
+  },
+  {
+    "index": 587,
+    "speciesID": 588,
+    "name": "Karrablast",
+    "apiName": "karrablast"
+  },
+  {
+    "index": 588,
+    "speciesID": 589,
+    "name": "Escavalier",
+    "apiName": "escavalier"
+  },
+  {
+    "index": 589,
+    "speciesID": 590,
+    "name": "Foongus",
+    "apiName": "foongus"
+  },
+  {
+    "index": 590,
+    "speciesID": 591,
+    "name": "Amoonguss",
+    "apiName": "amoonguss"
+  },
+  {
+    "index": 591,
+    "speciesID": 592,
+    "name": "Frillish",
+    "apiName": "frillish-male"
+  },
+  {
+    "index": 592,
+    "speciesID": 593,
+    "name": "Jellicent",
+    "apiName": "jellicent-male"
+  },
+  {
+    "index": 593,
+    "speciesID": 594,
+    "name": "Alomomola",
+    "apiName": "alomomola"
+  },
+  {
+    "index": 594,
+    "speciesID": 595,
+    "name": "Joltik",
+    "apiName": "joltik"
+  },
+  {
+    "index": 595,
+    "speciesID": 596,
+    "name": "Galvantula",
+    "apiName": "galvantula"
+  },
+  {
+    "index": 596,
+    "speciesID": 597,
+    "name": "Ferroseed",
+    "apiName": "ferroseed"
+  },
+  {
+    "index": 597,
+    "speciesID": 598,
+    "name": "Ferrothorn",
+    "apiName": "ferrothorn"
+  },
+  {
+    "index": 598,
+    "speciesID": 599,
+    "name": "Klink",
+    "apiName": "klink"
+  },
+  {
+    "index": 599,
+    "speciesID": 600,
+    "name": "Klang",
+    "apiName": "klang"
+  },
+  {
+    "index": 600,
+    "speciesID": 601,
+    "name": "Klinklang",
+    "apiName": "klinklang"
+  },
+  {
+    "index": 601,
+    "speciesID": 602,
+    "name": "Tynamo",
+    "apiName": "tynamo"
+  },
+  {
+    "index": 602,
+    "speciesID": 603,
+    "name": "Eelektrik",
+    "apiName": "eelektrik"
+  },
+  {
+    "index": 603,
+    "speciesID": 604,
+    "name": "Eelektross",
+    "apiName": "eelektross"
+  },
+  {
+    "index": 604,
+    "speciesID": 605,
+    "name": "Elgyem",
+    "apiName": "elgyem"
+  },
+  {
+    "index": 605,
+    "speciesID": 606,
+    "name": "Beheeyem",
+    "apiName": "beheeyem"
+  },
+  {
+    "index": 606,
+    "speciesID": 607,
+    "name": "Litwick",
+    "apiName": "litwick"
+  },
+  {
+    "index": 607,
+    "speciesID": 608,
+    "name": "Lampent",
+    "apiName": "lampent"
+  },
+  {
+    "index": 608,
+    "speciesID": 609,
+    "name": "Chandelure",
+    "apiName": "chandelure"
+  },
+  {
+    "index": 609,
+    "speciesID": 610,
+    "name": "Axew",
+    "apiName": "axew"
+  },
+  {
+    "index": 610,
+    "speciesID": 611,
+    "name": "Fraxure",
+    "apiName": "fraxure"
+  },
+  {
+    "index": 611,
+    "speciesID": 612,
+    "name": "Haxorus",
+    "apiName": "haxorus"
+  },
+  {
+    "index": 612,
+    "speciesID": 613,
+    "name": "Cubchoo",
+    "apiName": "cubchoo"
+  },
+  {
+    "index": 613,
+    "speciesID": 614,
+    "name": "Beartic",
+    "apiName": "beartic"
+  },
+  {
+    "index": 614,
+    "speciesID": 615,
+    "name": "Cryogonal",
+    "apiName": "cryogonal"
+  },
+  {
+    "index": 615,
+    "speciesID": 616,
+    "name": "Shelmet",
+    "apiName": "shelmet"
+  },
+  {
+    "index": 616,
+    "speciesID": 617,
+    "name": "Accelgor",
+    "apiName": "accelgor"
+  },
+  {
+    "index": 617,
+    "speciesID": 618,
+    "name": "Stunfisk",
+    "apiName": "stunfisk"
+  },
+  {
+    "index": 618,
+    "speciesID": 619,
+    "name": "Mienfoo",
+    "apiName": "mienfoo"
+  },
+  {
+    "index": 619,
+    "speciesID": 620,
+    "name": "Mienshao",
+    "apiName": "mienshao"
+  },
+  {
+    "index": 620,
+    "speciesID": 621,
+    "name": "Druddigon",
+    "apiName": "druddigon"
+  },
+  {
+    "index": 621,
+    "speciesID": 622,
+    "name": "Golett",
+    "apiName": "golett"
+  },
+  {
+    "index": 622,
+    "speciesID": 623,
+    "name": "Golurk",
+    "apiName": "golurk"
+  },
+  {
+    "index": 623,
+    "speciesID": 624,
+    "name": "Pawniard",
+    "apiName": "pawniard"
+  },
+  {
+    "index": 624,
+    "speciesID": 625,
+    "name": "Bisharp",
+    "apiName": "bisharp"
+  },
+  {
+    "index": 625,
+    "speciesID": 626,
+    "name": "Bouffalant",
+    "apiName": "bouffalant"
+  },
+  {
+    "index": 626,
+    "speciesID": 627,
+    "name": "Rufflet",
+    "apiName": "rufflet"
+  },
+  {
+    "index": 627,
+    "speciesID": 628,
+    "name": "Braviary",
+    "apiName": "braviary"
+  },
+  {
+    "index": 628,
+    "speciesID": 629,
+    "name": "Vullaby",
+    "apiName": "vullaby"
+  },
+  {
+    "index": 629,
+    "speciesID": 630,
+    "name": "Mandibuzz",
+    "apiName": "mandibuzz"
+  },
+  {
+    "index": 630,
+    "speciesID": 631,
+    "name": "Heatmor",
+    "apiName": "heatmor"
+  },
+  {
+    "index": 631,
+    "speciesID": 632,
+    "name": "Durant",
+    "apiName": "durant"
+  },
+  {
+    "index": 632,
+    "speciesID": 633,
+    "name": "Deino",
+    "apiName": "deino"
+  },
+  {
+    "index": 633,
+    "speciesID": 634,
+    "name": "Zweilous",
+    "apiName": "zweilous"
+  },
+  {
+    "index": 634,
+    "speciesID": 635,
+    "name": "Hydreigon",
+    "apiName": "hydreigon"
+  },
+  {
+    "index": 635,
+    "speciesID": 636,
+    "name": "Larvesta",
+    "apiName": "larvesta"
+  },
+  {
+    "index": 636,
+    "speciesID": 637,
+    "name": "Volcarona",
+    "apiName": "volcarona"
+  },
+  {
+    "index": 637,
+    "speciesID": 638,
+    "name": "Cobalion",
+    "apiName": "cobalion"
+  },
+  {
+    "index": 638,
+    "speciesID": 639,
+    "name": "Terrakion",
+    "apiName": "terrakion"
+  },
+  {
+    "index": 639,
+    "speciesID": 640,
+    "name": "Virizion",
+    "apiName": "virizion"
+  },
+  {
+    "index": 640,
+    "speciesID": 641,
+    "name": "Tornadus",
+    "apiName": "tornadus-incarnate"
+  },
+  {
+    "index": 641,
+    "speciesID": 642,
+    "name": "Thundurus",
+    "apiName": "thundurus-incarnate"
+  },
+  {
+    "index": 642,
+    "speciesID": 643,
+    "name": "Reshiram",
+    "apiName": "reshiram"
+  },
+  {
+    "index": 643,
+    "speciesID": 644,
+    "name": "Zekrom",
+    "apiName": "zekrom"
+  },
+  {
+    "index": 644,
+    "speciesID": 645,
+    "name": "Landorus",
+    "apiName": "landorus-incarnate"
+  },
+  {
+    "index": 645,
+    "speciesID": 646,
+    "name": "Kyurem",
+    "apiName": "kyurem"
+  },
+  {
+    "index": 646,
+    "speciesID": 647,
+    "name": "Keldeo",
+    "apiName": "keldeo-ordinary"
+  },
+  {
+    "index": 647,
+    "speciesID": 648,
+    "name": "Meloetta",
+    "apiName": "meloetta-aria"
+  },
+  {
+    "index": 648,
+    "speciesID": 649,
+    "name": "Genesect",
+    "apiName": "genesect"
+  },
+  {
+    "index": 649,
+    "speciesID": 650,
+    "name": "Chespin",
+    "apiName": "chespin"
+  },
+  {
+    "index": 650,
+    "speciesID": 651,
+    "name": "Quilladin",
+    "apiName": "quilladin"
+  },
+  {
+    "index": 651,
+    "speciesID": 652,
+    "name": "Chesnaught",
+    "apiName": "chesnaught"
+  },
+  {
+    "index": 652,
+    "speciesID": 653,
+    "name": "Fennekin",
+    "apiName": "fennekin"
+  },
+  {
+    "index": 653,
+    "speciesID": 654,
+    "name": "Braixen",
+    "apiName": "braixen"
+  },
+  {
+    "index": 654,
+    "speciesID": 655,
+    "name": "Delphox",
+    "apiName": "delphox"
+  },
+  {
+    "index": 655,
+    "speciesID": 656,
+    "name": "Froakie",
+    "apiName": "froakie"
+  },
+  {
+    "index": 656,
+    "speciesID": 657,
+    "name": "Frogadier",
+    "apiName": "frogadier"
+  },
+  {
+    "index": 657,
+    "speciesID": 658,
+    "name": "Greninja",
+    "apiName": "greninja"
+  },
+  {
+    "index": 658,
+    "speciesID": 659,
+    "name": "Bunnelby",
+    "apiName": "bunnelby"
+  },
+  {
+    "index": 659,
+    "speciesID": 660,
+    "name": "Diggersby",
+    "apiName": "diggersby"
+  },
+  {
+    "index": 660,
+    "speciesID": 661,
+    "name": "Fletchling",
+    "apiName": "fletchling"
+  },
+  {
+    "index": 661,
+    "speciesID": 662,
+    "name": "Fletchinder",
+    "apiName": "fletchinder"
+  },
+  {
+    "index": 662,
+    "speciesID": 663,
+    "name": "Talonflame",
+    "apiName": "talonflame"
+  },
+  {
+    "index": 663,
+    "speciesID": 664,
+    "name": "Scatterbug",
+    "apiName": "scatterbug"
+  },
+  {
+    "index": 664,
+    "speciesID": 665,
+    "name": "Spewpa",
+    "apiName": "spewpa"
+  },
+  {
+    "index": 665,
+    "speciesID": 666,
+    "name": "Vivillon",
+    "apiName": "vivillon"
+  },
+  {
+    "index": 666,
+    "speciesID": 667,
+    "name": "Litleo",
+    "apiName": "litleo"
+  },
+  {
+    "index": 667,
+    "speciesID": 668,
+    "name": "Pyroar",
+    "apiName": "pyroar-male"
+  },
+  {
+    "index": 668,
+    "speciesID": 669,
+    "name": "Flabébé",
+    "apiName": "flabebe"
+  },
+  {
+    "index": 669,
+    "speciesID": 670,
+    "name": "Floette",
+    "apiName": "floette"
+  },
+  {
+    "index": 670,
+    "speciesID": 671,
+    "name": "Florges",
+    "apiName": "florges"
+  },
+  {
+    "index": 671,
+    "speciesID": 672,
+    "name": "Skiddo",
+    "apiName": "skiddo"
+  },
+  {
+    "index": 672,
+    "speciesID": 673,
+    "name": "Gogoat",
+    "apiName": "gogoat"
+  },
+  {
+    "index": 673,
+    "speciesID": 674,
+    "name": "Pancham",
+    "apiName": "pancham"
+  },
+  {
+    "index": 674,
+    "speciesID": 675,
+    "name": "Pangoro",
+    "apiName": "pangoro"
+  },
+  {
+    "index": 675,
+    "speciesID": 676,
+    "name": "Furfrou",
+    "apiName": "furfrou"
+  },
+  {
+    "index": 676,
+    "speciesID": 677,
+    "name": "Espurr",
+    "apiName": "espurr"
+  },
+  {
+    "index": 677,
+    "speciesID": 678,
+    "name": "Meowstic",
+    "apiName": "meowstic-male"
+  },
+  {
+    "index": 678,
+    "speciesID": 679,
+    "name": "Honedge",
+    "apiName": "honedge"
+  },
+  {
+    "index": 679,
+    "speciesID": 680,
+    "name": "Doublade",
+    "apiName": "doublade"
+  },
+  {
+    "index": 680,
+    "speciesID": 681,
+    "name": "Aegislash",
+    "apiName": "aegislash-shield"
+  },
+  {
+    "index": 681,
+    "speciesID": 682,
+    "name": "Spritzee",
+    "apiName": "spritzee"
+  },
+  {
+    "index": 682,
+    "speciesID": 683,
+    "name": "Aromatisse",
+    "apiName": "aromatisse"
+  },
+  {
+    "index": 683,
+    "speciesID": 684,
+    "name": "Swirlix",
+    "apiName": "swirlix"
+  },
+  {
+    "index": 684,
+    "speciesID": 685,
+    "name": "Slurpuff",
+    "apiName": "slurpuff"
+  },
+  {
+    "index": 685,
+    "speciesID": 686,
+    "name": "Inkay",
+    "apiName": "inkay"
+  },
+  {
+    "index": 686,
+    "speciesID": 687,
+    "name": "Malamar",
+    "apiName": "malamar"
+  },
+  {
+    "index": 687,
+    "speciesID": 688,
+    "name": "Binacle",
+    "apiName": "binacle"
+  },
+  {
+    "index": 688,
+    "speciesID": 689,
+    "name": "Barbaracle",
+    "apiName": "barbaracle"
+  },
+  {
+    "index": 689,
+    "speciesID": 690,
+    "name": "Skrelp",
+    "apiName": "skrelp"
+  },
+  {
+    "index": 690,
+    "speciesID": 691,
+    "name": "Dragalge",
+    "apiName": "dragalge"
+  },
+  {
+    "index": 691,
+    "speciesID": 692,
+    "name": "Clauncher",
+    "apiName": "clauncher"
+  },
+  {
+    "index": 692,
+    "speciesID": 693,
+    "name": "Clawitzer",
+    "apiName": "clawitzer"
+  },
+  {
+    "index": 693,
+    "speciesID": 694,
+    "name": "Helioptile",
+    "apiName": "helioptile"
+  },
+  {
+    "index": 694,
+    "speciesID": 695,
+    "name": "Heliolisk",
+    "apiName": "heliolisk"
+  },
+  {
+    "index": 695,
+    "speciesID": 696,
+    "name": "Tyrunt",
+    "apiName": "tyrunt"
+  },
+  {
+    "index": 696,
+    "speciesID": 697,
+    "name": "Tyrantrum",
+    "apiName": "tyrantrum"
+  },
+  {
+    "index": 697,
+    "speciesID": 698,
+    "name": "Amaura",
+    "apiName": "amaura"
+  },
+  {
+    "index": 698,
+    "speciesID": 699,
+    "name": "Aurorus",
+    "apiName": "aurorus"
+  },
+  {
+    "index": 699,
+    "speciesID": 700,
+    "name": "Sylveon",
+    "apiName": "sylveon"
+  },
+  {
+    "index": 700,
+    "speciesID": 701,
+    "name": "Hawlucha",
+    "apiName": "hawlucha"
+  },
+  {
+    "index": 701,
+    "speciesID": 702,
+    "name": "Dedenne",
+    "apiName": "dedenne"
+  },
+  {
+    "index": 702,
+    "speciesID": 703,
+    "name": "Carbink",
+    "apiName": "carbink"
+  },
+  {
+    "index": 703,
+    "speciesID": 704,
+    "name": "Goomy",
+    "apiName": "goomy"
+  },
+  {
+    "index": 704,
+    "speciesID": 705,
+    "name": "Sliggoo",
+    "apiName": "sliggoo"
+  },
+  {
+    "index": 705,
+    "speciesID": 706,
+    "name": "Goodra",
+    "apiName": "goodra"
+  },
+  {
+    "index": 706,
+    "speciesID": 707,
+    "name": "Klefki",
+    "apiName": "klefki"
+  },
+  {
+    "index": 707,
+    "speciesID": 708,
+    "name": "Phantump",
+    "apiName": "phantump"
+  },
+  {
+    "index": 708,
+    "speciesID": 709,
+    "name": "Trevenant",
+    "apiName": "trevenant"
+  },
+  {
+    "index": 709,
+    "speciesID": 710,
+    "name": "Pumpkaboo",
+    "apiName": "pumpkaboo-average"
+  },
+  {
+    "index": 710,
+    "speciesID": 711,
+    "name": "Gourgeist",
+    "apiName": "gourgeist-average"
+  },
+  {
+    "index": 711,
+    "speciesID": 712,
+    "name": "Bergmite",
+    "apiName": "bergmite"
+  },
+  {
+    "index": 712,
+    "speciesID": 713,
+    "name": "Avalugg",
+    "apiName": "avalugg"
+  },
+  {
+    "index": 713,
+    "speciesID": 714,
+    "name": "Noibat",
+    "apiName": "noibat"
+  },
+  {
+    "index": 714,
+    "speciesID": 715,
+    "name": "Noivern",
+    "apiName": "noivern"
+  },
+  {
+    "index": 715,
+    "speciesID": 716,
+    "name": "Xerneas",
+    "apiName": "xerneas"
+  },
+  {
+    "index": 716,
+    "speciesID": 717,
+    "name": "Yveltal",
+    "apiName": "yveltal"
+  },
+  {
+    "index": 717,
+    "speciesID": 718,
+    "name": "Zygarde",
+    "apiName": "zygarde-50"
+  },
+  {
+    "index": 718,
+    "speciesID": 719,
+    "name": "Diancie",
+    "apiName": "diancie"
+  },
+  {
+    "index": 719,
+    "speciesID": 720,
+    "name": "Hoopa",
+    "apiName": "hoopa"
+  },
+  {
+    "index": 720,
+    "speciesID": 721,
+    "name": "Volcanion",
+    "apiName": "volcanion"
+  },
+  {
+    "index": 721,
+    "speciesID": 722,
+    "name": "Rowlet",
+    "apiName": "rowlet"
+  },
+  {
+    "index": 722,
+    "speciesID": 723,
+    "name": "Dartrix",
+    "apiName": "dartrix"
+  },
+  {
+    "index": 723,
+    "speciesID": 724,
+    "name": "Decidueye",
+    "apiName": "decidueye"
+  },
+  {
+    "index": 724,
+    "speciesID": 725,
+    "name": "Litten",
+    "apiName": "litten"
+  },
+  {
+    "index": 725,
+    "speciesID": 726,
+    "name": "Torracat",
+    "apiName": "torracat"
+  },
+  {
+    "index": 726,
+    "speciesID": 727,
+    "name": "Incineroar",
+    "apiName": "incineroar"
+  },
+  {
+    "index": 727,
+    "speciesID": 728,
+    "name": "Popplio",
+    "apiName": "popplio"
+  },
+  {
+    "index": 728,
+    "speciesID": 729,
+    "name": "Brionne",
+    "apiName": "brionne"
+  },
+  {
+    "index": 729,
+    "speciesID": 730,
+    "name": "Primarina",
+    "apiName": "primarina"
+  },
+  {
+    "index": 730,
+    "speciesID": 731,
+    "name": "Pikipek",
+    "apiName": "pikipek"
+  },
+  {
+    "index": 731,
+    "speciesID": 732,
+    "name": "Trumbeak",
+    "apiName": "trumbeak"
+  },
+  {
+    "index": 732,
+    "speciesID": 733,
+    "name": "Toucannon",
+    "apiName": "toucannon"
+  },
+  {
+    "index": 733,
+    "speciesID": 734,
+    "name": "Yungoos",
+    "apiName": "yungoos"
+  },
+  {
+    "index": 734,
+    "speciesID": 735,
+    "name": "Gumshoos",
+    "apiName": "gumshoos"
+  },
+  {
+    "index": 735,
+    "speciesID": 736,
+    "name": "Grubbin",
+    "apiName": "grubbin"
+  },
+  {
+    "index": 736,
+    "speciesID": 737,
+    "name": "Charjabug",
+    "apiName": "charjabug"
+  },
+  {
+    "index": 737,
+    "speciesID": 738,
+    "name": "Vikavolt",
+    "apiName": "vikavolt"
+  },
+  {
+    "index": 738,
+    "speciesID": 739,
+    "name": "Crabrawler",
+    "apiName": "crabrawler"
+  },
+  {
+    "index": 739,
+    "speciesID": 740,
+    "name": "Crabominable",
+    "apiName": "crabominable"
+  },
+  {
+    "index": 740,
+    "speciesID": 741,
+    "name": "Oricorio",
+    "apiName": "oricorio-baile"
+  },
+  {
+    "index": 741,
+    "speciesID": 742,
+    "name": "Cutiefly",
+    "apiName": "cutiefly"
+  },
+  {
+    "index": 742,
+    "speciesID": 743,
+    "name": "Ribombee",
+    "apiName": "ribombee"
+  },
+  {
+    "index": 743,
+    "speciesID": 744,
+    "name": "Rockruff",
+    "apiName": "rockruff"
+  },
+  {
+    "index": 744,
+    "speciesID": 745,
+    "name": "Lycanroc",
+    "apiName": "lycanroc-midday"
+  },
+  {
+    "index": 745,
+    "speciesID": 746,
+    "name": "Wishiwashi",
+    "apiName": "wishiwashi-solo"
+  },
+  {
+    "index": 746,
+    "speciesID": 747,
+    "name": "Mareanie",
+    "apiName": "mareanie"
+  },
+  {
+    "index": 747,
+    "speciesID": 748,
+    "name": "Toxapex",
+    "apiName": "toxapex"
+  },
+  {
+    "index": 748,
+    "speciesID": 749,
+    "name": "Mudbray",
+    "apiName": "mudbray"
+  },
+  {
+    "index": 749,
+    "speciesID": 750,
+    "name": "Mudsdale",
+    "apiName": "mudsdale"
+  },
+  {
+    "index": 750,
+    "speciesID": 751,
+    "name": "Dewpider",
+    "apiName": "dewpider"
+  },
+  {
+    "index": 751,
+    "speciesID": 752,
+    "name": "Araquanid",
+    "apiName": "araquanid"
+  },
+  {
+    "index": 752,
+    "speciesID": 753,
+    "name": "Fomantis",
+    "apiName": "fomantis"
+  },
+  {
+    "index": 753,
+    "speciesID": 754,
+    "name": "Lurantis",
+    "apiName": "lurantis"
+  },
+  {
+    "index": 754,
+    "speciesID": 755,
+    "name": "Morelull",
+    "apiName": "morelull"
+  },
+  {
+    "index": 755,
+    "speciesID": 756,
+    "name": "Shiinotic",
+    "apiName": "shiinotic"
+  },
+  {
+    "index": 756,
+    "speciesID": 757,
+    "name": "Salandit",
+    "apiName": "salandit"
+  },
+  {
+    "index": 757,
+    "speciesID": 758,
+    "name": "Salazzle",
+    "apiName": "salazzle"
+  },
+  {
+    "index": 758,
+    "speciesID": 759,
+    "name": "Stufful",
+    "apiName": "stufful"
+  },
+  {
+    "index": 759,
+    "speciesID": 760,
+    "name": "Bewear",
+    "apiName": "bewear"
+  },
+  {
+    "index": 760,
+    "speciesID": 761,
+    "name": "Bounsweet",
+    "apiName": "bounsweet"
+  },
+  {
+    "index": 761,
+    "speciesID": 762,
+    "name": "Steenee",
+    "apiName": "steenee"
+  },
+  {
+    "index": 762,
+    "speciesID": 763,
+    "name": "Tsareena",
+    "apiName": "tsareena"
+  },
+  {
+    "index": 763,
+    "speciesID": 764,
+    "name": "Comfey",
+    "apiName": "comfey"
+  },
+  {
+    "index": 764,
+    "speciesID": 765,
+    "name": "Oranguru",
+    "apiName": "oranguru"
+  },
+  {
+    "index": 765,
+    "speciesID": 766,
+    "name": "Passimian",
+    "apiName": "passimian"
+  },
+  {
+    "index": 766,
+    "speciesID": 767,
+    "name": "Wimpod",
+    "apiName": "wimpod"
+  },
+  {
+    "index": 767,
+    "speciesID": 768,
+    "name": "Golisopod",
+    "apiName": "golisopod"
+  },
+  {
+    "index": 768,
+    "speciesID": 769,
+    "name": "Sandygast",
+    "apiName": "sandygast"
+  },
+  {
+    "index": 769,
+    "speciesID": 770,
+    "name": "Palossand",
+    "apiName": "palossand"
+  },
+  {
+    "index": 770,
+    "speciesID": 771,
+    "name": "Pyukumuku",
+    "apiName": "pyukumuku"
+  },
+  {
+    "index": 771,
+    "speciesID": 772,
+    "name": "Type: Null",
+    "apiName": "type-null"
+  },
+  {
+    "index": 772,
+    "speciesID": 773,
+    "name": "Silvally",
+    "apiName": "silvally"
+  },
+  {
+    "index": 773,
+    "speciesID": 774,
+    "name": "Minior",
+    "apiName": "minior-red-meteor"
+  },
+  {
+    "index": 774,
+    "speciesID": 775,
+    "name": "Komala",
+    "apiName": "komala"
+  },
+  {
+    "index": 775,
+    "speciesID": 776,
+    "name": "Turtonator",
+    "apiName": "turtonator"
+  },
+  {
+    "index": 776,
+    "speciesID": 777,
+    "name": "Togedemaru",
+    "apiName": "togedemaru"
+  },
+  {
+    "index": 777,
+    "speciesID": 778,
+    "name": "Mimikyu",
+    "apiName": "mimikyu-disguised"
+  },
+  {
+    "index": 778,
+    "speciesID": 779,
+    "name": "Bruxish",
+    "apiName": "bruxish"
+  },
+  {
+    "index": 779,
+    "speciesID": 780,
+    "name": "Drampa",
+    "apiName": "drampa"
+  },
+  {
+    "index": 780,
+    "speciesID": 781,
+    "name": "Dhelmise",
+    "apiName": "dhelmise"
+  },
+  {
+    "index": 781,
+    "speciesID": 782,
+    "name": "Jangmo-o",
+    "apiName": "jangmo-o"
+  },
+  {
+    "index": 782,
+    "speciesID": 783,
+    "name": "Hakamo-o",
+    "apiName": "hakamo-o"
+  },
+  {
+    "index": 783,
+    "speciesID": 784,
+    "name": "Kommo-o",
+    "apiName": "kommo-o"
+  },
+  {
+    "index": 784,
+    "speciesID": 785,
+    "name": "Tapu Koko",
+    "apiName": "tapu-koko"
+  },
+  {
+    "index": 785,
+    "speciesID": 786,
+    "name": "Tapu Lele",
+    "apiName": "tapu-lele"
+  },
+  {
+    "index": 786,
+    "speciesID": 787,
+    "name": "Tapu Bulu",
+    "apiName": "tapu-bulu"
+  },
+  {
+    "index": 787,
+    "speciesID": 788,
+    "name": "Tapu Fini",
+    "apiName": "tapu-fini"
+  },
+  {
+    "index": 788,
+    "speciesID": 789,
+    "name": "Cosmog",
+    "apiName": "cosmog"
+  },
+  {
+    "index": 789,
+    "speciesID": 790,
+    "name": "Cosmoem",
+    "apiName": "cosmoem"
+  },
+  {
+    "index": 790,
+    "speciesID": 791,
+    "name": "Solgaleo",
+    "apiName": "solgaleo"
+  },
+  {
+    "index": 791,
+    "speciesID": 792,
+    "name": "Lunala",
+    "apiName": "lunala"
+  },
+  {
+    "index": 792,
+    "speciesID": 793,
+    "name": "Nihilego",
+    "apiName": "nihilego"
+  },
+  {
+    "index": 793,
+    "speciesID": 794,
+    "name": "Buzzwole",
+    "apiName": "buzzwole"
+  },
+  {
+    "index": 794,
+    "speciesID": 795,
+    "name": "Pheromosa",
+    "apiName": "pheromosa"
+  },
+  {
+    "index": 795,
+    "speciesID": 796,
+    "name": "Xurkitree",
+    "apiName": "xurkitree"
+  },
+  {
+    "index": 796,
+    "speciesID": 797,
+    "name": "Celesteela",
+    "apiName": "celesteela"
+  },
+  {
+    "index": 797,
+    "speciesID": 798,
+    "name": "Kartana",
+    "apiName": "kartana"
+  },
+  {
+    "index": 798,
+    "speciesID": 799,
+    "name": "Guzzlord",
+    "apiName": "guzzlord"
+  },
+  {
+    "index": 799,
+    "speciesID": 800,
+    "name": "Necrozma",
+    "apiName": "necrozma"
+  },
+  {
+    "index": 800,
+    "speciesID": 801,
+    "name": "Magearna",
+    "apiName": "magearna"
+  },
+  {
+    "index": 801,
+    "speciesID": 802,
+    "name": "Marshadow",
+    "apiName": "marshadow"
+  },
+  {
+    "index": 802,
+    "speciesID": 803,
+    "name": "Poipole",
+    "apiName": "poipole"
+  },
+  {
+    "index": 803,
+    "speciesID": 804,
+    "name": "Naganadel",
+    "apiName": "naganadel"
+  },
+  {
+    "index": 804,
+    "speciesID": 805,
+    "name": "Stakataka",
+    "apiName": "stakataka"
+  },
+  {
+    "index": 805,
+    "speciesID": 806,
+    "name": "Blacephalon",
+    "apiName": "blacephalon"
+  },
+  {
+    "index": 806,
+    "speciesID": 807,
+    "name": "Zeraora",
+    "apiName": "zeraora"
+  },
+  {
+    "index": 807,
+    "speciesID": 808,
+    "name": "Meltan",
+    "apiName": "meltan"
+  },
+  {
+    "index": 808,
+    "speciesID": 809,
+    "name": "Melmetal",
+    "apiName": "melmetal"
+  },
+  {
+    "index": 809,
+    "speciesID": 810,
+    "name": "Grookey",
+    "apiName": "grookey"
+  },
+  {
+    "index": 810,
+    "speciesID": 811,
+    "name": "Thwackey",
+    "apiName": "thwackey"
+  },
+  {
+    "index": 811,
+    "speciesID": 812,
+    "name": "Rillaboom",
+    "apiName": "rillaboom"
+  },
+  {
+    "index": 812,
+    "speciesID": 813,
+    "name": "Scorbunny",
+    "apiName": "scorbunny"
+  },
+  {
+    "index": 813,
+    "speciesID": 814,
+    "name": "Raboot",
+    "apiName": "raboot"
+  },
+  {
+    "index": 814,
+    "speciesID": 815,
+    "name": "Cinderace",
+    "apiName": "cinderace"
+  },
+  {
+    "index": 815,
+    "speciesID": 816,
+    "name": "Sobble",
+    "apiName": "sobble"
+  },
+  {
+    "index": 816,
+    "speciesID": 817,
+    "name": "Drizzile",
+    "apiName": "drizzile"
+  },
+  {
+    "index": 817,
+    "speciesID": 818,
+    "name": "Inteleon",
+    "apiName": "inteleon"
+  },
+  {
+    "index": 818,
+    "speciesID": 819,
+    "name": "Skwovet",
+    "apiName": "skwovet"
+  },
+  {
+    "index": 819,
+    "speciesID": 820,
+    "name": "Greedent",
+    "apiName": "greedent"
+  },
+  {
+    "index": 820,
+    "speciesID": 821,
+    "name": "Rookidee",
+    "apiName": "rookidee"
+  },
+  {
+    "index": 821,
+    "speciesID": 822,
+    "name": "Corvisquire",
+    "apiName": "corvisquire"
+  },
+  {
+    "index": 822,
+    "speciesID": 823,
+    "name": "Corviknight",
+    "apiName": "corviknight"
+  },
+  {
+    "index": 823,
+    "speciesID": 824,
+    "name": "Blipbug",
+    "apiName": "blipbug"
+  },
+  {
+    "index": 824,
+    "speciesID": 825,
+    "name": "Dottler",
+    "apiName": "dottler"
+  },
+  {
+    "index": 825,
+    "speciesID": 826,
+    "name": "Orbeetle",
+    "apiName": "orbeetle"
+  },
+  {
+    "index": 826,
+    "speciesID": 827,
+    "name": "Nickit",
+    "apiName": "nickit"
+  },
+  {
+    "index": 827,
+    "speciesID": 828,
+    "name": "Thievul",
+    "apiName": "thievul"
+  },
+  {
+    "index": 828,
+    "speciesID": 829,
+    "name": "Gossifleur",
+    "apiName": "gossifleur"
+  },
+  {
+    "index": 829,
+    "speciesID": 830,
+    "name": "Eldegoss",
+    "apiName": "eldegoss"
+  },
+  {
+    "index": 830,
+    "speciesID": 831,
+    "name": "Wooloo",
+    "apiName": "wooloo"
+  },
+  {
+    "index": 831,
+    "speciesID": 832,
+    "name": "Dubwool",
+    "apiName": "dubwool"
+  },
+  {
+    "index": 832,
+    "speciesID": 833,
+    "name": "Chewtle",
+    "apiName": "chewtle"
+  },
+  {
+    "index": 833,
+    "speciesID": 834,
+    "name": "Drednaw",
+    "apiName": "drednaw"
+  },
+  {
+    "index": 834,
+    "speciesID": 835,
+    "name": "Yamper",
+    "apiName": "yamper"
+  },
+  {
+    "index": 835,
+    "speciesID": 836,
+    "name": "Boltund",
+    "apiName": "boltund"
+  },
+  {
+    "index": 836,
+    "speciesID": 837,
+    "name": "Rolycoly",
+    "apiName": "rolycoly"
+  },
+  {
+    "index": 837,
+    "speciesID": 838,
+    "name": "Carkol",
+    "apiName": "carkol"
+  },
+  {
+    "index": 838,
+    "speciesID": 839,
+    "name": "Coalossal",
+    "apiName": "coalossal"
+  },
+  {
+    "index": 839,
+    "speciesID": 840,
+    "name": "Applin",
+    "apiName": "applin"
+  },
+  {
+    "index": 840,
+    "speciesID": 841,
+    "name": "Flapple",
+    "apiName": "flapple"
+  },
+  {
+    "index": 841,
+    "speciesID": 842,
+    "name": "Appletun",
+    "apiName": "appletun"
+  },
+  {
+    "index": 842,
+    "speciesID": 843,
+    "name": "Silicobra",
+    "apiName": "silicobra"
+  },
+  {
+    "index": 843,
+    "speciesID": 844,
+    "name": "Sandaconda",
+    "apiName": "sandaconda"
+  },
+  {
+    "index": 844,
+    "speciesID": 845,
+    "name": "Cramorant",
+    "apiName": "cramorant"
+  },
+  {
+    "index": 845,
+    "speciesID": 846,
+    "name": "Arrokuda",
+    "apiName": "arrokuda"
+  },
+  {
+    "index": 846,
+    "speciesID": 847,
+    "name": "Barraskewda",
+    "apiName": "barraskewda"
+  },
+  {
+    "index": 847,
+    "speciesID": 848,
+    "name": "Toxel",
+    "apiName": "toxel"
+  },
+  {
+    "index": 848,
+    "speciesID": 849,
+    "name": "Toxtricity",
+    "apiName": "toxtricity-amped"
+  },
+  {
+    "index": 849,
+    "speciesID": 850,
+    "name": "Sizzlipede",
+    "apiName": "sizzlipede"
+  },
+  {
+    "index": 850,
+    "speciesID": 851,
+    "name": "Centiskorch",
+    "apiName": "centiskorch"
+  },
+  {
+    "index": 851,
+    "speciesID": 852,
+    "name": "Clobbopus",
+    "apiName": "clobbopus"
+  },
+  {
+    "index": 852,
+    "speciesID": 853,
+    "name": "Grapploct",
+    "apiName": "grapploct"
+  },
+  {
+    "index": 853,
+    "speciesID": 854,
+    "name": "Sinistea",
+    "apiName": "sinistea"
+  },
+  {
+    "index": 854,
+    "speciesID": 855,
+    "name": "Polteageist",
+    "apiName": "polteageist"
+  },
+  {
+    "index": 855,
+    "speciesID": 856,
+    "name": "Hatenna",
+    "apiName": "hatenna"
+  },
+  {
+    "index": 856,
+    "speciesID": 857,
+    "name": "Hattrem",
+    "apiName": "hattrem"
+  },
+  {
+    "index": 857,
+    "speciesID": 858,
+    "name": "Hatterene",
+    "apiName": "hatterene"
+  },
+  {
+    "index": 858,
+    "speciesID": 859,
+    "name": "Impidimp",
+    "apiName": "impidimp"
+  },
+  {
+    "index": 859,
+    "speciesID": 860,
+    "name": "Morgrem",
+    "apiName": "morgrem"
+  },
+  {
+    "index": 860,
+    "speciesID": 861,
+    "name": "Grimmsnarl",
+    "apiName": "grimmsnarl"
+  },
+  {
+    "index": 861,
+    "speciesID": 862,
+    "name": "Obstagoon",
+    "apiName": "obstagoon"
+  },
+  {
+    "index": 862,
+    "speciesID": 863,
+    "name": "Perrserker",
+    "apiName": "perrserker"
+  },
+  {
+    "index": 863,
+    "speciesID": 864,
+    "name": "Cursola",
+    "apiName": "cursola"
+  },
+  {
+    "index": 864,
+    "speciesID": 865,
+    "name": "Sirfetch'd",
+    "apiName": "sirfetchd"
+  },
+  {
+    "index": 865,
+    "speciesID": 866,
+    "name": "Mr. Rime",
+    "apiName": "mr-rime"
+  },
+  {
+    "index": 866,
+    "speciesID": 867,
+    "name": "Runerigus",
+    "apiName": "runerigus"
+  },
+  {
+    "index": 867,
+    "speciesID": 868,
+    "name": "Milcery",
+    "apiName": "milcery"
+  },
+  {
+    "index": 868,
+    "speciesID": 869,
+    "name": "Alcremie",
+    "apiName": "alcremie"
+  },
+  {
+    "index": 869,
+    "speciesID": 870,
+    "name": "Falinks",
+    "apiName": "falinks"
+  },
+  {
+    "index": 870,
+    "speciesID": 871,
+    "name": "Pincurchin",
+    "apiName": "pincurchin"
+  },
+  {
+    "index": 871,
+    "speciesID": 872,
+    "name": "Snom",
+    "apiName": "snom"
+  },
+  {
+    "index": 872,
+    "speciesID": 873,
+    "name": "Frosmoth",
+    "apiName": "frosmoth"
+  },
+  {
+    "index": 873,
+    "speciesID": 874,
+    "name": "Stonjourner",
+    "apiName": "stonjourner"
+  },
+  {
+    "index": 874,
+    "speciesID": 875,
+    "name": "Eiscue",
+    "apiName": "eiscue-ice"
+  },
+  {
+    "index": 875,
+    "speciesID": 876,
+    "name": "Indeedee",
+    "apiName": "indeedee-male"
+  },
+  {
+    "index": 876,
+    "speciesID": 877,
+    "name": "Morpeko",
+    "apiName": "morpeko-full-belly"
+  },
+  {
+    "index": 877,
+    "speciesID": 878,
+    "name": "Cufant",
+    "apiName": "cufant"
+  },
+  {
+    "index": 878,
+    "speciesID": 879,
+    "name": "Copperajah",
+    "apiName": "copperajah"
+  },
+  {
+    "index": 879,
+    "speciesID": 880,
+    "name": "Dracozolt",
+    "apiName": "dracozolt"
+  },
+  {
+    "index": 880,
+    "speciesID": 881,
+    "name": "Arctozolt",
+    "apiName": "arctozolt"
+  },
+  {
+    "index": 881,
+    "speciesID": 882,
+    "name": "Dracovish",
+    "apiName": "dracovish"
+  },
+  {
+    "index": 882,
+    "speciesID": 883,
+    "name": "Arctovish",
+    "apiName": "arctovish"
+  },
+  {
+    "index": 883,
+    "speciesID": 884,
+    "name": "Duraludon",
+    "apiName": "duraludon"
+  },
+  {
+    "index": 884,
+    "speciesID": 885,
+    "name": "Dreepy",
+    "apiName": "dreepy"
+  },
+  {
+    "index": 885,
+    "speciesID": 886,
+    "name": "Drakloak",
+    "apiName": "drakloak"
+  },
+  {
+    "index": 886,
+    "speciesID": 887,
+    "name": "Dragapult",
+    "apiName": "dragapult"
+  },
+  {
+    "index": 887,
+    "speciesID": 888,
+    "name": "Zacian",
+    "apiName": "zacian"
+  },
+  {
+    "index": 888,
+    "speciesID": 889,
+    "name": "Zamazenta",
+    "apiName": "zamazenta"
+  },
+  {
+    "index": 889,
+    "speciesID": 890,
+    "name": "Eternatus",
+    "apiName": "eternatus"
+  },
+  {
+    "index": 890,
+    "speciesID": 891,
+    "name": "Kubfu",
+    "apiName": "kubfu"
+  },
+  {
+    "index": 891,
+    "speciesID": 892,
+    "name": "Urshifu",
+    "apiName": "urshifu-single-strike"
+  },
+  {
+    "index": 892,
+    "speciesID": 893,
+    "name": "Zarude",
+    "apiName": "zarude"
+  },
+  {
+    "index": 893,
+    "speciesID": 894,
+    "name": "Regieleki",
+    "apiName": "regieleki"
+  },
+  {
+    "index": 894,
+    "speciesID": 895,
+    "name": "Regidrago",
+    "apiName": "regidrago"
+  },
+  {
+    "index": 895,
+    "speciesID": 896,
+    "name": "Glastrier",
+    "apiName": "glastrier"
+  },
+  {
+    "index": 896,
+    "speciesID": 897,
+    "name": "Spectrier",
+    "apiName": "spectrier"
+  },
+  {
+    "index": 897,
+    "speciesID": 898,
+    "name": "Calyrex",
+    "apiName": "calyrex"
+  },
+  {
+    "index": 898,
+    "speciesID": 899,
+    "name": "Wyrdeer",
+    "apiName": "wyrdeer"
+  },
+  {
+    "index": 899,
+    "speciesID": 900,
+    "name": "Kleavor",
+    "apiName": "kleavor"
+  },
+  {
+    "index": 900,
+    "speciesID": 901,
+    "name": "Ursaluna",
+    "apiName": "ursaluna"
+  },
+  {
+    "index": 901,
+    "speciesID": 902,
+    "name": "Basculegion",
+    "apiName": "basculegion-male"
+  },
+  {
+    "index": 902,
+    "speciesID": 903,
+    "name": "Sneasler",
+    "apiName": "sneasler"
+  },
+  {
+    "index": 903,
+    "speciesID": 904,
+    "name": "Overqwil",
+    "apiName": "overqwil"
+  },
+  {
+    "index": 904,
+    "speciesID": 905,
+    "name": "Enamorus",
+    "apiName": "enamorus-incarnate"
+  },
+  {
+    "index": 905,
+    "speciesID": 906,
+    "name": "Sprigatito",
+    "apiName": "sprigatito"
+  },
+  {
+    "index": 906,
+    "speciesID": 907,
+    "name": "Floragato",
+    "apiName": "floragato"
+  },
+  {
+    "index": 907,
+    "speciesID": 908,
+    "name": "Meowscarada",
+    "apiName": "meowscarada"
+  },
+  {
+    "index": 908,
+    "speciesID": 909,
+    "name": "Fuecoco",
+    "apiName": "fuecoco"
+  },
+  {
+    "index": 909,
+    "speciesID": 910,
+    "name": "Crocalor",
+    "apiName": "crocalor"
+  },
+  {
+    "index": 910,
+    "speciesID": 911,
+    "name": "Skeledirge",
+    "apiName": "skeledirge"
+  },
+  {
+    "index": 911,
+    "speciesID": 912,
+    "name": "Quaxly",
+    "apiName": "quaxly"
+  },
+  {
+    "index": 912,
+    "speciesID": 913,
+    "name": "Quaxwell",
+    "apiName": "quaxwell"
+  },
+  {
+    "index": 913,
+    "speciesID": 914,
+    "name": "Quaquaval",
+    "apiName": "quaquaval"
+  },
+  {
+    "index": 914,
+    "speciesID": 915,
+    "name": "Lechonk",
+    "apiName": "lechonk"
+  },
+  {
+    "index": 915,
+    "speciesID": 916,
+    "name": "Oinkologne",
+    "apiName": "oinkologne-male"
+  },
+  {
+    "index": 916,
+    "speciesID": 917,
+    "name": "Tarountula",
+    "apiName": "tarountula"
+  },
+  {
+    "index": 917,
+    "speciesID": 918,
+    "name": "Spidops",
+    "apiName": "spidops"
+  },
+  {
+    "index": 918,
+    "speciesID": 919,
+    "name": "Nymble",
+    "apiName": "nymble"
+  },
+  {
+    "index": 919,
+    "speciesID": 920,
+    "name": "Lokix",
+    "apiName": "lokix"
+  },
+  {
+    "index": 920,
+    "speciesID": 921,
+    "name": "Pawmi",
+    "apiName": "pawmi"
+  },
+  {
+    "index": 921,
+    "speciesID": 922,
+    "name": "Pawmo",
+    "apiName": "pawmo"
+  },
+  {
+    "index": 922,
+    "speciesID": 923,
+    "name": "Pawmot",
+    "apiName": "pawmot"
+  },
+  {
+    "index": 923,
+    "speciesID": 924,
+    "name": "Tandemaus",
+    "apiName": "tandemaus"
+  },
+  {
+    "index": 924,
+    "speciesID": 925,
+    "name": "Maushold",
+    "apiName": "maushold-family-of-four"
+  },
+  {
+    "index": 925,
+    "speciesID": 926,
+    "name": "Fidough",
+    "apiName": "fidough"
+  },
+  {
+    "index": 926,
+    "speciesID": 927,
+    "name": "Dachsbun",
+    "apiName": "dachsbun"
+  },
+  {
+    "index": 927,
+    "speciesID": 928,
+    "name": "Smoliv",
+    "apiName": "smoliv"
+  },
+  {
+    "index": 928,
+    "speciesID": 929,
+    "name": "Dolliv",
+    "apiName": "dolliv"
+  },
+  {
+    "index": 929,
+    "speciesID": 930,
+    "name": "Arboliva",
+    "apiName": "arboliva"
+  },
+  {
+    "index": 930,
+    "speciesID": 931,
+    "name": "Squawkabilly",
+    "apiName": "squawkabilly-green-plumage"
+  },
+  {
+    "index": 931,
+    "speciesID": 932,
+    "name": "Nacli",
+    "apiName": "nacli"
+  },
+  {
+    "index": 932,
+    "speciesID": 933,
+    "name": "Naclstack",
+    "apiName": "naclstack"
+  },
+  {
+    "index": 933,
+    "speciesID": 934,
+    "name": "Garganacl",
+    "apiName": "garganacl"
+  },
+  {
+    "index": 934,
+    "speciesID": 935,
+    "name": "Charcadet",
+    "apiName": "charcadet"
+  },
+  {
+    "index": 935,
+    "speciesID": 936,
+    "name": "Armarouge",
+    "apiName": "armarouge"
+  },
+  {
+    "index": 936,
+    "speciesID": 937,
+    "name": "Ceruledge",
+    "apiName": "ceruledge"
+  },
+  {
+    "index": 937,
+    "speciesID": 938,
+    "name": "Tadbulb",
+    "apiName": "tadbulb"
+  },
+  {
+    "index": 938,
+    "speciesID": 939,
+    "name": "Bellibolt",
+    "apiName": "bellibolt"
+  },
+  {
+    "index": 939,
+    "speciesID": 940,
+    "name": "Wattrel",
+    "apiName": "wattrel"
+  },
+  {
+    "index": 940,
+    "speciesID": 941,
+    "name": "Kilowattrel",
+    "apiName": "kilowattrel"
+  },
+  {
+    "index": 941,
+    "speciesID": 942,
+    "name": "Maschiff",
+    "apiName": "maschiff"
+  },
+  {
+    "index": 942,
+    "speciesID": 943,
+    "name": "Mabosstiff",
+    "apiName": "mabosstiff"
+  },
+  {
+    "index": 943,
+    "speciesID": 944,
+    "name": "Shroodle",
+    "apiName": "shroodle"
+  },
+  {
+    "index": 944,
+    "speciesID": 945,
+    "name": "Grafaiai",
+    "apiName": "grafaiai"
+  },
+  {
+    "index": 945,
+    "speciesID": 946,
+    "name": "Bramblin",
+    "apiName": "bramblin"
+  },
+  {
+    "index": 946,
+    "speciesID": 947,
+    "name": "Brambleghast",
+    "apiName": "brambleghast"
+  },
+  {
+    "index": 947,
+    "speciesID": 948,
+    "name": "Toedscool",
+    "apiName": "toedscool"
+  },
+  {
+    "index": 948,
+    "speciesID": 949,
+    "name": "Toedscruel",
+    "apiName": "toedscruel"
+  },
+  {
+    "index": 949,
+    "speciesID": 950,
+    "name": "Klawf",
+    "apiName": "klawf"
+  },
+  {
+    "index": 950,
+    "speciesID": 951,
+    "name": "Capsakid",
+    "apiName": "capsakid"
+  },
+  {
+    "index": 951,
+    "speciesID": 952,
+    "name": "Scovillain",
+    "apiName": "scovillain"
+  },
+  {
+    "index": 952,
+    "speciesID": 953,
+    "name": "Rellor",
+    "apiName": "rellor"
+  },
+  {
+    "index": 953,
+    "speciesID": 954,
+    "name": "Rabsca",
+    "apiName": "rabsca"
+  },
+  {
+    "index": 954,
+    "speciesID": 955,
+    "name": "Flittle",
+    "apiName": "flittle"
+  },
+  {
+    "index": 955,
+    "speciesID": 956,
+    "name": "Espathra",
+    "apiName": "espathra"
+  },
+  {
+    "index": 956,
+    "speciesID": 957,
+    "name": "Tinkatink",
+    "apiName": "tinkatink"
+  },
+  {
+    "index": 957,
+    "speciesID": 958,
+    "name": "Tinkatuff",
+    "apiName": "tinkatuff"
+  },
+  {
+    "index": 958,
+    "speciesID": 959,
+    "name": "Tinkaton",
+    "apiName": "tinkaton"
+  },
+  {
+    "index": 959,
+    "speciesID": 960,
+    "name": "Wiglett",
+    "apiName": "wiglett"
+  },
+  {
+    "index": 960,
+    "speciesID": 961,
+    "name": "Wugtrio",
+    "apiName": "wugtrio"
+  },
+  {
+    "index": 961,
+    "speciesID": 962,
+    "name": "Bombirdier",
+    "apiName": "bombirdier"
+  },
+  {
+    "index": 962,
+    "speciesID": 963,
+    "name": "Finizen",
+    "apiName": "finizen"
+  },
+  {
+    "index": 963,
+    "speciesID": 964,
+    "name": "Palafin",
+    "apiName": "palafin-zero"
+  },
+  {
+    "index": 964,
+    "speciesID": 965,
+    "name": "Varoom",
+    "apiName": "varoom"
+  },
+  {
+    "index": 965,
+    "speciesID": 966,
+    "name": "Revavroom",
+    "apiName": "revavroom"
+  },
+  {
+    "index": 966,
+    "speciesID": 967,
+    "name": "Cyclizar",
+    "apiName": "cyclizar"
+  },
+  {
+    "index": 967,
+    "speciesID": 968,
+    "name": "Orthworm",
+    "apiName": "orthworm"
+  },
+  {
+    "index": 968,
+    "speciesID": 969,
+    "name": "Glimmet",
+    "apiName": "glimmet"
+  },
+  {
+    "index": 969,
+    "speciesID": 970,
+    "name": "Glimmora",
+    "apiName": "glimmora"
+  },
+  {
+    "index": 970,
+    "speciesID": 971,
+    "name": "Greavard",
+    "apiName": "greavard"
+  },
+  {
+    "index": 971,
+    "speciesID": 972,
+    "name": "Houndstone",
+    "apiName": "houndstone"
+  },
+  {
+    "index": 972,
+    "speciesID": 973,
+    "name": "Flamigo",
+    "apiName": "flamigo"
+  },
+  {
+    "index": 973,
+    "speciesID": 974,
+    "name": "Cetoddle",
+    "apiName": "cetoddle"
+  },
+  {
+    "index": 974,
+    "speciesID": 975,
+    "name": "Cetitan",
+    "apiName": "cetitan"
+  },
+  {
+    "index": 975,
+    "speciesID": 976,
+    "name": "Veluza",
+    "apiName": "veluza"
+  },
+  {
+    "index": 976,
+    "speciesID": 977,
+    "name": "Dondozo",
+    "apiName": "dondozo"
+  },
+  {
+    "index": 977,
+    "speciesID": 978,
+    "name": "Tatsugiri",
+    "apiName": "tatsugiri-curly"
+  },
+  {
+    "index": 978,
+    "speciesID": 979,
+    "name": "Annihilape",
+    "apiName": "annihilape"
+  },
+  {
+    "index": 979,
+    "speciesID": 980,
+    "name": "Clodsire",
+    "apiName": "clodsire"
+  },
+  {
+    "index": 980,
+    "speciesID": 981,
+    "name": "Farigiraf",
+    "apiName": "farigiraf"
+  },
+  {
+    "index": 981,
+    "speciesID": 982,
+    "name": "Dudunsparce",
+    "apiName": "dudunsparce-two-segment"
+  },
+  {
+    "index": 982,
+    "speciesID": 983,
+    "name": "Kingambit",
+    "apiName": "kingambit"
+  },
+  {
+    "index": 983,
+    "speciesID": 984,
+    "name": "Great Tusk",
+    "apiName": "great-tusk"
+  },
+  {
+    "index": 984,
+    "speciesID": 985,
+    "name": "Scream Tail",
+    "apiName": "scream-tail"
+  },
+  {
+    "index": 985,
+    "speciesID": 986,
+    "name": "Brute Bonnet",
+    "apiName": "brute-bonnet"
+  },
+  {
+    "index": 986,
+    "speciesID": 987,
+    "name": "Flutter Mane",
+    "apiName": "flutter-mane"
+  },
+  {
+    "index": 987,
+    "speciesID": 988,
+    "name": "Slither Wing",
+    "apiName": "slither-wing"
+  },
+  {
+    "index": 988,
+    "speciesID": 989,
+    "name": "Sandy Shocks",
+    "apiName": "sandy-shocks"
+  },
+  {
+    "index": 989,
+    "speciesID": 990,
+    "name": "Iron Treads",
+    "apiName": "iron-treads"
+  },
+  {
+    "index": 990,
+    "speciesID": 991,
+    "name": "Iron Bundle",
+    "apiName": "iron-bundle"
+  },
+  {
+    "index": 991,
+    "speciesID": 992,
+    "name": "Iron Hands",
+    "apiName": "iron-hands"
+  },
+  {
+    "index": 992,
+    "speciesID": 993,
+    "name": "Iron Jugulis",
+    "apiName": "iron-jugulis"
+  },
+  {
+    "index": 993,
+    "speciesID": 994,
+    "name": "Iron Moth",
+    "apiName": "iron-moth"
+  },
+  {
+    "index": 994,
+    "speciesID": 995,
+    "name": "Iron Thorns",
+    "apiName": "iron-thorns"
+  },
+  {
+    "index": 995,
+    "speciesID": 996,
+    "name": "Frigibax",
+    "apiName": "frigibax"
+  },
+  {
+    "index": 996,
+    "speciesID": 997,
+    "name": "Arctibax",
+    "apiName": "arctibax"
+  },
+  {
+    "index": 997,
+    "speciesID": 998,
+    "name": "Baxcalibur",
+    "apiName": "baxcalibur"
+  },
+  {
+    "index": 998,
+    "speciesID": 999,
+    "name": "Gimmighoul",
+    "apiName": "gimmighoul"
+  },
+  {
+    "index": 999,
+    "speciesID": 1000,
+    "name": "Gholdengo",
+    "apiName": "gholdengo"
+  },
+  {
+    "index": 1000,
+    "speciesID": 1001,
+    "name": "Wo-Chien",
+    "apiName": "wo-chien"
+  },
+  {
+    "index": 1001,
+    "speciesID": 1002,
+    "name": "Chien-Pao",
+    "apiName": "chien-pao"
+  },
+  {
+    "index": 1002,
+    "speciesID": 1003,
+    "name": "Ting-Lu",
+    "apiName": "ting-lu"
+  },
+  {
+    "index": 1003,
+    "speciesID": 1004,
+    "name": "Chi-Yu",
+    "apiName": "chi-yu"
+  },
+  {
+    "index": 1004,
+    "speciesID": 1005,
+    "name": "Roaring Moon",
+    "apiName": "roaring-moon"
+  },
+  {
+    "index": 1005,
+    "speciesID": 1006,
+    "name": "Iron Valiant",
+    "apiName": "iron-valiant"
+  },
+  {
+    "index": 1006,
+    "speciesID": 1007,
+    "name": "Koraidon",
+    "apiName": "koraidon"
+  },
+  {
+    "index": 1007,
+    "speciesID": 1008,
+    "name": "Miraidon",
+    "apiName": "miraidon"
+  },
+  {
+    "index": 1008,
+    "speciesID": 1009,
+    "name": "Walking Wake",
+    "apiName": "walking-wake"
+  },
+  {
+    "index": 1009,
+    "speciesID": 1010,
+    "name": "Iron Leaves",
+    "apiName": "iron-leaves"
+  },
+  {
+    "index": 1010,
+    "speciesID": 1011,
+    "name": "Dipplin",
+    "apiName": "dipplin"
+  },
+  {
+    "index": 1011,
+    "speciesID": 1012,
+    "name": "Poltchageist",
+    "apiName": "poltchageist"
+  },
+  {
+    "index": 1012,
+    "speciesID": 1013,
+    "name": "Sinistcha",
+    "apiName": "sinistcha"
+  },
+  {
+    "index": 1013,
+    "speciesID": 1014,
+    "name": "Okidogi",
+    "apiName": "okidogi"
+  },
+  {
+    "index": 1014,
+    "speciesID": 1015,
+    "name": "Munkidori",
+    "apiName": "munkidori"
+  },
+  {
+    "index": 1015,
+    "speciesID": 1016,
+    "name": "Fezandipiti",
+    "apiName": "fezandipiti"
+  },
+  {
+    "index": 1016,
+    "speciesID": 1017,
+    "name": "Ogerpon",
+    "apiName": "ogerpon"
+  },
+  {
+    "index": 1017,
+    "speciesID": 1018,
+    "name": "Archaludon",
+    "apiName": "archaludon"
+  },
+  {
+    "index": 1018,
+    "speciesID": 1019,
+    "name": "Hydrapple",
+    "apiName": "hydrapple"
+  },
+  {
+    "index": 1019,
+    "speciesID": 1020,
+    "name": "Gouging Fire",
+    "apiName": "gouging-fire"
+  },
+  {
+    "index": 1020,
+    "speciesID": 1021,
+    "name": "Raging Bolt",
+    "apiName": "raging-bolt"
+  },
+  {
+    "index": 1021,
+    "speciesID": 1022,
+    "name": "Iron Boulder",
+    "apiName": "iron-boulder"
+  },
+  {
+    "index": 1022,
+    "speciesID": 1023,
+    "name": "Iron Crown",
+    "apiName": "iron-crown"
+  },
+  {
+    "index": 1023,
+    "speciesID": 1024,
+    "name": "Terapagos",
+    "apiName": "terapagos"
+  },
+  {
+    "index": 1024,
+    "speciesID": 1025,
+    "name": "Pecharunt",
+    "apiName": "pecharunt"
+  }
+]

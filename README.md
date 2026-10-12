@@ -1,44 +1,73 @@
 # Pokédex Duo
 
-Native SwiftUI prototype inspired by Ash's Kanto Pokédex. Open `Pokedex.xcodeproj` in Xcode and run the `Pokedex` scheme on an iOS 17+ Simulator. No third-party packages or API keys are required.
+Native SwiftUI prototype inspired by Ash's Kanto Pokédex. Open `Pokedex.xcodeproj` in Xcode 27.1 or later and run the `Pokedex` scheme on an iOS 17+ device or Simulator. No API keys or third-party iOS runtime packages are required.
 
 ## Implemented
 
-- Red cover and adaptive interior; On iOS 27.1, the public onHingeChange API switches automatically between the closed cover and open interior. The cover cannot be tapped open on a hinged device; folding dismisses the scanner and retains the selected entry. Ordinary devices retain manual Cover/Open preview controls. Building requires Xcode 27.1 or later.
-- Live PokéAPI name autocomplete, official artwork, types, English Pokédex entries, height, weight, abilities, base stats and base stat total.
-- Previous/next entry controls and request ordering protection.
-- JSON disk cache (seven-day freshness, stale fallback when offline).
-- Artwork disk and memory caches; the selected image stays loaded through fold/unfold transitions.
-- Fixed orientation with no page scrolling; keyboard presentation preserves the search field layout.
-- Camera capture on physical devices and photo import in Simulator.
-- On-device Vision OCR matching English Pokémon names and common card suffixes (ex, GX, V, VMAX, VSTAR). Candidate confirmation is required because card text can mention multiple Pokémon.
+- Text-free red cover on the closed display; automatic cover/interior switching through the iOS 27.1 hinge API. Ordinary devices retain manual Cover/Open previews.
+- Fixed orientation and non-scrolling interior, including stable search-field layout while typing.
+- PokéAPI autocomplete, official artwork, types, English Pokédex entries, height, weight, abilities, six base stats and base stat total.
+- Previous/next controls, request ordering protection, cached JSON and artwork. Selected artwork remains loaded through folding.
+- Rear camera capture on physical iPhones and photo import in Simulator.
+- Fully local visual classification of 1,025 species using a bundled Core ML model. **No OCR or text recognition is used.** High-scoring results automatically load the entry; uncertain results show up to three candidates. Failed data lookups remain retryable in the scanner.
 
-## Not implemented yet
+## Model and current accuracy
 
-- Artwork-only image classification. OCR is not a visual species classifier, and cannot recognize a Pokémon without readable name text.
-- Evolution chains and a custom app icon.
-- A committed automated UI test target (search typing and clearing were verified with a temporary Simulator UI test harness).
-- Simultaneous outer-display camera accessories are not used; the cover follows the closed-device hinge state.
+Source: [skshmjn/Pokemon-classifier-gen9-1025](https://huggingface.co/skshmjn/Pokemon-classifier-gen9-1025), pinned revision `9e8d54de136b99afc212322eae13ddc07a6fd779`. The model card specifies Apache-2.0. Species labels, default-form PokéAPI identifiers, source checksums, export settings and the automatic-lookup policy are recorded in `Pokedex/Models/ModelManifest.json` and `PokemonLabels.json`.
+
+The Core ML package is approximately 176 MB; most weights/linear computation use FP16, with sensitive attention/normalization and final classification in FP32. It supports iOS 17. No model download is needed at runtime. The simulator uses CPU inference; real devices use Core ML's available compute units.
+
+The exploratory visual benchmark achieved 46/60 top-one matches. It performed well on clean artwork, but poorly on full card photos and full-scene screenshots. Keep one Pokémon prominent in the image. The initial automatic threshold (score >=0.90, margin >=0.20) made 42 correct automatic lookups and no lookups on the 30 negative examples. Scores are not calibrated confidence, and the model is not a guaranteed Pokémon-presence detector. See [the full benchmark and limits](Evaluation/README.md).
+
+Separate regional/Mega/other form recognition, live camera inference, object detection, crop editing, evolution chains and a custom app icon are not implemented.
+
+## Clone and model storage
+
+Install Git LFS before cloning or run these commands in an existing clone:
+
+```sh
+git lfs install
+git lfs pull
+```
+
+Core ML package weight binaries use Git LFS. Source PyTorch weights, Python environments, build outputs and raw evaluation images are excluded from Git. The application code's MIT license and the pretrained model's Apache-2.0 provenance are separate; Pokémon names/artwork belong to their respective owners.
+
+## Rebuild the model
+
+Use an isolated Python 3.12 environment on an Apple silicon Mac:
+
+```sh
+python3 -m venv .venv-model
+source .venv-model/bin/activate
+pip install -r Tools/model-requirements-lock.txt
+python Tools/convert_model.py --output Pokedex/Models --cache .model-cache
+```
+
+The script downloads the pinned Safetensors checkpoint, verifies all species labels against PokéAPI, exports the logits graph, and generates the package/manifest. A new export defaults to **automatic lookup disabled** until `Tools/benchmark_model.py` passes the documented gates. Benchmark before replacing the shipped validated artifact. Conversion never substitutes another model on failure.
 
 ## Device testing
 
-Select your signing team under Signing & Capabilities, connect a compatible iPhone, enable Developer Mode and run. Camera access is requested only when the Camera button is tapped. Photo import uses Apple's system picker. Captured/imported images are processed locally and are not uploaded. Pokémon lookups and artwork downloads use the network.
+Select your signing team under Signing & Capabilities, connect an iPhone, enable Developer Mode and run. Camera permission is requested only when Camera is tapped. Import uses the system Photos picker. Images remain on your device; only Pokémon data/artwork requests use the network. Offline recognition works immediately, but an uncached Pokédex entry requires internet.
 
-## Smoke checks
+## Tests and manual checks
 
-1. Unfold the device (or tap the cover on an ordinary device); Pikachu's artwork and details appear.
-2. Search `char`, choose Charizard, switch Info/Stats and use previous/next.
-3. Close and reopen the cover; selected entry remains unchanged.
-4. Import an image containing a clearly readable `Pikachu` or `Pikachu V` title; confirm the candidate.
-5. Import an image without Pokémon name text; expect no match, not a forced prediction.
-6. Simulator Camera explains that import is required; physical camera handles denial and cancellation.
-7. Test a previously viewed entry offline; cached JSON and previously cached artwork remain available.
-8. Inspect narrow and wide layouts: no page scrolling. Narrow windows use Pokémon / Search & details tabs; wide windows show both panels. Search results replace the information panel while typing.
+The shared Pokedex scheme contains `PokedexTests` and `PokedexUITests`. Unit tests cover ranking, thresholds, label mapping, whole-image preprocessing/orientation, native model inference, obsolete-result cancellation, duplicate lookup prevention and retry behavior.
+
+For UI tests, unfold the Duo simulator and add only the Espeon fixture to Photos (or select it as the first photo in the picker):
+
+```sh
+python3 Tools/download_test_fixtures.py
+xcrun simctl addmedia booted Tests/Fixtures/espeon.png
+xcodebuild -project Pokedex.xcodeproj -scheme Pokedex -destination 'platform=iOS Simulator,name=iPhone Duo' -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO test
+```
+
+Manual checks: search a full name and clear/retype; import artwork without text; verify an uncertain/no-match image; retry with the network unavailable; dismiss/fold during recognition and confirm no late lookup or dismissal. Reopen to confirm artwork remains cached and orientation remains fixed. Simulator camera directs you to Import; physical camera denial/cancellation and performance require an actual iPhone.
 
 ## Sources
 
-- https://pokeapi.co/docs/v2/ — Pokémon data; responses cached per API guidance.
-- https://developer.apple.com/documentation/vision/recognizing-text-in-images — OCR.
-- https://archives.bulbagarden.net/wiki/File:Ash_Original_Pok%C3%A9dex.png — visual reference.
+- [PokéAPI](https://pokeapi.co/docs/v2/): Pokémon data and artwork links.
+- [Model source](https://huggingface.co/skshmjn/Pokemon-classifier-gen9-1025): checkpoint and license metadata.
+- [Core ML conversion](https://apple.github.io/coremltools/docs-guides/source/convert-pytorch-workflow.html).
+- [Ash's original Pokédex](https://archives.bulbagarden.net/wiki/File:Ash_Original_Pok%C3%A9dex.png): visual reference.
 
-Unofficial fan prototype. Pokémon names and artwork belong to their respective owners.
+Unofficial fan prototype.

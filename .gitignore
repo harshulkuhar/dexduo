@@ -3,3 +3,18 @@ DerivedData/
 build/
 *.xcuserstate
 xcuserdata/
+
+.venv*/
+.model-cache/
+model-source/
+Evaluation/Images/
+*.xcresult/
+__pycache__/
+*.pyc
+
+# Local recognition test images; never include in commits.
+Tests/Fixtures/*.png
+Tests/Fixtures/*.jpg
+Tests/Fixtures/*.jpeg
+Tests/Fixtures/*.webp
+Tests/Fixtures/*.heic

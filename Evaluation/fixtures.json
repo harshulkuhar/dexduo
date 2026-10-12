@@ -1,0 +1,632 @@
+[
+  {
+    "file": "Images/artwork-1.png",
+    "expectedSpeciesID": 1,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    "sha256": "7233d8d8b03b5fa91d835a3069d25769155db93c9ef91b6066e215ed3895e9d8"
+  },
+  {
+    "file": "Images/artwork-6.png",
+    "expectedSpeciesID": 6,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+    "sha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a"
+  },
+  {
+    "file": "Images/artwork-25.png",
+    "expectedSpeciesID": 25,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    "sha256": "759ceafdb4b8d637dfcfe673cf672bc3c472354a3b2e7e0835d9cdcacd8d195d"
+  },
+  {
+    "file": "Images/artwork-94.png",
+    "expectedSpeciesID": 94,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+    "sha256": "b6549b80537676fcf4a589c8853b38cce42f42b5f707bbe2e63797666175cf06"
+  },
+  {
+    "file": "Images/artwork-151.png",
+    "expectedSpeciesID": 151,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+    "sha256": "9991aee5181178b604b99aec636533b0c5a52a321ce246dd3b9c33243a342a64"
+  },
+  {
+    "file": "Images/artwork-152.png",
+    "expectedSpeciesID": 152,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+    "sha256": "b4831391f48fa1eec088dad09a37090350236853a3a4f22972315d1f087d758a"
+  },
+  {
+    "file": "Images/artwork-157.png",
+    "expectedSpeciesID": 157,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png",
+    "sha256": "04230d9302910d2af6e91fc4a372d059932b420e322200aedbf251f6b1df512d"
+  },
+  {
+    "file": "Images/artwork-196.png",
+    "expectedSpeciesID": 196,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/196.png",
+    "sha256": "d0e74b02adc3df07f9bf026303b1068c58183f8703ae2ca42b8d7b58e9a0696f"
+  },
+  {
+    "file": "Images/artwork-197.png",
+    "expectedSpeciesID": 197,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png",
+    "sha256": "8d7f18f7b323269dff84480f1ee8873a5d47a3eb3fd4b2ac1d2bbf0cf45a6ddd"
+  },
+  {
+    "file": "Images/artwork-248.png",
+    "expectedSpeciesID": 248,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png",
+    "sha256": "080b69438af4483ecd73f7ba154b5d5c845726028ac3071bde455de8978bb509"
+  },
+  {
+    "file": "Images/artwork-252.png",
+    "expectedSpeciesID": 252,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/252.png",
+    "sha256": "eecfd2507ad6a4d32e074dbeaa7bdeb55938a97ff89cb878f5f13870357b9091"
+  },
+  {
+    "file": "Images/artwork-257.png",
+    "expectedSpeciesID": 257,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png",
+    "sha256": "56fc2d08ad58031fa04af4453f5998b95c5817d68f552f5c760682f07c99c91c"
+  },
+  {
+    "file": "Images/artwork-282.png",
+    "expectedSpeciesID": 282,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png",
+    "sha256": "ac40b3e87de95706cae9631802b975882f9830c1528253d367cfa7fd3f2957bd"
+  },
+  {
+    "file": "Images/artwork-384.png",
+    "expectedSpeciesID": 384,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/384.png",
+    "sha256": "52fdacd461e20343dc7fd127b062c23429dc63dfe558c94b9aea0dc7a27be939"
+  },
+  {
+    "file": "Images/artwork-386.png",
+    "expectedSpeciesID": 386,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/386.png",
+    "sha256": "9957c0b49f1a1f5dbc084af586b6272a3ddfc54f479f1253cbc023e4cf09bd60"
+  },
+  {
+    "file": "Images/artwork-387.png",
+    "expectedSpeciesID": 387,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/387.png",
+    "sha256": "2fd7dfbbd0a81fef0d884d2efc2821a593e7192b6cd52599f7963e8ab6001146"
+  },
+  {
+    "file": "Images/artwork-395.png",
+    "expectedSpeciesID": 395,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/395.png",
+    "sha256": "4d8697a9e331f7bc6b57495d5bb1f7df049ab94aaaa66e2a3ea9131eec067f0c"
+  },
+  {
+    "file": "Images/artwork-448.png",
+    "expectedSpeciesID": 448,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
+    "sha256": "8c5064f1d4a37c8b554d7ad83d77970b02d6875750f934c782493c83f8943127"
+  },
+  {
+    "file": "Images/artwork-472.png",
+    "expectedSpeciesID": 472,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/472.png",
+    "sha256": "9e902ab70836789a73430ad13ed6420b703f357cafc4c827ef2138a7856a7a60"
+  },
+  {
+    "file": "Images/artwork-493.png",
+    "expectedSpeciesID": 493,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/493.png",
+    "sha256": "2c33a80a60316f3bb3aa611246543857e053a2728c94c0f67efa44b965d8bc31"
+  },
+  {
+    "file": "Images/artwork-494.png",
+    "expectedSpeciesID": 494,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/494.png",
+    "sha256": "67cbd0d969f774d37c340b0965f622292f706fbb721d8db6f5f393f5f2cb9e64"
+  },
+  {
+    "file": "Images/artwork-497.png",
+    "expectedSpeciesID": 497,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/497.png",
+    "sha256": "9dd16782bae17e6e39fead09b9dcf43e6155e5f38368ff3ce243964997a5c48c"
+  },
+  {
+    "file": "Images/artwork-609.png",
+    "expectedSpeciesID": 609,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/609.png",
+    "sha256": "c4dc9669beb0d42295e776a823aa6874e62bdecb83e1bc7b8cf28bfabdc91840"
+  },
+  {
+    "file": "Images/artwork-637.png",
+    "expectedSpeciesID": 637,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png",
+    "sha256": "05e4d5f86fd53f786bcf13e6fa334678eeb010041bdb2eb747dc24aebb7b1287"
+  },
+  {
+    "file": "Images/artwork-649.png",
+    "expectedSpeciesID": 649,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/649.png",
+    "sha256": "7ea39dd909fa03ca5faf87174feaac651d3cec8c0d73f78a634eff708314b0f7"
+  },
+  {
+    "file": "Images/artwork-650.png",
+    "expectedSpeciesID": 650,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/650.png",
+    "sha256": "252f422be49a2424fb73b86fc893eca462fd8e3e7fe55050b9f95957712d82c2"
+  },
+  {
+    "file": "Images/artwork-658.png",
+    "expectedSpeciesID": 658,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/658.png",
+    "sha256": "e88f4590ff53a8f8965c9e1be19a0f069c51c4dc7ca64ecb25ac96c64c8504d3"
+  },
+  {
+    "file": "Images/artwork-700.png",
+    "expectedSpeciesID": 700,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png",
+    "sha256": "193777db6d89cdace234fe3198dca4e955a7a5a18011cd0105178b436f6199a7"
+  },
+  {
+    "file": "Images/artwork-707.png",
+    "expectedSpeciesID": 707,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/707.png",
+    "sha256": "617a8bd49051f91b1d41629c5e20160580a3989ad95e1cf7a923a07c5c11435f"
+  },
+  {
+    "file": "Images/artwork-720.png",
+    "expectedSpeciesID": 720,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/720.png",
+    "sha256": "05542935ad3acd91d5458a57204734088244d99bdc78ecfb1f336d815e184aa6"
+  },
+  {
+    "file": "Images/artwork-722.png",
+    "expectedSpeciesID": 722,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/722.png",
+    "sha256": "3f01bf45b33f9455a556d79d7e9c8ed11b8979d770fea6bf8b0a76da53c7cf23"
+  },
+  {
+    "file": "Images/artwork-727.png",
+    "expectedSpeciesID": 727,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png",
+    "sha256": "7978632503c045c8e0dd53f7e31f563fa25ec7f7e5b369261d13dab62b2e92cb"
+  },
+  {
+    "file": "Images/artwork-778.png",
+    "expectedSpeciesID": 778,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/778.png",
+    "sha256": "3f368b3fb05af171b6ac0ce893ee065aea6e608be45e04087af1902fc43ab708"
+  },
+  {
+    "file": "Images/artwork-791.png",
+    "expectedSpeciesID": 791,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/791.png",
+    "sha256": "c91563dd72cde89fbe89c4308f99d61921107360e6f465a97f71c3e3e7198a0e"
+  },
+  {
+    "file": "Images/artwork-807.png",
+    "expectedSpeciesID": 807,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/807.png",
+    "sha256": "d4ded364e83349ed9a0de698d37b30b33d25d892ad98a80a0816eca219e3ea1a"
+  },
+  {
+    "file": "Images/artwork-810.png",
+    "expectedSpeciesID": 810,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/810.png",
+    "sha256": "1fc66cc894bf94ea1bb18eadc1388bec13170b3add74e6bd06a671e4b4729b12"
+  },
+  {
+    "file": "Images/artwork-815.png",
+    "expectedSpeciesID": 815,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/815.png",
+    "sha256": "835185034b1931d5fc801a5ce78f21cf1f1555ef767bc4e92a052c59561f1186"
+  },
+  {
+    "file": "Images/artwork-849.png",
+    "expectedSpeciesID": 849,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/849.png",
+    "sha256": "7b9871deccdbc0b24c176cb1c8767d6ac75fba12fb8e7d8dacf7e680cb2bc497"
+  },
+  {
+    "file": "Images/artwork-887.png",
+    "expectedSpeciesID": 887,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png",
+    "sha256": "ee19f0d35c248baf2be61e1a91b6cdb9dbe701fb81dbb070347d1832e3df4f00"
+  },
+  {
+    "file": "Images/artwork-906.png",
+    "expectedSpeciesID": 906,
+    "kind": "official_artwork",
+    "source": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/906.png",
+    "sha256": "f7fe06163f39cfee77f99e62ba012ef55e27fb3a4edbfe6ec74d443a136c21b9"
+  },
+  {
+    "file": "Images/negative-0.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/0",
+    "sha256": "f65f3c5a08208d134ec71b920355b5b1736177b23ba22dad28c288d17805d26d"
+  },
+  {
+    "file": "Images/negative-1.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/1",
+    "sha256": "88a6f93eb584a412e9c127e38c389d9b6d8c854c10a83dbc3bd6f81a26b4a789"
+  },
+  {
+    "file": "Images/negative-2.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/2",
+    "sha256": "b39181bcf3646d33871bbce4ba34ebdb2654bb7f6b32d504c20ecc708bd3c3bf"
+  },
+  {
+    "file": "Images/negative-3.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/3",
+    "sha256": "1fa4894a3d2d46cf9def3a0d9cf54c034ced7f837f76b595ef59879cc2049a1c"
+  },
+  {
+    "file": "Images/negative-4.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/4",
+    "sha256": "c4860187a8c89848f33e8bfbcecf7184e4b0ead653c2d57a38a0e19caee703fa"
+  },
+  {
+    "file": "Images/negative-5.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/5",
+    "sha256": "d7c07f3e39545ce8cadb3e95a0930f5c1416b51512fa1c736c6b945597cdc7a0"
+  },
+  {
+    "file": "Images/negative-6.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/6",
+    "sha256": "08308c4e090d03905ad45858f76c7ae1f36693bbe4e25f09c06e3ab869ec2182"
+  },
+  {
+    "file": "Images/negative-7.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/7",
+    "sha256": "cb956d60dd29112425ae5538f76f17f7b083de2aeb1c0cb94beeac7a7e770846"
+  },
+  {
+    "file": "Images/negative-8.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/8",
+    "sha256": "d6bbd80bcc79dc231e4b8be14c4656c6e7761ebbf8503d76d7b10cf0c382248d"
+  },
+  {
+    "file": "Images/negative-9.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/9",
+    "sha256": "55c766a4cf799802e5c4a096f9c9c4e0a95bcf24556f2e1b0aea311698f32b78"
+  },
+  {
+    "file": "Images/negative-10.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/10",
+    "sha256": "e0ad4aa35e441e7493e0c6865680fec94b76a4925648cb6376c3e2213fd86a32"
+  },
+  {
+    "file": "Images/negative-11.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/11",
+    "sha256": "3b50c3f7c354788e571f32f94819f572b02c29252646e6bd70d9f5275f26d112"
+  },
+  {
+    "file": "Images/negative-12.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/12",
+    "sha256": "2d0843055587b292237dfbcba5fe3133c37536388d5390c026deb530a1e7125d"
+  },
+  {
+    "file": "Images/negative-13.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/13",
+    "sha256": "991b500aea99d53fc695adbef0a73f4eb7481604dce75a6bb90fe92dc745375c"
+  },
+  {
+    "file": "Images/negative-14.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/14",
+    "sha256": "d9ce9fbe40643d3bc7ce25cc28a42ba5f28a0e89c02402e494bf4117cfbbfba5"
+  },
+  {
+    "file": "Images/negative-15.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/15",
+    "sha256": "006ff34552c3b3bf48616bbc377bf796679ef8bd334e5d913bd844a06132cfc7"
+  },
+  {
+    "file": "Images/negative-16.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/16",
+    "sha256": "64b7b23079523301e013353b1defa4fa4db59d25bb2f19a6795481bcf8e58a5f"
+  },
+  {
+    "file": "Images/negative-17.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/17",
+    "sha256": "b573da8cabf7e1c1a67ce874ae37e65097aa7f49c60cdf4297be57768e06a624"
+  },
+  {
+    "file": "Images/negative-18.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/18",
+    "sha256": "d35fef0377e3b4c4e2a171925cb0135d188156459e8cb9faec2498e0e59cc8c8"
+  },
+  {
+    "file": "Images/negative-19.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/19",
+    "sha256": "36feb665fe252e56bdfa520f27688a430acd8e8f4eb920944459ca1a0b6eb89a"
+  },
+  {
+    "file": "Images/negative-20.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/20",
+    "sha256": "089cb86cbc5af872b2b5c1af7bb8e09b0112891ab847ef669d9af457b857b71e"
+  },
+  {
+    "file": "Images/negative-21.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/21",
+    "sha256": "b331cd8b6487aad0028b74382b37e12f42f29c57789e7b04cac469b3a7c2b2ab"
+  },
+  {
+    "file": "Images/negative-22.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/22",
+    "sha256": "b560a2c9eed84ff48198cb52d8622c8d440c8ab1d7cbaee45600e202680b450e"
+  },
+  {
+    "file": "Images/negative-23.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/23",
+    "sha256": "e3ebca52a99f4a9b880fa51ff69045814b1b2e6509f11cba7253f6f42c264e1a"
+  },
+  {
+    "file": "Images/negative-24.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/24",
+    "sha256": "69d810c1339cee6e4ffc934904cf5c8f4711143b8bc66b0cee2a0e92943889f1"
+  },
+  {
+    "file": "Images/negative-25.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/25",
+    "sha256": "a17a083eaf3824ba9c04f68ff2020584b8c3db81ba64748e76214d08effddc5e"
+  },
+  {
+    "file": "Images/negative-26.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/26",
+    "sha256": "6c1b35039ca9314a545d432e8edf30155a7bc623f340585fe8508c909fcdb424"
+  },
+  {
+    "file": "Images/negative-27.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/27",
+    "sha256": "8bdb872fba58a8b54bafb0a2066a4ea775a59f76f9650befe14967feeb4715d6"
+  },
+  {
+    "file": "Images/negative-28.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/28",
+    "sha256": "736b93abd4a164d4c0824c5d5c8ceefc77c3d64b2d45aec9181671ccf0f61454"
+  },
+  {
+    "file": "Images/negative-29.jpg",
+    "expectedSpeciesID": null,
+    "kind": "cifar10_negative_32px",
+    "source": "hf://uoft-cs/cifar10/test/29",
+    "sha256": "b59f2b7c3aa68b3b4303442e6c52590a8ae1d7ffaefdf058e9b04c57536702b9"
+  },
+  {
+    "file": "Images/card-5556.jpeg",
+    "expectedSpeciesID": 778,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5556.jpeg",
+    "sha256": "8423e4ba8f76199f82e922883515b3d1b44d238e4f30bf85d2737f73bbbc1018"
+  },
+  {
+    "file": "Images/card-5568.jpeg",
+    "expectedSpeciesID": 778,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5568.jpeg",
+    "sha256": "cfaa7bdc8d5e52fad6ab0982ac27110c4c79f989b488a2f41cb59d7771a9af3b"
+  },
+  {
+    "file": "Images/card-5580.jpeg",
+    "expectedSpeciesID": 457,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5580.jpeg",
+    "sha256": "a7bf322c93dcf1093afd9035ab7779df9e052ca2ba2a8b1317697945da19b716"
+  },
+  {
+    "file": "Images/card-5592.jpeg",
+    "expectedSpeciesID": 778,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5592.jpeg",
+    "sha256": "a3607633e27ca09d6eca645604c88ea1bbd0cdd6d75339c32ef87fd226a1b215"
+  },
+  {
+    "file": "Images/card-5604.jpeg",
+    "expectedSpeciesID": 778,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5604.jpeg",
+    "sha256": "1353ebc29764e428fed5259d0cae7a90d687f38a73c679beb9a01ae987524b70"
+  },
+  {
+    "file": "Images/card-5616.jpeg",
+    "expectedSpeciesID": 778,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5616.jpeg",
+    "sha256": "87551c65c636df1ca97d1a69e093b3c4a1738a2e82f80aa7aeb2a139c4e2e516"
+  },
+  {
+    "file": "Images/card-5628.jpeg",
+    "expectedSpeciesID": 944,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5628.jpeg",
+    "sha256": "baa3ed01b05c92f72a08d5d767b5c60ff29682f026afe4b338d7780db563224f"
+  },
+  {
+    "file": "Images/card-5640.jpeg",
+    "expectedSpeciesID": 64,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5640.jpeg",
+    "sha256": "0af16ed296f7a704dd66e431ec282c818708ad052cce7387351149112faeddcd"
+  },
+  {
+    "file": "Images/card-5652.jpeg",
+    "expectedSpeciesID": 462,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5652.jpeg",
+    "sha256": "f9ca811335fc863eed2c20a03ccaae1e3cb5eac40143a80615728ba12d1e3667"
+  },
+  {
+    "file": "Images/card-5871.jpeg",
+    "expectedSpeciesID": 154,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/5871.jpeg",
+    "sha256": "23a5393098926b1126256a34e49d220352312db517f93cffd10537291ef16f28"
+  },
+  {
+    "file": "Images/card-6126.jpeg",
+    "expectedSpeciesID": 777,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/6126.jpeg",
+    "sha256": "5676e964a71ceca3677ed0bd47ed27857f9f4dc30d2f03771eb95036191487d7"
+  },
+  {
+    "file": "Images/card-6138.jpeg",
+    "expectedSpeciesID": 573,
+    "kind": "real_card_photo",
+    "source": "https://huggingface.co/datasets/stevelohwc/pokemon_card_image_for_authenticity_classification/resolve/91851c4aa6644071f7b0cf7f43ea1305f8bd1af1/Images/6138.jpeg",
+    "sha256": "76d41495dd7405b2fb0c6628026fedd1fea8fa1d32b378318155df6135236e82"
+  },
+  {
+    "file": "Images/screen-arceus.png",
+    "expectedSpeciesID": 493,
+    "kind": "mixed_public_reference",
+    "source": "https://huggingface.co/datasets/BumbaBot/pokemon-images/resolve/58d37c5926703406b2ff5578fcc1788cc52c82af/arceus/028eea45-e329-4aee-a87a-425caf73819a.png",
+    "sha256": "6ad13fdb694634d90d7997239aeaff8b338f857390207f1a8726d0fed80dfb32"
+  },
+  {
+    "file": "Images/screen-slaking.png",
+    "expectedSpeciesID": 289,
+    "kind": "mixed_public_reference",
+    "source": "https://huggingface.co/datasets/BumbaBot/pokemon-images/resolve/58d37c5926703406b2ff5578fcc1788cc52c82af/slaking/00217014-bdff-48e7-8780-27f30b707c89.png",
+    "sha256": "dfb97dd1a579417924117f08da6d94d84c5d210c4a2d714844e525509efb8c94"
+  },
+  {
+    "file": "Images/screen-reshiram.png",
+    "expectedSpeciesID": 643,
+    "kind": "mixed_public_reference",
+    "source": "https://huggingface.co/datasets/BumbaBot/pokemon-images/resolve/58d37c5926703406b2ff5578fcc1788cc52c82af/reshiram/03845ace-8124-40d8-a7b6-8cc08d030c06.png",
+    "sha256": "b96e4af95f8285259e57ad7ae29bc73bbf45f6c2b5cb717b7df61c41552f4dfd"
+  },
+  {
+    "file": "Images/screen-magearna.png",
+    "expectedSpeciesID": 801,
+    "kind": "mixed_public_reference",
+    "source": "https://huggingface.co/datasets/BumbaBot/pokemon-images/resolve/58d37c5926703406b2ff5578fcc1788cc52c82af/magearna/00956aca-8e12-42bc-a986-ebfb06309ea9.png",
+    "sha256": "4c632c39ddf863282bbb706009c6411db05126d9687d08ef4a3a130960d81b5d"
+  },
+  {
+    "file": "Images/screen-marshadow.png",
+    "expectedSpeciesID": 802,
+    "kind": "mixed_public_reference",
+    "source": "https://huggingface.co/datasets/BumbaBot/pokemon-images/resolve/58d37c5926703406b2ff5578fcc1788cc52c82af/marshadow/059267a4-8144-40f9-91be-46d0605d7c40.png",
+    "sha256": "445ddf1be517e2383ed5b60b784efdd066269bbcf8e2e2d116fb25316005ba1c"
+  },
+  {
+    "file": "Images/user-screen-0.png",
+    "expectedSpeciesID": 196,
+    "kind": "user_app_screenshot",
+    "source": "user-provided screen capture",
+    "sha256": "6780e0c971ab0465f1afa94feb3934619fcb5885269236c9c5e2972814850c12"
+  },
+  {
+    "file": "Images/user-screen-1.png",
+    "expectedSpeciesID": 25,
+    "kind": "user_app_screenshot",
+    "source": "user-provided screen capture",
+    "sha256": "642f1c1b4e15e5cce68cc8f926830867d674182110be64c4047367eb63452eaa"
+  },
+  {
+    "file": "Images/user-screen-2.png",
+    "expectedSpeciesID": 25,
+    "kind": "user_app_screenshot",
+    "source": "user-provided screen capture",
+    "sha256": "2df13026014bdb7bc32963f559e30f8426fc7941dfb236223410f66108f50f5d"
+  }
+]

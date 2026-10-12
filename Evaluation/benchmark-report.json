@@ -1,0 +1,1612 @@
+{
+  "conversionParity": {
+    "passed": true,
+    "inputs": 30,
+    "maximumProbabilityDifference": 0.00118442953191078,
+    "results": [
+      {
+        "file": "artwork-1.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 1.0344551487073694e-05
+      },
+      {
+        "file": "artwork-94.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 2.107467319445444e-05
+      },
+      {
+        "file": "artwork-157.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 3.938132364178504e-05
+      },
+      {
+        "file": "artwork-248.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 6.869764551009627e-05
+      },
+      {
+        "file": "artwork-282.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 1.2869796952696966e-05
+      },
+      {
+        "file": "artwork-387.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 2.319405173534239e-05
+      },
+      {
+        "file": "artwork-472.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 2.1306571690537374e-05
+      },
+      {
+        "file": "artwork-497.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 8.27682733684082e-05
+      },
+      {
+        "file": "artwork-649.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 1.6139712573082221e-06
+      },
+      {
+        "file": "artwork-700.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 5.469754718046005e-06
+      },
+      {
+        "file": "artwork-722.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 1.4165208751526492e-06
+      },
+      {
+        "file": "artwork-791.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 9.908603536779026e-06
+      },
+      {
+        "file": "artwork-815.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 6.917309818610384e-06
+      },
+      {
+        "file": "artwork-906.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 3.601081912685267e-05
+      },
+      {
+        "file": "negative-2.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.0004288336475907206
+      },
+      {
+        "file": "negative-5.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.00040788323261714554
+      },
+      {
+        "file": "negative-8.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 6.495402931172567e-05
+      },
+      {
+        "file": "negative-11.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 8.924893048697924e-05
+      },
+      {
+        "file": "negative-14.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 9.215334820628085e-05
+      },
+      {
+        "file": "negative-17.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.0001276798725826367
+      },
+      {
+        "file": "negative-20.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.00032882865971495256
+      },
+      {
+        "file": "negative-23.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 2.6914003420544508e-05
+      },
+      {
+        "file": "negative-26.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.0005165780864880287
+      },
+      {
+        "file": "negative-29.jpg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 6.041529409558585e-05
+      },
+      {
+        "file": "card-5580.jpeg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.0004337376787478947
+      },
+      {
+        "file": "card-5616.jpeg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 8.771212708516551e-05
+      },
+      {
+        "file": "card-5652.jpeg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.00021052809111228588
+      },
+      {
+        "file": "card-6138.jpeg",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.00118442953191078
+      },
+      {
+        "file": "screen-reshiram.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 9.978774207850677e-05
+      },
+      {
+        "file": "user-screen-0.png",
+        "top1Matches": true,
+        "maximumProbabilityDifference": 0.0005454333104273346
+      }
+    ]
+  },
+  "positives": {
+    "count": 60,
+    "top1": 46,
+    "top3": 48
+  },
+  "negatives": 30,
+  "byKind": {
+    "mixed_public_reference": {
+      "count": 5,
+      "top1": 4,
+      "top3": 4
+    },
+    "official_artwork": {
+      "count": 40,
+      "top1": 40,
+      "top3": 40
+    },
+    "real_card_photo": {
+      "count": 12,
+      "top1": 2,
+      "top3": 3
+    },
+    "user_app_screenshot": {
+      "count": 3,
+      "top1": 0,
+      "top3": 1
+    }
+  },
+  "automaticLookup": {
+    "enabled": true,
+    "selected": {
+      "minimumProbability": 0.9,
+      "minimumMargin": 0.2,
+      "positiveLookups": 42,
+      "wrongLookups": 0,
+      "accuracy": 1.0,
+      "falseNegativeSetLookups": 0,
+      "passes": true
+    },
+    "initial": {
+      "minimumProbability": 0.9,
+      "minimumMargin": 0.2,
+      "positiveLookups": 42,
+      "wrongLookups": 0,
+      "accuracy": 1.0,
+      "falseNegativeSetLookups": 0,
+      "passes": true
+    },
+    "trials": [
+      {
+        "minimumProbability": 0.9,
+        "minimumMargin": 0.2,
+        "positiveLookups": 42,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.9,
+        "minimumMargin": 0.3,
+        "positiveLookups": 42,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.9,
+        "minimumMargin": 0.4,
+        "positiveLookups": 42,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.9,
+        "minimumMargin": 0.5,
+        "positiveLookups": 42,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.95,
+        "minimumMargin": 0.2,
+        "positiveLookups": 40,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.95,
+        "minimumMargin": 0.3,
+        "positiveLookups": 40,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.95,
+        "minimumMargin": 0.4,
+        "positiveLookups": 40,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.95,
+        "minimumMargin": 0.5,
+        "positiveLookups": 40,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.97,
+        "minimumMargin": 0.2,
+        "positiveLookups": 37,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.97,
+        "minimumMargin": 0.3,
+        "positiveLookups": 37,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.97,
+        "minimumMargin": 0.4,
+        "positiveLookups": 37,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.97,
+        "minimumMargin": 0.5,
+        "positiveLookups": 37,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.99,
+        "minimumMargin": 0.2,
+        "positiveLookups": 22,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.99,
+        "minimumMargin": 0.3,
+        "positiveLookups": 22,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.99,
+        "minimumMargin": 0.4,
+        "positiveLookups": 22,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.99,
+        "minimumMargin": 0.5,
+        "positiveLookups": 22,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.995,
+        "minimumMargin": 0.2,
+        "positiveLookups": 13,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.995,
+        "minimumMargin": 0.3,
+        "positiveLookups": 13,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.995,
+        "minimumMargin": 0.4,
+        "positiveLookups": 13,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.995,
+        "minimumMargin": 0.5,
+        "positiveLookups": 13,
+        "wrongLookups": 0,
+        "accuracy": 1.0,
+        "falseNegativeSetLookups": 0,
+        "passes": true
+      },
+      {
+        "minimumProbability": 0.999,
+        "minimumMargin": 0.2,
+        "positiveLookups": 0,
+        "wrongLookups": 0,
+        "accuracy": null,
+        "falseNegativeSetLookups": 0,
+        "passes": false
+      },
+      {
+        "minimumProbability": 0.999,
+        "minimumMargin": 0.3,
+        "positiveLookups": 0,
+        "wrongLookups": 0,
+        "accuracy": null,
+        "falseNegativeSetLookups": 0,
+        "passes": false
+      },
+      {
+        "minimumProbability": 0.999,
+        "minimumMargin": 0.4,
+        "positiveLookups": 0,
+        "wrongLookups": 0,
+        "accuracy": null,
+        "falseNegativeSetLookups": 0,
+        "passes": false
+      },
+      {
+        "minimumProbability": 0.999,
+        "minimumMargin": 0.5,
+        "positiveLookups": 0,
+        "wrongLookups": 0,
+        "accuracy": null,
+        "falseNegativeSetLookups": 0,
+        "passes": false
+      }
+    ]
+  },
+  "timings": {
+    "platform": "Mac Core ML; not iPhone performance",
+    "modelLoadSeconds": 2.385876415995881,
+    "firstPredictionSeconds": 1.7220938749960624,
+    "warmMedianSeconds": 0.02287633299420122
+  },
+  "limitations": [
+    "Small exploratory benchmark, not an independent held-out accuracy certification.",
+    "Reference artwork may overlap upstream training data.",
+    "CIFAR10 negatives are only 32x32 and do not represent all real camera backgrounds.",
+    "Model scores are uncalibrated; no guaranteed Pok\u00e9mon-presence detector.",
+    "Three app screenshots reuse two species; mixed public references are not all screenshots.",
+    "Physical iPhone latency, memory, camera capture and fold behavior require hardware testing."
+  ],
+  "results": [
+    {
+      "file": "artwork-1.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 1,
+      "top3": [
+        1,
+        2,
+        951
+      ],
+      "probability": 0.9790337375011005,
+      "margin": 0.9667095215532948,
+      "seconds": 1.7220938749960624
+    },
+    {
+      "file": "artwork-6.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 6,
+      "top3": [
+        6,
+        149,
+        5
+      ],
+      "probability": 0.9948970922242601,
+      "margin": 0.9941150121861035,
+      "seconds": 0.02813558299385477
+    },
+    {
+      "file": "artwork-25.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 25,
+      "top3": [
+        25,
+        26,
+        177
+      ],
+      "probability": 0.9035392673925714,
+      "margin": 0.8360094276464283,
+      "seconds": 0.02898345800349489
+    },
+    {
+      "file": "artwork-94.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 94,
+      "top3": [
+        94,
+        93,
+        92
+      ],
+      "probability": 0.9750280744789497,
+      "margin": 0.9615479510091799,
+      "seconds": 0.02561879198765382
+    },
+    {
+      "file": "artwork-151.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 151,
+      "top3": [
+        151,
+        150,
+        196
+      ],
+      "probability": 0.9815288724930502,
+      "margin": 0.977975071688267,
+      "seconds": 0.025730708002811298
+    },
+    {
+      "file": "artwork-152.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 152,
+      "top3": [
+        152,
+        153,
+        906
+      ],
+      "probability": 0.9817294351799062,
+      "margin": 0.9705647772608664,
+      "seconds": 0.023075792007148266
+    },
+    {
+      "file": "artwork-157.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 157,
+      "top3": [
+        157,
+        156,
+        155
+      ],
+      "probability": 0.9546090382500398,
+      "margin": 0.9323334947496263,
+      "seconds": 0.024317833987879567
+    },
+    {
+      "file": "artwork-196.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 196,
+      "top3": [
+        196,
+        431,
+        509
+      ],
+      "probability": 0.9880202615118941,
+      "margin": 0.9873321662887267,
+      "seconds": 0.02720916700491216
+    },
+    {
+      "file": "artwork-197.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 197,
+      "top3": [
+        197,
+        336,
+        168
+      ],
+      "probability": 0.9979633176980929,
+      "margin": 0.9976055520889883,
+      "seconds": 0.023703749990090728
+    },
+    {
+      "file": "artwork-248.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 248,
+      "top3": [
+        248,
+        246,
+        995
+      ],
+      "probability": 0.975361386398791,
+      "margin": 0.9661655983812626,
+      "seconds": 0.022366666002199054
+    },
+    {
+      "file": "artwork-252.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 252,
+      "top3": [
+        252,
+        254,
+        352
+      ],
+      "probability": 0.9970255891920767,
+      "margin": 0.9962747995830071,
+      "seconds": 0.023649458002182655
+    },
+    {
+      "file": "artwork-257.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 257,
+      "top3": [
+        257,
+        697,
+        380
+      ],
+      "probability": 0.9907608060108197,
+      "margin": 0.9901276228917789,
+      "seconds": 0.02377345899003558
+    },
+    {
+      "file": "artwork-282.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 282,
+      "top3": [
+        282,
+        280,
+        281
+      ],
+      "probability": 0.9883910685924739,
+      "margin": 0.9797051476022878,
+      "seconds": 0.022532124989083968
+    },
+    {
+      "file": "artwork-384.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 384,
+      "top3": [
+        384,
+        493,
+        497
+      ],
+      "probability": 0.9948468792232505,
+      "margin": 0.9942679817628877,
+      "seconds": 0.023309584008529782
+    },
+    {
+      "file": "artwork-386.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 386,
+      "top3": [
+        386,
+        649,
+        1023
+      ],
+      "probability": 0.9974661946162469,
+      "margin": 0.9973299385388817,
+      "seconds": 0.021811375001561828
+    },
+    {
+      "file": "artwork-387.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 387,
+      "top3": [
+        387,
+        388,
+        10
+      ],
+      "probability": 0.9876296195457459,
+      "margin": 0.9792828861814583,
+      "seconds": 0.022931957995751873
+    },
+    {
+      "file": "artwork-395.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 395,
+      "top3": [
+        395,
+        394,
+        638
+      ],
+      "probability": 0.9962216945948813,
+      "margin": 0.9947813140906234,
+      "seconds": 0.02241145800508093
+    },
+    {
+      "file": "artwork-448.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 448,
+      "top3": [
+        448,
+        447,
+        818
+      ],
+      "probability": 0.9905994622778357,
+      "margin": 0.9870821917262936,
+      "seconds": 0.021332749995053746
+    },
+    {
+      "file": "artwork-472.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 472,
+      "top3": [
+        472,
+        207,
+        714
+      ],
+      "probability": 0.9763283712936819,
+      "margin": 0.9652684240527283,
+      "seconds": 0.021073041993076913
+    },
+    {
+      "file": "artwork-493.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 493,
+      "top3": [
+        493,
+        646,
+        649
+      ],
+      "probability": 0.9972323598842553,
+      "margin": 0.9970743371230597,
+      "seconds": 0.021310041003744118
+    },
+    {
+      "file": "artwork-494.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 494,
+      "top3": [
+        494,
+        731,
+        1004
+      ],
+      "probability": 0.9982870404642293,
+      "margin": 0.998036220945994,
+      "seconds": 0.020798458994249813
+    },
+    {
+      "file": "artwork-497.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 497,
+      "top3": [
+        497,
+        496,
+        495
+      ],
+      "probability": 0.9791373428846857,
+      "margin": 0.9616192465721609,
+      "seconds": 0.02068233299360145
+    },
+    {
+      "file": "artwork-609.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 609,
+      "top3": [
+        609,
+        607,
+        608
+      ],
+      "probability": 0.986429206675075,
+      "margin": 0.977827986613913,
+      "seconds": 0.02185541701328475
+    },
+    {
+      "file": "artwork-637.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 637,
+      "top3": [
+        637,
+        636,
+        994
+      ],
+      "probability": 0.9112506271241491,
+      "margin": 0.8640748543785781,
+      "seconds": 0.021017459002905525
+    },
+    {
+      "file": "artwork-649.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 649,
+      "top3": [
+        649,
+        465,
+        445
+      ],
+      "probability": 0.990059540689181,
+      "margin": 0.9894168416146456,
+      "seconds": 0.020814333998714574
+    },
+    {
+      "file": "artwork-650.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 650,
+      "top3": [
+        650,
+        651,
+        274
+      ],
+      "probability": 0.9977790229721982,
+      "margin": 0.9974323286898519,
+      "seconds": 0.021688041990273632
+    },
+    {
+      "file": "artwork-658.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 658,
+      "top3": [
+        658,
+        657,
+        454
+      ],
+      "probability": 0.9839462822456627,
+      "margin": 0.9731006894410077,
+      "seconds": 0.022239999991143122
+    },
+    {
+      "file": "artwork-700.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 700,
+      "top3": [
+        700,
+        754,
+        806
+      ],
+      "probability": 0.9985883117010139,
+      "margin": 0.998361646765441,
+      "seconds": 0.02072754199616611
+    },
+    {
+      "file": "artwork-707.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 707,
+      "top3": [
+        707,
+        81,
+        489
+      ],
+      "probability": 0.9972194276123223,
+      "margin": 0.9969822104276318,
+      "seconds": 0.022247125001740642
+    },
+    {
+      "file": "artwork-720.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 720,
+      "top3": [
+        720,
+        313,
+        855
+      ],
+      "probability": 0.993891960922271,
+      "margin": 0.9935836037416197,
+      "seconds": 0.02205116700497456
+    },
+    {
+      "file": "artwork-722.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 722,
+      "top3": [
+        722,
+        723,
+        724
+      ],
+      "probability": 0.9979808137185315,
+      "margin": 0.9979084113270487,
+      "seconds": 0.02196012499916833
+    },
+    {
+      "file": "artwork-727.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 727,
+      "top3": [
+        727,
+        726,
+        500
+      ],
+      "probability": 0.9948445232587598,
+      "margin": 0.9940185257595712,
+      "seconds": 0.024264874999062158
+    },
+    {
+      "file": "artwork-778.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 778,
+      "top3": [
+        778,
+        397,
+        52
+      ],
+      "probability": 0.9973117369926926,
+      "margin": 0.9972132265632647,
+      "seconds": 0.02254970899957698
+    },
+    {
+      "file": "artwork-791.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 791,
+      "top3": [
+        791,
+        815,
+        493
+      ],
+      "probability": 0.9967140112317675,
+      "margin": 0.9965072115903906,
+      "seconds": 0.02287633299420122
+    },
+    {
+      "file": "artwork-807.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 807,
+      "top3": [
+        807,
+        900,
+        466
+      ],
+      "probability": 0.987597694739726,
+      "margin": 0.9863076841553741,
+      "seconds": 0.022960250003961846
+    },
+    {
+      "file": "artwork-810.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 810,
+      "top3": [
+        810,
+        811,
+        387
+      ],
+      "probability": 0.9605174973600773,
+      "margin": 0.9266070822030383,
+      "seconds": 0.022747791997971945
+    },
+    {
+      "file": "artwork-815.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 815,
+      "top3": [
+        815,
+        813,
+        773
+      ],
+      "probability": 0.9930075947294302,
+      "margin": 0.992256904123116,
+      "seconds": 0.022888124993187375
+    },
+    {
+      "file": "artwork-849.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 849,
+      "top3": [
+        849,
+        848,
+        1008
+      ],
+      "probability": 0.9863799383638598,
+      "margin": 0.9788781955899204,
+      "seconds": 0.025152292000711896
+    },
+    {
+      "file": "artwork-887.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 887,
+      "top3": [
+        887,
+        886,
+        885
+      ],
+      "probability": 0.6596979144910373,
+      "margin": 0.4692089002410529,
+      "seconds": 0.023633375007193536
+    },
+    {
+      "file": "artwork-906.png",
+      "kind": "official_artwork",
+      "expectedSpeciesID": 906,
+      "top3": [
+        906,
+        907,
+        908
+      ],
+      "probability": 0.9699120511668063,
+      "margin": 0.943035131899737,
+      "seconds": 0.0240861250058515
+    },
+    {
+      "file": "negative-0.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        639,
+        534,
+        1022
+      ],
+      "probability": 0.05196000170439941,
+      "margin": 0.01582749313146839,
+      "seconds": 0.027012292004656047
+    },
+    {
+      "file": "negative-1.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        584,
+        305,
+        703
+      ],
+      "probability": 0.09413585468793066,
+      "margin": 0.038796240563444155,
+      "seconds": 0.025166999999783002
+    },
+    {
+      "file": "negative-2.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        884,
+        1018,
+        713
+      ],
+      "probability": 0.12812718957096453,
+      "margin": 0.07258816388939954,
+      "seconds": 0.024314458001754247
+    },
+    {
+      "file": "negative-3.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        1001,
+        18,
+        902
+      ],
+      "probability": 0.03441346415967902,
+      "margin": 0.005994927322187205,
+      "seconds": 0.02437675000692252
+    },
+    {
+      "file": "negative-4.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        127,
+        338,
+        187
+      ],
+      "probability": 0.020614015608355574,
+      "margin": 0.00020032898523293652,
+      "seconds": 0.02561216700996738
+    },
+    {
+      "file": "negative-5.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        901,
+        323,
+        832
+      ],
+      "probability": 0.3470465050472265,
+      "margin": 0.31281821346723154,
+      "seconds": 0.02519562501402106
+    },
+    {
+      "file": "negative-6.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        884,
+        874,
+        805
+      ],
+      "probability": 0.04325938518986892,
+      "margin": 0.006545621820443555,
+      "seconds": 0.024196708007366396
+    },
+    {
+      "file": "negative-7.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        389,
+        271,
+        272
+      ],
+      "probability": 0.04226675652635959,
+      "margin": 0.0009791083603749237,
+      "seconds": 0.02212462500028778
+    },
+    {
+      "file": "negative-8.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        972,
+        979,
+        460
+      ],
+      "probability": 0.07904503758446708,
+      "margin": 0.05019228824823502,
+      "seconds": 0.02167612500488758
+    },
+    {
+      "file": "negative-9.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        88,
+        980,
+        874
+      ],
+      "probability": 0.07786314845160909,
+      "margin": 0.05466632663305089,
+      "seconds": 0.022318000002996996
+    },
+    {
+      "file": "negative-10.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        884,
+        249,
+        278
+      ],
+      "probability": 0.15461689750511565,
+      "margin": 0.02989247564710984,
+      "seconds": 0.021482625001226552
+    },
+    {
+      "file": "negative-11.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        713,
+        875,
+        932
+      ],
+      "probability": 0.07950447052297464,
+      "margin": 0.0062615201171214024,
+      "seconds": 0.02024600000004284
+    },
+    {
+      "file": "negative-12.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        78,
+        899,
+        77
+      ],
+      "probability": 0.05229729378841219,
+      "margin": 0.009779894986733359,
+      "seconds": 0.020846416999120265
+    },
+    {
+      "file": "negative-13.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        643,
+        972,
+        38
+      ],
+      "probability": 0.46687346340258845,
+      "margin": 0.38118263803585806,
+      "seconds": 0.021465041994815692
+    },
+    {
+      "file": "negative-14.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        933,
+        555,
+        932
+      ],
+      "probability": 0.07478025104419801,
+      "margin": 0.015160236830974075,
+      "seconds": 0.021200082992436364
+    },
+    {
+      "file": "negative-15.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        389,
+        973,
+        902
+      ],
+      "probability": 0.0427937606746389,
+      "margin": 0.016014109533604097,
+      "seconds": 0.021074500007671304
+    },
+    {
+      "file": "negative-16.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        971,
+        972,
+        832
+      ],
+      "probability": 0.07817795694696208,
+      "margin": 0.02423678861385184,
+      "seconds": 0.0210265839996282
+    },
+    {
+      "file": "negative-17.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        217,
+        342,
+        943
+      ],
+      "probability": 0.041173466796095994,
+      "margin": 0.006905867215788966,
+      "seconds": 0.021541582987993024
+    },
+    {
+      "file": "negative-18.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        306,
+        232,
+        127
+      ],
+      "probability": 0.1427802459400121,
+      "margin": 0.08686669825160617,
+      "seconds": 0.022423582995543256
+    },
+    {
+      "file": "negative-19.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        841,
+        332,
+        1019
+      ],
+      "probability": 0.029374492813026044,
+      "margin": 0.0023134419545105915,
+      "seconds": 0.021563083995715715
+    },
+    {
+      "file": "negative-20.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        772,
+        127,
+        1003
+      ],
+      "probability": 0.3832467276940451,
+      "margin": 0.33939955546345657,
+      "seconds": 0.021812334001879208
+    },
+    {
+      "file": "negative-21.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        616,
+        132,
+        222
+      ],
+      "probability": 0.034419948034599766,
+      "margin": 0.014421242843006315,
+      "seconds": 0.021020916014094837
+    },
+    {
+      "file": "negative-22.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        890,
+        898,
+        452
+      ],
+      "probability": 0.07855854365317165,
+      "margin": 0.03732249356704898,
+      "seconds": 0.02182462500059046
+    },
+    {
+      "file": "negative-23.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        1003,
+        911,
+        717
+      ],
+      "probability": 0.03335883258490629,
+      "margin": 0.013125677849939784,
+      "seconds": 0.020775083001353778
+    },
+    {
+      "file": "negative-24.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        667,
+        435,
+        668
+      ],
+      "probability": 0.05919766684572192,
+      "margin": 0.028124306247173724,
+      "seconds": 0.021316667000064626
+    },
+    {
+      "file": "negative-25.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        521,
+        962,
+        520
+      ],
+      "probability": 0.2685524212432782,
+      "margin": 0.24024720429002555,
+      "seconds": 0.020740416992339306
+    },
+    {
+      "file": "negative-26.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        264,
+        164,
+        21
+      ],
+      "probability": 0.2263566382181342,
+      "margin": 0.08580860543665453,
+      "seconds": 0.02126012500957586
+    },
+    {
+      "file": "negative-27.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        357,
+        930,
+        469
+      ],
+      "probability": 0.1957719363291644,
+      "margin": 0.14369450674307177,
+      "seconds": 0.021893833007197827
+    },
+    {
+      "file": "negative-28.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        768,
+        1003,
+        867
+      ],
+      "probability": 0.19436783285082002,
+      "margin": 0.16722800233813206,
+      "seconds": 0.020729125011712313
+    },
+    {
+      "file": "negative-29.jpg",
+      "kind": "cifar10_negative_32px",
+      "expectedSpeciesID": null,
+      "top3": [
+        46,
+        99,
+        21
+      ],
+      "probability": 0.04880633398555459,
+      "margin": 0.0009439999523610659,
+      "seconds": 0.02052066699252464
+    },
+    {
+      "file": "card-5556.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 778,
+      "top3": [
+        1001,
+        825,
+        596
+      ],
+      "probability": 0.02602333042694781,
+      "margin": 0.008856521005487027,
+      "seconds": 0.031246833998011425
+    },
+    {
+      "file": "card-5568.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 778,
+      "top3": [
+        466,
+        596,
+        125
+      ],
+      "probability": 0.09875013467510661,
+      "margin": 0.0721718964907865,
+      "seconds": 0.033220707991858944
+    },
+    {
+      "file": "card-5580.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 457,
+      "top3": [
+        1008,
+        849,
+        767
+      ],
+      "probability": 0.12159297156459796,
+      "margin": 0.027633205671504624,
+      "seconds": 0.07701350000570528
+    },
+    {
+      "file": "card-5592.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 778,
+      "top3": [
+        956,
+        953,
+        1013
+      ],
+      "probability": 0.031903678186885644,
+      "margin": 0.012964419786058841,
+      "seconds": 0.052333415995235555
+    },
+    {
+      "file": "card-5604.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 778,
+      "top3": [
+        933,
+        917,
+        932
+      ],
+      "probability": 0.02928758362601925,
+      "margin": 0.003238667518467242,
+      "seconds": 0.04792520799674094
+    },
+    {
+      "file": "card-5616.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 778,
+      "top3": [
+        27,
+        291,
+        324
+      ],
+      "probability": 0.03394618757407318,
+      "margin": 0.0011726862509225527,
+      "seconds": 0.04657487499935087
+    },
+    {
+      "file": "card-5628.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 944,
+      "top3": [
+        944,
+        69,
+        951
+      ],
+      "probability": 0.20052433108091072,
+      "margin": 0.11693335343184039,
+      "seconds": 0.049950375003390945
+    },
+    {
+      "file": "card-5640.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 64,
+      "top3": [
+        63,
+        956,
+        1000
+      ],
+      "probability": 0.08289071105253626,
+      "margin": 0.012816540820932532,
+      "seconds": 0.04167008399963379
+    },
+    {
+      "file": "card-5652.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 462,
+      "top3": [
+        998,
+        339,
+        940
+      ],
+      "probability": 0.08524792793504597,
+      "margin": 0.03997309516467304,
+      "seconds": 0.0343230830039829
+    },
+    {
+      "file": "card-5871.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 154,
+      "top3": [
+        764,
+        182,
+        753
+      ],
+      "probability": 0.22486857031764546,
+      "margin": 0.12231760992286762,
+      "seconds": 0.03502258300432004
+    },
+    {
+      "file": "card-6126.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 777,
+      "top3": [
+        777,
+        926,
+        74
+      ],
+      "probability": 0.15862435096255417,
+      "margin": 0.11423048373557179,
+      "seconds": 0.033628584002144635
+    },
+    {
+      "file": "card-6138.jpeg",
+      "kind": "real_card_photo",
+      "expectedSpeciesID": 573,
+      "top3": [
+        572,
+        573,
+        176
+      ],
+      "probability": 0.6524017238725984,
+      "margin": 0.4906392153071314,
+      "seconds": 0.032278582992148586
+    },
+    {
+      "file": "screen-arceus.png",
+      "kind": "mixed_public_reference",
+      "expectedSpeciesID": 493,
+      "top3": [
+        493,
+        646,
+        34
+      ],
+      "probability": 0.9974097267375507,
+      "margin": 0.9972003433578688,
+      "seconds": 0.03254529200785328
+    },
+    {
+      "file": "screen-slaking.png",
+      "kind": "mixed_public_reference",
+      "expectedSpeciesID": 289,
+      "top3": [
+        289,
+        287,
+        288
+      ],
+      "probability": 0.9894641862576139,
+      "margin": 0.9881462463774319,
+      "seconds": 0.028720125003019348
+    },
+    {
+      "file": "screen-reshiram.png",
+      "kind": "mixed_public_reference",
+      "expectedSpeciesID": 643,
+      "top3": [
+        998,
+        564,
+        967
+      ],
+      "probability": 0.04805237832979126,
+      "margin": 0.012620776422074723,
+      "seconds": 0.025967624998884276
+    },
+    {
+      "file": "screen-magearna.png",
+      "kind": "mixed_public_reference",
+      "expectedSpeciesID": 801,
+      "top3": [
+        801,
+        477,
+        356
+      ],
+      "probability": 0.9913470102081166,
+      "margin": 0.9904394806253632,
+      "seconds": 0.02464816698920913
+    },
+    {
+      "file": "screen-marshadow.png",
+      "kind": "mixed_public_reference",
+      "expectedSpeciesID": 802,
+      "top3": [
+        802,
+        465,
+        1017
+      ],
+      "probability": 0.042219130754039456,
+      "margin": 0.015172540234177651,
+      "seconds": 0.02304258399817627
+    },
+    {
+      "file": "user-screen-0.png",
+      "kind": "user_app_screenshot",
+      "expectedSpeciesID": 196,
+      "top3": [
+        705,
+        151,
+        218
+      ],
+      "probability": 0.23130728876224252,
+      "margin": 0.19219630544110283,
+      "seconds": 0.02270758300437592
+    },
+    {
+      "file": "user-screen-1.png",
+      "kind": "user_app_screenshot",
+      "expectedSpeciesID": 25,
+      "top3": [
+        136,
+        25,
+        419
+      ],
+      "probability": 0.05998713686456762,
+      "margin": 0.013813389226141018,
+      "seconds": 0.02419866601121612
+    },
+    {
+      "file": "user-screen-2.png",
+      "kind": "user_app_screenshot",
+      "expectedSpeciesID": 25,
+      "top3": [
+        419,
+        53,
+        78
+      ],
+      "probability": 0.09989905255284443,
+      "margin": 0.04140038648878733,
+      "seconds": 0.023157375006121583
+    }
+  ]
+}

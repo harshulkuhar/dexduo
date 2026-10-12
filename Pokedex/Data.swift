@@ -2,14 +2,14 @@ import Foundation
 import SwiftUI
 import CryptoKit
 
-struct Named: Codable, Identifiable, Hashable {
+struct Named: Codable, Identifiable, Hashable, Sendable {
     let name: String
     let url: String
     var id: String { name }
     var title: String { name.replacingOccurrences(of: "-", with: " ").capitalized }
 }
-struct IndexResponse: Codable { let results: [Named] }
-struct Pokemon: Codable, Identifiable {
+struct IndexResponse: Codable, Sendable { let results: [Named] }
+struct Pokemon: Codable, Identifiable, Sendable {
     let id: Int
     let name: String
     let height: Int
@@ -20,21 +20,21 @@ struct Pokemon: Codable, Identifiable {
     let species: Named
     var baseStatTotal: Int { stats.reduce(0) { $0 + $1.base_stat } }
     let sprites: Sprites
-    struct Kind: Codable { let type: Named }
-    struct Ability: Codable { let ability: Named }
-    struct Stat: Codable { let base_stat: Int; let stat: Named }
-    struct Sprites: Codable {
+    struct Kind: Codable, Sendable { let type: Named }
+    struct Ability: Codable, Sendable { let ability: Named }
+    struct Stat: Codable, Sendable { let base_stat: Int; let stat: Named }
+    struct Sprites: Codable, Sendable {
         let front_default: String?
         let other: [String: Artwork]?
     }
-    struct Artwork: Codable { let front_default: String? }
+    struct Artwork: Codable, Sendable { let front_default: String? }
     var title: String { name.replacingOccurrences(of: "-", with: " ").capitalized }
     var artwork: URL? { URL(string: sprites.other?["official-artwork"]?.front_default ?? sprites.front_default ?? "") }
 }
 
-struct Species: Decodable {
+struct Species: Decodable, Sendable {
     let flavor_text_entries: [Entry]
-    struct Entry: Decodable {
+    struct Entry: Decodable, Sendable {
         let flavor_text: String
         let language: Named
         let version: Named
@@ -43,10 +43,14 @@ struct Species: Decodable {
     var englishEntry: Entry? { flavor_text_entries.last { $0.language.name == "en" } }
 }
 
-actor DexAPI {
+protocol DexFetching: Sendable {
+    func get<T: Decodable & Sendable>(_ path: String, as type: T.Type) async throws -> T
+}
+
+actor DexAPI: DexFetching {
     static let shared = DexAPI()
     private let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("PokedexData")
-    func get<T: Decodable>(_ path: String, as type: T.Type) async throws -> T {
+    func get<T: Decodable & Sendable>(_ path: String, as type: T.Type) async throws -> T {
         let file = directory.appendingPathComponent(path.replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "?", with: "_"))
         if let data = try? Data(contentsOf: file), let value = try? JSONDecoder().decode(T.self, from: data),
            let modified = try? file.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate,
@@ -91,6 +95,8 @@ func normalized(_ string: String) -> String {
     @Published var loading = false
     @Published var error: String?
     private var requestID = UUID()
+    private let api: any DexFetching
+    init(api: any DexFetching = DexAPI.shared) { self.api = api }
     private func updateMatches() {
         let q = normalized(query)
         guard !q.isEmpty else { matches = []; return }
@@ -102,33 +108,35 @@ func normalized(_ string: String) -> String {
         matches = Array(prefixes) + Array(contains)
     }
     func start() async {
-        do { names = try await DexAPI.shared.get("pokemon?limit=100000", as: IndexResponse.self).results }
+        do { names = try await api.get("pokemon?limit=100000", as: IndexResponse.self).results }
         catch { self.error = "Couldn’t load the Pokémon index. Check your connection and retry." }
         await select("pikachu")
     }
-    func select(_ name: String) async {
+    @discardableResult func select(_ name: String) async -> Bool {
         let token = UUID(); requestID = token; loading = true; error = nil
+        defer { if requestID == token { loading = false } }
         do {
-            let value = try await DexAPI.shared.get("pokemon/\(name)", as: Pokemon.self)
-            guard requestID == token else { return }
+            let value = try await api.get("pokemon/\(name)", as: Pokemon.self)
+            guard requestID == token, !Task.isCancelled else { return false }
             pokemon = value
             loadArtwork(value.artwork, token: token)
             entryText = "Loading Pokédex entry…"
             entryVersion = ""
             do {
-                let species = try await DexAPI.shared.get("pokemon-species/\(value.species.name)", as: Species.self)
-                guard requestID == token else { return }
+                let species = try await api.get("pokemon-species/\(value.species.name)", as: Species.self)
+                guard requestID == token, !Task.isCancelled else { return false }
                 entryText = species.englishEntry?.cleanedText ?? "No English Pokédex entry is available."
                 entryVersion = species.englishEntry?.version.title ?? ""
             } catch {
-                guard requestID == token else { return }
+                guard requestID == token, !Task.isCancelled else { return false }
                 entryText = "Pokédex entry unavailable. Select this Pokémon again to retry."
             }
+            return true
         } catch {
-            guard requestID == token else { return }
+            guard requestID == token, !Task.isCancelled else { return false }
             self.error = "Couldn’t load this entry. Check your connection and try again."
+            return false
         }
-        if requestID == token { loading = false }
     }
     private func loadArtwork(_ url: URL?, token: UUID) {
         artworkTask?.cancel()

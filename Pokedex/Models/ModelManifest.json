@@ -1,0 +1,46 @@
+{
+  "source": "skshmjn/Pokemon-classifier-gen9-1025",
+  "revision": "9e8d54de136b99afc212322eae13ddc07a6fd779",
+  "license": "Apache-2.0",
+  "sourceChecksums": {
+    "model.safetensors": "2da26f20523f4f09a74e277fb5d0a336fddf8b53f5b8eaefc7f8f063d9d0699a",
+    "pokemon-index.json": "352be41784d58d100ddfa2ac3140b48ba66ee39195950623ee71e4937c94600b",
+    "config.json": "3a9be67d93a5cc307742eeb63ca85753ba1622ca1c54588dbef345a9c2dcdc0f",
+    "README.md": "362b9acc268fe53298b43c748fd311c08922d000905aaa4b2857a3ac89ebbb23",
+    "species-index.json": "cdfd6524c4b51d14b83088113553fdbc7ec9b2ca4673788ca47f9ae76bada479",
+    "preprocessor_config.json": "a34861a24e781942424ad790b82bc99348404a2e64ea882de88c40905851698d"
+  },
+  "conversion": {
+    "torch": "2.5.1",
+    "transformers": "4.51.3",
+    "coremltools": "8.3.0",
+    "python": "3.12.3",
+    "precision": "FP16 transformer linear weights/compute; FP32 attention, normalization and final classifier",
+    "minimumIOS": "17.0"
+  },
+  "input": {
+    "width": 224,
+    "height": 224,
+    "resize": "bilinear, stretch entire upright RGB image",
+    "scale": 0.00784313725490196,
+    "bias": [
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "labelCount": 1025,
+  "policy": {
+    "automaticLookupEnabled": true,
+    "minimumProbability": 0.9,
+    "minimumMargin": 0.2,
+    "candidateMinimumProbability": 0.35,
+    "reason": "Passed exploratory 60-positive/30-negative benchmark."
+  },
+  "packageChecksums": {
+    "PokemonClassifier.mlpackage/Manifest.json": "503bc6571d6f2159b93a0e9c014fcf88b9e45987614b8be48dcdd9df60c278ec",
+    "PokemonClassifier.mlpackage/Data/com.apple.CoreML/model.mlmodel": "71176953a5aa57fcb743b7c6fd52920fcd58153e8c7e3e28810ce056a4bc0d5b",
+    "PokemonClassifier.mlpackage/Data/com.apple.CoreML/weights/weight.bin": "12c44487cf6d26e6b1350a9162eac82b6321c9036366ce6f48a934cdff9972cf"
+  },
+  "benchmarkReportSHA256": "bc6c0b61f5e8c4e10905d15c5e2ebb3b4e15aaadc025aa7e15f60d54087c9f99"
+}
