@@ -1,6 +1,6 @@
 # 01 — DexDuo identity
 
-Status: implementation prepared; iOS build verification pending. Branch: `codex/dexduo-branding`.
+Status: merged through PR #1; iOS build verified, runtime checks pending. Branch: `codex/dexduo-branding`.
 
 ## Requirement
 
@@ -26,4 +26,4 @@ Use DexDuo consistently for the app and its codebase. This includes the checkout
 5. Search tracked filenames and textual app content case-insensitively for the former brand. Any occurrence must belong to an unmodified external source rather than app identity.
 6. No photos are staged; cache paths and Python conversion/benchmark instructions use the current source folder.
 
-Static project/scheme checks, Swift parsing, package/label validation and the old-name scan have passed. Full iOS compilation and runtime tests remain pending while Xcode downloads.
+Static project/scheme checks, Swift parsing, package/label validation and the old-name scan have passed. Xcode 27.1 builds the renamed app and test targets. Simulator runtime checks remain pending while the iOS runtime downloads.

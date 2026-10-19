@@ -9,6 +9,7 @@ Planned features and acceptance criteria: [release PRD](docs/PRD.md). Branch sta
 - Text-free red cover on the closed display; automatic cover/interior switching through the iOS 27.1 hinge API. Ordinary devices retain manual Cover/Open previews.
 - Fixed orientation and non-scrolling interior, including stable search-field layout while typing.
 - PokéAPI autocomplete, official artwork, types, English DexDuo entries, height, weight, abilities, six base stats and base stat total.
+- Responsive 18-type defensive grid with combined dual-type multipliers, reference colors and matching sprite type badges. Chart data is bundled for offline use; abilities/items are excluded.
 - Previous/next controls, request ordering protection, cached JSON and artwork. Selected artwork remains loaded through folding.
 - Rear camera capture on physical iPhones and photo import in Simulator.
 - Fully local visual classification of 1,025 species using a bundled Core ML model. **No OCR or text recognition is used.** High-scoring results automatically load the entry; uncertain results show up to three candidates. Failed data lookups remain retryable in the scanner.
@@ -26,6 +27,10 @@ Separate regional/Mega/other form recognition, live camera inference, object det
 ## App identity
 
 The app, Xcode project, shared scheme and Swift module are named `DexDuo`. The app bundle identifier is `com.harshulkuhar.dexduo`. This identity change installs DexDuo as a separate app from earlier builds; their sandboxed caches and permissions do not transfer automatically.
+
+## Type chart data
+
+The chart is generated from pinned PokéAPI CSV snapshots in `Tools/TypeChartSources`; the upstream license is retained and included in the app bundle. Run `python3 Tools/generate_type_chart.py --check` to verify all 324 relationships offline, or omit `--check` to regenerate. Updating the source requires an explicit `--refresh --revision <full-commit-sha>`. The Types tab displays all 18 types without scrolling; neutral cells are blank as explained by the legend.
 
 ## Clone and model storage
 
