@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/PokeAPI/pokeapi",
+  "revision": "6fd69dfe90465ba96534f6816fc817737d1f97f6",
+  "retrievedAt": "2026-10-19T17:45:12.844420+00:00",
+  "files": {
+    "types.csv": {
+      "url": "https://raw.githubusercontent.com/PokeAPI/pokeapi/6fd69dfe90465ba96534f6816fc817737d1f97f6/data/v2/csv/types.csv",
+      "sha256": "37f039c8d722f47d51ba1c5c5ecf9b7007235b1a9a1af2827645c777b70307c8"
+    },
+    "type_efficacy.csv": {
+      "url": "https://raw.githubusercontent.com/PokeAPI/pokeapi/6fd69dfe90465ba96534f6816fc817737d1f97f6/data/v2/csv/type_efficacy.csv",
+      "sha256": "cdd7de4066680414d0a2433af805f139f425d6350cbf998ecab559a0fe8ff587"
+    },
+    "LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/PokeAPI/pokeapi/6fd69dfe90465ba96534f6816fc817737d1f97f6/LICENSE.md",
+      "sha256": "1c04595dc662981c20956ae4251dfa7b62b475c345eddf98bc9b904cb2373f2c"
+    }
+  }
+}

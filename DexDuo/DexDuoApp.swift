@@ -168,7 +168,7 @@ struct DexDuoView: View {
                                 } else { ProgressView() }
                             }.frame(height: 220).compositingGroup().shadow(color: ink.opacity(0.15), radius: 9, y: 12)
                             Text(pokemon.title.uppercased()).font(.system(size: 26, weight: .black, design: .rounded)).tracking(2).minimumScaleFactor(0.5).lineLimit(1)
-                            HStack { ForEach(pokemon.types, id: \.type.name) { kind in Text(kind.type.name.uppercased()).font(.system(size: 10, weight: .bold, design: .monospaced)).tracking(2).padding(.horizontal, 14).padding(.vertical, 7).background(ink.opacity(0.12), in: Capsule()) } }
+                            HStack { ForEach(pokemon.types, id: \.type.name) { kind in PokemonTypeBadge(name: kind.type.name) } }
                         } else { ProgressView("Loading DexDuo…").frame(height: 290) }
                     }.foregroundStyle(ink).padding(20)
                     if store.loading && store.pokemon != nil { ProgressView().padding().background(.regularMaterial, in: Capsule()) }
@@ -210,7 +210,7 @@ struct DexDuoView: View {
                     ForEach(store.matches.prefix(4)) { match in
                         Button { searchFocused = false; store.query = ""; Task { await store.select(match.name) } } label: {
                             HStack { Text(match.title); Spacer(); Image(systemName: "arrow.up.left") }.padding(12)
-                        }.foregroundStyle(ink)
+                        }.foregroundStyle(ink).accessibilityIdentifier("searchCandidate-\(match.name)")
                     }
                 }.background(lcd, in: RoundedRectangle(cornerRadius: 10))
             }
@@ -219,8 +219,8 @@ struct DexDuoView: View {
             }
             if store.query.isEmpty {
             HStack(spacing: 8) {
-                ForEach(["Info", "Stats"], id: \.self) { label in
-                    Button { tab = label } label: { Text(label.uppercased()).font(.system(size: 12, weight: .bold, design: .monospaced)).tracking(2).frame(maxWidth: .infinity).padding(.vertical, 14).background(tab == label ? Color.cyan : Color(red: 0.16, green: 0.39, blue: 0.52), in: RoundedRectangle(cornerRadius: 5)).foregroundStyle(tab == label ? ink : .white) }
+                ForEach(["Info", "Stats", "Types"], id: \.self) { label in
+                    Button { tab = label } label: { Text(label.uppercased()).font(.system(size: 12, weight: .bold, design: .monospaced)).tracking(2).frame(maxWidth: .infinity).padding(.vertical, 14).background(tab == label ? Color.cyan : Color(red: 0.16, green: 0.39, blue: 0.52), in: RoundedRectangle(cornerRadius: 5)).foregroundStyle(tab == label ? ink : .white) }.accessibilityIdentifier("detailTab-\(label.lowercased())")
                 }
             }
             VStack(alignment: .leading, spacing: 10) {
@@ -236,6 +236,8 @@ struct DexDuoView: View {
                         }
                         infoRow("HEIGHT", String(format: "%.1f m", Double(pokemon.height) / 10))
                         infoRow("WEIGHT", String(format: "%.1f kg", Double(pokemon.weight) / 10))
+                    } else if tab == "Types" {
+                        TypeMatchupsView(defendingTypes: pokemon.types.map { $0.type.name })
                     } else {
                         VStack(spacing: 6) {
                             ForEach(pokemon.stats, id: \.stat.name) { stat in
@@ -253,7 +255,7 @@ struct DexDuoView: View {
                             .font(.system(size: 13, design: .monospaced)).lineLimit(2).minimumScaleFactor(0.8)
                     }
                 }
-            }.foregroundStyle(ink).padding(20).frame(maxWidth: .infinity).frame(height: 300, alignment: .topLeading)
+            }.foregroundStyle(ink).padding(tab == "Types" ? 12 : 20).frame(maxWidth: .infinity).frame(height: 300, alignment: .topLeading)
                 .background(lcd.gradient, in: RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(.black.opacity(0.35), lineWidth: 3))
             }

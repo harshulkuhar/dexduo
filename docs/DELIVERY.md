@@ -1,44 +1,43 @@
 # Delivery checkpoint
 
-Updated 2026-10-19. Current local checkout: `/Users/nonu/Workspace/dexduo`.
+Updated 2026-10-19. Local checkout: `/Users/nonu/Workspace/dexduo`.
 
-## Completed preparation
+## Delivery references
 
-- Product name selected by the owner: **DexDuo**.
-- GitHub repository renamed to [harshulkuhar/dexduo](https://github.com/harshulkuhar/dexduo); origin updated.
-- Rename implementation: `codex/dexduo-branding`, [PR #1](https://github.com/harshulkuhar/dexduo/pull/1), draft pending iOS validation.
-- Cleanup implementation: `codex/cleanup`, [PR #2](https://github.com/harshulkuhar/dexduo/pull/2), based on the rename, draft pending iOS validation.
-- Six feature specifications: [PRD](PRD.md). Feature branches contain the preparation baseline until their implementations begin; creating a branch does not mean the feature is shipped.
+- Repository and app identity: **DexDuo**, [harshulkuhar/dexduo](https://github.com/harshulkuhar/dexduo).
+- [PR #1](https://github.com/harshulkuhar/dexduo/pull/1): rename; merged into `main`.
+- [PR #2](https://github.com/harshulkuhar/dexduo/pull/2): cleanup; merged into `main`.
+- [PR #3](https://github.com/harshulkuhar/dexduo/pull/3): [release and feature PRDs](PRD.md); merged into `main`.
+- [PR #4](https://github.com/harshulkuhar/dexduo/pull/4): responsive type grid and shared sprite-badge colors. The owner explicitly requested merging this implementation before the pending Simulator checks.
 
-## Verification already performed
+The owner requested consolidating all four PRs into `main`. This authorization does not mean the pending runtime or hardware checks have passed. The repository workflow is recorded in [AGENTS.md](../AGENTS.md): one PR per completed feature, and pull/synchronize every remaining feature branch after each merge.
 
-- Swift source syntax parsing; Xcode project plist, object references, shared scheme and target/module rename checks.
-- Model package checksums, 1,025 labels, LFS attributes and tracked old-name/photo checks.
-- Python syntax and diff whitespace checks.
-- A compiled macOS harness exercising actual Foundation-only app sources: ranking, automatic thresholds, generation-token rejection, English entry decoding/whitespace and six-stat total passed. This is not a run of the iOS XCTest target.
+## Verification completed
 
-Full iOS compilation, the renamed XCTest/UI targets, layout inspection and hardware checks have **not** run in this preparation session. Xcode is being downloaded; the selected developer directory currently points to Command Line Tools.
+- Xcode 27.1 builds the renamed baseline, feature app and both iOS Simulator test targets (`build-for-testing`). Commands use `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer` without changing the global selection.
+- Nine native macOS calculator/layout XCTest cases pass using the actual app source and test cases: all 324 source relationships, the Gyarados reference, all dual-type pairs, invalid inputs and layout boundaries.
+- The actual SwiftUI type component was rendered outside Git in all four grid arrangements; all 18 header colors are present. Sampled Water/Flying badge and header pixels match exactly. These are component renders, not iOS Simulator screenshots.
+- Offline generator consistency, model package checksums, 1,025 labels, project references, scheme/module consistency, Python syntax, documentation links, whitespace and no-committed-photo checks pass.
+- Earlier portable checks passed ranking, automatic thresholds, obsolete-token rejection, entry decoding/whitespace and six-stat total. Those checks do not constitute an iOS XCTest run.
 
-## Next steps
+## Pending validation
 
-1. Locate the completed Xcode installation, select its developer directory and inspect installed SDKs/runtimes. Use the SDK required by the current hinge source.
-2. Restore ignored test fixtures with `python3 Tools/download_test_fixtures.py`; do not stage them. Restore LFS weights if needed.
-3. Build/test the renamed `DexDuo` scheme; check app launch, search, import, fold and cached artwork. Resolve failures before marking PR #1 ready.
-4. Validate cleanup against that baseline, then merge #1 followed by #2 and this documentation PR in dependency order. Retarget stacked PR bases as needed.
-5. Update feature branches to merged main before their implementation; begin with `codex/iphone-landscape`.
-6. Implement speech, lens feedback, evolution and type matchups against their individual specifications. Record actual tests, PR links and device limitations here in each delivery.
+The iOS 27.1 Simulator runtime is still downloading. The iOS unit/UI suites, complete search/import/candidate selection, grid visibility in the app, fold/orientation and cached-artwork regressions have not run in this delivery session. Camera, audio and other physical-device checks remain unverified. No images or recordings are committed.
 
-## Branch inventory
+## Remaining feature branches
 
 | Branch | State |
 | --- | --- |
-| `codex/dexduo-branding` | Rename implementation; draft review |
-| `codex/cleanup` | Cleanup implementation; draft review |
-| `codex/dexduo-prds` | Release and feature requirements |
-| `codex/iphone-landscape` | Planned |
+| `codex/iphone-landscape` | Planned; next feature |
 | `codex/robotic-entries` | Planned |
 | `codex/lens-flash` | Planned |
 | `codex/evolution-chains` | Planned |
-| `codex/type-matchups` | Planned |
 
-No new feature implementation, recognition retraining, committed photos or physical-device performance claim is implied by these planning branches.
+These active branches are pulled, synchronized with `origin/main` and pushed after each merge. Completed delivery branches are retained as history; they are not additional active features.
+
+## Next steps
+
+1. Finish installing the iOS 27.1 Simulator runtime and inspect its available devices.
+2. Restore ignored test fixtures with `python3 Tools/download_test_fixtures.py` if needed; do not stage them. Restore Git LFS weights if needed.
+3. Run the renamed `DexDuo` scheme's iOS unit/UI tests, search/import/grid checks, repeated fold/unfold and retained-artwork checks. Record actual results and resolve failures.
+4. Start landscape iPhone support on `codex/iphone-landscape`, with its own focused PR. Then deliver robotic speech, lens feedback and evolution through their individual branches and PRs.
