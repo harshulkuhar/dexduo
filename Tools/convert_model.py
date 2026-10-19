@@ -24,7 +24,6 @@ def normalize(value):
 
 def main():
     import coremltools as ct
-    import numpy as np
     import torch
     import transformers
     from huggingface_hub import snapshot_download

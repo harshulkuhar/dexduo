@@ -1,6 +1,6 @@
 import XCTest
 import UIKit
-import CoreML
+import CoreVideo
 @testable import DexDuo
 
 final class RecognitionTests: XCTestCase {
@@ -120,7 +120,7 @@ private struct FailingAPI: DexFetching {
     func get<T: Decodable & Sendable>(_ path: String, as type: T.Type) async throws -> T { throw URLError(.notConnectedToInternet) }
 }
 @MainActor final class LookupTests: XCTestCase {
-    func testFailedSelectionReturnsFalseAndLeavesPreviousEntry() async {
+    func testFailedSelectionReturnsFalseAndReportsError() async {
         let store = DexStore(api: FailingAPI())
         let success = await store.select("pikachu")
         XCTAssertFalse(success)
@@ -141,5 +141,37 @@ final class ModelIntegrationTests: XCTestCase {
         let image = try XCTUnwrap(UIImage(contentsOfFile: url.path))
         let result = try await PokemonRecognitionService.shared.recognize(image)
         XCTAssertEqual(result.visual.first?.label.speciesID, 25)
+    }
+}
+
+@MainActor final class SearchTests: XCTestCase {
+    func testIncrementalTypingAndClearing() {
+        let store = DexStore()
+        store.names = [Named(name: "pikachu", url: ""), Named(name: "pichu", url: ""),
+                       Named(name: "raichu", url: ""), Named(name: "mr-mime", url: "")]
+        for query in ["p", "pi", "pik", "pika", "pikac", "pikachu"] {
+            store.query = query
+            XCTAssertTrue(store.matches.contains { $0.name == "pikachu" }, query)
+        }
+        store.query = "Mr. Mime"
+        XCTAssertEqual(store.matches.first?.name, "mr-mime")
+        store.query = "zzzz"
+        XCTAssertTrue(store.matches.isEmpty)
+        store.query = ""
+        XCTAssertTrue(store.matches.isEmpty)
+    }
+}
+
+final class EntryTests: XCTestCase {
+    func testEnglishEntrySelectionAndWhitespaceCleanup() throws {
+        let data = Data(#"{"flavor_text_entries":[{"flavor_text":"Earlier entry","language":{"name":"en","url":""},"version":{"name":"red","url":""}},{"flavor_text":"Une description","language":{"name":"fr","url":""},"version":{"name":"blue","url":""}},{"flavor_text":"Hello\nworld.\fAnother   line.","language":{"name":"en","url":""},"version":{"name":"yellow","url":""}}]}"#.utf8)
+        let species = try JSONDecoder().decode(Species.self, from: data)
+        XCTAssertEqual(species.englishEntry?.cleanedText, "Hello world. Another line.")
+        XCTAssertEqual(species.englishEntry?.version.name, "yellow")
+    }
+
+    func testBaseStatTotalUsesAllSixStats() throws {
+        let data = Data(#"{"id":196,"name":"espeon","height":9,"weight":265,"types":[],"abilities":[],"stats":[{"base_stat":65,"stat":{"name":"hp","url":""}},{"base_stat":65,"stat":{"name":"attack","url":""}},{"base_stat":60,"stat":{"name":"defense","url":""}},{"base_stat":130,"stat":{"name":"special-attack","url":""}},{"base_stat":95,"stat":{"name":"special-defense","url":""}},{"base_stat":110,"stat":{"name":"speed","url":""}}],"species":{"name":"espeon","url":""},"sprites":{"front_default":null}}"#.utf8)
+        XCTAssertEqual(try JSONDecoder().decode(Pokemon.self, from: data).baseStatTotal, 525)
     }
 }

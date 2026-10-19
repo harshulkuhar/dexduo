@@ -56,10 +56,8 @@ B00000000000000000000001 = {isa = PBXFileReference; lastKnownFileType = image.pn
 B0000000000000000000000B = {isa = PBXBuildFile; fileRef = B00000000000000000000001; };
 B00000000000000000000002 = {isa = PBXFileReference; lastKnownFileType = image.png; path = pikachu.png; sourceTree = "<group>"; };
 B0000000000000000000000C = {isa = PBXBuildFile; fileRef = B00000000000000000000002; };
-B00000000000000000000003 = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kadabra-card.jpeg; sourceTree = "<group>"; };
-B0000000000000000000000D = {isa = PBXBuildFile; fileRef = B00000000000000000000003; };
-B00000000000000000000021 = {isa = PBXGroup; children = (B00000000000000000000001, B00000000000000000000002, B00000000000000000000003); path = Fixtures; sourceTree = "<group>"; };
-B00000000000000000000022 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (B0000000000000000000000B, B0000000000000000000000C, B0000000000000000000000D); runOnlyForDeploymentPostprocessing = 0; };
+B00000000000000000000021 = {isa = PBXGroup; children = (B00000000000000000000001, B00000000000000000000002); path = Fixtures; sourceTree = "<group>"; };
+B00000000000000000000022 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (B0000000000000000000000B, B0000000000000000000000C); runOnlyForDeploymentPostprocessing = 0; };
 C00000000000000000000001 = {isa = PBXFileReference; lastKnownFileType = text; path = "Models/LICENSE-APACHE-2.0.txt"; sourceTree = "<group>"; };
 C00000000000000000000002 = {isa = PBXBuildFile; fileRef = C00000000000000000000001; };
 }; rootObject = 000000000000000000000001; }

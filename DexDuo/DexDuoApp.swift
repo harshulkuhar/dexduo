@@ -4,7 +4,6 @@ final class OrientationDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         .portrait
     }
-
 }
 
 @main struct DexDuoApp: App {
@@ -25,48 +24,10 @@ struct DexDuoView: View {
     @State private var compactPanel = "Pokémon"
     @FocusState private var searchFocused: Bool
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                LinearGradient(colors: [Color(red: 0.87, green: 0.14, blue: 0.20), shell, Color(red: 0.49, green: 0.03, blue: 0.08)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
-                if opened {
-                    FixedInterior {
-                    VStack(spacing: 0) {
-                    if opened {
-                        header
-                        Rectangle().fill(.black.opacity(0.25)).frame(height: 2).padding(.bottom, 20)
-                    }
-                    if opened {
-                        GeometryReader { space in
-                            let wide = space.size.width > 650
-                            let canvas = CGSize(width: wide ? max(720, space.size.width * 570 / max(space.size.height, 1)) : 380, height: wide ? 570 : 610)
-                            let scale = min(space.size.width / canvas.width, space.size.height / canvas.height)
-                            VStack(spacing: 16) {
-                                if wide {
-                                    HStack(alignment: .top, spacing: 24) {
-                                        display.frame(maxWidth: .infinity)
-                                        RoundedRectangle(cornerRadius: 5).fill(.black.opacity(0.18)).frame(width: 10, height: 510)
-                                        controls.frame(maxWidth: .infinity)
-                                    }
-                                } else {
-                                    Picker("Panel", selection: $compactPanel) {
-                                        Text("Pokémon").tag("Pokémon")
-                                        Text("Search & details").tag("Details")
-                                    }.pickerStyle(.segmented)
-                                    if compactPanel == "Pokémon" { display } else { controls }
-                                }
-                                Spacer(minLength: 0)
-                            }
-                            .padding(.horizontal, 20)
-                            .frame(width: canvas.width, height: canvas.height)
-                            .scaleEffect(scale, anchor: .top)
-                            .frame(width: space.size.width, height: space.size.height, alignment: .top)
-                        }
-                    }
-                }.frame(maxWidth: .infinity)
-                    }
-                }
-                if !opened { cover.ignoresSafeArea(.container, edges: .all) }
-            }
+        ZStack {
+            LinearGradient(colors: [Color(red: 0.87, green: 0.14, blue: 0.20), shell, Color(red: 0.49, green: 0.03, blue: 0.08)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
+            if opened { FixedInterior { interior } }
+            if !opened { cover.ignoresSafeArea(.container, edges: .all) }
         }
         .modifier(HingeCoverObserver { isClosed in
             hardwareControlsCover = isClosed != nil
@@ -90,13 +51,45 @@ struct DexDuoView: View {
         .sheet(isPresented: $scanning) { ScannerView(store: store) }
         .task { await store.start() }
     }
+    private var interior: some View {
+        VStack(spacing: 0) {
+            header
+            Rectangle().fill(.black.opacity(0.25)).frame(height: 2).padding(.bottom, 20)
+            GeometryReader { space in
+                let wide = space.size.width > 650
+                let canvas = CGSize(width: wide ? max(720, space.size.width * 570 / max(space.size.height, 1)) : 380,
+                                    height: wide ? 570 : 610)
+                let scale = min(space.size.width / canvas.width, space.size.height / canvas.height)
+                VStack(spacing: 16) {
+                    if wide {
+                        HStack(alignment: .top, spacing: 24) {
+                            display.frame(maxWidth: .infinity)
+                            RoundedRectangle(cornerRadius: 5).fill(.black.opacity(0.18)).frame(width: 10, height: 510)
+                            controls.frame(maxWidth: .infinity)
+                        }
+                    } else {
+                        Picker("Panel", selection: $compactPanel) {
+                            Text("Pokémon").tag("Pokémon")
+                            Text("Search & details").tag("Details")
+                        }.pickerStyle(.segmented)
+                        if compactPanel == "Pokémon" { display } else { controls }
+                    }
+                    Spacer(minLength: 0)
+                }
+                .padding(.horizontal, 20)
+                .frame(width: canvas.width, height: canvas.height)
+                .scaleEffect(scale, anchor: .top)
+                .frame(width: space.size.width, height: space.size.height, alignment: .top)
+            }
+        }.frame(maxWidth: .infinity)
+    }
     private var header: some View {
         HStack(alignment: .center, spacing: 12) {
-            Button { if opened { scanning = true } } label: {
+            Button { scanning = true } label: {
                 Circle().fill(.cyan.gradient).frame(width: 56, height: 56)
                     .overlay(alignment: .topLeading) { Circle().fill(.white.opacity(0.7)).frame(width: 15).offset(x: 12, y: 9) }
                     .overlay(Circle().stroke(Color.white.opacity(0.85), lineWidth: 5)).compositingGroup().shadow(color: .black.opacity(0.4), radius: 2, y: 4)
-            }.disabled(!opened).accessibilityLabel(opened ? "Open Pokémon scanner" : "DexDuo lens")
+            }.accessibilityLabel("Open Pokémon scanner")
             HStack(spacing: 7) { ForEach([Color.red, .yellow, .green], id: \.self) { color in Circle().fill(color.gradient).frame(width: 11, height: 11).overlay(Circle().stroke(.black.opacity(0.5), lineWidth: 1)) } }.padding(.leading, 5)
             Spacer()
             if !hardwareControlsCover {
