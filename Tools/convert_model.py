@@ -9,7 +9,7 @@ EXPECTED_SOURCE_SHA256 = {'model.safetensors': '2da26f20523f4f09a74e277fb5d0a336
 
 def fetch(url):
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "pokedex-duo/1.0"}), timeout=120) as response:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "dexduo/1.0"}), timeout=120) as response:
             return json.load(response)
     except urllib.error.HTTPError:
         # Some API/CDN configurations reject Python user agents but serve curl.
@@ -69,7 +69,7 @@ def main():
                                op.op_type == "linear" and op.name != "linear_72"),
                            inputs=[ct.ImageType(name="image", shape=(1,3,224,224), scale=1/127.5, bias=[-1,-1,-1])],
                            outputs=[ct.TensorType(name="logits")])
-    converted.author = "skshmjn; Core ML conversion by Pokédex Duo"
+    converted.author = "skshmjn; Core ML conversion by DexDuo"
     converted.license = "Apache-2.0 (upstream model card)"
     converted.short_description = "1,025-species Generation 9 Pokémon classifier. Scores are not calibrated confidence."
     converted.user_defined_metadata["source_revision"] = REVISION

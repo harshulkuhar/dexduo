@@ -7,16 +7,16 @@ final class OrientationDelegate: NSObject, UIApplicationDelegate {
 
 }
 
-@main struct PokedexApp: App {
+@main struct DexDuoApp: App {
     @UIApplicationDelegateAdaptor(OrientationDelegate.self) private var delegate
-    var body: some Scene { WindowGroup { PokedexView() } }
+    var body: some Scene { WindowGroup { DexDuoView() } }
 }
 
 private let shell = Color(red: 0.72, green: 0.075, blue: 0.13)
 private let ink = Color(red: 0.10, green: 0.18, blue: 0.17)
 private let lcd = Color(red: 0.80, green: 0.88, blue: 0.71)
 
-struct PokedexView: View {
+struct DexDuoView: View {
     @StateObject private var store = DexStore()
     @State private var opened = false
     @State private var hardwareControlsCover = true
@@ -96,7 +96,7 @@ struct PokedexView: View {
                 Circle().fill(.cyan.gradient).frame(width: 56, height: 56)
                     .overlay(alignment: .topLeading) { Circle().fill(.white.opacity(0.7)).frame(width: 15).offset(x: 12, y: 9) }
                     .overlay(Circle().stroke(Color.white.opacity(0.85), lineWidth: 5)).compositingGroup().shadow(color: .black.opacity(0.4), radius: 2, y: 4)
-            }.disabled(!opened).accessibilityLabel(opened ? "Open Pokémon scanner" : "Pokédex lens")
+            }.disabled(!opened).accessibilityLabel(opened ? "Open Pokémon scanner" : "DexDuo lens")
             HStack(spacing: 7) { ForEach([Color.red, .yellow, .green], id: \.self) { color in Circle().fill(color.gradient).frame(width: 11, height: 11).overlay(Circle().stroke(.black.opacity(0.5), lineWidth: 1)) } }.padding(.leading, 5)
             Spacer()
             if !hardwareControlsCover {
@@ -151,8 +151,8 @@ struct PokedexView: View {
             .contentShape(Rectangle())
             .onTapGesture { if !hardwareControlsCover { opened = true } }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel("Closed Pokédex cover")
-            .accessibilityHint(hardwareControlsCover ? "Unfold the device to open the Pokédex" : "Double tap to open")
+            .accessibilityLabel("Closed DexDuo cover")
+            .accessibilityHint(hardwareControlsCover ? "Unfold the device to open the DexDuo" : "Double tap to open")
         }
     }
     private var display: some View {
@@ -176,7 +176,7 @@ struct PokedexView: View {
                             }.frame(height: 220).compositingGroup().shadow(color: ink.opacity(0.15), radius: 9, y: 12)
                             Text(pokemon.title.uppercased()).font(.system(size: 26, weight: .black, design: .rounded)).tracking(2).minimumScaleFactor(0.5).lineLimit(1)
                             HStack { ForEach(pokemon.types, id: \.type.name) { kind in Text(kind.type.name.uppercased()).font(.system(size: 10, weight: .bold, design: .monospaced)).tracking(2).padding(.horizontal, 14).padding(.vertical, 7).background(ink.opacity(0.12), in: Capsule()) } }
-                        } else { ProgressView("Loading Pokédex…").frame(height: 290) }
+                        } else { ProgressView("Loading DexDuo…").frame(height: 290) }
                     }.foregroundStyle(ink).padding(20)
                     if store.loading && store.pokemon != nil { ProgressView().padding().background(.regularMaterial, in: Capsule()) }
                 }.overlay(RoundedRectangle(cornerRadius: 10).stroke(ink.opacity(0.6), lineWidth: 3))
@@ -239,7 +239,7 @@ struct PokedexView: View {
                             .font(.system(size: 15)).lineLimit(7).minimumScaleFactor(0.8)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                         if !store.entryVersion.isEmpty {
-                            Text("POKÉDEX · " + store.entryVersion.uppercased()).font(.system(size: 9, design: .monospaced)).foregroundStyle(ink.opacity(0.6))
+                            Text("DEXDUO · " + store.entryVersion.uppercased()).font(.system(size: 9, design: .monospaced)).foregroundStyle(ink.opacity(0.6))
                         }
                         infoRow("HEIGHT", String(format: "%.1f m", Double(pokemon.height) / 10))
                         infoRow("WEIGHT", String(format: "%.1f kg", Double(pokemon.weight) / 10))

@@ -49,7 +49,7 @@ protocol DexFetching: Sendable {
 
 actor DexAPI: DexFetching {
     static let shared = DexAPI()
-    private let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("PokedexData")
+    private let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("DexDuoData")
     func get<T: Decodable & Sendable>(_ path: String, as type: T.Type) async throws -> T {
         let file = directory.appendingPathComponent(path.replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "?", with: "_"))
         if let data = try? Data(contentsOf: file), let value = try? JSONDecoder().decode(T.self, from: data),
@@ -89,7 +89,7 @@ func normalized(_ string: String) -> String {
     @Published private(set) var artworkFailed = false
     private var artworkTask: Task<Void, Never>?
     private let artworkMemory = NSCache<NSURL, UIImage>()
-    @Published var entryText = "Loading Pokédex entry…"
+    @Published var entryText = "Loading DexDuo entry…"
     @Published var entryVersion = ""
     @Published var query = "" { didSet { updateMatches() } }
     @Published var loading = false
@@ -120,16 +120,16 @@ func normalized(_ string: String) -> String {
             guard requestID == token, !Task.isCancelled else { return false }
             pokemon = value
             loadArtwork(value.artwork, token: token)
-            entryText = "Loading Pokédex entry…"
+            entryText = "Loading DexDuo entry…"
             entryVersion = ""
             do {
                 let species = try await api.get("pokemon-species/\(value.species.name)", as: Species.self)
                 guard requestID == token, !Task.isCancelled else { return false }
-                entryText = species.englishEntry?.cleanedText ?? "No English Pokédex entry is available."
+                entryText = species.englishEntry?.cleanedText ?? "No English DexDuo entry is available."
                 entryVersion = species.englishEntry?.version.title ?? ""
             } catch {
                 guard requestID == token, !Task.isCancelled else { return false }
-                entryText = "Pokédex entry unavailable. Select this Pokémon again to retry."
+                entryText = "DexDuo entry unavailable. Select this Pokémon again to retry."
             }
             return true
         } catch {
@@ -176,7 +176,7 @@ actor ArtworkDiskCache {
     static let shared = ArtworkDiskCache()
     private let directory: URL
     init(directory: URL? = nil) {
-        self.directory = directory ?? FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("PokedexArtwork")
+        self.directory = directory ?? FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("DexDuoArtwork")
     }
     func data(for url: URL) async throws -> Data {
         let key = SHA256.hash(data: Data(url.absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
