@@ -1,6 +1,6 @@
 # DexDuo product requirements
 
-Status: planned features; branding and cleanup implemented on review branches. Updated 2026-10-19.
+Status: branding, cleanup and type-grid implementation delivered; remaining features planned. Updated 2026-10-19.
 
 ## Product
 
@@ -48,9 +48,9 @@ Add small, testable components for speech state, evolution decoding and type mul
 3. Deliver these PRDs on `codex/dexduo-prds`.
 4. Implement the responsive type-matchup grid first, as selected by the owner. Then implement landscape layout, speech and its lens feedback, and evolution. The type grid fits the existing detail panel without waiting for the broader layout rewrite.
 
-The initial review stack is [rename PR #1](https://github.com/harshulkuhar/dexduo/pull/1), then [cleanup PR #2](https://github.com/harshulkuhar/dexduo/pull/2), then documentation. Feature branches start from this reviewed baseline. Before implementation, update each branch to the latest merged baseline. Do not merge an older planning branch over newer work.
+The preparation stack is delivered through [rename PR #1](https://github.com/harshulkuhar/dexduo/pull/1), [cleanup PR #2](https://github.com/harshulkuhar/dexduo/pull/2) and [documentation PR #3](https://github.com/harshulkuhar/dexduo/pull/3). The type grid is delivered through [PR #4](https://github.com/harshulkuhar/dexduo/pull/4). Use one PR per completed feature. After each merge, pull main, pull each remaining active feature branch, merge the latest main into it and push; also synchronize before starting implementation. See [repository guidelines](../AGENTS.md).
 
-The owner has authorized branch work, PR creation and merging. Runtime PRs remain draft until the required iOS build and regression checks pass. Xcode 27.1 is installed and iOS Simulator builds pass; the Simulator runtime is downloading. Portable tests and successful compilation do not replace the pending iOS UI/regression checks.
+The owner has authorized branch work, PR creation and merging, and explicitly requested merging PRs #1–4 while Simulator checks remain pending. Xcode 27.1 is installed and iOS Simulator builds pass; the runtime is downloading. Portable tests and successful compilation do not replace iOS interaction/fold or hardware validation. Record outstanding checks accurately in each delivery.
 
 ## Release acceptance
 

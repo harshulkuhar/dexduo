@@ -1,6 +1,6 @@
 # 05 — Responsive type grid
 
-Status: implementation on `codex/type-matchups`; Simulator regression checks pending runtime installation.
+Status: implementation delivered through PR #4 on `codex/type-matchups`; Simulator regression checks pending runtime installation.
 
 ## Experience
 
