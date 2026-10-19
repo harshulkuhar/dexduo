@@ -16,7 +16,7 @@ The owner requested consolidating the first four PRs into `main`. This authoriza
 
 ## Verification completed
 
-- Xcode 27.1 builds the renamed baseline, feature app and both iOS Simulator test targets (`build-for-testing`). Commands use `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer` without changing the global selection.
+- Xcode 27.1 builds the renamed baseline, feature app and both iOS Simulator test targets (`build-for-testing`). The landscape feature also passes an unsigned Release build for generic physical iOS devices. Commands use `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer` without changing the global selection.
 - Nine native macOS calculator/layout XCTest cases pass using the actual app source and test cases: all 324 source relationships, the Gyarados reference, all dual-type pairs, invalid inputs and layout boundaries.
 - The actual SwiftUI type component was rendered outside Git in all four grid arrangements; all 18 header colors are present. Sampled Water/Flying badge and header pixels match exactly. These are component renders, not iOS Simulator screenshots.
 - Offline generator consistency, model package checksums, 1,025 labels, project references, scheme/module consistency, Python syntax, documentation links, whitespace and no-committed-photo checks pass.
