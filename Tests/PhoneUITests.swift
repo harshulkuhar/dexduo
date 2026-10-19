@@ -1,0 +1,111 @@
+import XCTest
+
+final class PhoneUITests: XCTestCase {
+    private func open(_ app: XCUIApplication) throws {
+        XCUIDevice.shared.orientation = .landscapeLeft
+        app.launch()
+        if app.otherElements["duoPresentation"].waitForExistence(timeout: 2) {
+            throw XCTSkip("This test exercises the ordinary-phone presentation.")
+        }
+        let cover = app.buttons["phoneCover"]
+        XCTAssertTrue(cover.waitForExistence(timeout: 20), app.debugDescription)
+        cover.tap()
+        XCTAssertTrue(app.textFields["pokemonSearch"].waitForExistence(timeout: 15))
+    }
+
+    func testCoverPanelsAndBothLandscapeDirections() throws {
+        let app = XCUIApplication()
+        try open(app)
+        XCTAssertTrue(app.staticTexts["PIKACHU"].waitForExistence(timeout: 20))
+        let artwork = app.otherElements["phoneArtworkPanel"]
+        let details = app.otherElements["phoneDetailsPanel"]
+        XCTAssertTrue(artwork.exists); XCTAssertTrue(details.exists)
+        XCTAssertEqual(artwork.frame.width, details.frame.width, accuracy: 1)
+        XCTAssertLessThan(artwork.frame.maxX, details.frame.minX)
+        app.buttons["detailTab-types"].tap()
+        assertAllTypes(app)
+        XCUIDevice.shared.orientation = .landscapeRight
+        XCTAssertTrue(app.textFields["pokemonSearch"].isHittable)
+        assertAllTypes(app)
+        XCUIDevice.shared.press(.home); app.activate()
+        XCTAssertTrue(app.textFields["pokemonSearch"].waitForExistence(timeout: 5))
+        assertAllTypes(app)
+        app.buttons["phoneCoverButton"].tap()
+        XCTAssertTrue(app.buttons["phoneCover"].waitForExistence(timeout: 5))
+        app.buttons["phoneCover"].tap()
+        XCTAssertTrue(app.staticTexts["PIKACHU"].exists)
+        assertAllTypes(app)
+        XCTAssertEqual(app.scrollViews.count, 0)
+    }
+
+    func testTypingClearingAndSelectingWithKeyboard() throws {
+        let app = XCUIApplication()
+        try open(app)
+        let search = app.textFields["pokemonSearch"]
+        search.tap(); search.typeText("espeon")
+        XCTAssertEqual(search.value as? String, "espeon")
+        let result = app.buttons["searchCandidate-espeon"]
+        XCTAssertTrue(result.waitForExistence(timeout: 15)); XCTAssertTrue(result.isHittable)
+        result.tap()
+        XCTAssertTrue(app.staticTexts["ESPEON"].waitForExistence(timeout: 20))
+        search.tap(); search.typeText("gyarados")
+        app.buttons["Clear search"].tap(); search.typeText("pikachu")
+        XCTAssertEqual(search.value as? String, "pikachu")
+        let pikachu = app.buttons["searchCandidate-pikachu"]
+        XCTAssertTrue(pikachu.waitForExistence(timeout: 10)); pikachu.tap()
+        XCTAssertTrue(app.staticTexts["PIKACHU"].waitForExistence(timeout: 20))
+    }
+
+    func testLandscapeScannerImportAndCandidateConfirmation() throws {
+        let app = XCUIApplication(); app.launchArguments = ["--confirm-scans"]
+        try open(app)
+        app.buttons["phoneScan"].tap()
+        XCTAssertTrue(app.buttons["Done"].waitForExistence(timeout: 5))
+        app.buttons["scanImport"].tap()
+        let photo = app.images.matching(NSPredicate(format: "label BEGINSWITH[c] 'Photo, '")).firstMatch
+        XCTAssertTrue(photo.waitForExistence(timeout: 10)); photo.tap()
+        let candidate = app.buttons["scanCandidate-196"]
+        XCTAssertTrue(candidate.waitForExistence(timeout: 40)); candidate.tap()
+        XCTAssertTrue(app.staticTexts["ESPEON"].waitForExistence(timeout: 20))
+        XCTAssertEqual(app.scrollViews.count, 0)
+    }
+
+    func testAccessibilityPagesExposeEntryMeasurementsStatsAndTypes() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        try open(app)
+        XCTAssertTrue(app.staticTexts["PIKACHU"].waitForExistence(timeout: 20))
+        let picker = app.segmentedControls["phonePanelPicker"]
+        XCTAssertTrue(picker.waitForExistence(timeout: 5))
+        picker.buttons["Details"].tap()
+        let entry = app.staticTexts["phoneEntryText"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 5)); XCTAssertTrue(entry.isHittable)
+        for _ in 0..<20 {
+            let next = app.buttons["infoNextPage"]
+            if !next.exists || !next.isEnabled { break }
+            XCTAssertTrue(next.isHittable); next.tap()
+        }
+        XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS[c] '0.4 m'")).firstMatch.isHittable)
+        app.buttons["detailTab-stats"].tap()
+        var abilitiesSeen = false
+        for _ in 0..<20 {
+            let abilities = app.staticTexts["phoneAbilities"]
+            abilitiesSeen = abilitiesSeen || (abilities.exists && abilities.isHittable)
+            let next = app.buttons["statsNextPage"]
+            if !next.exists || !next.isEnabled { break }
+            XCTAssertTrue(next.isHittable); next.tap()
+        }
+        XCTAssertTrue(abilitiesSeen)
+        app.buttons["detailTab-types"].tap(); assertAllTypes(app)
+        XCTAssertEqual(app.scrollViews.count, 0)
+    }
+
+    private func assertAllTypes(_ app: XCUIApplication) {
+        for name in "normal fire water electric grass ice fighting poison ground flying psychic bug rock ghost dragon dark steel fairy".split(separator: " ") {
+            let tile = app.descendants(matching: .any).matching(identifier: "typeMatchup-\(name)").firstMatch
+            XCTAssertTrue(tile.waitForExistence(timeout: 5), String(name))
+            XCTAssertTrue(tile.isHittable, "\(name) is clipped")
+            XCTAssertTrue(app.frame.contains(tile.frame), "\(name) extends outside the display")
+        }
+    }
+}

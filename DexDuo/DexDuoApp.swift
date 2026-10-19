@@ -1,8 +1,8 @@
 import SwiftUI
 
-final class OrientationDelegate: NSObject, UIApplicationDelegate {
+@MainActor final class OrientationDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        .portrait
+        DevicePresentation.orientations(for: window)
     }
 }
 
@@ -11,12 +11,14 @@ final class OrientationDelegate: NSObject, UIApplicationDelegate {
     var body: some Scene { WindowGroup { DexDuoView() } }
 }
 
-private let shell = Color(red: 0.72, green: 0.075, blue: 0.13)
-private let ink = Color(red: 0.10, green: 0.18, blue: 0.17)
-private let lcd = Color(red: 0.80, green: 0.88, blue: 0.71)
+private let shell = DexAppearance.shell
+private let ink = DexAppearance.ink
+private let lcd = DexAppearance.lcd
 
 struct DexDuoView: View {
     @StateObject private var store = DexStore()
+    @StateObject private var presentation = DevicePresentation()
+    @Environment(\.scenePhase) private var scenePhase
     @State private var opened = false
     @State private var hardwareControlsCover = true
     @State private var scanning = false
@@ -26,30 +28,42 @@ struct DexDuoView: View {
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color(red: 0.87, green: 0.14, blue: 0.20), shell, Color(red: 0.49, green: 0.03, blue: 0.08)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
-            if opened { FixedInterior { interior } }
-            if !opened { cover.ignoresSafeArea(.container, edges: .all) }
-        }
-        .modifier(HingeCoverObserver { isClosed in
-            hardwareControlsCover = isClosed != nil
-            if let isClosed {
-                // Close immediately, including any presented scanner, before the
-                // app transfers to the cover display. Retain the selected entry.
-                var transaction = Transaction(animation: nil)
-                transaction.disablesAnimations = true
-                withTransaction(transaction) {
-                    if isClosed { scanning = false; searchFocused = false }
-                    opened = !isClosed
-                }
+            switch presentation.state.profile {
+            case .phone:
+                PhoneDexView(store: store, presentation: presentation, opened: $opened)
+            case .duo, .tablet:
+                ZStack {
+                    if opened { FixedInterior { interior }.accessibilityIdentifier("duoInterior") }
+                    if !opened { cover.ignoresSafeArea(.container, edges: .all) }
+                }.ignoresSafeArea(.container, edges: .horizontal)
+                    .accessibilityElement(children: .contain).accessibilityIdentifier("duoPresentation")
+            case .unresolved:
+                Color.clear
             }
-        })
+        }
+        .background(DeviceProfileProbe(presentation: presentation).frame(width: 0, height: 0).accessibilityHidden(true))
+        .onChange(of: presentation.state.profile) { _, _ in applyDeviceState() }
+        .onChange(of: presentation.state.isFolded) { _, _ in applyDeviceState() }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active { presentation.requestLandscapeIfNeeded() }
+        }
         // Keyboard presentation must not change the instrument coordinate system
         // or replace the focused field through the wide/compact layout branch.
         .ignoresSafeArea(.keyboard)
-        .ignoresSafeArea(.container, edges: .horizontal)
         .statusBarHidden(true)
         .preferredColorScheme(.light)
-        .sheet(isPresented: $scanning) { ScannerView(store: store) }
+        .sheet(isPresented: $scanning) { ScannerView(store: store, isPresented: $scanning) }
         .task { await store.start() }
+    }
+    private func applyDeviceState() {
+        hardwareControlsCover = presentation.state.profile == .duo
+        guard hardwareControlsCover else { return }
+        var transaction = Transaction(animation: nil)
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+            if presentation.state.isFolded { scanning = false; searchFocused = false }
+            opened = !presentation.state.isFolded
+        }
     }
     private var interior: some View {
         VStack(spacing: 0) {
@@ -144,6 +158,7 @@ struct DexDuoView: View {
             .contentShape(Rectangle())
             .onTapGesture { if !hardwareControlsCover { opened = true } }
             .accessibilityElement(children: .ignore)
+            .accessibilityIdentifier("duoCover")
             .accessibilityLabel("Closed DexDuo cover")
             .accessibilityHint(hardwareControlsCover ? "Unfold the device to open the DexDuo" : "Double tap to open")
         }
@@ -265,21 +280,6 @@ struct DexDuoView: View {
     }
     private func infoRow(_ label: String, _ value: String) -> some View {
         HStack { Text(label).font(.caption.monospaced()).opacity(0.6); Spacer(); Text(value).font(.system(.body, design: .monospaced).bold()) }
-    }
-}
-
-/// Defaults to a closed cover while the initial hardware context is delivered.
-/// Ordinary iPhones/iPads retain the manual preview control.
-private struct HingeCoverObserver: ViewModifier {
-    let update: (Bool?) -> Void
-    @ViewBuilder func body(content: Content) -> some View {
-        if #available(iOS 27.1, *) {
-            content.onHingeChange { _, context in
-                update(context.hinge.map { $0.status == .closed })
-            }
-        } else {
-            content.onAppear { update(nil) }
-        }
     }
 }
 
