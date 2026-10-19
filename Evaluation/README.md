@@ -28,7 +28,7 @@ Raw images are in ignored `Evaluation/Images/`. `fixtures.json` contains labels,
 After installing `Tools/model-requirements.txt` and downloading the pinned source checkpoint, run:
 
 ```sh
-python Tools/benchmark_model.py --model-dir Pokedex/Models --source .model-cache/source --fixtures Evaluation/fixtures.json --report Evaluation/benchmark-report.json
+python Tools/benchmark_model.py --model-dir DexDuo/Models --source .model-cache/source --fixtures Evaluation/fixtures.json --report Evaluation/benchmark-report.json
 ```
 
 The script requires at least 60 positive and 30 negative images, checks parity on every third input (at least 30), and disables automatic lookup if no tested threshold passes >=95% automatic accuracy with zero negative automatic lookups. It requires at least five positive automatic lookups to avoid an empty-set pass. It updates `ModelManifest.json` only after conversion parity passes.

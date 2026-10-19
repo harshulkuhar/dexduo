@@ -39,7 +39,7 @@
   },
   "packageChecksums": {
     "PokemonClassifier.mlpackage/Manifest.json": "503bc6571d6f2159b93a0e9c014fcf88b9e45987614b8be48dcdd9df60c278ec",
-    "PokemonClassifier.mlpackage/Data/com.apple.CoreML/model.mlmodel": "71176953a5aa57fcb743b7c6fd52920fcd58153e8c7e3e28810ce056a4bc0d5b",
+    "PokemonClassifier.mlpackage/Data/com.apple.CoreML/model.mlmodel": "05223ae46322847bc89fd5ab032fd5e59899e1f450233be9eb4b2c72d7f211ee",
     "PokemonClassifier.mlpackage/Data/com.apple.CoreML/weights/weight.bin": "12c44487cf6d26e6b1350a9162eac82b6321c9036366ce6f48a934cdff9972cf"
   },
   "benchmarkReportSHA256": "bc6c0b61f5e8c4e10905d15c5e2ebb3b4e15aaadc025aa7e15f60d54087c9f99"

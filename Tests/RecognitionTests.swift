@@ -1,7 +1,7 @@
 import XCTest
 import UIKit
 import CoreML
-@testable import Pokedex
+@testable import DexDuo
 
 final class RecognitionTests: XCTestCase {
     let pikachu = PokemonLabel(index: 24, speciesID: 25, name: "Pikachu", apiName: "pikachu")

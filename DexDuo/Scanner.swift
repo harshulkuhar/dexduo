@@ -71,7 +71,7 @@ struct ScannerView: View {
         }
         let allowed = await AVCaptureDevice.requestAccess(for: .video)
         if allowed { camera = true }
-        else { scanner.showMessage("Camera access is off. Enable it for Pokédex in Settings, or import a photo.") }
+        else { scanner.showMessage("Camera access is off. Enable it for DexDuo in Settings, or import a photo.") }
     }
 }
 

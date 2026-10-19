@@ -146,6 +146,6 @@ actor PokemonRecognitionService {
         guard !Task.isCancelled, generation.accepts(token) else { return }
         working = false
         if success { retryCandidate = nil; dismiss() }
-        else { retryCandidate = candidate; message = "Couldn’t load \(candidate.name)’s Pokédex data. Check your connection and retry." }
+        else { retryCandidate = candidate; message = "Couldn’t load \(candidate.name)’s DexDuo data. Check your connection and retry." }
     }
 }
