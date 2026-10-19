@@ -2,6 +2,8 @@
 
 Native SwiftUI Pokémon companion inspired by Ash's original red handheld. Open `DexDuo.xcodeproj` in Xcode 27.1 or later and run the `DexDuo` scheme on an iOS 17+ device or Simulator. No API keys or third-party iOS runtime packages are required.
 
+Planned features and acceptance criteria: [release PRD](docs/PRD.md). Branch status and verification still needed: [delivery checkpoint](docs/DELIVERY.md).
+
 ## Implemented
 
 - Text-free red cover on the closed display; automatic cover/interior switching through the iOS 27.1 hinge API. Ordinary devices retain manual Cover/Open previews.
