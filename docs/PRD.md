@@ -15,7 +15,7 @@ The name is **DexDuo**, selected by the owner. The six specifications below defi
 | Robotic spoken entries | [Speech](prd/02-spoken-entries.md) | `codex/robotic-entries` | Layout controls |
 | Lens flash during speech | [Lens](prd/03-lens-flash.md) | `codex/lens-flash` | Speech playback state |
 | Evolution chains | [Evolution](prd/04-evolution-chains.md) | `codex/evolution-chains` | Layout paging |
-| Weaknesses and resistances | [Type chart](prd/05-type-matchups.md) | `codex/type-matchups` | Layout paging |
+| Weaknesses and resistances | [Type chart](prd/05-type-matchups.md) | `codex/type-matchups` | Existing detail panel; standalone grid |
 
 ## Existing behavior to preserve
 
@@ -29,7 +29,7 @@ The name is **DexDuo**, selected by the owner. The six specifications below defi
 
 ## Interaction rules
 
-App-owned screens never scroll. Info, Stats, Evolution and Types are fixed detail tabs. Long entries, long ability lists, evolution branches and matchup lists use explicit previous/next page controls. Each page shows its position and preserves access to search and primary actions. Apple-owned Photos and camera interfaces retain their system behavior.
+App-owned screens never scroll. Info, Stats, Evolution and Types are fixed detail tabs. Long entries, long ability lists and evolution branches use explicit previous/next page controls. The Types tab shows all 18 matchups together in a responsive grid. Each page shows its position and preserves access to search and primary actions. Apple-owned Photos and camera interfaces retain their system behavior.
 
 Ordinary iPhones run in landscape. A Duo retains its existing cover and interior behavior. Insets protect controls around camera cutouts, while the red shell fills the display. Layout uses available space instead of shrinking a tablet-sized canvas until text and buttons become unusable.
 
@@ -46,11 +46,11 @@ Add small, testable components for speech state, evolution decoding and type mul
 1. Finish the DexDuo rename, including project/module identifiers and repository identity.
 2. Remove unused code and redundant scaffolding on `codex/cleanup`; retain regression coverage.
 3. Deliver these PRDs on `codex/dexduo-prds`.
-4. Implement landscape layout first, then speech and its lens feedback, then evolution and type matchups. Independent data-layer work can proceed before its UI dependency is merged.
+4. Implement the responsive type-matchup grid first, as selected by the owner. Then implement landscape layout, speech and its lens feedback, and evolution. The type grid fits the existing detail panel without waiting for the broader layout rewrite.
 
 The initial review stack is [rename PR #1](https://github.com/harshulkuhar/dexduo/pull/1), then [cleanup PR #2](https://github.com/harshulkuhar/dexduo/pull/2), then documentation. Feature branches start from this reviewed baseline. Before implementation, update each branch to the latest merged baseline. Do not merge an older planning branch over newer work.
 
-The owner has authorized branch work, PR creation and merging. Runtime PRs remain draft until the required iOS build and regression checks pass. Xcode is downloading at the time of this document; syntax checks and portable tests do not replace those checks. Documentation checks can run immediately.
+The owner has authorized branch work, PR creation and merging. Runtime PRs remain draft until the required iOS build and regression checks pass. Xcode 27.1 is installed and iOS Simulator builds pass; the Simulator runtime is downloading. Portable tests and successful compilation do not replace the pending iOS UI/regression checks.
 
 ## Release acceptance
 
@@ -61,7 +61,7 @@ The owner has authorized branch work, PR creation and merging. Runtime PRs remai
 | Layout | No clipped or unreachable controls at compact and large landscape sizes, keyboard visible and hidden, and supported text sizes |
 | Speech/lens | Audible robotic treatment, offline operation, correct cancellation, synchronized light and reduced-motion behavior |
 | Evolution | Complete linear and branching families; conditions, selection, paging, offline cache and failure retry |
-| Types | All 18 standard attacking types represented; correct single/dual multipliers, immunities and explicit type-only scope |
+| Types | All 18 standard attacking types visible together; correct multipliers, reference colors, matching sprite badges and explicit type-only scope |
 | Regressions | Full search, import, candidate lookup, failed lookup, cached artwork and repeated fold/unfold checks |
 
 Run the renamed `DexDuo` scheme's unit and UI suites after Xcode is ready. Test a compact landscape phone (667×375 points), a notched landscape phone (812×375 points), a current larger phone, and Duo closed/open. Use available simulator profiles or equivalent resized test configurations; do not assume a profile exists before inspecting the installed runtime. Repeat at least 20 fold/unfold cycles and both ordinary-phone landscape directions.
