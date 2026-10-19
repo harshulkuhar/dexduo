@@ -201,6 +201,7 @@ struct PhoneArtworkPanel: View {
                     else { ProgressView() }
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
                     .accessibilityIdentifier("pokemonArtwork")
+                    .accessibilityLabel(store.pokemon.map { "\($0.title) artwork" } ?? "Pokémon artwork")
                 if let pokemon = store.pokemon {
                     Text(pokemon.title.uppercased()).font(.system(size: 20, weight: .black, design: .rounded))
                         .lineLimit(2).fixedSize(horizontal: false, vertical: true)

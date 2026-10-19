@@ -17,6 +17,7 @@ final class PhoneUITests: XCTestCase {
         let app = XCUIApplication()
         try open(app)
         XCTAssertTrue(app.staticTexts["PIKACHU"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.images["pokemonArtwork"].waitForExistence(timeout: 20))
         let artwork = app.otherElements["phoneArtworkPanel"]
         let details = app.otherElements["phoneDetailsPanel"]
         XCTAssertTrue(artwork.exists); XCTAssertTrue(details.exists)
@@ -34,6 +35,7 @@ final class PhoneUITests: XCTestCase {
         XCTAssertTrue(app.buttons["phoneCover"].waitForExistence(timeout: 5))
         app.buttons["phoneCover"].tap()
         XCTAssertTrue(app.staticTexts["PIKACHU"].exists)
+        XCTAssertTrue(app.images["pokemonArtwork"].exists, "Artwork must remain loaded when the cover reopens")
         assertAllTypes(app)
         XCTAssertEqual(app.scrollViews.count, 0)
     }
