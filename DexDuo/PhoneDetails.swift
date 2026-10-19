@@ -128,23 +128,23 @@ private struct PhoneStats: View {
             let count = combined ? 1 : statPageCount + abilityPages.count
             let current = min(page, count - 1)
             VStack(alignment: .leading, spacing: 6) {
-                if combined || current < statPageCount {
-                    VStack(spacing: 2) {
-                        ForEach(Array(pokemon.stats.dropFirst(combined ? 0 : current * capacity).prefix(combined ? pokemon.stats.count : capacity)), id: \.stat.name) { stat in
-                            statRow(stat).frame(height: rowHeight)
+                VStack(alignment: .leading, spacing: 6) {
+                    if combined || current < statPageCount {
+                        VStack(spacing: 2) {
+                            ForEach(Array(pokemon.stats.dropFirst(combined ? 0 : current * capacity).prefix(combined ? pokemon.stats.count : capacity)), id: \.stat.name) { stat in
+                                statRow(stat).frame(height: rowHeight)
+                            }
                         }
+                        HStack {
+                            Text("BASE TOTAL").font(.system(size: 12, weight: .bold, design: .monospaced))
+                            Spacer()
+                            Text("\(pokemon.baseStatTotal)").font(.system(size: 14, weight: .bold, design: .monospaced))
+                        }.frame(height: 22).accessibilityElement(children: .combine)
+                        if combined { abilityText(abilities) }
+                    } else {
+                        abilityText(abilityPages[current - statPageCount])
                     }
-                    HStack {
-                        Text("BASE TOTAL").font(.system(size: 12, weight: .bold, design: .monospaced))
-                        Spacer()
-                        Text("\(pokemon.baseStatTotal)").font(.system(size: 14, weight: .bold, design: .monospaced))
-                    }.frame(height: 22).accessibilityElement(children: .combine)
-                    if combined { abilityText(abilities) }
-                    Spacer(minLength: 0)
-                } else {
-                    abilityText(abilityPages[current - statPageCount])
-                    Spacer(minLength: 0)
-                }
+                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 if count > 1 { PhonePageControls(page: $page, count: count, identifier: "stats") }
             }
         }.onChange(of: pokemon.id) { _, _ in page = 0 }

@@ -113,7 +113,7 @@ struct PhoneDexView: View {
 
     private var searchResults: some View {
         GeometryReader { space in
-            let capacity = PhoneLayoutMetrics.resultCapacity(height: space.size.height)
+            let capacity = PhoneLayoutMetrics.resultCapacity(height: space.size.height, maximum: max(1, store.matches.count))
             let pageCount = max(1, (store.matches.count + capacity - 1) / capacity)
             let page = min(searchPage, pageCount - 1)
             HStack(alignment: .top, spacing: 8) {

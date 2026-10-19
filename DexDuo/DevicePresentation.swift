@@ -19,6 +19,7 @@ extension DeviceProfile {
 
     func observe(window: UIWindow?, hasHinge: Bool, closed: Bool?) {
         guard let window, let scene = window.windowScene else { return }
+        if self.window?.windowScene !== scene { requestedLandscape = false }
         self.window = window
         var next = state
         next.observe(isPhone: UIDevice.current.userInterfaceIdiom == .phone,
@@ -31,15 +32,20 @@ extension DeviceProfile {
     }
 
     func requestLandscapeIfNeeded(retry: Bool = false) {
-        guard state.profile == .phone, let scene = window?.windowScene,
-              !scene.interfaceOrientation.isLandscape else { return }
+        guard state.profile == .phone, let scene = window?.windowScene else { return }
+        if scene.interfaceOrientation.isLandscape {
+            requestedLandscape = false
+            orientationFailed = false
+            return
+        }
         if retry { requestedLandscape = false }
         guard !requestedLandscape, scene.activationState == .foregroundActive else { return }
         requestedLandscape = true
         orientationFailed = false
         Task { @MainActor [weak self, weak scene] in
             await Task.yield()
-            guard let self, let scene, self.state.profile == .phone else { return }
+            guard let self, let scene, self.state.profile == .phone,
+                  self.window?.windowScene === scene, scene.activationState == .foregroundActive else { return }
             scene.requestGeometryUpdate(.iOS(interfaceOrientations: .landscape)) { [weak self] _ in
                 Task { @MainActor in
                     self?.requestedLandscape = false

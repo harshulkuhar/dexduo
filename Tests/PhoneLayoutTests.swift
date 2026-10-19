@@ -60,6 +60,7 @@ final class PhoneLayoutTests: XCTestCase {
         XCTAssertEqual(PhoneLayoutMetrics.resultCapacity(height: 44), 1)
         XCTAssertEqual(PhoneLayoutMetrics.resultCapacity(height: 92), 2)
         XCTAssertEqual(PhoneLayoutMetrics.resultCapacity(height: 500), 3)
+        XCTAssertEqual(PhoneLayoutMetrics.resultCapacity(height: 307, maximum: 8), 6)
     }
 
     func testWordPagesRetainAllTextAndHandleLongTokens() {
@@ -110,6 +111,8 @@ final class PhoneLayoutTests: XCTestCase {
                    size: CGSize(width: 667, height: 375), name: "interior-accessibility")
         try render(PhoneDetails(store: store, tab: .constant(.types)).environment(\.dynamicTypeSize, .accessibility5),
                    size: CGSize(width: 643, height: 255), name: "types-accessibility", checkTypes: true)
+        try render(PhoneDetails(store: store, tab: .constant(.stats)).environment(\.dynamicTypeSize, .accessibility5),
+                   size: CGSize(width: 643, height: 255), name: "stats-accessibility")
         try render(PhoneDetails(store: store, tab: .constant(.info)).environment(\.dynamicTypeSize, .accessibility5),
                    size: CGSize(width: 643, height: 255), name: "info-accessibility")
     }
