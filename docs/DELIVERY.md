@@ -10,7 +10,9 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 - [PR #3](https://github.com/harshulkuhar/dexduo/pull/3): [release and feature PRDs](PRD.md); merged into `main`.
 - [PR #4](https://github.com/harshulkuhar/dexduo/pull/4): responsive type grid and shared sprite-badge colors; merged at the owner’s request before the pending Simulator checks.
 
-The owner requested consolidating all four PRs into `main`. This authorization does not mean the pending runtime or hardware checks have passed. The repository workflow is recorded in [AGENTS.md](../AGENTS.md): one PR per completed feature, and pull/synchronize every remaining feature branch after each merge.
+- [PR #5](https://github.com/harshulkuhar/dexduo/pull/5): landscape iPhone support; draft while ordinary-phone UI tests are pending.
+
+The owner requested consolidating the first four PRs into `main`. This authorization does not mean the pending runtime or hardware checks have passed. The repository workflow is recorded in [AGENTS.md](../AGENTS.md): one PR per completed feature, and pull/synchronize every remaining feature branch after each merge.
 
 ## Verification completed
 
