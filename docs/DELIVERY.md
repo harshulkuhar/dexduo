@@ -43,6 +43,8 @@ Xcode 27.1 is now installed. The renamed baseline and the type-grid app/test tar
 
 ## Type-grid implementation
 
+[PR #4](https://github.com/harshulkuhar/dexduo/pull/4) is draft pending the Simulator runtime and iOS regression checks.
+
 The Types tab displays all 18 matchups in the first fitting layout among 3×6, 2×9, 6×3 and 9×2. The grid and sprite badges share the reference palette; the green sprite-screen background is unchanged. The chart, pinned CSV snapshot, provenance and license are bundled/retained without adding runtime requests.
 
 Verification completed: all 324 source relationships, nine native macOS calculator/layout XCTest cases (including Gyarados and all dual-type pairs), iOS Simulator build-for-testing, model integrity, generator consistency and project/documentation checks. The actual SwiftUI component was rendered at all four layout sizes outside Git; all 18 header colors are present in each render. Sampled Water/Flying badge and grid-header pixels match exactly. This render is not an iOS Simulator screenshot.
