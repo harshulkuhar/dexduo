@@ -31,7 +31,7 @@ Verification:
 - The final unsigned generic-iOS Release build passes. The phone scanner was visually inspected outside Git. Source registration, whitespace, no-media and no-personal-signing checks pass.
 - The required dead-code-removal skill removed `CameraPicker`, its obsolete delegate methods, camera-sheet state, `openCamera` and a newly redundant preview forwarding property. Framework callbacks, camera/inference cancellation and existing recognition/artwork caches retain their consumers.
 
-The Air is reconnected for a signed build and manual camera checks. Actual camera framing, preview/photo orientation in both landscape directions, real card/screen capture and repeated physical scanner opening remain pending until confirmed. Actual Duo camera verification requires hardware. Simulator/mocked capture results do not establish those hardware checks. Personal Xcode signing/settings stay local and no screenshots, recordings or photographs are committed.
+The signed Debug build was installed and launched on the Air. The owner confirms the embedded live preview, Capture and Retake work in both landscape directions. Real card/screen recognition accuracy, timings and longer repeated camera sessions remain pending. Actual Duo camera verification requires hardware. Simulator/mocked capture results do not establish those hardware checks. Personal Xcode signing/settings stay local and no screenshots, recordings or photographs are committed.
 
 ## Speaking lens
 
