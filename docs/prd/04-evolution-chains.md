@@ -8,9 +8,9 @@ Add EVO beside Info, Stats and Types on the right. Use official-artwork thumbnai
 
 Info, Stats and Evolution scroll vertically inside the green LCD. Tabs, toolbar, artwork and casing remain fixed. Info shows the entire entry and then height/weight. Stats shows six values, total and abilities. Types keeps all 18 cells visible without scrolling. Search/scanner result paging is independent. Accessibility retains the full-width Details presentation.
 
-Straight chains use a horizontal chart with conditions between nodes where readable. Narrow and accessibility layouts use a vertical arrangement. Branching families are one continuous connected tree with shared ancestors shown once. All eight Eevee branches are reachable by scrolling; there are no branch or stage pages. Family scroll context survives selecting a member and reopening the view. A new family initially reveals the selected member.
+All families use a vertical chart with full-width member cards and readable requirements between stages. Condition text wraps to the available width and grows vertically; there are no narrow arrow columns. Branching families are one continuous connected tree with shared ancestors shown once. All eight Eevee branches are reachable by scrolling; there are no branch or stage pages. Family scroll context survives selecting a member and reopening the view. A new family initially reveals the selected member.
 
-Tapping an arrow opens complete evolution methods inside the LCD, with a fixed Back control and vertically scrolling content. Default methods are summarized on arrows when unambiguous. Alternatives, compound requirements, introduction version groups and supplied regional/form restrictions remain available. Unrecognized requirements are marked unresolved rather than guessed. Standalone species show “No known evolutions.”
+Evolution requirements are visible directly in the family tree: levels, items, friendship and compound requirements do not require a tap or a separate details screen. Default methods appear first; alternatives are separated by “or”, retaining introduction version groups and supplied regional/form restrictions. Downward arrows are decorative. There is no instruction to tap an arrow. Unrecognized requirements are marked unresolved rather than guessed. Standalone species show “No known evolutions.”
 
 ## Data and lifecycle
 
@@ -22,9 +22,9 @@ Generation guards reject obsolete loads and selections after closure, folding or
 
 ## Acceptance
 
-Use committed JSON fixtures with provenance, not image fixtures. Cover Gastly’s reference, Eevee’s eight branches and older alternatives, Wurmple, Applin’s uneven depth, standalone species, default-form identifiers, compound and regional requirements, unknown conditions, stale results, failure retry and offline cache reuse.
+Use committed JSON fixtures with provenance, not image fixtures. Cover Geodude’s level/trade requirements and Alolan alternatives, Gastly’s reference, Eevee’s eight branches and older alternatives, Wurmple, Applin’s uneven depth, standalone species, default-form identifiers, compound and regional requirements, unknown conditions, stale results, failure retry and offline cache reuse.
 
-Run iPhone 18 Pro Simulator interactions for all tabs, complete content, tree traversal, member selection, method details, fixed left artwork/tabs and both landscape directions. Render compact/notched/accessibility configurations. Run existing search, recognition, type-grid, retained-artwork and Duo orientation regressions; record actual fold cycles separately.
+Run iPhone 18 Pro Simulator interactions for all tabs, complete content, tree traversal, member selection, inline requirement wrapping, fixed left artwork/tabs and both landscape directions. Render compact/notched/accessibility configurations. Run existing search, recognition, type-grid, retained-artwork and Duo orientation regressions; record actual fold cycles separately.
 
 Deliver one feature PR and synchronize remaining branches after merging. Screenshots and captures remain outside Git.
 

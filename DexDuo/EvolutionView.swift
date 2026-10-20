@@ -1,12 +1,5 @@
 import SwiftUI
 
-struct EvolutionDiagramLayout {
-    static func horizontal(nodeCount: Int, width: CGFloat, fontSize: CGFloat, accessibility: Bool) -> Bool {
-        !accessibility && (2...3).contains(nodeCount)
-            && width >= CGFloat(nodeCount) * max(70, fontSize * 4.6) + CGFloat(nodeCount - 1) * 52
-    }
-}
-
 private struct EvolutionAnchors: PreferenceKey {
     static var defaultValue: [String: CGFloat] = [:]
     static func reduce(value: inout [String: CGFloat], nextValue: () -> [String: CGFloat]) { value.merge(nextValue(), uniquingKeysWith: { $1 }) }
@@ -15,86 +8,45 @@ private struct EvolutionAnchors: PreferenceKey {
 struct EvolutionView: View {
     @ObservedObject var store: DexStore
     @ObservedObject var model: EvolutionModel
-    @Environment(\.dynamicTypeSize) private var textSize
     @ScaledMetric(relativeTo: .body) private var fontSize: CGFloat = 14
-    @State private var method: EvolutionLink?
     @State private var restored = false
 
     var body: some View {
         VStack(spacing: 0) {
-            if let method {
-                VStack(alignment: .leading, spacing: 4) {
-                    Button { self.method = nil } label: { Label("Back to family", systemImage: "chevron.left").frame(minHeight: 44) }
-                        .font(.system(size: 14, weight: .semibold)).accessibilityIdentifier("evolutionBack")
+            if let chain = model.chain {
+                ScrollViewReader { proxy in
                     ScrollView(.vertical) {
-                        VStack(alignment: .leading, spacing: 16) {
-                            Text("Evolve into \(method.species.title)").font(.system(size: fontSize, weight: .bold))
-                            if method.evolution_details.isEmpty { Text("Evolution requirements are not available.") }
-                            ForEach(Array(method.evolution_details.enumerated()), id: \.offset) { index, detail in
-                                VStack(alignment: .leading, spacing: 6) {
-                                    Text("METHOD \(index + 1)" + (detail.isDefault ? " · DEFAULT" : ""))
-                                        .font(.system(size: 11, weight: .bold, design: .monospaced))
-                                    ForEach(Array(detail.requirements.enumerated()), id: \.offset) { _, line in Text(line) }
-                                    if let version = detail.version { Text("Introduced: \(version)").font(.system(size: 12)) }
+                        VStack(alignment: .leading, spacing: 12) {
+                            if let error = model.selectionError {
+                                Text(error).font(.system(size: fontSize)).accessibilityIdentifier("evolutionSelectionError")
+                                if let failed = model.failedMember {
+                                    Button("Retry selection") { model.choose(failed, store: store) }.frame(minHeight: 44)
+                                        .disabled(model.choosing != nil).accessibilityIdentifier("evolutionRetrySelection")
                                 }
-                                Divider()
                             }
-                            Text("Conditions can vary by game. Form restrictions are shown when supplied.").font(.system(size: 12))
-                        }.font(.system(size: fontSize)).fixedSize(horizontal: false, vertical: true)
-                            .frame(maxWidth: .infinity, alignment: .leading).padding(.trailing, 6)
-                    }.scrollIndicators(.visible).accessibilityIdentifier("evolutionMethodsScroll")
-                }
-            } else if let chain = model.chain {
-                GeometryReader { space in
-                    ScrollViewReader { proxy in
-                        ScrollView(.vertical) {
-                            VStack(alignment: .leading, spacing: 12) {
-                                if let error = model.selectionError {
-                                    Text(error).font(.system(size: fontSize)).accessibilityIdentifier("evolutionSelectionError")
-                                    if let failed = model.failedMember {
-                                        Button("Retry selection") { model.choose(failed, store: store) }.frame(minHeight: 44)
-                                            .disabled(model.choosing != nil).accessibilityIdentifier("evolutionRetrySelection")
-                                    }
-                                }
-                                Text("Species family · default forms").font(.system(size: 11, design: .monospaced))
-                                    .foregroundStyle(DexAppearance.ink.opacity(0.7))
-                                if let linear = chain.chain.linear,
-                                   EvolutionDiagramLayout.horizontal(nodeCount: linear.count, width: space.size.width - 6,
-                                                                     fontSize: fontSize, accessibility: textSize.isAccessibilitySize) {
-                                    HStack(alignment: .center, spacing: 4) {
-                                        ForEach(Array(linear.enumerated()), id: \.element.id) { index, link in
-                                            if index > 0 {
-                                                EvolutionCondition(link: link, horizontal: true) { method = link }.frame(width: 44)
-                                            }
-                                            EvolutionNode(link: link, model: model, store: store, column: true).frame(maxWidth: .infinity)
-                                        }
-                                    }
-                                } else {
-                                    EvolutionTree(link: chain.chain, model: model, store: store, showMethod: { method = $0 })
-                                }
-                                if chain.chain.evolves_to.isEmpty {
-                                    Text("No known evolutions.").font(.system(size: fontSize)).accessibilityIdentifier("evolutionStandalone")
-                                }
-                                Text("Tap a Pokémon to open it. Tap an arrow for its evolution methods.")
-                                    .font(.system(size: 12)).foregroundStyle(DexAppearance.ink.opacity(0.75))
-                            }.padding(.trailing, 6).padding(.bottom, 4)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }.coordinateSpace(name: "evolutionScroll")
-                            .scrollIndicators(.visible).accessibilityIdentifier("evolutionScroll")
-                            .onPreferenceChange(EvolutionAnchors.self) { values in
-                                if restored { model.scrollAnchor = values.min(by: { abs($0.value) < abs($1.value) })?.key }
+                            Text("Species family · default forms").font(.system(size: 11, design: .monospaced))
+                                .foregroundStyle(DexAppearance.ink.opacity(0.7))
+                            EvolutionTree(link: chain.chain, model: model, store: store)
+                            if chain.chain.evolves_to.isEmpty {
+                                Text("No known evolutions.").font(.system(size: fontSize)).accessibilityIdentifier("evolutionStandalone")
                             }
-                            .task(id: chain.id) {
-                                restored = false
-                                let target = model.scrollAnchor ?? store.pokemon?.species.name
-                                await Task.yield()
-                                guard !Task.isCancelled else { return }
-                                if let target { proxy.scrollTo(target, anchor: .top) }
-                                await Task.yield()
-                                restored = true
-                            }
-                    }.id(chain.id)
-                }
+                        }.padding(.trailing, 6).padding(.bottom, 4)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }.coordinateSpace(name: "evolutionScroll")
+                        .scrollIndicators(.visible).accessibilityIdentifier("evolutionScroll")
+                        .onPreferenceChange(EvolutionAnchors.self) { values in
+                            if restored { model.scrollAnchor = values.min(by: { abs($0.value) < abs($1.value) })?.key }
+                        }
+                        .task(id: chain.id) {
+                            restored = false
+                            let target = model.scrollAnchor ?? store.pokemon?.species.name
+                            await Task.yield()
+                            guard !Task.isCancelled else { return }
+                            if let target { proxy.scrollTo(target, anchor: .top) }
+                            await Task.yield()
+                            restored = true
+                        }
+                }.id(chain.id)
             } else if let error = model.error {
                 ScrollView(.vertical) {
                     VStack(alignment: .leading, spacing: 8) {
@@ -109,22 +61,28 @@ struct EvolutionView: View {
         }
         .task(id: store.pokemon?.species.name) { if let species = store.pokemon?.species.name { await model.load(for: species) } }
         .onDisappear { model.cancel() }
-        .onChange(of: store.pokemon?.species.name) { _, _ in method = nil }
     }
-
 }
 
 private struct EvolutionCondition: View {
     let link: EvolutionLink
-    var horizontal = false
-    let show: () -> Void
+    @ScaledMetric(relativeTo: .body) private var fontSize: CGFloat = 14
+
     var body: some View {
-        Button(action: show) {
-            VStack(spacing: 3) {
-                Image(systemName: horizontal ? "arrow.right" : "arrow.turn.down.right").font(.system(size: 18))
-                Text(link.summary == "Methods…" ? "Methods" : link.summary).font(.system(size: 14)).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
-            }.frame(minWidth: 44, minHeight: 44).contentShape(Rectangle())
-        }.buttonStyle(.plain).accessibilityLabel("Evolution methods for \(link.species.title): \(link.summary)")
+        HStack(alignment: .top, spacing: 8) {
+            Image(systemName: "arrow.down").font(.system(size: 18)).accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(Array(link.conditions.enumerated()), id: \.offset) { index, condition in
+                    if index > 0 {
+                        Text("or").foregroundStyle(DexAppearance.ink.opacity(0.7))
+                    }
+                    Text(condition).fixedSize(horizontal: false, vertical: true)
+                }
+            }.font(.system(size: fontSize))
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }.frame(maxWidth: .infinity, alignment: .leading)
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("Evolve into \(link.species.title): " + link.conditions.joined(separator: "; or "))
             .accessibilityIdentifier("evolutionCondition-\(link.id)")
     }
 }
@@ -133,7 +91,6 @@ private struct EvolutionTree: View {
     let link: EvolutionLink
     @ObservedObject var model: EvolutionModel
     @ObservedObject var store: DexStore
-    let showMethod: (EvolutionLink) -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -141,13 +98,17 @@ private struct EvolutionTree: View {
             if !link.evolves_to.isEmpty {
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(link.evolves_to) { child in
-                        HStack(alignment: .top, spacing: 6) {
-                            EvolutionCondition(link: child) { showMethod(child) }.frame(width: 62)
-                            EvolutionTree(link: child, model: model, store: store, showMethod: showMethod)
+                        VStack(alignment: .leading, spacing: 8) {
+                            EvolutionCondition(link: child)
+                            EvolutionTree(link: child, model: model, store: store)
                         }
                     }
-                }.padding(.leading, 14)
-                    .overlay(alignment: .leading) { Rectangle().fill(DexAppearance.ink.opacity(0.25)).frame(width: 1).accessibilityHidden(true) }
+                }.padding(.leading, link.evolves_to.count > 1 ? 12 : 0)
+                    .overlay(alignment: .leading) {
+                        if link.evolves_to.count > 1 {
+                            Rectangle().fill(DexAppearance.ink.opacity(0.25)).frame(width: 1).accessibilityHidden(true)
+                        }
+                    }
             }
         }
     }
@@ -157,18 +118,18 @@ private struct EvolutionNode: View {
     let link: EvolutionLink
     @ObservedObject var model: EvolutionModel
     @ObservedObject var store: DexStore
-    var column = false
     @ScaledMetric(relativeTo: .body) private var fontSize: CGFloat = 14
     private var selected: Bool { store.pokemon?.species.name == link.id }
     private var number: Int? { link.species.url.split(separator: "/").last.flatMap { Int($0) } }
 
     var body: some View {
         Button { if !selected { model.choose(link.id, store: store) } } label: {
-            Group {
-                if column { VStack(spacing: 6) { artwork.frame(height: 72); metadata } }
-                else { HStack(spacing: 10) { artwork.frame(width: 48, height: 48); metadata; Spacer(minLength: 0) } }
+            HStack(spacing: 10) {
+                artwork.frame(width: 56, height: 56)
+                metadata
+                Spacer(minLength: 0)
             }.frame(maxWidth: .infinity, minHeight: 44)
-                .padding(column ? 3 : 6)
+                .padding(6)
                 .background(.white.opacity(selected ? 0.3 : 0.13), in: RoundedRectangle(cornerRadius: 6))
                 .overlay(RoundedRectangle(cornerRadius: 6).strokeBorder(selected ? Color.cyan : DexAppearance.ink.opacity(0.25), lineWidth: selected ? 2 : 1))
                 .contentShape(Rectangle())
@@ -189,10 +150,10 @@ private struct EvolutionNode: View {
         }.accessibilityHidden(true)
     }
     private var metadata: some View {
-        VStack(alignment: column ? .center : .leading, spacing: 3) {
+        VStack(alignment: .leading, spacing: 3) {
             if let number { Text(String(format: "#%04d", number)).font(.system(size: 10, design: .monospaced)) }
             Text(link.species.title).font(.system(size: fontSize, weight: .semibold))
-                .fixedSize(horizontal: false, vertical: true).multilineTextAlignment(column ? .center : .leading)
+                .fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.leading)
             if let member = model.members[link.id] {
                 HStack(spacing: 4) { ForEach(member.types, id: \.type.name) { PokemonTypeBadge(name: $0.type.name, compact: true) } }
             }
