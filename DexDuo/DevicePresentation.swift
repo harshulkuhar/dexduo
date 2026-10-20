@@ -13,8 +13,9 @@ extension DeviceProfile {
     private static var sceneProfiles: [ObjectIdentifier: DeviceProfile] = [:]
 
     static func orientations(for window: UIWindow?) -> UIInterfaceOrientationMask {
-        guard let scene = window?.windowScene else { return .portrait }
-        return (sceneProfiles[ObjectIdentifier(scene)] ?? .unresolved).orientationMask
+        if let scene = window?.windowScene, let profile = sceneProfiles[ObjectIdentifier(scene)] { return profile.orientationMask }
+        if #unavailable(iOS 27.1), UIDevice.current.userInterfaceIdiom == .phone { return .landscape }
+        return .portrait
     }
 
     func observe(window: UIWindow?, hasHinge: Bool, closed: Bool?) {
@@ -74,23 +75,31 @@ struct DeviceProfileProbe: UIViewRepresentable {
         }
         required init?(coder: NSCoder) { fatalError("init(coder:) is not supported") }
 
+        private func report(hasHinge: Bool, closed: Bool?) {
+            // UIKit may attach the probe while SwiftUI is laying out its root.
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.presentation?.observe(window: self.window, hasHinge: hasHinge, closed: closed)
+            }
+        }
+
         override func didMoveToWindow() {
             super.didMoveToWindow()
             guard window != nil else { return }
-            if #available(iOS 27.1, *), UIDevice.current.userInterfaceIdiom == .phone {
+            if #available(iOS 27.1, *) {
                 if hingeInteraction == nil {
                     let interaction = UIHingeInteraction { [weak self] _, update in
                         guard let self else { return }
                         let closed: Bool? = update.hinge.flatMap { hinge in
                             hinge.status == .unknown ? nil : hinge.status == .closed
                         }
-                        self.presentation?.observe(window: self.window, hasHinge: update.hinge != nil, closed: closed)
+                        self.report(hasHinge: update.hinge != nil, closed: closed)
                     }
                     hingeInteraction = interaction
                     addInteraction(interaction)
                 }
             } else {
-                presentation?.observe(window: window, hasHinge: false, closed: nil)
+                report(hasHinge: false, closed: nil)
             }
         }
     }

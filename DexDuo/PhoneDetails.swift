@@ -47,7 +47,7 @@ struct PhoneDetails: View {
             }
             .padding(8).frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(DexAppearance.lcd.gradient, in: RoundedRectangle(cornerRadius: 8))
-            .overlay(RoundedRectangle(cornerRadius: 8).stroke(DexAppearance.ink.opacity(0.5), lineWidth: 2))
+            .overlay(RoundedRectangle(cornerRadius: 8).strokeBorder(DexAppearance.ink.opacity(0.5), lineWidth: 2))
         }.accessibilityElement(children: .contain).accessibilityIdentifier("phoneDetailsPanel")
     }
 }

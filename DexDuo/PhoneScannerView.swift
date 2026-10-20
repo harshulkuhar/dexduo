@@ -39,7 +39,7 @@ struct PhoneScannerContent: View {
         }
         .foregroundStyle(DexAppearance.ink)
         .background(DexAppearance.shell.gradient)
-        .accessibilityIdentifier("phoneScanner")
+        .accessibilityElement(children: .contain).accessibilityIdentifier("phoneScanner")
         .onChange(of: scanner.image) { _, _ in page = 0 }
     }
 
