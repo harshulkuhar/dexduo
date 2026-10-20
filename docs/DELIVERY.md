@@ -19,7 +19,7 @@ The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) 
 
 ## Prompt scanner dismissal
 
-Branch `codex/scanner-dismissal`. Reproduced Scan/blue lens → Done without taking a photograph on the connected Air. Four baseline runs took **10.30–10.34 seconds**. After moving preview-session disconnection from the main thread to the existing camera queue, the final four runs took **1.84–1.85 seconds** and passed the two-second regression gate. These end-to-end XCTest measurements include tap/idle handling and waiting for the entry's search field; they are not raw animation timings.
+[PR #15](https://github.com/harshulkuhar/dexduo/pull/15), branch `codex/scanner-dismissal`. Reproduced Scan/blue lens → Done without taking a photograph on the connected Air. Four baseline runs took **10.30–10.34 seconds**. After moving preview-session disconnection from the main thread to the existing camera queue, the final four runs took **1.84–1.85 seconds** and passed the two-second regression gate. These end-to-end XCTest measurements include tap/idle handling and waiting for the entry's search field; they are not raw animation timings.
 
 The queued operation retains the preview layer through cleanup, and teardown clears the coordinator's weak preview reference before cancelling rotation observations. Existing camera cancellation, Capture/Retake and recognition behavior remain unchanged. The blocked-camera-queue unit test verifies that stop/disconnect return immediately while native cleanup is pending.
 
@@ -121,7 +121,7 @@ The original feature’s early UI runs exposed an identifier collision and narro
 
 ## Remaining feature branches
 
-`codex/embedded-camera` and `codex/evolution-connectors` are delivered through PRs #13 and #14. `codex/scanner-dismissal` is the current fix; no other active feature branches remain. Completed branches remain as history.
+`codex/embedded-camera` and `codex/evolution-connectors` are delivered through PRs #13 and #14. `codex/scanner-dismissal` is delivered through PR #15. No remaining active feature branches need synchronization after this merge. Completed branches remain as history.
 
 ## Next steps
 
