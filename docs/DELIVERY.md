@@ -11,7 +11,7 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 - [PR #4](https://github.com/harshulkuhar/dexduo/pull/4): responsive type grid and shared badge colors; merged.
 - [PR #5](https://github.com/harshulkuhar/dexduo/pull/5): landscape iPhone support; merged.
 - [PR #6](https://github.com/harshulkuhar/dexduo/pull/6): unused helpers, conformances and redundant cover state; merged.
-- Evolution delivery: EVO tab and scrollable Info/Stats/Evolution inside the right LCD, implemented on `codex/evolution-chains` with available Simulator checks complete. Types remains fixed. See [the updated PRD](prd/04-evolution-chains.md).
+- [PR #7](https://github.com/harshulkuhar/dexduo/pull/7): EVO tab and scrollable Info/Stats/Evolution inside the right LCD; available Simulator checks complete. Types remains fixed. See [the updated PRD](prd/04-evolution-chains.md).
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 

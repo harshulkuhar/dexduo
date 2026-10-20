@@ -1,6 +1,6 @@
 # 04 — Evolution families and scrollable details
 
-Status: implemented; iPhone 18 Pro and Duo Simulator validation passed. Branch: `codex/evolution-chains`.
+Status: implemented in [PR #7](https://github.com/harshulkuhar/dexduo/pull/7); iPhone 18 Pro and Duo Simulator validation passed. Branch: `codex/evolution-chains`.
 
 ## Experience
 
