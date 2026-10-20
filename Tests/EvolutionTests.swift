@@ -41,18 +41,21 @@ final class EvolutionTests: XCTestCase {
     func testGastlyMatchesReference() async throws {
         let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
         let family = try await repository.family(for: "haunter")
-        let line = try XCTUnwrap(family.chain.linear)
+        let line = family.chain.flattened
         XCTAssertEqual(line.map(\.id), ["gastly", "haunter", "gengar"])
-        XCTAssertEqual(line[1].summary, "Level 25")
-        XCTAssertEqual(line[2].summary, "Trade")
+        XCTAssertEqual(line[1].conditions, ["Level 25"])
+        XCTAssertEqual(line[2].conditions, ["Trade"])
     }
     func testEeveeRetainsAllEightBranchesAndAlternatives() async throws {
         let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
         let family = try await repository.family(for: "eevee")
         XCTAssertEqual(family.chain.evolves_to.map(\.id), ["vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"])
-        XCTAssertNil(family.chain.linear)
         let leafeon = try XCTUnwrap(family.chain.evolves_to.first { $0.id == "leafeon" })
-        XCTAssertEqual(leafeon.summary, "Use Leaf Stone")
+        XCTAssertTrue(leafeon.conditions[0].hasPrefix("Use Leaf Stone"))
+        XCTAssertTrue(leafeon.conditions.contains { $0.contains("Location: Eterna Forest") && $0.contains("Introduced: Diamond Pearl") })
+        let espeon = try XCTUnwrap(family.chain.evolves_to.first { $0.id == "espeon" })
+        XCTAssertTrue(espeon.conditions[0].contains("Friendship ≥ 160"))
+        XCTAssertTrue(espeon.conditions[0].contains("Time: Day"))
         XCTAssertGreaterThan(leafeon.evolution_details.count, 1)
         XCTAssertTrue(leafeon.evolution_details.contains { $0.requirements.contains("Location: Eterna Forest") })
     }
@@ -101,7 +104,8 @@ final class EvolutionTests: XCTestCase {
     func testRegionalRequirementsAreExplicit() async throws {
         let family = try await EvolutionRepository(api: try EvolutionFixtureAPI()).family(for: "mr-mime")
         let rime = try XCTUnwrap(family.chain.flattened.first { $0.id == "mr-rime" })
-        XCTAssertEqual(rime.summary, "Methods…")
+        XCTAssertTrue(rime.conditions[0].hasPrefix("Level 42"))
+        XCTAssertTrue(rime.conditions[0].contains("Required form: Mr Mime Galar"))
         XCTAssertTrue(rime.evolution_details[0].requirements.contains("Required form: Mr Mime Galar"))
         XCTAssertTrue(rime.evolution_details[0].requirements.contains("Level 42"))
     }
@@ -112,16 +116,31 @@ final class EvolutionTests: XCTestCase {
             XCTAssertTrue(method.requirements.contains(line), line)
         }
         XCTAssertTrue(method.hasUnresolvedRequirements)
-        XCTAssertEqual(method.shortSummary, "Methods…")
         let expression = try JSONDecoder().decode(EvolutionMethod.self, from: Data(#"{"trigger":{"name":"level-up"},"condition_expression":{"expression":"EC 10 % 0 ==","percentage_chance":10}}"#.utf8))
         XCTAssertTrue(expression.hasUnresolvedRequirements)
         XCTAssertTrue(expression.requirements.contains { $0.contains("10%") })
     }
-    func testHorizontalLayoutKeepsReadableCardsAndFallsBack() {
-        XCTAssertTrue(EvolutionDiagramLayout.horizontal(nodeCount: 3, width: 320, fontSize: 14, accessibility: false))
-        XCTAssertFalse(EvolutionDiagramLayout.horizontal(nodeCount: 3, width: 313, fontSize: 14, accessibility: false))
-        XCTAssertFalse(EvolutionDiagramLayout.horizontal(nodeCount: 3, width: 600, fontSize: 43, accessibility: true))
-        XCTAssertFalse(EvolutionDiagramLayout.horizontal(nodeCount: 4, width: 900, fontSize: 14, accessibility: false))
+    func testGeodudeDisplaysRequirementsInsteadOfGenericMethods() async throws {
+        let family = try await EvolutionRepository(api: try EvolutionFixtureAPI()).family(for: "geodude")
+        let nodes = family.chain.flattened
+        XCTAssertEqual(nodes.map(\.id), ["geodude", "graveler", "golem"])
+        XCTAssertTrue(nodes[1].conditions[0].hasPrefix("Level 25"))
+        XCTAssertTrue(nodes[2].conditions[0].hasPrefix("Trade"))
+        XCTAssertTrue(nodes[1].conditions[1].contains("Required form: Geodude Alola"))
+        XCTAssertTrue(nodes[2].conditions[1].contains("Resulting form: Golem Alola"))
+        XCTAssertTrue(nodes[2].conditions[1].contains("Introduced: Sun Moon"))
+        XCTAssertFalse(nodes.flatMap(\.conditions).contains { $0.contains("Methods") })
+    }
+    func testInlineConditionsKeepCompoundRequirementsAndDeduplicate() throws {
+        let data = Data(#"{"species":{"name":"test","url":""},"evolves_to":[],"evolution_details":[{"trigger":{"name":"use-item"},"item":{"name":"water-stone"}},{"is_default":true,"trigger":{"name":"level-up"},"min_happiness":160,"time_of_day":"night","unknown_condition":true},{"trigger":{"name":"use-item"},"item":{"name":"water-stone"}}]}"#.utf8)
+        let link = try JSONDecoder().decode(EvolutionLink.self, from: data)
+        XCTAssertEqual(link.conditions.count, 2)
+        for requirement in ["Level up", "Friendship ≥ 160", "Time: Night", "Additional requirements are not fully described here."] {
+            XCTAssertTrue(link.conditions[0].contains(requirement))
+        }
+        XCTAssertEqual(link.conditions[1], "Use Water Stone")
+        let unavailable = try JSONDecoder().decode(EvolutionLink.self, from: Data(#"{"species":{"name":"test","url":""},"evolves_to":[],"evolution_details":[]}"#.utf8))
+        XCTAssertEqual(unavailable.conditions, ["Evolution requirements are not available."])
     }
 }
 

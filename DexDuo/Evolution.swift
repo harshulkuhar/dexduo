@@ -14,16 +14,15 @@ struct EvolutionLink: Decodable, Sendable, Identifiable {
     let evolves_to: [EvolutionLink]
     var id: String { species.name }
     var flattened: [EvolutionLink] { [self] + evolves_to.flatMap(\.flattened) }
-    var linear: [EvolutionLink]? {
-        guard evolves_to.count <= 1 else { return nil }
-        guard let child = evolves_to.first else { return [self] }
-        return child.linear.map { [self] + $0 }
-    }
-    var summary: String {
-        let defaults = evolution_details.filter { $0.isDefault }
-        let methods = defaults.isEmpty ? evolution_details : defaults
-        let summaries = Set(methods.map(\.shortSummary))
-        return summaries.count == 1 ? summaries.first! : "Methods…"
+    var conditions: [String] {
+        let ordered = evolution_details.filter(\.isDefault) + evolution_details.filter { !$0.isDefault }
+        var seen: Set<String> = []
+        let descriptions = ordered.compactMap { method -> String? in
+            var text = method.requirements.joined(separator: " · ")
+            if evolution_details.count > 1, let version = method.version { text += "\nIntroduced: \(version)" }
+            return seen.insert(text).inserted ? text : nil
+        }
+        return descriptions.isEmpty ? ["Evolution requirements are not available."] : descriptions
     }
 }
 
@@ -108,15 +107,6 @@ struct EvolutionMethod: Decodable, Sendable {
         return lines
     }
     var version: String? { fields["version_group"]?.named }
-    var shortSummary: String {
-        guard !hasUnresolvedRequirements else { return "Methods…" }
-        // Ordinary required-form references still appear in full method details.
-        let formID = fields["required_pokemon_form"]?.object["url"]?.text.flatMap { URL(string: $0)?.lastPathComponent }.flatMap(Int.init)
-        let simple = requirements.filter { line in
-            !(line.hasPrefix("Required form:") && formID.map { $0 < 10000 } == true)
-        }
-        return simple.count == 1 && simple[0].count <= 24 ? simple[0] : "Methods…"
-    }
 }
 
 enum EvolutionError: Error { case unavailable, defaultVarietyMissing }

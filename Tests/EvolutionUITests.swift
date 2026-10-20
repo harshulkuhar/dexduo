@@ -36,30 +36,60 @@ final class EvolutionUITests: XCTestCase {
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
-    func testLinearChartMethodsAndMemberSelection() throws {
+    func testVerticalChartShowsRequirementsAndRetainsMemberSelection() throws {
         let app = XCUIApplication(); try open(app)
         select("gastly", in: app)
         app.buttons["detailTab-evolution"].tap()
         let scroll = app.scrollViews["evolutionScroll"]
         XCTAssertTrue(scroll.waitForExistence(timeout: 30), app.debugDescription)
-        for name in ["gastly", "haunter", "gengar"] {
-            XCTAssertTrue(app.buttons["evolutionNode-\(name)"].exists)
-        }
-        XCTAssertTrue(app.buttons["evolutionCondition-haunter"].label.contains("Level 25"))
-        XCTAssertTrue(app.buttons["evolutionCondition-gengar"].label.contains("Trade"))
-        capture(name: "Gastly evolution chart")
-        app.buttons["evolutionCondition-haunter"].tap()
-        XCTAssertTrue(app.scrollViews["evolutionMethodsScroll"].waitForExistence(timeout: 5))
-        XCTAssertTrue(app.staticTexts["Level 25"].exists)
-        app.scrollViews["evolutionMethodsScroll"].swipeUp()
-        XCTAssertTrue(app.buttons["evolutionBack"].isHittable)
-        app.buttons["evolutionBack"].tap()
-        app.buttons["evolutionNode-haunter"].tap()
+        let gastly = app.buttons["evolutionNode-gastly"]
+        let haunter = app.buttons["evolutionNode-haunter"]
+        let gengar = app.buttons["evolutionNode-gengar"]
+        XCTAssertLessThan(gastly.frame.maxY, haunter.frame.minY)
+        XCTAssertLessThan(haunter.frame.maxY, gengar.frame.minY)
+        XCTAssertEqual(gastly.frame.minX, haunter.frame.minX, accuracy: 1)
+        XCTAssertEqual(haunter.frame.width, gengar.frame.width, accuracy: 1)
+        let level = app.descendants(matching: .any).matching(identifier: "evolutionCondition-haunter").firstMatch
+        let trade = app.descendants(matching: .any).matching(identifier: "evolutionCondition-gengar").firstMatch
+        XCTAssertTrue(level.label.contains("Level 25"))
+        XCTAssertTrue(trade.label.contains("Trade"))
+        XCTAssertFalse(app.buttons["evolutionCondition-haunter"].exists)
+        XCTAssertFalse(app.staticTexts["Tap a Pokémon to open it. Tap an arrow for its evolution methods."].exists)
+        reveal(level, in: scroll)
+        XCTAssertLessThanOrEqual(level.frame.maxX, haunter.frame.maxX)
+        capture(name: "Vertical Gastly chain with inline requirements")
+        reveal(haunter, in: scroll)
+        let position = haunter.frame
+        haunter.tap()
         XCTAssertTrue(app.staticTexts["HAUNTER"].waitForExistence(timeout: 20))
-        XCTAssertTrue(app.buttons["evolutionNode-gastly"].exists)
-        XCTAssertTrue(app.buttons["evolutionNode-haunter"].isSelected)
+        XCTAssertEqual(haunter.frame.minY, position.minY, accuracy: 8)
+        XCTAssertTrue(haunter.isSelected)
         XCTAssertTrue(app.buttons["detailTab-evolution"].isSelected)
-        XCTAssertFalse(app.buttons["infoNextPage"].exists)
+        reveal(trade, in: scroll)
+        XCTAssertFalse(app.buttons["evolutionBack"].exists)
+    }
+    func testGeodudeRequirementsWrapWithinLCDWithoutDrillDown() throws {
+        let app = XCUIApplication(); try open(app)
+        select("geodude", in: app)
+        app.buttons["detailTab-evolution"].tap()
+        let scroll = app.scrollViews["evolutionScroll"]
+        XCTAssertTrue(scroll.waitForExistence(timeout: 30), app.debugDescription)
+        let level = app.descendants(matching: .any).matching(identifier: "evolutionCondition-graveler").firstMatch
+        let trade = app.descendants(matching: .any).matching(identifier: "evolutionCondition-golem").firstMatch
+        XCTAssertTrue(level.label.contains("Level 25"))
+        XCTAssertTrue(level.label.contains("Required form: Geodude Alola"))
+        XCTAssertTrue(trade.label.contains("Trade"))
+        XCTAssertFalse(level.label.contains("Methods"))
+        XCTAssertFalse(trade.label.contains("Methods"))
+        for condition in [level, trade] {
+            XCTAssertGreaterThan(condition.frame.width, 200)
+            XCTAssertGreaterThanOrEqual(condition.frame.minX, scroll.frame.minX)
+            XCTAssertLessThanOrEqual(condition.frame.maxX, scroll.frame.maxX)
+        }
+        reveal(app.buttons["evolutionNode-graveler"], in: scroll)
+        capture(name: "Geodude inline level and regional requirements")
+        reveal(app.buttons["evolutionNode-golem"], in: scroll)
+        XCTAssertFalse(app.buttons["evolutionCondition-golem"].exists)
     }
     func testEveryEeveeBranchIsReachableAndOnlyLCDScrolls() throws {
         let app = XCUIApplication(); try open(app)
