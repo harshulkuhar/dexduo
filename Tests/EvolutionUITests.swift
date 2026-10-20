@@ -32,7 +32,7 @@ final class EvolutionUITests: XCTestCase {
         }
         XCTAssertTrue(visible(element, in: scroll), "Element is not reachable: \(element)")
     }
-    private func capture(_ app: XCUIApplication, name: String) {
+    private func capture(name: String) {
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
@@ -47,7 +47,7 @@ final class EvolutionUITests: XCTestCase {
         }
         XCTAssertTrue(app.buttons["evolutionCondition-haunter"].label.contains("Level 25"))
         XCTAssertTrue(app.buttons["evolutionCondition-gengar"].label.contains("Trade"))
-        capture(app, name: "Gastly evolution chart")
+        capture(name: "Gastly evolution chart")
         app.buttons["evolutionCondition-haunter"].tap()
         XCTAssertTrue(app.scrollViews["evolutionMethodsScroll"].waitForExistence(timeout: 5))
         XCTAssertTrue(app.staticTexts["Level 25"].exists)
@@ -78,7 +78,7 @@ final class EvolutionUITests: XCTestCase {
         XCTAssertEqual(artwork.frame, artworkFrame)
         XCTAssertEqual(app.buttons["detailTab-evolution"].frame, tabFrame)
         XCTAssertEqual(app.scrollViews.count, 1)
-        capture(app, name: "Eevee branches scrolled to Sylveon")
+        capture(name: "Eevee branches scrolled to Sylveon")
         let sylveon = app.buttons["evolutionNode-sylveon"]
         let oldPosition = sylveon.frame
         sylveon.tap()
@@ -100,7 +100,7 @@ final class EvolutionUITests: XCTestCase {
         let scroll = app.scrollViews["evolutionScroll"]
         XCTAssertTrue(scroll.waitForExistence(timeout: 30))
         for name in ["flapple", "appletun", "dipplin", "hydrapple"] { reveal(app.buttons["evolutionNode-\(name)"], in: scroll) }
-        capture(app, name: "Applin branching stages")
+        capture(name: "Applin branching stages")
     }
     func testInfoStatsScrollAndTypesStayFixedInBothDirections() throws {
         let app = XCUIApplication(); try open(app)
