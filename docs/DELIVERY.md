@@ -19,7 +19,7 @@ The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) 
 
 ## Evolution layout follow-up
 
-Branch: `codex/evolution-inline-requirements`. Evolution families now use full-width vertical cards. Levels, stones, friendship and combined requirements appear inline; alternatives retain supplied game and form qualifiers. Removed the generic “Methods” labels, arrow instructions and separate method screen. Selecting family members still retains EVO and scroll position.
+[PR #10](https://github.com/harshulkuhar/dexduo/pull/10), branch `codex/evolution-inline-requirements`. Evolution families now use full-width vertical cards. Levels, stones, friendship and combined requirements appear inline; alternatives retain supplied game and form qualifiers. Removed the generic “Methods” labels, arrow instructions and separate method screen. Selecting family members still retains EVO and scroll position.
 
 The required dead-code audit removed the unused horizontal layout chooser, linear-chain helper, short-summary fallback, method-navigation state/callbacks and column-card variants. Cache, cancellation, thumbnail and selection paths remain shared and unchanged.
 
@@ -27,7 +27,7 @@ Verification for this follow-up:
 
 - All **60 unit/component tests pass on iPhone 18 Pro**, including Geodude/Alolan requirements, levels/trade, Eevee stones/friendship/alternatives, regional/unknown conditions, stale requests, offline cache and selection Retry. Compact/notched/accessibility renders include the new vertical layout.
 - All **five Evolution UI cases pass across focused runs on iPhone 18 Pro**: vertical layout, direct requirements and Geodude wrapping, all eight Eevee branches, retained selection position, standalone/uneven families and fixed tabs/artwork in both landscape directions. The initial short-label width assertion measured accessibility glyph bounds; it was corrected to check containment and the case passed on rerun.
-- Three additional iPhone 18 Pro UI regressions pass: cover/both directions/retained artwork and the type grid, typing/clearing/selection, and scanner import/candidate confirmation. Captured screens were inspected outside Git.
+- Three additional iPhone 18 Pro UI regressions pass: cover/both directions/retained artwork and the type grid, typing/clearing/selection, and scanner import/candidate confirmation. Phone and Duo screen captures were inspected outside Git.
 - Four focused checks pass on the actual Duo Simulator: Geodude inline requirements, vertical member selection/retained position, all Eevee branches with fixed Types, and fixed UIKit orientation/profile. Actual repeated hinge cycles and physical-device checks remain pending as listed below.
 - The unsigned generic-iOS Release build, JSON fixture/identifier checks, final dead-code trace and whitespace/no-media checks pass.
 
