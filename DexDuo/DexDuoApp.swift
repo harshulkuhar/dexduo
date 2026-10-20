@@ -33,10 +33,10 @@ struct DexDuoView: View {
                 PhoneDexView(store: store, presentation: presentation, opened: $opened)
             case .duo, .tablet:
                 ZStack {
-                    if opened { FixedInterior { interior }.accessibilityIdentifier("duoInterior") }
+                    if opened { FixedInterior { interior }.accessibilityElement(children: .contain).accessibilityIdentifier("duoInterior") }
                     if !opened { cover.ignoresSafeArea(.container, edges: .all) }
                 }.ignoresSafeArea(.container, edges: .horizontal)
-                    .accessibilityElement(children: .contain).accessibilityIdentifier("duoPresentation")
+                    .accessibilityElement(children: .contain).accessibilityIdentifier(presentation.state.profile == .duo ? "duoPresentation" : "tabletPresentation")
             case .unresolved:
                 Color.clear
             }

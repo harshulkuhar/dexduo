@@ -69,11 +69,12 @@ For UI tests, use an ordinary iPhone simulator (or unfold Duo) and add only the 
 
 ```sh
 python3 Tools/download_test_fixtures.py
-xcrun simctl addmedia booted Tests/Fixtures/espeon.png
-xcodebuild -project DexDuo.xcodeproj -scheme DexDuo -destination 'platform=iOS Simulator,name=iPhone Duo' -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO test
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+xcrun simctl addmedia 'DexDuo iPhone 18 Pro' Tests/Fixtures/espeon.png
+xcodebuild -project DexDuo.xcodeproj -scheme DexDuo -destination 'platform=iOS Simulator,name=DexDuo iPhone 18 Pro' -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO test
 ```
 
-Phone UI tests cover both landscape directions, cover/background state, typing/selection, scanner import and accessibility pages. Run them on ordinary-phone destinations; they explicitly skip the legacy Duo/tablet presentation.
+The primary test destination is iPhone 18 Pro, named `DexDuo iPhone 18 Pro` locally; substitute your simulator name if needed. Phone UI tests cover both landscape directions, cover/background state, typing/selection, scanner import and accessibility pages. They explicitly skip the legacy Duo/tablet presentation. The separate Duo presentation test checks the latched device profile and fixed UIKit orientation; it skips ordinary phones.
 
 Manual checks: search a full name and clear/retype; import artwork without text; verify an uncertain/no-match image; retry with the network unavailable; dismiss/fold during recognition and confirm no late lookup or dismissal. Reopen to confirm artwork remains cached and orientation remains fixed. Simulator camera directs you to Import; physical camera denial/cancellation and performance require an actual iPhone.
 

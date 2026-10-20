@@ -4,7 +4,7 @@ final class PhoneUITests: XCTestCase {
     private func open(_ app: XCUIApplication) throws {
         XCUIDevice.shared.orientation = .landscapeLeft
         app.launch()
-        if app.otherElements["duoPresentation"].waitForExistence(timeout: 2) {
+        if app.otherElements["duoPresentation"].waitForExistence(timeout: 2) || app.otherElements["tabletPresentation"].exists {
             throw XCTSkip("This test exercises the ordinary-phone presentation.")
         }
         let cover = app.buttons["phoneCover"]
@@ -108,6 +108,30 @@ final class PhoneUITests: XCTestCase {
             XCTAssertTrue(tile.waitForExistence(timeout: 5), String(name))
             XCTAssertTrue(tile.isHittable, "\(name) is clipped")
             XCTAssertTrue(app.frame.contains(tile.frame), "\(name) extends outside the display")
+        }
+    }
+}
+
+final class DuoPresentationUITests: XCTestCase {
+    func testDuoProfileAndUIKitOrientationStayFixed() throws {
+        let app = XCUIApplication()
+        XCUIDevice.shared.orientation = .portrait
+        app.launch()
+        if app.buttons["phoneCover"].waitForExistence(timeout: 3) || app.otherElements["tabletPresentation"].exists {
+            throw XCTSkip("This regression test requires a Duo simulator.")
+        }
+        let duo = app.otherElements["duoPresentation"]
+        XCTAssertTrue(duo.waitForExistence(timeout: 10), app.debugDescription)
+        let cover = app.descendants(matching: .any).matching(identifier: "duoCover").firstMatch
+        let search = app.textFields["pokemonSearch"]
+        XCTAssertTrue(cover.exists || search.exists, app.debugDescription)
+        let wasClosed = cover.exists
+        for orientation in [UIDeviceOrientation.landscapeLeft, .landscapeRight, .portrait] {
+            XCUIDevice.shared.orientation = orientation
+            XCTAssertTrue(duo.exists)
+            XCTAssertGreaterThan(app.frame.height, app.frame.width)
+            XCTAssertEqual(cover.exists, wasClosed)
+            if !wasClosed { XCTAssertTrue(search.exists) }
         }
     }
 }

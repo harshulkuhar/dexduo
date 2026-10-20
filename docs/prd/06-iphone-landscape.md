@@ -1,6 +1,6 @@
 # 06 — Ordinary iPhone landscape support
 
-Status: implementation and validation in progress. Branch: `codex/iphone-landscape`. Implement before new detail features.
+Status: implemented in [PR #5](https://github.com/harshulkuhar/dexduo/pull/5). Branch: `codex/iphone-landscape`. Simulator checks pass on iPhone 18 Pro; repeated fold cycles and physical-device checks remain pending. See [delivery results](../DELIVERY.md).
 
 ## Requirement
 
@@ -24,7 +24,7 @@ At large accessibility sizes, switch to an explicit single-panel pager (Artwork 
 
 ## Search and keyboard
 
-Keep one stable search-field instance and binding throughout typing. Keyboard appearance must not recreate the field or change the app's coordinate system. Use a focused search presentation with the field and at least one reachable result above the keyboard; show up to three results when height permits, with paging for additional matches. Hide lower-priority detail content temporarily if needed, preserving the selected entry and tab.
+Keep one stable search-field instance and binding throughout typing. Keyboard appearance must not recreate the field or change the app's coordinate system. Use a focused search presentation with the field and at least one reachable result above the keyboard; show as many complete results as fit, with paging for additional matches. Hide lower-priority detail content temporarily if needed, preserving the selected entry and tab.
 
 Autocomplete, clear/retype, paste, submit, dismissal and a failed search must work on compact phones. Search focus is dismissed on scanner presentation and fold. The keyboard must not obscure the only result/action controls or make the app scroll.
 
