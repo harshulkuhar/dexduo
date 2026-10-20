@@ -6,7 +6,7 @@ Status: planned. Branch: `codex/robotic-entries`. Depends on the landscape layou
 
 When the user selects a Pokémon through search, scan, previous/next or evolution, DexDuo can read its name and the English entry already shown in Info. Add a clearly labeled Read/Stop button and a persistent Auto-read switch in a compact audio settings panel. Auto-read defaults on; initial launch, reopening after a fold and background refresh remain silent. The first explicit selection can start narration.
 
-Manual Read works regardless of the Auto-read preference. Stop cancels immediately. Tapping Read again starts from the beginning. Narration reads the whole entry even when its visual presentation uses multiple pages. Do not speak measurement/stat labels, source-version labels, loading text or error placeholders.
+Manual Read works regardless of the Auto-read preference. Stop cancels immediately. Tapping Read again starts from the beginning. Narration reads the whole entry even when its visual presentation extends beyond the LCD viewport. Do not speak measurement/stat labels, source-version labels, loading text or error placeholders.
 
 ## Audio implementation
 

@@ -1,33 +1,33 @@
-# 04 — Evolution families
+# 04 — Evolution families and scrollable details
 
-Status: planned. Branch: `codex/evolution-chains`. Depends on fixed-layout detail paging.
+Status: implemented in [PR #7](https://github.com/harshulkuhar/dexduo/pull/7); iPhone 18 Pro and Duo Simulator validation passed. Branch: `codex/evolution-chains`.
 
 ## Experience
 
-Add an Evolution detail tab for the selected species. Show its family, highlight the current species and let the user open any member. Linear families show all stages. Branching families must expose every branch, including all eight Eevee evolutions, through explicit pages rather than a horizontally scrolling strip.
+Add EVO beside Info, Stats and Types on the right. Use official-artwork thumbnails, national numbers, compact badges from the shared palette and a cyan outline for the selected species. Tapping a member loads it into the left panel while retaining EVO and the family context.
 
-Represent the family as stage/branch pages: a parent context and up to three outgoing evolution rows per page, each with species name, cached thumbnail and a condition summary. Previous/next controls include page position. A stage selector/breadcrumb exposes earlier and later stages; no branch is silently dropped. The compact layout may show fewer rows while retaining the same traversal. A standalone species shows “No known evolutions.”
+Info, Stats and Evolution scroll vertically inside the green LCD. Tabs, toolbar, artwork and casing remain fixed. Info shows the entire entry and then height/weight. Stats shows six values, total and abilities. Types keeps all 18 cells visible without scrolling. Search/scanner result paging is independent. Accessibility retains the full-width Details presentation.
 
-Selecting a species uses the existing entry-loading path, then highlights it within the family. Leave the previous selection visible on a failed load and offer Retry. Merely browsing family pages does not trigger speech or replace the selected Pokémon.
+Straight chains use a horizontal chart with conditions between nodes where readable. Narrow and accessibility layouts use a vertical arrangement. Branching families are one continuous connected tree with shared ancestors shown once. All eight Eevee branches are reachable by scrolling; there are no branch or stage pages. Family scroll context survives selecting a member and reopening the view. A new family initially reveals the selected member.
 
-## Data and conditions
+Tapping an arrow opens complete evolution methods inside the LCD, with a fixed Back control and vertically scrolling content. Default methods are summarized on arrows when unambiguous. Alternatives, compound requirements, introduction version groups and supplied regional/form restrictions remain available. Unrecognized requirements are marked unresolved rather than guessed. Standalone species show “No known evolutions.”
 
-Extend `Species` with the optional `evolution_chain` reference and default variety information as needed. Decode the referenced chain recursively, including all `evolves_to` children and evolution details. Resolve species to its default Pokémon API identifier rather than assuming every species name is a Pokémon endpoint name.
+## Data and lifecycle
 
-Use `DexAPI` and its persistent cache. Load family data when the Evolution tab is first requested; keep core entry display independent of this request. Guard completion with the current species/request token. Cache by chain ID so selecting another member does not refetch the same family unnecessarily.
+Decode optional species chain/default-variety references and recursive links through PokéAPI. Resolve species to its default Pokémon API identifier. Regional/form requirements are displayed when supplied; comprehensive form browsing and Mega transformations are outside this view.
 
-Render multiple evolution-detail records as alternative methods; combine requirements within one record. Handle level, item, trade, held item, friendship, affection/beauty, time, gender, location, known move/type, party species/type, relative attack/defense, rain and device-specific conditions when supplied. Unknown fields must not become a false generic “Level up” claim. Use a concise “Additional conditions” summary with a paged text detail view when a method cannot fit or cannot be fully represented.
+A scene-owned evolution model loads lazily on opening EVO, coalesces metadata requests through the repository and reuses persistent data/artwork caching. Thumbnail loading never replaces the selected artwork. Missing thumbnails use placeholders. Cached families remain usable offline; unavailable uncached data offers Retry.
 
-The scope is the family and conditions supplied by PokéAPI. Explain that conditions may vary by game; do not claim a game-specific exhaustive guide. Regional/form restrictions must be shown when supplied, or marked as not resolved. Mega transformations and other temporary forms are outside this family view.
+Generation guards reject obsolete loads and selections after closure, folding or replacement. Completed family data, thumbnails and the visible member anchor survive reopening. Member selection uses the existing entry path with inline error reporting; a failed load preserves the previous Pokémon and offers Retry inside EVO. Info/Stats restart at the top for a new Pokémon.
 
-## States and acceptance
+## Acceptance
 
-Provide loading, loaded, standalone and retryable unavailable states. If an uncached chain is unavailable offline, keep Info/Stats usable and explain that family data needs a connection. Cached chains remain browsable offline. Missing thumbnails use a placeholder without blocking selection.
+Use committed JSON fixtures with provenance, not image fixtures. Cover Gastly’s reference, Eevee’s eight branches and older alternatives, Wurmple, Applin’s uneven depth, standalone species, default-form identifiers, compound and regional requirements, unknown conditions, stale results, failure retry and offline cache reuse.
 
-Tests cover a three-stage family, Eevee's eight branches, a branching multi-stage family, no evolution, multiple alternative methods, compound requirements, default-form mapping, unknown conditions, stale responses and failure retry. Use committed JSON fixtures, not image fixtures.
+Run iPhone 18 Pro Simulator interactions for all tabs, complete content, tree traversal, member selection, method details, fixed left artwork/tabs and both landscape directions. Render compact/notched/accessibility configurations. Run existing search, recognition, type-grid, retained-artwork and Duo orientation regressions; record actual fold cycles separately.
 
-UI tests confirm every Eevee branch is reachable, a middle-stage selection keeps its family context, candidate entry loading uses the correct API identifier, and long conditions fit through paging on the smallest landscape layout. Search, scanner and fold regressions still pass.
+Deliver one feature PR and synchronize remaining branches after merging. Screenshots and captures remain outside Git.
 
 ## Source
 
-[PokéAPI v2 documentation](https://pokeapi.co/docs/v2/#evolution-chains) defines chain links and evolution details; [species resources](https://pokeapi.co/docs/v2/#pokemon-species) link species to families and varieties. Paging and failure behavior are DexDuo requirements.
+[PokéAPI v2](https://pokeapi.co/docs/v2/#evolution-chains) defines chains and evolution requirements. JSON snapshots record source URLs and retrieval date in `Tests/Fixtures/Evolution.json`.

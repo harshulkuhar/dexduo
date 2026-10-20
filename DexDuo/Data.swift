@@ -29,11 +29,17 @@ struct Pokemon: Decodable, Sendable {
     }
     struct Artwork: Decodable, Sendable { let front_default: String? }
     var title: String { name.replacingOccurrences(of: "-", with: " ").capitalized }
-    var artwork: URL? { URL(string: sprites.other?["official-artwork"]?.front_default ?? sprites.front_default ?? "") }
+    var artwork: URL? {
+        guard let path = sprites.other?["official-artwork"]?.front_default ?? sprites.front_default, !path.isEmpty else { return nil }
+        return URL(string: path)
+    }
 }
 
 struct Species: Decodable, Sendable {
     let flavor_text_entries: [Entry]
+    let evolution_chain: APIReference?
+    let varieties: [Variety]?
+    struct Variety: Decodable, Sendable { let is_default: Bool; let pokemon: Named }
     struct Entry: Decodable, Sendable {
         let flavor_text: String
         let language: Named
@@ -112,29 +118,32 @@ func normalized(_ string: String) -> String {
         catch { self.error = "Couldn’t load the Pokémon index. Check your connection and retry." }
         await select("pikachu")
     }
-    @discardableResult func select(_ name: String) async -> Bool {
+    @discardableResult func select(_ name: String, reportError: Bool = true) async -> Bool {
         let token = UUID(); requestID = token; loading = true; error = nil
         defer { if requestID == token { loading = false } }
         do {
             let value = try await api.get("pokemon/\(name)", as: Pokemon.self)
             guard requestID == token, !Task.isCancelled else { return false }
-            pokemon = value
-            loadArtwork(value.artwork, token: token)
-            entryText = "Loading DexDuo entry…"
-            entryVersion = ""
+            var text = "DexDuo entry unavailable. Select this Pokémon again to retry."
+            var version = ""
             do {
                 let species = try await api.get("pokemon-species/\(value.species.name)", as: Species.self)
                 guard requestID == token, !Task.isCancelled else { return false }
-                entryText = species.englishEntry?.cleanedText ?? "No English DexDuo entry is available."
-                entryVersion = species.englishEntry?.version.title ?? ""
+                text = species.englishEntry?.cleanedText ?? "No English DexDuo entry is available."
+                version = species.englishEntry?.version.title ?? ""
             } catch {
                 guard requestID == token, !Task.isCancelled else { return false }
-                entryText = "DexDuo entry unavailable. Select this Pokémon again to retry."
             }
+            // Publish the entry together. Cancellation during the species fetch
+            // must leave the previous Pokémon and description intact.
+            pokemon = value
+            entryText = text
+            entryVersion = version
+            loadArtwork(value.artwork, token: token)
             return true
         } catch {
             guard requestID == token, !Task.isCancelled else { return false }
-            self.error = "Couldn’t load this entry. Check your connection and try again."
+            if reportError { self.error = "Couldn’t load this entry. Check your connection and try again." }
             return false
         }
     }
