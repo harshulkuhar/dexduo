@@ -2,14 +2,14 @@ import Foundation
 import SwiftUI
 import CryptoKit
 
-struct Named: Codable, Identifiable, Hashable, Sendable {
+struct Named: Decodable, Identifiable, Sendable {
     let name: String
     let url: String
     var id: String { name }
     var title: String { name.replacingOccurrences(of: "-", with: " ").capitalized }
 }
-struct IndexResponse: Codable, Sendable { let results: [Named] }
-struct Pokemon: Codable, Identifiable, Sendable {
+struct IndexResponse: Decodable, Sendable { let results: [Named] }
+struct Pokemon: Decodable, Sendable {
     let id: Int
     let name: String
     let height: Int
@@ -20,14 +20,14 @@ struct Pokemon: Codable, Identifiable, Sendable {
     let species: Named
     var baseStatTotal: Int { stats.reduce(0) { $0 + $1.base_stat } }
     let sprites: Sprites
-    struct Kind: Codable, Sendable { let type: Named }
-    struct Ability: Codable, Sendable { let ability: Named }
-    struct Stat: Codable, Sendable { let base_stat: Int; let stat: Named }
-    struct Sprites: Codable, Sendable {
+    struct Kind: Decodable, Sendable { let type: Named }
+    struct Ability: Decodable, Sendable { let ability: Named }
+    struct Stat: Decodable, Sendable { let base_stat: Int; let stat: Named }
+    struct Sprites: Decodable, Sendable {
         let front_default: String?
         let other: [String: Artwork]?
     }
-    struct Artwork: Codable, Sendable { let front_default: String? }
+    struct Artwork: Decodable, Sendable { let front_default: String? }
     var title: String { name.replacingOccurrences(of: "-", with: " ").capitalized }
     var artwork: URL? { URL(string: sprites.other?["official-artwork"]?.front_default ?? sprites.front_default ?? "") }
 }
@@ -174,10 +174,8 @@ func normalized(_ string: String) -> String {
 /// DexStore across fold/unfold; NSCache also speeds up revisiting entries.
 actor ArtworkDiskCache {
     static let shared = ArtworkDiskCache()
-    private let directory: URL
-    init(directory: URL? = nil) {
-        self.directory = directory ?? FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("DexDuoArtwork")
-    }
+    private let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("DexDuoArtwork")
+    private init() {}
     func data(for url: URL) async throws -> Data {
         let key = SHA256.hash(data: Data(url.absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
         let file = directory.appendingPathComponent(key)
