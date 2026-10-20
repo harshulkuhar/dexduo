@@ -72,7 +72,7 @@ final class PhoneLayoutTests: XCTestCase {
         for size in [CGSize(width: 667, height: 375), CGSize(width: 812, height: 375), CGSize(width: 956, height: 440)] {
             let insets = size.width == 667 ? EdgeInsets() : EdgeInsets(top: 0, leading: 44, bottom: 21, trailing: 44)
             try render(PhoneCover(safeAreaInsets: insets, open: {}), size: size, name: "cover-\(Int(size.width))")
-            try render(PhoneDexView(store: store, presentation: DevicePresentation(), opened: .constant(true))
+            try render(PhoneDexView(store: store, presentation: DevicePresentation(), opened: .constant(true), scanning: .constant(false))
                 .padding(insets), size: size, name: "interior-\(Int(size.width))")
             let metrics = PhoneLayoutMetrics(size: CGSize(width: size.width - insets.leading - insets.trailing,
                                                           height: size.height - insets.bottom))
@@ -86,7 +86,7 @@ final class PhoneLayoutTests: XCTestCase {
 
     func testAccessibilityDetailsRetainAllTypes() throws {
         let store = try makeStore()
-        try render(PhoneDexView(store: store, presentation: DevicePresentation(), opened: .constant(true)).environment(\.dynamicTypeSize, .accessibility5),
+        try render(PhoneDexView(store: store, presentation: DevicePresentation(), opened: .constant(true), scanning: .constant(false)).environment(\.dynamicTypeSize, .accessibility5),
                    size: CGSize(width: 667, height: 375), name: "interior-accessibility")
         try render(DexDetails(store: store, tab: .constant(.types)).environment(\.dynamicTypeSize, .accessibility5),
                    size: CGSize(width: 643, height: 255), name: "types-accessibility", checkTypes: true)
@@ -99,7 +99,7 @@ final class PhoneLayoutTests: XCTestCase {
     func testSearchFieldKeepsItsInstanceWhileTypingAndClearing() async throws {
         let store = try makeStore()
         store.names = [Named(name: "espeon", url: ""), Named(name: "pikachu", url: "")]
-        let controller = UIHostingController(rootView: PhoneDexView(store: store, presentation: DevicePresentation(), opened: .constant(true)))
+        let controller = UIHostingController(rootView: PhoneDexView(store: store, presentation: DevicePresentation(), opened: .constant(true), scanning: .constant(false)).environmentObject(EntrySpeech()))
         controller.safeAreaRegions = []
         let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 667, height: 375))
         let previous = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.flatMap(\.windows).first { $0.isKeyWindow }
@@ -181,7 +181,7 @@ final class PhoneLayoutTests: XCTestCase {
     }
 
     private func render<Content: View>(_ content: Content, size: CGSize, name: String, checkTypes: Bool = false) throws {
-        let controller = UIHostingController(rootView: content.foregroundStyle(DexAppearance.ink).background(DexAppearance.shell)
+        let controller = UIHostingController(rootView: content.environmentObject(EntrySpeech()).foregroundStyle(DexAppearance.ink).background(DexAppearance.shell)
             .environment(\.colorScheme, .light).frame(width: size.width, height: size.height))
         controller.safeAreaRegions = []
         let window = UIWindow(frame: CGRect(origin: .zero, size: size))

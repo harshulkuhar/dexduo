@@ -19,6 +19,7 @@ struct DexDuoView: View {
     @StateObject private var store = DexStore()
     @StateObject private var presentation = DevicePresentation()
     @StateObject private var evolution = EvolutionModel()
+    @StateObject private var speech = EntrySpeech()
     @Environment(\.scenePhase) private var scenePhase
     @State private var opened = false
     @State private var scanning = false
@@ -31,32 +32,38 @@ struct DexDuoView: View {
             LinearGradient(colors: [Color(red: 0.87, green: 0.14, blue: 0.20), shell, Color(red: 0.49, green: 0.03, blue: 0.08)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
             switch presentation.state.profile {
             case .phone:
-                PhoneDexView(store: store, presentation: presentation, opened: $opened)
+                PhoneDexView(store: store, presentation: presentation, opened: $opened, scanning: $scanning)
             case .duo, .tablet:
                 ZStack {
                     if opened { FixedInterior { interior }.accessibilityElement(children: .contain).accessibilityIdentifier("duoInterior") }
                     if !opened { cover.ignoresSafeArea(.container, edges: .all) }
                 }.ignoresSafeArea(.container, edges: .horizontal)
                     .accessibilityElement(children: .contain).accessibilityIdentifier(presentation.state.profile == .duo ? "duoPresentation" : "tabletPresentation")
+                    .sheet(isPresented: $scanning) { ScannerView(store: store, isPresented: $scanning) }
             case .unresolved:
                 Color.clear
             }
         }
         .environmentObject(evolution)
+        .environmentObject(speech)
         .background(DeviceProfileProbe(presentation: presentation).frame(width: 0, height: 0).accessibilityHidden(true))
         .onChange(of: presentation.state.profile) { _, _ in applyDeviceState() }
         .onChange(of: presentation.state.isFolded) { _, _ in applyDeviceState() }
         .onChange(of: scenePhase) { _, phase in
+            updateSpeechContext()
             if phase == .active { presentation.requestLandscapeIfNeeded() }
         }
+        .onChange(of: opened) { _, _ in updateSpeechContext() }
+        .onChange(of: scanning) { _, _ in updateSpeechContext() }
         // Keyboard presentation must not change the instrument coordinate system
         // or replace the focused field through the wide/compact layout branch.
         .ignoresSafeArea(.keyboard)
         .statusBarHidden(true)
         .preferredColorScheme(.light)
-        .sheet(isPresented: $scanning) { ScannerView(store: store, isPresented: $scanning) }
-        .task { await store.start() }
+        .task { speech.observe(store); updateSpeechContext(); await store.start() }
+        .onDisappear { speech.stop() }
     }
+    private func updateSpeechContext() { speech.context(open: opened, active: scenePhase == .active, scanning: scanning) }
     private func applyDeviceState() {
         guard hardwareControlsCover else { return }
         var transaction = Transaction(animation: nil)
@@ -65,6 +72,7 @@ struct DexDuoView: View {
             if presentation.state.isFolded { scanning = false; searchFocused = false }
             opened = !presentation.state.isFolded
         }
+        updateSpeechContext()
     }
     private var interior: some View {
         VStack(spacing: 0) {

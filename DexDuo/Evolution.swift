@@ -240,6 +240,7 @@ actor EvolutionRepository: EvolutionFetching {
 
     func choose(_ species: String, store: DexStore) {
         guard choosing == nil else { return }
+        store.selectionBegan.send()
         choosing = species; selectionError = nil; failedMember = nil
         let token = UUID(); selectionGeneration = token
         selectionTask = Task {
