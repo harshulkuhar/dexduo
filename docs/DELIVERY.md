@@ -19,7 +19,7 @@ The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) 
 
 ## Embedded camera follow-up
 
-Branch `codex/embedded-camera`. Scan starts the rear camera inside the existing green preview on phone and Duo. The entire frame uses aspect fit. Capture freezes and recognizes one image; Retake cancels the previous scan and resumes the preview, including while inference is pending. Import pauses capture and cancellation retains the prior live/frozen state. Done, permission Settings/Import, candidate confirmation and lookup Retry remain reachable. Accessibility sizes use shared Preview/Results pages with fixed capture controls.
+[PR #13](https://github.com/harshulkuhar/dexduo/pull/13), branch `codex/embedded-camera`. Scan starts the rear camera inside the existing green preview on phone and Duo. The entire frame uses aspect fit. Capture freezes and recognizes one image; Retake cancels the previous scan and resumes the preview, including while inference is pending. Import pauses capture and cancellation retains the prior live/frozen state. Done, permission Settings/Import, candidate confirmation and lookup Retry remain reachable. Accessibility sizes use shared Preview/Results pages with fixed capture controls.
 
 The native session runs on a serial queue; Apple's rotation coordinator supplies preview and photograph angles. Generation guards reject late authorization, image and interruption callbacks. Closing, folding and backgrounding stop capture. A previously live preview resumes on foregrounding; captured/imported results stay frozen. Photographs remain in memory and are never saved automatically or uploaded. Recognition weights and thresholds are unchanged.
 
