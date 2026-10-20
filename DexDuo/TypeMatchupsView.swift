@@ -67,11 +67,12 @@ private struct TypeMatchupTile: View {
 
 struct PokemonTypeBadge: View {
     let name: String
+    var fontSize: CGFloat = 10
 
     var body: some View {
         let rgb = PokemonType(rawValue: name)?.rgb ?? 0xAAAA99
         Text(name.uppercased())
-            .font(.system(size: 10, weight: .bold, design: .monospaced)).tracking(2)
+            .font(.system(size: fontSize, weight: .bold, design: .monospaced)).tracking(2)
             .padding(.horizontal, 14).padding(.vertical, 7)
             .background(TypePalette.color(rgb), in: Capsule())
             .foregroundStyle(TypePalette.foreground(rgb))

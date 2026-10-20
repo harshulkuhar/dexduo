@@ -1,7 +1,14 @@
 import XCTest
 final class ScannerUITests: XCTestCase {
+    private func launch(_ app: XCUIApplication) {
+        XCUIDevice.shared.orientation = .landscapeLeft
+        app.launch()
+        let cover = app.buttons["phoneCover"]
+        if cover.waitForExistence(timeout: 4) { cover.tap() }
+    }
+
     func testTypeGridAndBadgesFollowSelection() {
-        let app = XCUIApplication(); app.launch()
+        let app = XCUIApplication(); launch(app)
         let search = app.textFields["pokemonSearch"]
         XCTAssertTrue(search.waitForExistence(timeout: 15), "Unfold the Duo simulator before running UI tests.")
         app.buttons["detailTab-types"].tap()
@@ -26,7 +33,7 @@ final class ScannerUITests: XCTestCase {
     }
 
     func testSearchCanTypeClearAndRetype() {
-        let app = XCUIApplication(); app.launch()
+        let app = XCUIApplication(); launch(app)
         let search = app.textFields["pokemonSearch"]
         XCTAssertTrue(search.waitForExistence(timeout: 15), "Unfold the Duo simulator before running UI tests.")
         search.tap(); search.typeText("espeon")
@@ -36,7 +43,7 @@ final class ScannerUITests: XCTestCase {
     }
     // Seed Photos with the Espeon fixture using simctl addmedia before these tests.
     private func importEspeon(_ app: XCUIApplication) {
-        let scan = app.buttons["SCAN POKÉMON"]
+        let scan = app.buttons["phoneScan"].exists ? app.buttons["phoneScan"] : app.buttons["SCAN POKÉMON"]
         XCTAssertTrue(scan.waitForExistence(timeout: 15), "Unfold the Duo simulator before running UI tests.")
         scan.tap(); app.buttons["scanImport"].tap()
         let photo = app.images.matching(NSPredicate(format: "label BEGINSWITH[c] 'Photo, '")).firstMatch
@@ -44,12 +51,12 @@ final class ScannerUITests: XCTestCase {
         photo.tap()
     }
     func testImportAutomaticallyLoadsConfidentMatch() {
-        let app = XCUIApplication(); app.launch()
+        let app = XCUIApplication(); launch(app)
         importEspeon(app)
         XCTAssertTrue(app.staticTexts["ESPEON"].waitForExistence(timeout: 30), app.debugDescription)
     }
     func testImportAndCandidateLookup() {
-        let app = XCUIApplication(); app.launchArguments = ["--confirm-scans"]; app.launch()
+        let app = XCUIApplication(); app.launchArguments = ["--confirm-scans"]; launch(app)
         importEspeon(app)
         let candidate = app.buttons["scanCandidate-196"]
         XCTAssertTrue(candidate.waitForExistence(timeout: 30), app.debugDescription)
