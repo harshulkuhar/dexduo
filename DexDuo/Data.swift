@@ -19,6 +19,7 @@ struct Pokemon: Decodable, Sendable {
     let abilities: [Ability]
     let stats: [Stat]
     let species: Named
+    var nationalNumber: Int { (URL(string: species.url)?.lastPathComponent).flatMap(Int.init) ?? id }
     var baseStatTotal: Int { stats.reduce(0) { $0 + $1.base_stat } }
     let sprites: Sprites
     struct Kind: Decodable, Sendable { let type: Named }
@@ -179,7 +180,7 @@ func normalized(_ string: String) -> String {
         }
     }
     func step(_ direction: Int) async {
-        guard let id = pokemon?.id else { return }
+        guard let id = pokemon?.nationalNumber else { return }
         let target = id + direction
         guard target > 0, names.contains(where: { $0.url.split(separator: "/").last.map(String.init) == String(target) }) else { return }
         await select(String(target))

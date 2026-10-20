@@ -17,6 +17,20 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 
+## Concise evolution labels and separate outcomes
+
+Branch: `codex/evolution-branches`. The chart now shows one arrow and card per distinct outcome, including forms of the same species. “Thunder Stone” and “Thunder Stone (Alola)” lead to separate Raichu cards. Kirlia and Snorunt each have two arrows, retaining the male-only Gallade and female-only Froslass requirements. Shared ancestors appear once; source-form constraints keep regional continuations on the correct route.
+
+Removed introduction-version paragraphs, redundant ordinary source/result-form prose and the family subtitle. Prefer supplied default methods per outcome; retain available requirements when no default exists. Form nodes resolve through Pokémon-form metadata to their own artwork/types. The left panel and previous/next controls use National Dex numbers, including after selecting a regional form.
+
+Verification:
+
+- **64 unit/component tests pass on iPhone 18 Pro.** The source cross-check covers all **19 branching-species parents** in PokéAPI’s species CSV, plus regional outcome routing, gender constraints, exact-form resolution, offline cache, selection cancellation/Retry and retained family position. JSON fixtures record retrieval URLs and the source CSV checksum.
+- **All seven Evolution UI cases pass across phone runs**, including separate Raichu outcomes, Kirlia/Snorunt arrows, Geodude’s form-specific routes, Eevee traversal, standalone/uneven families, retained selection position and fixed tabs/artwork in both landscape directions. A focused final phone run also passes regional National Dex numbering/previous navigation, search and scanner import/confirmation. Compact/notched/accessibility renders pass.
+- The final Duo run passes **19 evolution unit/lifecycle tests and five UI cases**: separate Raichu outcomes with exact-form selection and national-number navigation, Kirlia/Snorunt, Geodude routing, Eevee and fixed UIKit orientation.
+- The final unsigned generic-iOS Release build passes. Phone and Duo captures were inspected outside Git; labels wrap inside the LCD. JSON/provenance, whitespace and no-media checks pass. No images or recordings are committed. Physical-device and repeated actual hinge checks remain pending below.
+- The required dead-code-removal skill removed the old verbose conditions formatter/version accessor, historical-method rendering, family subtitle and the raw link’s unused `Identifiable` conformance. Cancellation, scene/fold behavior and image caches retain their existing paths.
+
 ## Evolution layout follow-up
 
 [PR #10](https://github.com/harshulkuhar/dexduo/pull/10), branch `codex/evolution-inline-requirements`. Evolution families now use full-width vertical cards. Levels, stones, friendship and combined requirements appear inline; alternatives retain supplied game and form qualifiers. Removed the generic “Methods” labels, arrow instructions and separate method screen. Selecting family members still retains EVO and scroll position.

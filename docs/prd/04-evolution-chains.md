@@ -10,11 +10,13 @@ Info, Stats and Evolution scroll vertically inside the green LCD. Tabs, toolbar,
 
 All families use a vertical chart with full-width member cards and readable requirements between stages. Condition text wraps to the available width and grows vertically; there are no narrow arrow columns. Branching families are one continuous connected tree with shared ancestors shown once. All eight Eevee branches are reachable by scrolling; there are no branch or stage pages. Family scroll context survives selecting a member and reopening the view. A new family initially reveals the selected member.
 
-Evolution requirements are visible directly in the family tree: levels, items, friendship and compound requirements do not require a tap or a separate details screen. Default methods appear first; alternatives are separated by “or”, retaining introduction version groups and supplied regional/form restrictions. Downward arrows are decorative. There is no instruction to tap an arrow. Unrecognized requirements are marked unresolved rather than guessed. Standalone species show “No known evolutions.”
+Each distinct outcome has its own arrow and card, including regional forms of the same species. Labels contain only the requirement, such as “Thunder Stone”, “Thunder Stone (Alola)”, “Level 30” or “Dawn Stone (female)”. Gender, time, location and required source form stay visible when necessary. No introduction versions, redundant source/result-form prose or instructions appear. Use default methods for each outcome when supplied, otherwise retain available methods; deduplicate identical labels. Multiple methods for the same outcome share a compact label, rather than duplicating its card. Unknown requirements remain explicit.
+
+Kirlia has separate Gardevoir (Level 30) and Gallade (Dawn Stone, male) arrows. Snorunt has separate Glalie (Level 42) and Froslass (Dawn Stone, female) arrows. Pikachu has separate Raichu (Thunder Stone) and Alolan Raichu (Thunder Stone in Alola) arrows. A form-specific continuation attaches to the correct parent form: ordinary Graveler leads to Golem, Alolan Graveler to Alolan Golem, and only Galarian Mr. Mime leads to Mr. Rime. Standalone species show “No known evolutions.”
 
 ## Data and lifecycle
 
-Decode optional species chain/default-variety references and recursive links through PokéAPI. Resolve species to its default Pokémon API identifier. Regional/form requirements are displayed when supplied; comprehensive form browsing and Mega transformations are outside this view.
+Decode species chains and their recursive methods through PokéAPI. Resolve ordinary nodes through the default variety and supplied form outcomes through the Pokémon-form endpoint, preserving the form’s artwork and types. Cards and the left panel use National Dex numbers; previous/next navigation follows that sequence. Source-form restrictions route continuations to the correct form. The chart covers supplied evolution outcomes, not comprehensive cosmetic-form browsing or Mega transformations.
 
 A scene-owned evolution model loads lazily on opening EVO, coalesces metadata requests through the repository and reuses persistent data/artwork caching. Thumbnail loading never replaces the selected artwork. Missing thumbnails use placeholders. Cached families remain usable offline; unavailable uncached data offers Retry.
 
@@ -22,9 +24,9 @@ Generation guards reject obsolete loads and selections after closure, folding or
 
 ## Acceptance
 
-Use committed JSON fixtures with provenance, not image fixtures. Cover Geodude’s level/trade requirements and Alolan alternatives, Gastly’s reference, Eevee’s eight branches and older alternatives, Wurmple, Applin’s uneven depth, standalone species, default-form identifiers, compound and regional requirements, unknown conditions, stale results, failure retry and offline cache reuse.
+Use committed JSON fixtures with provenance, not image fixtures. Cross-check all 19 branching-species parents from the official species CSV against the projected trees. Cover Pikachu’s separate regional outcomes, Kirlia and Snorunt gender restrictions, Geodude’s form routes, Gastly’s reference, Eevee’s eight concise default requirements, Wurmple, Applin’s uneven depth, standalone species, default-form identifiers, compound and regional requirements, unknown conditions, stale results, failure retry and offline cache reuse.
 
-Run iPhone 18 Pro Simulator interactions for all tabs, complete content, tree traversal, member selection, inline requirement wrapping, fixed left artwork/tabs and both landscape directions. Render compact/notched/accessibility configurations. Run existing search, recognition, type-grid, retained-artwork and Duo orientation regressions; record actual fold cycles separately.
+Run iPhone 18 Pro Simulator interactions for all tabs, complete content, tree traversal, member selection, concise labels, separate outcome arrows, exact-form selection, national-number navigation, fixed left artwork/tabs and both landscape directions. Render compact/notched/accessibility configurations. Run existing search, recognition, type-grid, retained-artwork and Duo orientation regressions; record actual fold cycles separately.
 
 Deliver one feature PR and synchronize remaining branches after merging. Screenshots and captures remain outside Git.
 

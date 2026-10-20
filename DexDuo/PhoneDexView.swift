@@ -193,7 +193,7 @@ struct PhoneArtworkPanel: View {
     var body: some View {
         VStack(spacing: 8) {
             VStack(spacing: 6) {
-                Text(store.pokemon.map { String(format: "No. %04d", $0.id) } ?? "CONNECTING")
+                Text(store.pokemon.map { String(format: "No. %04d", $0.nationalNumber) } ?? "CONNECTING")
                     .font(.system(size: 12, design: .monospaced)).frame(maxWidth: .infinity, alignment: .leading)
                 Group {
                     if let image = store.artworkImage { Image(uiImage: image).resizable().scaledToFit() }

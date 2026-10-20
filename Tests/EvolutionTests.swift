@@ -39,25 +39,20 @@ private actor ThumbnailCounter {
 
 final class EvolutionTests: XCTestCase {
     func testGastlyMatchesReference() async throws {
-        let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
-        let family = try await repository.family(for: "haunter")
-        let line = family.chain.flattened
-        XCTAssertEqual(line.map(\.id), ["gastly", "haunter", "gengar"])
-        XCTAssertEqual(line[1].conditions, ["Level 25"])
-        XCTAssertEqual(line[2].conditions, ["Trade"])
+        let family = try await EvolutionRepository(api: try EvolutionFixtureAPI()).family(for: "haunter")
+        let nodes = family.tree.flattened
+        XCTAssertEqual(nodes.map(\.id), ["gastly", "haunter", "gengar"])
+        XCTAssertEqual(nodes[1].conditions, ["Level 25"])
+        XCTAssertEqual(nodes[2].conditions, ["Trade"])
     }
-    func testEeveeRetainsAllEightBranchesAndAlternatives() async throws {
-        let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
-        let family = try await repository.family(for: "eevee")
-        XCTAssertEqual(family.chain.evolves_to.map(\.id), ["vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"])
-        let leafeon = try XCTUnwrap(family.chain.evolves_to.first { $0.id == "leafeon" })
-        XCTAssertTrue(leafeon.conditions[0].hasPrefix("Use Leaf Stone"))
-        XCTAssertTrue(leafeon.conditions.contains { $0.contains("Location: Eterna Forest") && $0.contains("Introduced: Diamond Pearl") })
-        let espeon = try XCTUnwrap(family.chain.evolves_to.first { $0.id == "espeon" })
-        XCTAssertTrue(espeon.conditions[0].contains("Friendship ≥ 160"))
-        XCTAssertTrue(espeon.conditions[0].contains("Time: Day"))
-        XCTAssertGreaterThan(leafeon.evolution_details.count, 1)
-        XCTAssertTrue(leafeon.evolution_details.contains { $0.requirements.contains("Location: Eterna Forest") })
+    func testEeveeShowsEightBranchesWithoutHistoricalMethodBloat() async throws {
+        let family = try await EvolutionRepository(api: try EvolutionFixtureAPI()).family(for: "eevee")
+        XCTAssertEqual(family.tree.children.map(\.id), ["vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"])
+        let leafeon = try XCTUnwrap(family.tree.children.first { $0.id == "leafeon" })
+        XCTAssertEqual(leafeon.conditions, ["Leaf Stone"])
+        let espeon = try XCTUnwrap(family.tree.children.first { $0.id == "espeon" })
+        XCTAssertEqual(espeon.conditions, ["Friendship ≥ 160 (day)"])
+        XCTAssertFalse(family.tree.flattened.flatMap(\.conditions).contains { $0.contains("Introduced:") || $0.contains("Required form:") })
     }
     func testBranchingStagesUnevenDepthAndStandalone() async throws {
         let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
@@ -101,47 +96,89 @@ final class EvolutionTests: XCTestCase {
         let gastly = try await repository.member(for: "gastly")
         XCTAssertEqual(gastly.name, "gastly")
     }
-    func testRegionalRequirementsAreExplicit() async throws {
-        let family = try await EvolutionRepository(api: try EvolutionFixtureAPI()).family(for: "mr-mime")
-        let rime = try XCTUnwrap(family.chain.flattened.first { $0.id == "mr-rime" })
-        XCTAssertTrue(rime.conditions[0].hasPrefix("Level 42"))
-        XCTAssertTrue(rime.conditions[0].contains("Required form: Mr Mime Galar"))
-        XCTAssertTrue(rime.evolution_details[0].requirements.contains("Required form: Mr Mime Galar"))
-        XCTAssertTrue(rime.evolution_details[0].requirements.contains("Level 42"))
+    func testRegionalBranchesStayOnTheirCorrectParentForms() async throws {
+        let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
+        let family = try await repository.family(for: "mr-mime")
+        let mime = try XCTUnwrap(family.tree.children.first { $0.id == "mr-mime" })
+        let galar = try XCTUnwrap(family.tree.children.first { $0.id == "mr-mime-galar" })
+        XCTAssertTrue(mime.children.isEmpty)
+        XCTAssertEqual(galar.children.map(\.id), ["mr-rime"])
+        XCTAssertEqual(galar.children[0].conditions, ["Level 42"])
+        let geodude = try await repository.family(for: "geodude")
+        XCTAssertEqual(geodude.tree.children.map(\.id), ["graveler", "graveler-alola"])
+        XCTAssertEqual(geodude.tree.children[0].conditions, ["Level 25"])
+        XCTAssertEqual(geodude.tree.children[1].conditions, ["Level 25 (Geodude Alola)"])
+        XCTAssertEqual(geodude.tree.children[0].children.map(\.id), ["golem"])
+        XCTAssertEqual(geodude.tree.children[1].children.map(\.id), ["golem-alola"])
     }
     func testCompoundConditionsUnknownFieldsAndIntrinsicConditions() throws {
         let data = Data(#"{"trigger":{"name":"level-up"},"min_level":30,"held_item":{"name":"razor-claw"},"time_of_day":"night","gender":1,"min_steps":1000,"needs_multiplayer":true,"new_requirement":true}"#.utf8)
         let method = try JSONDecoder().decode(EvolutionMethod.self, from: data)
-        for line in ["Level 30", "Holding: Razor Claw", "Time: Night", "Gender: Female", "Steps ≥ 1000", "Multiplayer required"] {
-            XCTAssertTrue(method.requirements.contains(line), line)
+        for condition in ["Level 30", "Holding: Razor Claw", "night", "female", "Steps ≥ 1000", "Multiplayer", "Other requirements unknown"] {
+            XCTAssertTrue(method.label().contains(condition), condition)
         }
         XCTAssertTrue(method.hasUnresolvedRequirements)
         let expression = try JSONDecoder().decode(EvolutionMethod.self, from: Data(#"{"trigger":{"name":"level-up"},"condition_expression":{"expression":"EC 10 % 0 ==","percentage_chance":10}}"#.utf8))
         XCTAssertTrue(expression.hasUnresolvedRequirements)
-        XCTAssertTrue(expression.requirements.contains { $0.contains("10%") })
+        XCTAssertTrue(expression.label().contains("10%"))
     }
-    func testGeodudeDisplaysRequirementsInsteadOfGenericMethods() async throws {
-        let family = try await EvolutionRepository(api: try EvolutionFixtureAPI()).family(for: "geodude")
-        let nodes = family.chain.flattened
-        XCTAssertEqual(nodes.map(\.id), ["geodude", "graveler", "golem"])
-        XCTAssertTrue(nodes[1].conditions[0].hasPrefix("Level 25"))
-        XCTAssertTrue(nodes[2].conditions[0].hasPrefix("Trade"))
-        XCTAssertTrue(nodes[1].conditions[1].contains("Required form: Geodude Alola"))
-        XCTAssertTrue(nodes[2].conditions[1].contains("Resulting form: Golem Alola"))
-        XCTAssertTrue(nodes[2].conditions[1].contains("Introduced: Sun Moon"))
-        XCTAssertFalse(nodes.flatMap(\.conditions).contains { $0.contains("Methods") })
+    func testPikachuFormsHaveDistinctNodesAndConciseConditions() async throws {
+        let family = try await EvolutionRepository(api: try EvolutionFixtureAPI()).family(for: "pikachu")
+        let pikachu = try XCTUnwrap(family.tree.children.first)
+        XCTAssertEqual(pikachu.children.map(\.id), ["raichu", "raichu-alola"])
+        XCTAssertEqual(pikachu.children[0].conditions, ["Thunder Stone"])
+        XCTAssertEqual(pikachu.children[1].conditions, ["Thunder Stone (Alola)"])
+        XCTAssertEqual(pikachu.children[1].species.name, "raichu")
+        XCTAssertEqual(pikachu.children[1].title, "Raichu Alola")
     }
-    func testInlineConditionsKeepCompoundRequirementsAndDeduplicate() throws {
-        let data = Data(#"{"species":{"name":"test","url":""},"evolves_to":[],"evolution_details":[{"trigger":{"name":"use-item"},"item":{"name":"water-stone"}},{"is_default":true,"trigger":{"name":"level-up"},"min_happiness":160,"time_of_day":"night","unknown_condition":true},{"trigger":{"name":"use-item"},"item":{"name":"water-stone"}}]}"#.utf8)
-        let link = try JSONDecoder().decode(EvolutionLink.self, from: data)
-        XCTAssertEqual(link.conditions.count, 2)
-        for requirement in ["Level up", "Friendship ≥ 160", "Time: Night", "Additional requirements are not fully described here."] {
-            XCTAssertTrue(link.conditions[0].contains(requirement))
+    func testKirliaAndSnoruntGenderConditionsAreNotLost() async throws {
+        let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
+        let ralts = try await repository.family(for: "kirlia")
+        let kirlia = try XCTUnwrap(ralts.tree.children.first)
+        XCTAssertEqual(kirlia.children.map(\.id), ["gardevoir", "gallade"])
+        XCTAssertEqual(kirlia.children.map(\.conditions), [["Level 30"], ["Dawn Stone (male)"]])
+        let snorunt = try await repository.family(for: "snorunt")
+        XCTAssertEqual(snorunt.tree.children.map(\.id), ["glalie", "froslass"])
+        XCTAssertEqual(snorunt.tree.children.map(\.conditions), [["Level 42"], ["Dawn Stone (female)"]])
+    }
+    func testAllNineteenSpeciesBranchSplitsMatchOfficialSource() async throws {
+        struct Check: Decodable { let chainID: Int; let parent: String; let children: [String] }
+        struct Document: Decodable { let branch_expectations: [Check] }
+        let url = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "Evolution", withExtension: "json"))
+        let checks = try JSONDecoder().decode(Document.self, from: Data(contentsOf: url)).branch_expectations
+        XCTAssertEqual(checks.count, 19)
+        let api = try EvolutionFixtureAPI()
+        for check in checks {
+            let family = try await api.get("evolution-chain/\(check.chainID)", as: EvolutionChain.self)
+            let parents = family.tree.flattened.filter { $0.species.name == check.parent }
+            let children = Set(parents.flatMap(\.children).map { $0.species.name })
+            XCTAssertEqual(children, Set(check.children), check.parent)
+            XCTAssertEqual(Set(family.tree.flattened.map(\.id)).count, family.tree.flattened.count, "Duplicate node: \(check.parent)")
         }
-        XCTAssertEqual(link.conditions[1], "Use Water Stone")
-        let unavailable = try JSONDecoder().decode(EvolutionLink.self, from: Data(#"{"species":{"name":"test","url":""},"evolves_to":[],"evolution_details":[]}"#.utf8))
-        XCTAssertEqual(unavailable.conditions, ["Evolution requirements are not available."])
     }
+    func testFormResolutionUsesPokemonIdentifierAndCachesOffline() async throws {
+        let api = try EvolutionFixtureAPI()
+        let repository = EvolutionRepository(api: api)
+        let family = try await repository.family(for: "pikachu")
+        let alola = try XCTUnwrap(family.tree.flattened.first { $0.id == "raichu-alola" })
+        let member = try await repository.member(for: alola.species.name, form: alola.form)
+        XCTAssertEqual(member.name, "raichu-alola")
+        XCTAssertEqual(member.nationalNumber, 26)
+        XCTAssertEqual(member.types.map { $0.type.name }, ["electric", "psychic"])
+        await api.setUnavailable(true)
+        let cached = try await repository.member(for: alola.species.name, form: alola.form)
+        XCTAssertEqual(cached.name, member.name)
+        let count = await api.count("pokemon-form/10202")
+        XCTAssertEqual(count, 1)
+    }
+    func testLabelsDeduplicateAndMissingConditionsStayUnknown() throws {
+        let data = Data(#"{"species":{"name":"test","url":""},"evolves_to":[],"evolution_details":[{"trigger":{"name":"use-item"},"item":{"name":"water-stone"}},{"trigger":{"name":"use-item"},"item":{"name":"water-stone"}}]}"#.utf8)
+        let link = try JSONDecoder().decode(EvolutionLink.self, from: data)
+        XCTAssertEqual(EvolutionBranch(link: link, methods: link.evolution_details).conditions, ["Water Stone"])
+        let unavailable = try JSONDecoder().decode(EvolutionLink.self, from: Data(#"{"species":{"name":"test","url":""},"evolves_to":[],"evolution_details":[]}"#.utf8))
+        XCTAssertEqual(EvolutionBranch(link: unavailable).conditionText, "Requirements unknown")
+    }
+
 }
 
 @MainActor final class EvolutionLifecycleTests: XCTestCase {
@@ -244,6 +281,23 @@ final class EvolutionTests: XCTestCase {
         XCTAssertEqual(store.entryText, "Previous complete entry.")
         XCTAssertEqual(store.entryVersion, "Red")
         XCTAssertFalse(store.loading)
+    }
+    func testRegionalSelectionRetainsFamilyAndExactForm() async throws {
+        let api = try EvolutionFixtureAPI()
+        let repository = EvolutionRepository(api: api)
+        let store = DexStore(api: api)
+        store.pokemon = try await repository.member(for: "pikachu")
+        let model = EvolutionModel(repository: repository)
+        await model.load(for: "pikachu")
+        model.scrollAnchor = "raichu-alola"
+        model.choose("raichu-alola", store: store)
+        await finish(model)
+        XCTAssertEqual(store.pokemon?.name, "raichu-alola")
+        XCTAssertEqual(store.pokemon?.types.map { $0.type.name }, ["electric", "psychic"])
+        await model.load(for: "raichu")
+        XCTAssertEqual(model.scrollAnchor, "raichu-alola")
+        XCTAssertEqual(model.chain?.id, 10)
+        XCTAssertNil(model.selectionError)
     }
     private func finish(_ model: EvolutionModel) async {
         for _ in 0..<200 where model.choosing != nil { try? await Task.sleep(for: .milliseconds(5)) }

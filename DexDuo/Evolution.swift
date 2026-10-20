@@ -8,21 +8,74 @@ struct EvolutionChain: Decodable, Sendable {
     let chain: EvolutionLink
 }
 
-struct EvolutionLink: Decodable, Sendable, Identifiable {
+struct EvolutionLink: Decodable, Sendable {
     let species: Named
     let evolution_details: [EvolutionMethod]
     let evolves_to: [EvolutionLink]
     var id: String { species.name }
     var flattened: [EvolutionLink] { [self] + evolves_to.flatMap(\.flattened) }
-    var conditions: [String] {
-        let ordered = evolution_details.filter(\.isDefault) + evolution_details.filter { !$0.isDefault }
+}
+
+// Project species links into distinct form outcomes before drawing or loading them.
+struct EvolutionBranch: Identifiable, Sendable {
+    let species: Named
+    let form: Named?
+    let conditions: [String]
+    let children: [EvolutionBranch]
+    var id: String { form?.name ?? species.name }
+    var title: String { form?.title ?? species.title }
+    var conditionText: String { conditions.isEmpty ? "Requirements unknown" : conditions.joined(separator: " / ") }
+    var flattened: [EvolutionBranch] { [self] + children.flatMap(\.flattened) }
+
+    init(link: EvolutionLink, form: Named? = nil, methods: [EvolutionMethod] = [],
+         source: Named? = nil, sourceForm: Named? = nil, includeSourceForms: Bool = false) {
+        species = link.species
+        self.form = form
+        let defaults = methods.filter(\.isDefault)
         var seen: Set<String> = []
-        let descriptions = ordered.compactMap { method -> String? in
-            var text = method.requirements.joined(separator: " · ")
-            if evolution_details.count > 1, let version = method.version { text += "\nIntroduced: \(version)" }
-            return seen.insert(text).inserted ? text : nil
+        conditions = (defaults.isEmpty ? methods : defaults).map { method in
+            let required = method.requiredForm
+            let qualifier = sourceForm == nil && required?.isOrdinaryForm(of: source) == false ? required?.title : nil
+            return method.label(requiredForm: qualifier)
+        }.filter { seen.insert($0).inserted }
+        children = link.evolves_to.flatMap { child in
+            let applicable = child.evolution_details.filter { method in
+                if includeSourceForms { return true }
+                if let form { return method.requiredForm?.name == form.name }
+                return method.requiredForm == nil || method.requiredForm?.isOrdinaryForm(of: link.species) == true
+            }
+            var outcomes: [String] = []
+            var grouped: [String: [EvolutionMethod]] = [:]
+            for method in applicable {
+                let key = method.resultForm?.name ?? child.id
+                if grouped[key] == nil { outcomes.append(key) }
+                grouped[key, default: []].append(method)
+            }
+            // A missing method still leaves a selectable child with an explicit unknown label.
+            if child.evolution_details.isEmpty && form == nil {
+                return [EvolutionBranch(link: child)]
+            }
+            return outcomes.map { key in
+                let methods = grouped[key]!
+                let result = methods.first?.resultForm
+                return EvolutionBranch(link: child, form: result?.name == child.id ? nil : result, methods: methods, source: link.species, sourceForm: form)
+            }
         }
-        return descriptions.isEmpty ? ["Evolution requirements are not available."] : descriptions
+    }
+}
+
+extension EvolutionChain {
+    var tree: EvolutionBranch { EvolutionBranch(link: chain, includeSourceForms: true) }
+}
+
+private extension Named {
+    // Ordinary PokéAPI form references use the species number, including named coats.
+    func isOrdinaryForm(of species: Named?) -> Bool {
+        guard let species else { return false }
+        if name == species.name { return true }
+        guard let formID = URL(string: url)?.lastPathComponent, Int(formID) != nil,
+              let speciesID = URL(string: species.url)?.lastPathComponent else { return false }
+        return formID == speciesID
     }
 }
 
@@ -74,46 +127,55 @@ struct EvolutionMethod: Decodable, Sendable {
         Self.triggers[trigger] == nil || fields.contains { !Self.known.contains($0.key) && $0.value.hasRequirement }
             || fields["condition_expression"]?.hasRequirement == true
     }
-    var requirements: [String] {
-        var lines: [String] = []
-        if trigger == "use-item", let item = fields["item"]?.named { lines.append("Use \(item)") }
-        else if trigger == "level-up", let level = fields["min_level"]?.number { lines.append("Level \(Int(level))") }
-        else { lines.append(Self.triggers[trigger] ?? "Special evolution") }
-        if trigger != "use-item", let item = fields["item"]?.named { lines.append("Item: \(item)") }
-        if trigger != "level-up", let level = fields["min_level"]?.number { lines.append("Minimum level: \(Int(level))") }
+    var requiredForm: Named? { reference("required_pokemon_form") }
+    var resultForm: Named? { reference("evolved_pokemon_form") }
+    private func reference(_ field: String) -> Named? {
+        guard let value = fields[field]?.object, let name = value["name"]?.text,
+              let url = value["url"]?.text else { return nil }
+        return Named(name: name, url: url)
+    }
+    func label(requiredForm: String? = nil) -> String {
+        var parts: [String] = []
+        if trigger == "use-item", let item = fields["item"]?.named { parts.append(item) }
+        else if trigger == "level-up", let level = fields["min_level"]?.number { parts.append("Level \(Int(level))") }
+        else if trigger != "level-up" { parts.append(Self.triggers[trigger] ?? "Special evolution") }
+        if trigger != "use-item", let item = fields["item"]?.named { parts.append(item) }
+        if trigger != "level-up", let level = fields["min_level"]?.number { parts.append("Level \(Int(level))+") }
         for (key, title) in [("held_item", "Holding"), ("known_move", "Knows"), ("known_move_type", "Knows a move of type"),
-                             ("location", "Location"), ("party_species", "Party member"), ("party_type", "Party type"),
-                             ("trade_species", "Trade for"), ("region", "Region"), ("required_pokemon_form", "Required form"),
-                             ("evolved_pokemon_form", "Resulting form"), ("used_move", "Use move")] {
-            if let value = fields[key]?.named { lines.append("\(title): \(value)") }
+                             ("party_species", "Party member"), ("party_type", "Party type"), ("trade_species", "Trade for"),
+                             ("used_move", "Use move")] {
+            if let value = fields[key]?.named { parts.append("\(title): \(value)") }
         }
         for (key, title) in [("min_happiness", "Friendship"), ("min_affection", "Affection"), ("min_beauty", "Beauty"),
                              ("min_move_count", "Move uses"), ("min_steps", "Steps"), ("min_damage_taken", "Damage taken")] {
-            if let value = fields[key]?.number { lines.append("\(title) ≥ \(Int(value))") }
+            if let value = fields[key]?.number { parts.append("\(title) ≥ \(Int(value))") }
         }
-        if let time = fields["time_of_day"]?.text, !time.isEmpty { lines.append("Time: \(time.replacingOccurrences(of: "-", with: " ").capitalized)") }
-        if let gender = fields["gender"]?.number { lines.append("Gender: \(gender == 1 ? "Female" : gender == 2 ? "Male" : "Unresolved")") }
         if let relation = fields["relative_physical_stats"]?.number {
-            lines.append(relation == 1 ? "Attack > Defense" : relation == -1 ? "Attack < Defense" : relation == 0 ? "Attack = Defense" : "Stat requirement unresolved")
+            parts.append(relation == 1 ? "Attack > Defense" : relation == -1 ? "Attack < Defense" : relation == 0 ? "Attack = Defense" : "Stat requirement unknown")
         }
-        for (key, title) in [("near_special_rock", "Near the specified special rock"), ("needs_multiplayer", "Multiplayer required"),
-                             ("needs_overworld_rain", "Overworld rain required"), ("turn_upside_down", "Turn the device upside down")] {
-            if fields[key]?.flag == true { lines.append(title) }
+        for (key, title) in [("near_special_rock", "Near special rock"), ("needs_multiplayer", "Multiplayer"),
+                             ("needs_overworld_rain", "Overworld rain"), ("turn_upside_down", "Device upside down")] {
+            if fields[key]?.flag == true { parts.append(title) }
         }
         let natures = fields["allowed_natures"]?.list.compactMap(\.named) ?? []
-        if !natures.isEmpty { lines.append("Allowed natures: " + natures.joined(separator: ", ")) }
-        if let chance = fields["condition_expression"]?.object["percentage_chance"]?.number { lines.append("Intrinsic condition: \(chance.formatted())% outcome") }
-        if hasUnresolvedRequirements { lines.append("Additional requirements are not fully described here.") }
-        return lines
+        if !natures.isEmpty { parts.append("Natures: " + natures.joined(separator: ", ")) }
+        if let chance = fields["condition_expression"]?.object["percentage_chance"]?.number { parts.append("Intrinsic outcome: \(chance.formatted())%") }
+        if hasUnresolvedRequirements { parts.append("Other requirements unknown") }
+        if parts.isEmpty { parts.append(Self.triggers[trigger] ?? "Requirements unknown") }
+        var qualifiers = [fields["region"]?.named, fields["location"]?.named, requiredForm].compactMap { $0 }
+        if let gender = fields["gender"]?.number { qualifiers.append(gender == 1 ? "female" : gender == 2 ? "male" : "gender unknown") }
+        if let time = fields["time_of_day"]?.text, !time.isEmpty { qualifiers.append(time.replacingOccurrences(of: "-", with: " ")) }
+        return parts.joined(separator: " · ") + (qualifiers.isEmpty ? "" : " (" + qualifiers.joined(separator: ", ") + ")")
     }
-    var version: String? { fields["version_group"]?.named }
 }
+
+private struct EvolutionForm: Decodable, Sendable { let pokemon: Named }
 
 enum EvolutionError: Error { case unavailable, defaultVarietyMissing }
 
 protocol EvolutionFetching: Sendable {
     func family(for species: String) async throws -> EvolutionChain
-    func member(for species: String) async throws -> Pokemon
+    func member(for species: String, form: Named?) async throws -> Pokemon
 }
 
 actor EvolutionRepository: EvolutionFetching {
@@ -141,17 +203,29 @@ actor EvolutionRepository: EvolutionFetching {
         } catch { chains[path] = nil; throw error }
     }
 
-    func member(for species: String) async throws -> Pokemon {
-        if let existing = members[species] { return try await existing.value }
+    func member(for species: String, form: Named? = nil) async throws -> Pokemon {
+        let key = form?.name ?? species
+        if let existing = members[key] { return try await existing.value }
         let api = api
         let task = Task {
-            let details = try await api.get("pokemon-species/\(species)", as: Species.self)
-            guard let variety = details.varieties?.first(where: \.is_default)?.pokemon.name else { throw EvolutionError.defaultVarietyMissing }
-            return try await api.get("pokemon/\(variety)", as: Pokemon.self)
+            let name: String
+            if let form {
+                guard let url = URLComponents(string: form.url), url.host == "pokeapi.co",
+                      url.path.hasPrefix("/api/v2/pokemon-form/"),
+                      let identifier = url.path.split(separator: "/").last, Int(identifier) != nil else { throw EvolutionError.unavailable }
+                name = try await api.get("pokemon-form/\(identifier)", as: EvolutionForm.self).pokemon.name
+            } else {
+                let details = try await api.get("pokemon-species/\(species)", as: Species.self)
+                guard let variety = details.varieties?.first(where: \.is_default)?.pokemon.name else { throw EvolutionError.defaultVarietyMissing }
+                name = variety
+            }
+            let value = try await api.get("pokemon/\(name)", as: Pokemon.self)
+            guard value.species.name == species else { throw EvolutionError.unavailable }
+            return value
         }
-        members[species] = task
+        members[key] = task
         do { return try await task.value }
-        catch { members[species] = nil; throw error }
+        catch { members[key] = nil; throw error }
     }
 }
 
@@ -192,13 +266,13 @@ actor EvolutionRepository: EvolutionFetching {
             guard loadGeneration == token, !Task.isCancelled else { return }
             if chain?.id != value.id { scrollAnchor = nil }
             chain = value
-            let links = value.chain.flattened
+            let links = value.tree.flattened
             for start in stride(from: 0, to: links.count, by: 4) {
                 guard loadGeneration == token, !Task.isCancelled else { return }
                 await withTaskGroup(of: (String, Pokemon?).self) { group in
                     for link in links[start..<min(start + 4, links.count)] where members[link.id] == nil {
                         let repository = repository
-                        group.addTask { (link.id, try? await repository.member(for: link.id)) }
+                        group.addTask { (link.id, try? await repository.member(for: link.species.name, form: link.form)) }
                     }
                     for await (name, member) in group {
                         guard loadGeneration == token, !Task.isCancelled, let member else { continue }
@@ -228,28 +302,28 @@ actor EvolutionRepository: EvolutionFetching {
         }
     }
 
-    func choose(_ species: String, store: DexStore) {
-        guard choosing == nil else { return }
+    func choose(_ memberID: String, store: DexStore) {
+        guard choosing == nil, let branch = chain?.tree.flattened.first(where: { $0.id == memberID }) else { return }
         store.selectionBegan.send()
-        choosing = species; selectionError = nil; failedMember = nil
+        choosing = memberID; selectionError = nil; failedMember = nil
         let token = UUID(); selectionGeneration = token
         selectionTask = Task {
             do {
-                let member = try await repository.member(for: species)
+                let member = try await repository.member(for: branch.species.name, form: branch.form)
                 guard selectionGeneration == token, !Task.isCancelled else { return }
                 let success = await store.select(member.name, reportError: false)
                 guard selectionGeneration == token, !Task.isCancelled else { return }
                 choosing = nil
-                if !success { selectionFailed(species) }
+                if !success { selectionFailed(memberID) }
             } catch {
                 guard selectionGeneration == token, !Task.isCancelled else { return }
-                choosing = nil; selectionFailed(species)
+                choosing = nil; selectionFailed(memberID)
             }
         }
     }
-    private func selectionFailed(_ species: String) {
-        failedMember = species
-        selectionError = "Couldn’t load \(species.replacingOccurrences(of: "-", with: " ").capitalized). Your previous selection is retained."
+    private func selectionFailed(_ memberID: String) {
+        failedMember = memberID
+        selectionError = "Couldn’t load \(memberID.replacingOccurrences(of: "-", with: " ").capitalized). Your previous selection is retained."
     }
     private func cancelSelection() {
         selectionGeneration = UUID(); selectionTask?.cancel(); selectionTask = nil; choosing = nil
