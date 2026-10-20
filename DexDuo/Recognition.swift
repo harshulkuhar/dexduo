@@ -1,6 +1,6 @@
 import Foundation
 
-struct PokemonLabel: Codable, Identifiable, Equatable {
+struct PokemonLabel: Decodable, Identifiable, Equatable {
     let index: Int
     let speciesID: Int
     let name: String
@@ -8,7 +8,7 @@ struct PokemonLabel: Codable, Identifiable, Equatable {
     var id: Int { speciesID }
 }
 
-struct VisualPrediction: Equatable {
+struct VisualPrediction {
     let label: PokemonLabel
     let probability: Double
 }
@@ -22,7 +22,7 @@ struct RecognitionPolicy: Decodable {
                                               minimumMargin: 0.2, candidateMinimumProbability: 0.35)
 }
 
-struct ScanDecision: Equatable {
+struct ScanDecision {
     let candidates: [PokemonLabel]
     let automatic: PokemonLabel?
 }

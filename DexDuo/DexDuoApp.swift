@@ -20,11 +20,11 @@ struct DexDuoView: View {
     @StateObject private var presentation = DevicePresentation()
     @Environment(\.scenePhase) private var scenePhase
     @State private var opened = false
-    @State private var hardwareControlsCover = true
     @State private var scanning = false
     @State private var tab = "Info"
     @State private var compactPanel = "Pokémon"
     @FocusState private var searchFocused: Bool
+    private var hardwareControlsCover: Bool { presentation.state.profile == .duo }
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color(red: 0.87, green: 0.14, blue: 0.20), shell, Color(red: 0.49, green: 0.03, blue: 0.08)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
@@ -56,7 +56,6 @@ struct DexDuoView: View {
         .task { await store.start() }
     }
     private func applyDeviceState() {
-        hardwareControlsCover = presentation.state.profile == .duo
         guard hardwareControlsCover else { return }
         var transaction = Transaction(animation: nil)
         transaction.disablesAnimations = true
@@ -107,8 +106,8 @@ struct DexDuoView: View {
             HStack(spacing: 7) { ForEach([Color.red, .yellow, .green], id: \.self) { color in Circle().fill(color.gradient).frame(width: 11, height: 11).overlay(Circle().stroke(.black.opacity(0.5), lineWidth: 1)) } }.padding(.leading, 5)
             Spacer()
             if !hardwareControlsCover {
-            Button { withAnimation(.easeInOut(duration: 0.25)) { opened.toggle() } } label: {
-                Label(opened ? "Cover" : "Open", systemImage: opened ? "book.closed" : "book")
+            Button { withAnimation(.easeInOut(duration: 0.25)) { opened = false } } label: {
+                Label("Cover", systemImage: "book.closed")
                     .font(.system(size: 13, weight: .semibold, design: .monospaced)).padding(12)
                     .background(.black.opacity(0.16), in: Capsule())
             }.tint(.white)
