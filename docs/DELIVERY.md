@@ -17,6 +17,14 @@ Updated 2026-10-21. Local checkout: `/Users/nonu/Workspace/dexduo`.
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 
+## Prompt scanner dismissal
+
+[PR #15](https://github.com/harshulkuhar/dexduo/pull/15), branch `codex/scanner-dismissal`. Reproduced Scan/blue lens → Done without taking a photograph on the connected Air. Four baseline runs took **10.30–10.34 seconds**. After moving preview-session disconnection from the main thread to the existing camera queue, the final four runs took **1.84–1.85 seconds** and passed the two-second regression gate. These end-to-end XCTest measurements include tap/idle handling and waiting for the entry's search field; they are not raw animation timings.
+
+The queued operation retains the preview layer through cleanup, and teardown clears the coordinator's weak preview reference before cancelling rotation observations. Existing camera cancellation, Capture/Retake and recognition behavior remain unchanged. The blocked-camera-queue unit test verifies that stop/disconnect return immediately while native cleanup is pending.
+
+Verification: 12 camera unit checks and both scanner UI regressions pass on iPhone 18 Pro. The signed Air Debug test and unsigned generic-iOS Release build pass. All 12 camera unit checks and three Duo UI regressions pass: fixed orientation/profile, accessible scanner controls and Import/cancel/Retake/reopening. The required dead-code-removal audit found all new declarations consumed and no additional unused code to remove. No screenshots, recordings, photographs or signing settings are committed.
+
 ## Evolution connector follow-up
 
 [PR #14](https://github.com/harshulkuhar/dexduo/pull/14), branch `codex/evolution-connectors`. Direct evolutions keep aligned cards and use straight down arrows. Forks share a vertical trunk and long right-pointing arrows, with each requirement centered above its shaft and its destination card to the right. Sibling cards share a column, and direct stages within a branch stay aligned. The final trunk ends at the last sibling junction rather than extending through that sibling's descendants. Labels wrap and increase the row height; the arrow space scales with text size and adapts to the LCD width.
@@ -113,7 +121,7 @@ The original feature’s early UI runs exposed an identifier collision and narro
 
 ## Remaining feature branches
 
-`codex/embedded-camera` and `codex/evolution-connectors` are delivered through PRs #13 and #14. No remaining active feature branches need synchronization after this merge. Completed branches remain as history.
+`codex/embedded-camera` and `codex/evolution-connectors` are delivered through PRs #13 and #14. `codex/scanner-dismissal` is delivered through PR #15. No remaining active feature branches need synchronization after this merge. Completed branches remain as history.
 
 ## Next steps
 

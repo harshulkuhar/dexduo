@@ -23,6 +23,7 @@ protocol CameraDriving: AnyObject {
     var session: AVCaptureSession { get }
     func start(onFailure: @escaping (CameraFailure) -> Void) async throws -> AVCaptureDevice?
     func stop()
+    func detachPreview(_ layer: AVCaptureVideoPreviewLayer)
     func capture(rotation: CGFloat) async throws -> UIImage
 }
 
@@ -30,13 +31,14 @@ protocol CameraDriving: AnyObject {
 final class NativeCameraDriver: CameraDriving, @unchecked Sendable {
     let session = AVCaptureSession()
     private let output = AVCapturePhotoOutput()
-    private let queue = DispatchQueue(label: "com.harshulkuhar.dexduo.camera")
+    private let queue: DispatchQueue
     private var run: UUID?
     private var onFailure: ((CameraFailure) -> Void)?
     private var receivers: [Int64: PhotoReceiver] = [:]
     private var observers: [NSObjectProtocol] = []
 
-    init() {
+    init(queue: DispatchQueue = DispatchQueue(label: "com.harshulkuhar.dexduo.camera")) {
+        self.queue = queue
         for name in [AVCaptureSession.wasInterruptedNotification, AVCaptureSession.runtimeErrorNotification] {
             observers.append(NotificationCenter.default.addObserver(forName: name, object: session, queue: nil) { [weak self] _ in
                 guard let self else { return }
@@ -91,6 +93,13 @@ final class NativeCameraDriver: CameraDriving, @unchecked Sendable {
             receivers.values.forEach { $0.finish(.failure(CancellationError())) }
             if session.isRunning { session.stopRunning() }
         }
+    }
+
+    func detachPreview(_ layer: AVCaptureVideoPreviewLayer) {
+        // Disconnecting also changes the session graph and can wait for stopRunning.
+        // Retain the layer until that work finishes, so dismissal never does it on main.
+        nonisolated(unsafe) let detachedLayer = layer
+        queue.async { detachedLayer.session = nil }
     }
 
     func capture(rotation: CGFloat) async throws -> UIImage {
@@ -230,8 +239,9 @@ struct CameraPreview: UIViewRepresentable {
         context.coordinator.configure(device: camera.device, layer: view.preview)
     }
     static func dismantleUIView(_ view: PreviewView, coordinator: Coordinator) {
+        coordinator.previewLayer = nil
         coordinator.observations = []; coordinator.rotation = nil
-        view.preview.session = nil
+        coordinator.camera.driver.detachPreview(view.preview)
     }
     final class PreviewView: UIView {
         override class var layerClass: AnyClass { AVCaptureVideoPreviewLayer.self }
