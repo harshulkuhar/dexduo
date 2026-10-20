@@ -135,12 +135,12 @@ final class PhoneLayoutTests: XCTestCase {
         scanner.analyze(UIImage(), select: { _ in XCTFail("Confirmation is required"); return false }, dismiss: {})
         for _ in 0..<100 where scanner.working { try await Task.sleep(for: .milliseconds(10)) }
         XCTAssertEqual(scanner.candidates, labels)
-        try render(PhoneScannerContent(scanner: scanner, item: .constant(nil), openCamera: {}, choose: { _ in }, done: {}),
+        try render(PhoneScannerContent(scanner: scanner, camera: CameraController(), capture: {}, retake: {}, importPhoto: {}, choose: { _ in }, done: {}),
                    size: CGSize(width: 667, height: 375), name: "scanner-compact")
         scanner.choose(labels[0], select: { _ in false }, dismiss: { XCTFail("A failed lookup must stay open") })
         for _ in 0..<100 where scanner.working { try await Task.sleep(for: .milliseconds(10)) }
         XCTAssertEqual(scanner.retryCandidate, labels[0])
-        try render(PhoneScannerContent(scanner: scanner, item: .constant(nil), openCamera: {}, choose: { _ in }, done: {})
+        try render(PhoneScannerContent(scanner: scanner, camera: CameraController(), capture: {}, retake: {}, importPhoto: {}, choose: { _ in }, done: {})
             .environment(\.dynamicTypeSize, .accessibility5), size: CGSize(width: 667, height: 375), name: "scanner-retry-accessibility")
     }
 

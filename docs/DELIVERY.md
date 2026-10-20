@@ -17,6 +17,22 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 
+## Embedded camera follow-up
+
+Branch `codex/embedded-camera`. Scan starts the rear camera inside the existing green preview on phone and Duo. The entire frame uses aspect fit. Capture freezes and recognizes one image; Retake cancels the previous scan and resumes the preview, including while inference is pending. Import pauses capture and cancellation retains the prior live/frozen state. Done, permission Settings/Import, candidate confirmation and lookup Retry remain reachable. Accessibility sizes use shared Preview/Results pages with fixed capture controls.
+
+The native session runs on a serial queue; Apple's rotation coordinator supplies preview and photograph angles. Generation guards reject late authorization, image and interruption callbacks. Closing, folding and backgrounding stop capture. A previously live preview resumes on foregrounding; captured/imported results stay frozen. Photographs remain in memory and are never saved automatically or uploaded. Recognition weights and thresholds are unchanged.
+
+Verification:
+
+- The phone suite passed all **79 unit/component cases** before the final Retake-during-inference case was added. All **11 camera cases** then passed on phone and Duo, including that additional cancellation case, permission/unavailable states, matching photo-angle forwarding, duplicate capture, capture failure/Retry, Import cancellation, stale callbacks and the actual aspect-fit native layer. A subsequent broader repeat hit a Simulator speech-preparation timeout in one native-audio case; all three native-audio cases pass on an isolated rerun after shutting down the second Simulator. All 80 distinct unit/component cases pass across these runs.
+- All **14 phone UI cases pass across the broad and focused final runs**: scanner import/confirmation, automatic lookup, cancelled imports, Retake/reopening, accessible Preview/Results controls, search, type grid, retained artwork/both landscape directions and all four speech/lens cases. Two early picker waits timed out under concurrent Simulator load; focused reruns pass after waiting for actual dismissal and allowing the Photos service to populate its accessibility tree.
+- On the actual Duo destination, **18 focused unit/component cases and four UI cases pass across the final runs**: fixed UIKit orientation, accessible scanner pages, repeated Import/cancel/Retake/reopening and candidate lookup. The final 11-camera/three-scanner run passes together. Early Duo attempts started with the simulated hinge closed; subsequent runs explicitly opened the device. Photos waits now account for its remote picker and tests close Done before relaunching.
+- The final unsigned generic-iOS Release build passes. The phone scanner was visually inspected outside Git. Source registration, whitespace, no-media and no-personal-signing checks pass.
+- The required dead-code-removal skill removed `CameraPicker`, its obsolete delegate methods, camera-sheet state, `openCamera` and a newly redundant preview forwarding property. Framework callbacks, camera/inference cancellation and existing recognition/artwork caches retain their consumers.
+
+The Air is reconnected for a signed build and manual camera checks. Actual camera framing, preview/photo orientation in both landscape directions, real card/screen capture and repeated physical scanner opening remain pending until confirmed. Actual Duo camera verification requires hardware. Simulator/mocked capture results do not establish those hardware checks. Personal Xcode signing/settings stay local and no screenshots, recordings or photographs are committed.
+
 ## Speaking lens
 
 [PR #12](https://github.com/harshulkuhar/dexduo/pull/12), branch `codex/lens-flash`. The existing 36-point phone and 56-point Duo interior lenses now share a soft cyan halo driven by post-effect mixer audio. The envelope has a 40 ms attack and 120 ms release, with at most 30 published updates per second. Normal opacity is capped at 35%, with maximum blur of 5/8 points; Reduce Motion uses a steady 15% halo. Preparation stays idle. Stop, completion, failure and existing cancellation paths clear the light immediately. The closed cover, lens artwork, layout and scanner actions are unchanged.
@@ -82,7 +98,7 @@ The original feature’s early UI runs exposed an identifier collision and narro
 
 ## Remaining feature branches
 
-The speaking lens completes the planned feature branches. No active feature branches remain to synchronize; the merged `main` is the working baseline. Completed delivery branches remain as history.
+`codex/embedded-camera` is the current fix. `codex/evolution-connectors` follows after its checks and merge; no other active feature branches remain. Completed branches remain as history.
 
 ## Next steps
 

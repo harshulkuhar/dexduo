@@ -1,11 +1,12 @@
 import SwiftUI
-import PhotosUI
 import UIKit
 
 struct PhoneScannerContent: View {
     @ObservedObject var scanner: ScannerModel
-    @Binding var item: PhotosPickerItem?
-    let openCamera: () -> Void
+    @ObservedObject var camera: CameraController
+    let capture: () -> Void
+    let retake: () -> Void
+    let importPhoto: () -> Void
     let choose: (PokemonLabel) -> Void
     let done: () -> Void
     @Environment(\.dynamicTypeSize) private var textSize
@@ -26,10 +27,11 @@ struct PhoneScannerContent: View {
                         Text("Preview").tag("Preview")
                         Text("Results").tag("Results")
                     }.pickerStyle(.segmented).frame(height: 44)
-                    if panel == "Preview" { preview } else { results }
+                    if panel == "Preview" { ScannerPreview(scanner: scanner, camera: camera) } else { results }
+                    controls
                 } else {
                     HStack(spacing: 12) {
-                        preview.frame(maxWidth: .infinity)
+                        ScannerPreview(scanner: scanner, camera: camera).frame(maxWidth: .infinity)
                         results.frame(maxWidth: .infinity)
                     }
                 }
@@ -43,27 +45,17 @@ struct PhoneScannerContent: View {
         .onChange(of: scanner.image) { _, _ in page = 0 }
     }
 
-    private var preview: some View {
-        ZStack {
-            DexAppearance.lcd
-            if let image = scanner.image { Image(uiImage: image).resizable().scaledToFit().padding(8) }
-            else { Image(systemName: "viewfinder").font(.system(size: 70, weight: .ultraLight)) }
-        }.clipShape(RoundedRectangle(cornerRadius: 10))
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(DexAppearance.bezel, lineWidth: 6))
+    private var controls: some View {
+        ScannerCaptureControls(camera: camera, hasImage: scanner.image != nil, working: scanner.working,
+            capture: capture, retake: retake, importPhoto: importPhoto)
     }
 
     private var results: some View {
         VStack(spacing: 8) {
-            Text(scanner.message).font(.system(size: 14)).lineLimit(3)
+            Text((scanner.image == nil && camera.phase != .frozen) ? (camera.message ?? "Point at one Pokémon, then press Capture.") : scanner.message).font(.system(size: 14)).lineLimit(3)
                 .frame(maxWidth: .infinity, minHeight: 51, alignment: .topLeading)
                 .accessibilityIdentifier("scanMessage")
-            HStack(spacing: 8) {
-                Button(action: openCamera) { Label("Camera", systemImage: "camera.fill").frame(maxWidth: .infinity, minHeight: 44) }
-                    .background(.cyan.gradient, in: RoundedRectangle(cornerRadius: 6))
-                PhotosPicker(selection: $item, matching: .images) {
-                    Label("Import", systemImage: "photo").frame(maxWidth: .infinity, minHeight: 44)
-                }.background(.cyan.gradient, in: RoundedRectangle(cornerRadius: 6)).accessibilityIdentifier("scanImport")
-            }.font(.system(size: 14)).buttonStyle(.plain).disabled(scanner.working)
+            if !textSize.isAccessibilitySize { controls }
             if scanner.working {
                 ProgressView("Identifying Pokémon…").frame(maxWidth: .infinity)
                 Spacer(minLength: 0)

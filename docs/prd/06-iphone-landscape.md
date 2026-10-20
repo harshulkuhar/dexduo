@@ -30,9 +30,9 @@ Autocomplete, clear/retype, paste, submit, dismissal and a failed search must wo
 
 ## Scanner
 
-Use a compact landscape arrangement for image preview, Camera/Import, message, up to three candidate choices, Retry and Done. Page candidate choices if text size requires it. Preserve the selected photo and retry state while switching pages. Do not reduce the entire portrait scanner canvas to unreadable dimensions.
+Use a compact landscape arrangement for image preview, Capture/Retake/Import, message, up to three candidate choices, Retry and Done. Page candidate choices if text size requires it. Preserve the selected photo and retry state while switching pages. Do not reduce the entire portrait scanner canvas to unreadable dimensions.
 
-System Photos/camera screens follow Apple's layout behavior; the scanner remains fixed; contained scrolling is limited to the three detail tabs. Recognition and generation-token cancellation behavior are unchanged.
+The rear camera now starts inside the green preview, with Capture/Retake controls; Photos keeps its system picker. See [the camera follow-up](07-embedded-camera.md). The scanner remains fixed; contained scrolling is limited to the three detail tabs. Recognition and generation-token cancellation behavior are unchanged.
 
 ## Acceptance and tests
 

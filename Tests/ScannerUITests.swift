@@ -43,11 +43,11 @@ final class ScannerUITests: XCTestCase {
     }
     // Seed Photos with the Espeon fixture using simctl addmedia before these tests.
     private func importEspeon(_ app: XCUIApplication) {
-        let scan = app.buttons["phoneScan"].exists ? app.buttons["phoneScan"] : app.buttons["SCAN POKÉMON"]
+        let scan = app.buttons["phoneScan"].exists ? app.buttons["phoneScan"] : app.buttons["scannerLens"]
         XCTAssertTrue(scan.waitForExistence(timeout: 15), "Unfold the Duo simulator before running UI tests.")
-        scan.tap(); app.buttons["scanImport"].tap()
+        scan.tap(); XCTAssertTrue(app.buttons["Done"].waitForExistence(timeout: 5)); app.buttons["scanImport"].tap()
         let photo = app.images.matching(NSPredicate(format: "label BEGINSWITH[c] 'Photo, '")).firstMatch
-        XCTAssertTrue(photo.waitForExistence(timeout: 10), app.debugDescription)
+        XCTAssertTrue(photo.waitForExistence(timeout: 30), app.debugDescription)
         photo.tap()
     }
     func testImportAutomaticallyLoadsConfidentMatch() {
@@ -62,5 +62,54 @@ final class ScannerUITests: XCTestCase {
         XCTAssertTrue(candidate.waitForExistence(timeout: 30), app.debugDescription)
         candidate.tap()
         XCTAssertTrue(app.staticTexts["ESPEON"].waitForExistence(timeout: 20), app.debugDescription)
+    }
+
+    func testEmbeddedScannerImportCancellationRetakeAndReopening() {
+        let app = XCUIApplication(); app.launchArguments = ["--confirm-scans"]; launch(app)
+        let scan = app.buttons["phoneScan"].exists ? app.buttons["phoneScan"] : app.buttons["scannerLens"]
+        XCTAssertTrue(scan.waitForExistence(timeout: 15)); scan.tap()
+        let preview = app.otherElements["scanPreview"]
+        XCTAssertTrue(preview.waitForExistence(timeout: 5)); XCTAssertTrue(app.frame.contains(preview.frame))
+        XCTAssertTrue(app.staticTexts["scanMessage"].label.contains("Simulator"))
+        XCTAssertFalse(app.buttons["scanCapture"].isEnabled)
+        app.buttons["scanImport"].tap()
+        XCTAssertTrue(app.buttons["Cancel"].waitForExistence(timeout: 10)); app.buttons["Cancel"].tap()
+        XCTAssertTrue(app.buttons["Cancel"].waitForNonExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["Done"].waitForExistence(timeout: 5)); XCTAssertTrue(preview.exists)
+        app.buttons["scanImport"].tap()
+        let photo = app.images.matching(NSPredicate(format: "label BEGINSWITH[c] 'Photo, '")).firstMatch
+        XCTAssertTrue(photo.waitForExistence(timeout: 30)); photo.tap()
+        XCTAssertTrue(app.buttons["scanCandidate-196"].waitForExistence(timeout: 40))
+        app.buttons["scanImport"].tap(); app.buttons["Cancel"].tap()
+        XCTAssertTrue(app.buttons["scanCandidate-196"].exists, "Cancelling Import retains the previous result")
+        app.buttons["scanRetake"].tap()
+        XCTAssertFalse(app.buttons["scanCandidate-196"].exists)
+        XCTAssertTrue(app.buttons["scanCapture"].exists)
+        app.buttons["Done"].tap(); scan.tap()
+        XCTAssertTrue(preview.waitForExistence(timeout: 5)); XCTAssertTrue(app.buttons["Done"].isHittable)
+        if app.otherElements["phoneScanner"].exists {
+            XCUIDevice.shared.orientation = .landscapeRight
+            XCTAssertTrue(app.buttons["scanImport"].isHittable); XCTAssertTrue(app.buttons["Done"].isHittable)
+        }
+        app.buttons["Done"].tap()
+    }
+
+    func testAccessibleScannerControlsOnBothPages() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        launch(app)
+        let scan = app.buttons["phoneScan"].exists ? app.buttons["phoneScan"] : app.buttons["scannerLens"]
+        XCTAssertTrue(scan.waitForExistence(timeout: 15)); scan.tap()
+        if app.otherElements["phoneScanner"].waitForExistence(timeout: 3) {
+            for panel in ["Preview", "Results"] {
+                app.segmentedControls.buttons[panel].tap()
+                XCTAssertTrue(app.buttons["scanImport"].isHittable)
+                XCTAssertTrue(app.buttons["scanCapture"].exists)
+                XCTAssertTrue(app.buttons["Done"].isHittable)
+            }
+        } else {
+            XCTAssertTrue(app.buttons["scanImport"].isHittable); XCTAssertTrue(app.buttons["Done"].isHittable)
+        }
+        app.buttons["Done"].tap()
     }
 }
