@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import CryptoKit
+import Combine
 
 struct Named: Decodable, Identifiable, Sendable {
     let name: String
@@ -97,6 +98,8 @@ func normalized(_ string: String) -> String {
     private let artworkMemory = NSCache<NSURL, UIImage>()
     @Published var entryText = "Loading DexDuo entry…"
     @Published var entryVersion = ""
+    @Published private(set) var spokenEntry: SpokenEntry?
+    let selectionBegan = PassthroughSubject<Void, Never>()
     @Published var query = "" { didSet { updateMatches() } }
     @Published var loading = false
     @Published var error: String?
@@ -116,9 +119,10 @@ func normalized(_ string: String) -> String {
     func start() async {
         do { names = try await api.get("pokemon?limit=100000", as: IndexResponse.self).results }
         catch { self.error = "Couldn’t load the Pokémon index. Check your connection and retry." }
-        await select("pikachu")
+        await select("pikachu", automaticallyRead: false)
     }
-    @discardableResult func select(_ name: String, reportError: Bool = true) async -> Bool {
+    @discardableResult func select(_ name: String, reportError: Bool = true, automaticallyRead: Bool = true) async -> Bool {
+        selectionBegan.send()
         let token = UUID(); requestID = token; loading = true; error = nil
         defer { if requestID == token { loading = false } }
         do {
@@ -126,11 +130,13 @@ func normalized(_ string: String) -> String {
             guard requestID == token, !Task.isCancelled else { return false }
             var text = "DexDuo entry unavailable. Select this Pokémon again to retry."
             var version = ""
+            var readyEntry: String?
             do {
                 let species = try await api.get("pokemon-species/\(value.species.name)", as: Species.self)
                 guard requestID == token, !Task.isCancelled else { return false }
                 text = species.englishEntry?.cleanedText ?? "No English DexDuo entry is available."
                 version = species.englishEntry?.version.title ?? ""
+                readyEntry = species.englishEntry?.cleanedText.trimmingCharacters(in: .whitespacesAndNewlines)
             } catch {
                 guard requestID == token, !Task.isCancelled else { return false }
             }
@@ -139,6 +145,7 @@ func normalized(_ string: String) -> String {
             pokemon = value
             entryText = text
             entryVersion = version
+            spokenEntry = readyEntry.flatMap { $0.isEmpty ? nil : SpokenEntry(id: token, name: value.title, text: $0, automaticallyRead: automaticallyRead) }
             loadArtwork(value.artwork, token: token)
             return true
         } catch {

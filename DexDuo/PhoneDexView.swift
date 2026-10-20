@@ -13,7 +13,7 @@ struct PhoneDexView: View {
     @ObservedObject var presentation: DevicePresentation
     @Environment(\.dynamicTypeSize) private var textSize
     @Binding var opened: Bool
-    @State private var scanning = false
+    @Binding var scanning: Bool
     @State private var tab = DetailTab.info
     @State private var panel = "Artwork"
     @State private var searchPage = 0

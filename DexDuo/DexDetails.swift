@@ -47,22 +47,29 @@ private struct DexInfo: View {
     @ObservedObject var store: DexStore
     let pokemon: Pokemon
     @ScaledMetric(relativeTo: .body) private var fontSize: CGFloat = 14
+    @EnvironmentObject private var speech: EntrySpeech
 
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(alignment: .leading, spacing: 16) {
-                Text(store.entryText).font(.system(size: fontSize))
-                    .fixedSize(horizontal: false, vertical: true).accessibilityIdentifier("phoneEntryText")
-                if !store.entryVersion.isEmpty {
-                    Text(store.entryVersion.uppercased()).font(.system(size: 11, design: .monospaced))
-                        .accessibilityLabel("Entry source: \(store.entryVersion)")
-                }
-                HStack(alignment: .top, spacing: 12) {
-                    measurement("Height", String(format: "%.1f m", Double(pokemon.height) / 10))
-                    measurement("Weight", String(format: "%.1f kg", Double(pokemon.weight) / 10))
-                }
-            }.frame(maxWidth: .infinity, alignment: .leading).padding(.trailing, 6).padding(.bottom, 4)
-        }.scrollIndicators(.visible).accessibilityIdentifier("infoScroll")
+        VStack(spacing: 8) {
+            EntrySpeechControls(store: store)
+            ScrollView(.vertical) {
+                VStack(alignment: .leading, spacing: 16) {
+                    if case .failed(let message) = speech.state {
+                        Text(message).font(.system(size: fontSize)).accessibilityIdentifier("entryAudioError")
+                    }
+                    Text(store.entryText).font(.system(size: fontSize))
+                        .fixedSize(horizontal: false, vertical: true).accessibilityIdentifier("phoneEntryText")
+                    if !store.entryVersion.isEmpty {
+                        Text(store.entryVersion.uppercased()).font(.system(size: 11, design: .monospaced))
+                            .accessibilityLabel("Entry source: \(store.entryVersion)")
+                    }
+                    HStack(alignment: .top, spacing: 12) {
+                        measurement("Height", String(format: "%.1f m", Double(pokemon.height) / 10))
+                        measurement("Weight", String(format: "%.1f kg", Double(pokemon.weight) / 10))
+                    }
+                }.frame(maxWidth: .infinity, alignment: .leading).padding(.trailing, 6).padding(.bottom, 4)
+            }.scrollIndicators(.visible).accessibilityIdentifier("infoScroll")
+        }
     }
     private func measurement(_ title: String, _ value: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
