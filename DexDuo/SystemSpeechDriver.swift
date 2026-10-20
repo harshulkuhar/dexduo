@@ -33,6 +33,19 @@ private final class SpeechCancellation: @unchecked Sendable {
     func cancel() { lock.lock(); value = true; lock.unlock() }
 }
 
+/// A fresh envelope belongs to each playback run and is advanced only by mixer samples.
+struct SpeechLevelEnvelope {
+    private(set) var value: Float = 0
+    mutating func advance(target: Float, elapsed: TimeInterval) -> Float {
+        guard elapsed.isFinite, elapsed > 0 else { return value }
+        let target = target.isFinite ? min(1, max(0, target)) : 0
+        let timeConstant = target > value ? 0.040 : 0.120
+        value += (target - value) * Float(1 - exp(-elapsed / timeConstant))
+        if target == 0 && value < 0.0001 { value = 0 }
+        return value
+    }
+}
+
 struct RoboticEffect {
     private var phase: Double = 0
     mutating func process(_ buffer: AVAudioPCMBuffer) {
@@ -150,10 +163,14 @@ private final class SpeechRun: @unchecked Sendable {
         engine.attach(player)
         engine.connect(player, to: engine.mainMixerNode, format: reader.processingFormat)
         var lastReport: TimeInterval = 0
-        engine.mainMixerNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { [event] buffer, _ in
+        var envelope = SpeechLevelEnvelope()
+        engine.mainMixerNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { [event, cancellation] buffer, _ in
+            guard !cancellation.cancelled else { return }
+            let level = envelope.advance(target: RoboticEffect.level(buffer),
+                                         elapsed: Double(buffer.frameLength) / buffer.format.sampleRate)
             let now = ProcessInfo.processInfo.systemUptime
             if now - lastReport >= 1.0 / 30 {
-                lastReport = now; event(.level(RoboticEffect.level(buffer)))
+                lastReport = now; event(.level(level))
             }
         }
         tapped = true

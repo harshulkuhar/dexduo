@@ -2,7 +2,7 @@
 
 Native SwiftUI Pokémon companion inspired by Ash's original red handheld. Open `DexDuo.xcodeproj` in Xcode 27.1 or later and run the `DexDuo` scheme on an iOS 17+ device or Simulator. No API keys or third-party iOS runtime packages are required.
 
-Planned features and acceptance criteria: [release PRD](docs/PRD.md). Branch status and verification still needed: [delivery checkpoint](docs/DELIVERY.md).
+Feature specifications and acceptance criteria: [release PRD](docs/PRD.md). Branch status and verification still needed: [delivery checkpoint](docs/DELIVERY.md).
 
 ## Implemented
 
@@ -11,6 +11,7 @@ Planned features and acceptance criteria: [release PRD](docs/PRD.md). Branch sta
 - Duo retains its fixed UIKit orientation, automatic cover switching and retained artwork. A temporary missing hinge update does not change its device profile.
 - PokéAPI autocomplete, official artwork, types, English DexDuo entries, height, weight, abilities, six base stats and base stat total.
 - Local robotic narration of the selected name and complete English entry. Info has Read/Stop and Audio settings; Auto-read defaults on for explicit selections and is remembered. Launch, cover opening and foregrounding stay silent. Folding, closing the cover, opening the scanner, backgrounding or an audio interruption stops playback. VoiceOver suppresses Auto-read while manual Read remains available.
+- The interior blue lens has a subtle cyan halo that follows actual speech volume and fades through pauses. The lens and scanner tap target keep their size; Stop clears the glow immediately. Reduce Motion uses a steady faint halo. The closed cover stays unchanged.
 - Responsive 18-type defensive grid with combined dual-type multipliers, reference colors and matching sprite type badges. Chart data is bundled for offline use; abilities/items are excluded.
 - Vertical evolution families with official-artwork thumbnails, colored type badges and a selected-member highlight. Each distinct evolution outcome, including regional forms, has its own arrow and card. Compact labels show the level, stone or friendship requirement, with essential region/gender/time qualifiers; no historical-method paragraphs or extra taps are needed. Selecting a form loads its own artwork/types and retains the National Dex number. Branching families scroll as one connected tree. Cached families work offline, and failed member selections retain the current Pokémon with Retry. Form and game conditions are shown when supplied; this is not an exhaustive game-specific evolution guide.
 - Previous/next controls, request ordering protection, cached JSON and artwork. Selected artwork remains loaded through folding.

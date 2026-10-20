@@ -1,12 +1,12 @@
 # DexDuo product requirements
 
-Status: branding, cleanup and type-grid implementation delivered; remaining features planned. Updated 2026-10-19.
+Status: all six features implemented; see individual specifications and the delivery checkpoint for Simulator checks and pending hardware validation. Updated 2026-10-20.
 
 ## Product
 
 DexDuo is a native Pokémon companion with a red handheld interface, name search, local visual recognition and readable species information. This release adds spoken entries, a speaking lens, evolution families, defensive type matchups and a usable landscape interface on ordinary iPhones.
 
-The name is **DexDuo**, selected by the owner. The six specifications below define the release; they do not imply that the planned features already exist.
+The name is **DexDuo**, selected by the owner. The six specifications below define the release. Verification and hardware limits are tracked in [the delivery checkpoint](DELIVERY.md).
 
 | Feature | Specification | Branch | Dependency |
 | --- | --- | --- | --- |

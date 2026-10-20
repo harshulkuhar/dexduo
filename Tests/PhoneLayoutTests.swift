@@ -162,6 +162,59 @@ final class PhoneLayoutTests: XCTestCase {
             .environment(\.dynamicTypeSize, .accessibility5), size: CGSize(width: 643, height: 255), name: "evolution-accessibility")
     }
 
+    func testLensGlowPreservesArtworkAndReduceMotionIsSteady() async throws {
+        let driver = FakeSpeechDriver(), speech = EntrySpeech(driver: driver)
+        speech.context(open: true, active: true, scanning: false)
+        let entry = SpokenEntry(id: UUID(), name: "Pikachu", text: "Test entry.", automaticallyRead: false)
+        func bytes(_ image: UIImage) throws -> [UInt8] {
+            let cg = try XCTUnwrap(image.cgImage)
+            var pixels = [UInt8](repeating: 0, count: cg.width * cg.height * 4)
+            let context = try XCTUnwrap(CGContext(data: &pixels, width: cg.width, height: cg.height, bitsPerComponent: 8,
+                bytesPerRow: cg.width * 4, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+            context.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+            return pixels
+        }
+        for diameter in [CGFloat(36), 56] {
+            let side = Int(diameter + 32), size = CGSize(width: side, height: side)
+            func subject(reduceMotion: Bool = false) -> some View {
+                Circle().fill(.cyan.gradient).frame(width: diameter, height: diameter)
+                    .overlay(Circle().stroke(.white, lineWidth: diameter == 36 ? 3 : 5))
+                    .modifier(SpeakingLensGlow(speaking: speech.state == .speaking, outputLevel: speech.outputLevel,
+                                              reduceMotion: reduceMotion, maximumBlur: diameter == 36 ? 5 : 8)).padding(16)
+            }
+            let idle = try bytes(render(subject(), size: size, name: "lens-\(Int(diameter))-idle"))
+            speech.read(entry)
+            let preparing = try bytes(render(subject(), size: size, name: "lens-preparing"))
+            XCTAssertEqual(preparing, idle)
+            driver.events.last?(.started); driver.events.last?(.level(0.2))
+            try await Task.sleep(for: .milliseconds(20))
+            let quiet = try bytes(render(subject(), size: size, name: "lens-quiet"))
+            let reducedQuiet = try bytes(render(subject(reduceMotion: true), size: size, name: "lens-reduced-quiet"))
+            driver.events.last?(.level(1)); try await Task.sleep(for: .milliseconds(20))
+            let loud = try bytes(render(subject(), size: size, name: "lens-\(Int(diameter))-loud"))
+            let reducedLoud = try bytes(render(subject(reduceMotion: true), size: size, name: "lens-reduced-loud"))
+            XCTAssertEqual(reducedQuiet, reducedLoud, "Reduce Motion must ignore syllable loudness")
+            XCTAssertNotEqual(reducedLoud, idle, "Reduce Motion retains a subtle steady speaking glow")
+            var quietDifference = 0, loudDifference = 0
+            for y in 0..<side { for x in 0..<side {
+                let radius = hypot(Double(x) + 0.5 - Double(side) / 2, Double(y) + 0.5 - Double(side) / 2)
+                let offset = (y * side + x) * 4
+                if radius > Double(diameter / 2 + 1) {
+                    for channel in 0..<3 {
+                        quietDifference += abs(Int(quiet[offset + channel]) - Int(idle[offset + channel]))
+                        loudDifference += abs(Int(loud[offset + channel]) - Int(idle[offset + channel]))
+                    }
+                } else if radius < Double(diameter / 2 - 2) {
+                    XCTAssertEqual(Array(loud[offset..<offset+4]), Array(idle[offset..<offset+4]), "The blue center and white rim must not change")
+                }
+            } }
+            XCTAssertGreaterThan(loudDifference, quietDifference)
+            XCTAssertGreaterThan(loudDifference, 100, "Halo must appear outside the existing lens frame")
+            speech.stop()
+            XCTAssertEqual(try bytes(render(subject(), size: size, name: "lens-stopped")), idle)
+        }
+    }
+
     private func textField(in view: UIView) -> UITextField? {
         if let field = view as? UITextField { return field }
         return view.subviews.lazy.compactMap { self.textField(in: $0) }.first
@@ -182,7 +235,7 @@ final class PhoneLayoutTests: XCTestCase {
         return store
     }
 
-    private func render<Content: View>(_ content: Content, size: CGSize, name: String, checkTypes: Bool = false) throws {
+    @discardableResult private func render<Content: View>(_ content: Content, size: CGSize, name: String, checkTypes: Bool = false) throws -> UIImage {
         let controller = UIHostingController(rootView: content.environmentObject(EntrySpeech()).foregroundStyle(DexAppearance.ink).background(DexAppearance.shell)
             .environment(\.colorScheme, .light).frame(width: size.width, height: size.height))
         controller.safeAreaRegions = []
@@ -217,5 +270,6 @@ final class PhoneLayoutTests: XCTestCase {
                 XCTAssertGreaterThan(matching, 100, "Missing \(type) header at \(size)")
             }
         }
+        return image
     }
 }

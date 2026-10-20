@@ -97,7 +97,9 @@ protocol SpeechDriving: AnyObject {
                 guard let self, self.generation == token else { return }
                 switch event {
                 case .started: self.state = .speaking
-                case .level(let value): self.outputLevel = min(1, max(0, value))
+                case .level(let value):
+                    guard self.state == .speaking else { return }
+                    self.outputLevel = value.isFinite ? min(1, max(0, value)) : 0
                 case .finished: self.stop()
                 case .failed(let message): self.stop(); self.state = .failed(message)
                 }
