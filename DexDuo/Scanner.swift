@@ -2,16 +2,43 @@ import SwiftUI
 import PhotosUI
 import AVFoundation
 
+enum ScannerLayout { case duo, phone }
+
 struct ScannerView: View {
     @ObservedObject var store: DexStore
-    @Environment(\.dismiss) private var dismiss
+    @Binding var isPresented: Bool
+    var layout = ScannerLayout.duo
     @StateObject private var scanner = ScannerModel()
     @State private var item: PhotosPickerItem?
     @State private var camera = false
-    @State private var isVisible = false
     @State private var importTask: Task<Void, Never>?
     @State private var importGeneration = ScanGeneration()
     var body: some View {
+        Group {
+            if layout == .phone {
+                PhoneScannerContent(scanner: scanner, item: $item,
+                    openCamera: { Task { await openCamera() } }, choose: choose,
+                    done: { stop(); isPresented = false })
+            } else { duoContent }
+        }
+        .sheet(isPresented: $camera) { CameraPicker { photo in analyze(photo) } }
+        .onChange(of: item) { _, value in
+            importTask?.cancel(); scanner.cancel()
+            let token = importGeneration.advance()
+            importTask = Task {
+                do {
+                    guard let data = try await value?.loadTransferable(type: Data.self), !Task.isCancelled, isPresented,
+                          importGeneration.accepts(token), let photo = UIImage(data: data) else { return }
+                    analyze(photo)
+                } catch {
+                    if !Task.isCancelled && importGeneration.accepts(token) { scanner.showMessage("Couldn’t open this image. Please try another.") }
+                }
+            }
+        }
+        .onDisappear { stop() }
+        .onChange(of: isPresented) { _, active in if !active { stop() } }
+    }
+    private var duoContent: some View {
         NavigationStack {
             GeometryReader { space in
                 let scale = min(space.size.width / 380, space.size.height / 680)
@@ -43,33 +70,18 @@ struct ScannerView: View {
                     .scaleEffect(scale, anchor: .top)
                     .frame(width: space.size.width, height: space.size.height, alignment: .top)
             }.navigationTitle("Scan Pokémon")
-                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { stop(); dismiss() } } }
+                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { stop(); isPresented = false } } }
         }
-        .sheet(isPresented: $camera) { CameraPicker { photo in analyze(photo) } }
-        .onChange(of: item) { _, value in
-            importTask?.cancel(); scanner.cancel()
-            let token = importGeneration.advance()
-            importTask = Task {
-                do {
-                    guard let data = try await value?.loadTransferable(type: Data.self), !Task.isCancelled,
-                          importGeneration.accepts(token), let photo = UIImage(data: data) else { return }
-                    analyze(photo)
-                } catch {
-                    if !Task.isCancelled && importGeneration.accepts(token) { scanner.showMessage("Couldn’t open this image. Please try another.") }
-                }
-            }
-        }
-        .onAppear { isVisible = true }
-        .onDisappear { isVisible = false; stop() }
     }
-    private func stop() { isVisible = false; importTask?.cancel(); _ = importGeneration.advance(); scanner.cancel() }
-    private func analyze(_ image: UIImage) { guard isVisible else { return }; scanner.analyze(image, select: { await store.select($0) }, dismiss: { dismiss() }) }
-    private func choose(_ candidate: PokemonLabel) { scanner.choose(candidate, select: { await store.select($0) }, dismiss: { dismiss() }) }
+    private func stop() { importTask?.cancel(); _ = importGeneration.advance(); scanner.cancel() }
+    private func analyze(_ image: UIImage) { guard isPresented else { return }; scanner.analyze(image, select: { await store.select($0) }, dismiss: { isPresented = false }) }
+    private func choose(_ candidate: PokemonLabel) { guard isPresented else { return }; scanner.choose(candidate, select: { await store.select($0) }, dismiss: { isPresented = false }) }
     private func openCamera() async {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
             scanner.showMessage("The Simulator has no camera. Use Import to test a card photo or screenshot."); return
         }
         let allowed = await AVCaptureDevice.requestAccess(for: .video)
+        guard isPresented else { return }
         if allowed { camera = true }
         else { scanner.showMessage("Camera access is off. Enable it for DexDuo in Settings, or import a photo.") }
     }
