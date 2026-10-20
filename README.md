@@ -7,10 +7,11 @@ Planned features and acceptance criteria: [release PRD](docs/PRD.md). Branch sta
 ## Implemented
 
 - Text-free red cover on the closed display; automatic cover/interior switching through the iOS 27.1 hinge API. Ordinary iPhones launch into a landscape cover; tap anywhere to open, or use Cover to close without losing the selection.
-- Ordinary iPhones support both landscape directions, with a compact toolbar, equal artwork/details panels and no app scrolling. Info entries and Stats/abilities use buttons to page when needed. Accessibility sizes use full-width Artwork/Details pages; all 18 types remain visible. Search temporarily replaces the panels with paged autocomplete results while the keyboard is open.
+- Ordinary iPhones support both landscape directions, with a compact toolbar, equal artwork/details panels and a fixed app shell. Info, Stats and Evolution scroll vertically inside the right LCD; the toolbar, tabs and artwork stay fixed. Accessibility sizes use full-width Artwork/Details pages; all 18 types remain visible. Search temporarily replaces the panels with paged autocomplete results while the keyboard is open.
 - Duo retains its fixed UIKit orientation, automatic cover switching and retained artwork. A temporary missing hinge update does not change its device profile.
 - PokéAPI autocomplete, official artwork, types, English DexDuo entries, height, weight, abilities, six base stats and base stat total.
 - Responsive 18-type defensive grid with combined dual-type multipliers, reference colors and matching sprite type badges. Chart data is bundled for offline use; abilities/items are excluded.
+- Evolution families with official-artwork thumbnails, colored type badges, a selected-member highlight and tappable evolution methods. Straight families use a horizontal chart when readable; branching families scroll as one connected tree. Cached families work offline, and failed member selections retain the current Pokémon with Retry. Form and game conditions are shown when supplied; this is not an exhaustive game-specific evolution guide.
 - Previous/next controls, request ordering protection, cached JSON and artwork. Selected artwork remains loaded through folding.
 - Rear camera capture on physical iPhones and photo import in Simulator. The phone scanner uses a full-screen landscape preview/results layout, including candidate confirmation, Retry and an always-reachable Done button. Apple camera/Photos screens retain their system presentation.
 - Fully local visual classification of 1,025 species using a bundled Core ML model. **No OCR or text recognition is used.** High-scoring results automatically load the entry; uncertain results show up to three candidates. Failed data lookups remain retryable in the scanner.
@@ -23,7 +24,7 @@ The Core ML package is approximately 176 MB; most weights/linear computation use
 
 The exploratory visual benchmark achieved 46/60 top-one matches. It performed well on clean artwork, but poorly on full card photos and full-scene screenshots. Keep one Pokémon prominent in the image. The initial automatic threshold (score >=0.90, margin >=0.20) made 42 correct automatic lookups and no lookups on the 30 negative examples. Scores are not calibrated confidence, and the model is not a guaranteed Pokémon-presence detector. See [the full benchmark and limits](Evaluation/README.md).
 
-Separate regional/Mega/other form recognition, live camera inference, object detection, crop editing, evolution chains and a custom app icon are not implemented.
+Separate regional/Mega/other form recognition, live camera inference, object detection, crop editing and a custom app icon are not implemented.
 
 ## App identity
 
@@ -63,7 +64,7 @@ Select your signing team under Signing & Capabilities, connect an iPhone, enable
 
 ## Tests and manual checks
 
-The shared DexDuo scheme contains `DexDuoTests` and `DexDuoUITests`. Unit tests cover ranking, thresholds, label mapping, whole-image preprocessing/orientation, native model inference, obsolete-result cancellation, duplicate lookup prevention and retry behavior. Phone tests additionally cover device-profile latching, orientation policy, safe-area/keyboard capacity, word-boundary paging, retained text-field identity, component rendering and all 18 type colors at compact/notched/large sizes. Test attachments stay in Xcode result bundles outside Git.
+The shared DexDuo scheme contains `DexDuoTests` and `DexDuoUITests`. Unit tests cover ranking, thresholds, label mapping, whole-image preprocessing/orientation, native model inference, obsolete-result cancellation, duplicate lookup prevention and retry behavior. Phone tests additionally cover device-profile latching, orientation policy, safe-area/keyboard capacity, contained detail scrolling, retained text-field identity, component rendering and all 18 type colors at compact/notched/large sizes. Test attachments stay in Xcode result bundles outside Git.
 
 For UI tests, use an ordinary iPhone simulator (or unfold Duo) and add only the Espeon fixture to Photos (or select it as the first photo in the picker):
 
@@ -74,7 +75,7 @@ xcrun simctl addmedia 'DexDuo iPhone 18 Pro' Tests/Fixtures/espeon.png
 xcodebuild -project DexDuo.xcodeproj -scheme DexDuo -destination 'platform=iOS Simulator,name=DexDuo iPhone 18 Pro' -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO test
 ```
 
-The primary test destination is iPhone 18 Pro, named `DexDuo iPhone 18 Pro` locally; substitute your simulator name if needed. Phone UI tests cover both landscape directions, cover/background state, typing/selection, scanner import and accessibility pages. They explicitly skip the legacy Duo/tablet presentation. The separate Duo presentation test checks the latched device profile and fixed UIKit orientation; it skips ordinary phones.
+The primary test destination is iPhone 18 Pro, named `DexDuo iPhone 18 Pro` locally; substitute your simulator name if needed. Phone UI tests cover both landscape directions, cover/background state, typing/selection, scanner import, evolution traversal and accessibility scrolling. They explicitly skip the legacy Duo/tablet presentation. The separate Duo presentation test checks the latched device profile and fixed UIKit orientation; it skips ordinary phones.
 
 Manual checks: search a full name and clear/retype; import artwork without text; verify an uncertain/no-match image; retry with the network unavailable; dismiss/fold during recognition and confirm no late lookup or dismissal. Reopen to confirm artwork remains cached and orientation remains fixed. Simulator camera directs you to Import; physical camera denial/cancellation and performance require an actual iPhone.
 

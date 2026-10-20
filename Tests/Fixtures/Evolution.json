@@ -1,0 +1,5783 @@
+{
+  "provenance": {
+    "retrieved": "2026-10-20",
+    "note": "PokéAPI snapshots reduced to app-consumed fields. Image URLs only; no image bytes.",
+    "sources": [
+      "https://pokeapi.co/api/v2/evolution-chain/135/",
+      "https://pokeapi.co/api/v2/evolution-chain/202/",
+      "https://pokeapi.co/api/v2/evolution-chain/40/",
+      "https://pokeapi.co/api/v2/evolution-chain/442/",
+      "https://pokeapi.co/api/v2/evolution-chain/57/",
+      "https://pokeapi.co/api/v2/evolution-chain/66/",
+      "https://pokeapi.co/api/v2/evolution-chain/67/",
+      "https://pokeapi.co/api/v2/pokemon-species/appletun/",
+      "https://pokeapi.co/api/v2/pokemon-species/applin/",
+      "https://pokeapi.co/api/v2/pokemon-species/beautifly/",
+      "https://pokeapi.co/api/v2/pokemon-species/cascoon/",
+      "https://pokeapi.co/api/v2/pokemon-species/deoxys/",
+      "https://pokeapi.co/api/v2/pokemon-species/dipplin/",
+      "https://pokeapi.co/api/v2/pokemon-species/ditto/",
+      "https://pokeapi.co/api/v2/pokemon-species/dustox/",
+      "https://pokeapi.co/api/v2/pokemon-species/eevee/",
+      "https://pokeapi.co/api/v2/pokemon-species/espeon/",
+      "https://pokeapi.co/api/v2/pokemon-species/flapple/",
+      "https://pokeapi.co/api/v2/pokemon-species/flareon/",
+      "https://pokeapi.co/api/v2/pokemon-species/gastly/",
+      "https://pokeapi.co/api/v2/pokemon-species/gengar/",
+      "https://pokeapi.co/api/v2/pokemon-species/glaceon/",
+      "https://pokeapi.co/api/v2/pokemon-species/haunter/",
+      "https://pokeapi.co/api/v2/pokemon-species/hydrapple/",
+      "https://pokeapi.co/api/v2/pokemon-species/jolteon/",
+      "https://pokeapi.co/api/v2/pokemon-species/leafeon/",
+      "https://pokeapi.co/api/v2/pokemon-species/mime-jr/",
+      "https://pokeapi.co/api/v2/pokemon-species/mr-mime/",
+      "https://pokeapi.co/api/v2/pokemon-species/mr-rime/",
+      "https://pokeapi.co/api/v2/pokemon-species/silcoon/",
+      "https://pokeapi.co/api/v2/pokemon-species/sylveon/",
+      "https://pokeapi.co/api/v2/pokemon-species/umbreon/",
+      "https://pokeapi.co/api/v2/pokemon-species/vaporeon/",
+      "https://pokeapi.co/api/v2/pokemon-species/wurmple/",
+      "https://pokeapi.co/api/v2/pokemon/appletun/",
+      "https://pokeapi.co/api/v2/pokemon/applin/",
+      "https://pokeapi.co/api/v2/pokemon/beautifly/",
+      "https://pokeapi.co/api/v2/pokemon/cascoon/",
+      "https://pokeapi.co/api/v2/pokemon/deoxys-normal/",
+      "https://pokeapi.co/api/v2/pokemon/dipplin/",
+      "https://pokeapi.co/api/v2/pokemon/ditto/",
+      "https://pokeapi.co/api/v2/pokemon/dustox/",
+      "https://pokeapi.co/api/v2/pokemon/eevee/",
+      "https://pokeapi.co/api/v2/pokemon/espeon/",
+      "https://pokeapi.co/api/v2/pokemon/flapple/",
+      "https://pokeapi.co/api/v2/pokemon/flareon/",
+      "https://pokeapi.co/api/v2/pokemon/gastly/",
+      "https://pokeapi.co/api/v2/pokemon/gengar/",
+      "https://pokeapi.co/api/v2/pokemon/glaceon/",
+      "https://pokeapi.co/api/v2/pokemon/haunter/",
+      "https://pokeapi.co/api/v2/pokemon/hydrapple/",
+      "https://pokeapi.co/api/v2/pokemon/jolteon/",
+      "https://pokeapi.co/api/v2/pokemon/leafeon/",
+      "https://pokeapi.co/api/v2/pokemon/mime-jr/",
+      "https://pokeapi.co/api/v2/pokemon/mr-mime/",
+      "https://pokeapi.co/api/v2/pokemon/mr-rime/",
+      "https://pokeapi.co/api/v2/pokemon/silcoon/",
+      "https://pokeapi.co/api/v2/pokemon/sylveon/",
+      "https://pokeapi.co/api/v2/pokemon/umbreon/",
+      "https://pokeapi.co/api/v2/pokemon/vaporeon/",
+      "https://pokeapi.co/api/v2/pokemon/wurmple/"
+    ]
+  },
+  "responses": {
+    "pokemon-species/appletun": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/442/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "appletun",
+            "url": "https://pokeapi.co/api/v2/pokemon/842/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "appletun-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10217/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Its body is covered in sweet nectar, and the\nskin on its back is especially yummy. Children\nused to have it as a snack.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "shield",
+            "url": "https://pokeapi.co/api/v2/version/34/"
+          }
+        }
+      ]
+    },
+    "pokemon/appletun": {
+      "id": 842,
+      "name": "appletun",
+      "height": 4,
+      "weight": 130,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "grass",
+            "url": "https://pokeapi.co/api/v2/type/12/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "dragon",
+            "url": "https://pokeapi.co/api/v2/type/16/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "ripen",
+            "url": "https://pokeapi.co/api/v2/ability/247/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "gluttony",
+            "url": "https://pokeapi.co/api/v2/ability/82/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "thick-fat",
+            "url": "https://pokeapi.co/api/v2/ability/47/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 110,
+          "effort": 2,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 85,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 100,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 30,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "appletun",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/842/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/842.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/842.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/842.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/applin": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/442/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "applin",
+            "url": "https://pokeapi.co/api/v2/pokemon/840/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "As soon as it’s born, it burrows into an apple. Not\nonly does the apple serve as its food source, but\nthe flavor of the fruit determines its evolution.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "shield",
+            "url": "https://pokeapi.co/api/v2/version/34/"
+          }
+        }
+      ]
+    },
+    "pokemon/applin": {
+      "id": 840,
+      "name": "applin",
+      "height": 2,
+      "weight": 5,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "grass",
+            "url": "https://pokeapi.co/api/v2/type/12/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "dragon",
+            "url": "https://pokeapi.co/api/v2/type/16/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "ripen",
+            "url": "https://pokeapi.co/api/v2/ability/247/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "gluttony",
+            "url": "https://pokeapi.co/api/v2/ability/82/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "bulletproof",
+            "url": "https://pokeapi.co/api/v2/ability/171/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 40,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 40,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 1,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 40,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 40,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 20,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "applin",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/840/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/840.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/840.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/840.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/beautifly": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/135/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "beautifly",
+            "url": "https://pokeapi.co/api/v2/pokemon/267/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "A colorful and incredibly beautiful but also greedy Pokémon.\nIn an effort to keep its favorite food all to itself, it will chase\naway Combee as they try to gather nectar.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/beautifly": {
+      "id": 267,
+      "name": "beautifly",
+      "height": 10,
+      "weight": 284,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "bug",
+            "url": "https://pokeapi.co/api/v2/type/7/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "flying",
+            "url": "https://pokeapi.co/api/v2/type/3/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "swarm",
+            "url": "https://pokeapi.co/api/v2/ability/68/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "rivalry",
+            "url": "https://pokeapi.co/api/v2/ability/79/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 70,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 100,
+          "effort": 3,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "beautifly",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/267/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/267.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/267.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/267.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/cascoon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/135/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "cascoon",
+            "url": "https://pokeapi.co/api/v2/pokemon/268/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "The silk coating its body is thin but sufficiently strong. Cascoon's\nsilk has a luster and texture superior to that of Silcoon's, and\nclothes made using Cascoon silk are regarded as top-notch.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/cascoon": {
+      "id": 268,
+      "name": "cascoon",
+      "height": 7,
+      "weight": 115,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "bug",
+            "url": "https://pokeapi.co/api/v2/type/7/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "shed-skin",
+            "url": "https://pokeapi.co/api/v2/ability/61/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 35,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 55,
+          "effort": 2,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 25,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 25,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 15,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "cascoon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/268/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/268.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/268.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/268.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/deoxys": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/202/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "deoxys-normal",
+            "url": "https://pokeapi.co/api/v2/pokemon/386/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "deoxys-attack",
+            "url": "https://pokeapi.co/api/v2/pokemon/10001/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "deoxys-defense",
+            "url": "https://pokeapi.co/api/v2/pokemon/10002/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "deoxys-speed",
+            "url": "https://pokeapi.co/api/v2/pokemon/10003/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Deoxys emerged from a virus that came from space. It is highly\nintelligent and wields psychokinetic powers. This Pokémon\nshoots lasers from the crystalline organ on its chest.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "alpha-sapphire",
+            "url": "https://pokeapi.co/api/v2/version/26/"
+          }
+        }
+      ]
+    },
+    "pokemon/deoxys-normal": {
+      "id": 386,
+      "name": "deoxys-normal",
+      "height": 17,
+      "weight": 608,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "psychic",
+            "url": "https://pokeapi.co/api/v2/type/14/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "pressure",
+            "url": "https://pokeapi.co/api/v2/ability/46/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 150,
+          "effort": 1,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 150,
+          "effort": 1,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 150,
+          "effort": 1,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "deoxys",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/386/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/386.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/386.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/386.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/dipplin": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/442/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "dipplin",
+            "url": "https://pokeapi.co/api/v2/pokemon/1011/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "The head sticking out belongs to the fore-wyrm, while the tail belongs to the core-wyrm. The two share one apple and help each other out.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "violet",
+            "url": "https://pokeapi.co/api/v2/version/41/"
+          }
+        }
+      ]
+    },
+    "pokemon/dipplin": {
+      "id": 1011,
+      "name": "dipplin",
+      "height": 4,
+      "weight": 97,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "grass",
+            "url": "https://pokeapi.co/api/v2/type/12/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "dragon",
+            "url": "https://pokeapi.co/api/v2/type/16/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "supersweet-syrup",
+            "url": "https://pokeapi.co/api/v2/ability/300/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "gluttony",
+            "url": "https://pokeapi.co/api/v2/ability/82/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "sticky-hold",
+            "url": "https://pokeapi.co/api/v2/ability/60/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 2,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 40,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "dipplin",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/1011/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1011.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1011.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1011.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/ditto": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/66/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "ditto",
+            "url": "https://pokeapi.co/api/v2/pokemon/132/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "When it encounters another Ditto, it will move\nfaster than normal to duplicate that opponent exactly.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "shield",
+            "url": "https://pokeapi.co/api/v2/version/34/"
+          }
+        }
+      ]
+    },
+    "pokemon/ditto": {
+      "id": 132,
+      "name": "ditto",
+      "height": 3,
+      "weight": 40,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "normal",
+            "url": "https://pokeapi.co/api/v2/type/1/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "limber",
+            "url": "https://pokeapi.co/api/v2/ability/7/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "imposter",
+            "url": "https://pokeapi.co/api/v2/ability/150/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 48,
+          "effort": 1,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 48,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 48,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 48,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 48,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 48,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "ditto",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/132/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/132.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/132.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/132.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/dustox": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/135/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "dustox",
+            "url": "https://pokeapi.co/api/v2/pokemon/269/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Tends to be drawn to bonfires on dark nights. Difficult to chase\naway from settlements because of the way it scatters highly\ntoxic scales.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/dustox": {
+      "id": 269,
+      "name": "dustox",
+      "height": 12,
+      "weight": 316,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "bug",
+            "url": "https://pokeapi.co/api/v2/type/7/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "poison",
+            "url": "https://pokeapi.co/api/v2/type/4/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "shield-dust",
+            "url": "https://pokeapi.co/api/v2/ability/19/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "compound-eyes",
+            "url": "https://pokeapi.co/api/v2/ability/14/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 70,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 90,
+          "effort": 3,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "dustox",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/269/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/269.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/269.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/269.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/eevee": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "eevee",
+            "url": "https://pokeapi.co/api/v2/pokemon/133/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "eevee-starter",
+            "url": "https://pokeapi.co/api/v2/pokemon/10159/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "eevee-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10205/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Harbors the potential to evolve into manifold forms.\nWithin Eevee lies the key to the mysteries of Pokémon\nevolution—I'm certain of it.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/eevee": {
+      "id": 133,
+      "name": "eevee",
+      "height": 3,
+      "weight": 65,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "normal",
+            "url": "https://pokeapi.co/api/v2/type/1/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "run-away",
+            "url": "https://pokeapi.co/api/v2/ability/50/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "adaptability",
+            "url": "https://pokeapi.co/api/v2/ability/91/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "anticipation",
+            "url": "https://pokeapi.co/api/v2/ability/107/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 55,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 55,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 45,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 1,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 55,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "eevee",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/133/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/133.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/133.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/133.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/espeon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "espeon",
+            "url": "https://pokeapi.co/api/v2/pokemon/196/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Wields an arcane power with which it can predict the weather\nand even people's thoughts. When bathed in sunshine, the\nscarlet orb on its brow glows and builds energy.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/espeon": {
+      "id": 196,
+      "name": "espeon",
+      "height": 9,
+      "weight": 265,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "psychic",
+            "url": "https://pokeapi.co/api/v2/type/14/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "synchronize",
+            "url": "https://pokeapi.co/api/v2/ability/28/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "magic-bounce",
+            "url": "https://pokeapi.co/api/v2/ability/156/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 130,
+          "effort": 2,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "espeon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/196/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/196.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-ii/gold-and-silver/196.png"
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/196.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/196.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/flapple": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/442/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "flapple",
+            "url": "https://pokeapi.co/api/v2/pokemon/841/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "flapple-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10216/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "It flies on wings of apple skin and spits a\npowerful acid. It can also change its shape\ninto that of an apple.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "shield",
+            "url": "https://pokeapi.co/api/v2/version/34/"
+          }
+        }
+      ]
+    },
+    "pokemon/flapple": {
+      "id": 841,
+      "name": "flapple",
+      "height": 3,
+      "weight": 10,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "grass",
+            "url": "https://pokeapi.co/api/v2/type/12/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "dragon",
+            "url": "https://pokeapi.co/api/v2/type/16/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "ripen",
+            "url": "https://pokeapi.co/api/v2/ability/247/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "gluttony",
+            "url": "https://pokeapi.co/api/v2/ability/82/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "hustle",
+            "url": "https://pokeapi.co/api/v2/ability/55/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 70,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 2,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 70,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "flapple",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/841/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/841.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/841.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/841.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/flareon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "flareon",
+            "url": "https://pokeapi.co/api/v2/pokemon/136/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Flames burn within a saclike organ inside this Pokémon.\nWhen Flareon inhales, these flames grow in intensity, reaching\na mighty 3,000 degrees Fahrenheit.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/flareon": {
+      "id": 136,
+      "name": "flareon",
+      "height": 9,
+      "weight": 250,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "fire",
+            "url": "https://pokeapi.co/api/v2/type/10/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "flash-fire",
+            "url": "https://pokeapi.co/api/v2/ability/18/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "guts",
+            "url": "https://pokeapi.co/api/v2/ability/62/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 130,
+          "effort": 2,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "flareon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/136/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/136.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/136.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/136.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/136.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/gastly": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/40/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "gastly",
+            "url": "https://pokeapi.co/api/v2/pokemon/92/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Gaseous and completely impalpable. Also highly dangerous—\ninhaling part of its poisonous body will cause one to\nfaint instantly.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/gastly": {
+      "id": 92,
+      "name": "gastly",
+      "height": 13,
+      "weight": 1,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "ghost",
+            "url": "https://pokeapi.co/api/v2/type/8/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "poison",
+            "url": "https://pokeapi.co/api/v2/type/4/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "levitate",
+            "url": "https://pokeapi.co/api/v2/ability/26/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 30,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 35,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 30,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 100,
+          "effort": 1,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 35,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "gastly",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/92/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/92.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/92.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/92.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/gengar": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/40/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "gengar",
+            "url": "https://pokeapi.co/api/v2/pokemon/94/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "gengar-mega",
+            "url": "https://pokeapi.co/api/v2/pokemon/10038/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "gengar-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10202/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Possesses potential victims' shadows in an effort to steal away\nthe victims' lives. If your shadow begins to laugh, you must take\nhold of a protective charm posthaste!",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/gengar": {
+      "id": 94,
+      "name": "gengar",
+      "height": 15,
+      "weight": 405,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "ghost",
+            "url": "https://pokeapi.co/api/v2/type/8/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "poison",
+            "url": "https://pokeapi.co/api/v2/type/4/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "cursed-body",
+            "url": "https://pokeapi.co/api/v2/ability/130/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 130,
+          "effort": 3,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 75,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "gengar",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/94/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/94.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/94.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/94.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/glaceon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "glaceon",
+            "url": "https://pokeapi.co/api/v2/pokemon/471/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Glaceon is able to lower its body temperature very quickly.\nIt freezes the atmosphere, creating diamond dust that glitters\nlike gems while it flutters and dances around.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/glaceon": {
+      "id": 471,
+      "name": "glaceon",
+      "height": 8,
+      "weight": 259,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "ice",
+            "url": "https://pokeapi.co/api/v2/type/15/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "snow-cloak",
+            "url": "https://pokeapi.co/api/v2/ability/81/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "ice-body",
+            "url": "https://pokeapi.co/api/v2/ability/115/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 130,
+          "effort": 2,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "glaceon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/471/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/471.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/471.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/471.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/haunter": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/40/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "haunter",
+            "url": "https://pokeapi.co/api/v2/pokemon/93/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "This frightful, malevolent spirit can glide through walls,\nappearing wherever it likes. According to rumor, victims of\na Haunter's lick will wither to death day by day.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/haunter": {
+      "id": 93,
+      "name": "haunter",
+      "height": 16,
+      "weight": 1,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "ghost",
+            "url": "https://pokeapi.co/api/v2/type/8/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "poison",
+            "url": "https://pokeapi.co/api/v2/type/4/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "levitate",
+            "url": "https://pokeapi.co/api/v2/ability/26/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 45,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 45,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 115,
+          "effort": 2,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 55,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "haunter",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/93/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/93.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/93.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/93.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/93.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/hydrapple": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/442/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "hydrapple",
+            "url": "https://pokeapi.co/api/v2/pokemon/1019/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "These capricious syrpents have banded together. On the rare occasion that their moods align, their true power is unleashed.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "violet",
+            "url": "https://pokeapi.co/api/v2/version/41/"
+          }
+        }
+      ]
+    },
+    "pokemon/hydrapple": {
+      "id": 1019,
+      "name": "hydrapple",
+      "height": 18,
+      "weight": 930,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "grass",
+            "url": "https://pokeapi.co/api/v2/type/12/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "dragon",
+            "url": "https://pokeapi.co/api/v2/type/16/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "supersweet-syrup",
+            "url": "https://pokeapi.co/api/v2/ability/300/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "regenerator",
+            "url": "https://pokeapi.co/api/v2/ability/144/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "sticky-hold",
+            "url": "https://pokeapi.co/api/v2/ability/60/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 106,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 120,
+          "effort": 3,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 44,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "hydrapple",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/1019/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1019.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1019.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1019.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/jolteon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "jolteon",
+            "url": "https://pokeapi.co/api/v2/pokemon/135/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Bristles its fur into sharp, needlelike points when enraged.\nOne can hear electricity crackle in its breath when it exhales.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/jolteon": {
+      "id": 135,
+      "name": "jolteon",
+      "height": 8,
+      "weight": 245,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "electric",
+            "url": "https://pokeapi.co/api/v2/type/13/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "volt-absorb",
+            "url": "https://pokeapi.co/api/v2/ability/10/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "quick-feet",
+            "url": "https://pokeapi.co/api/v2/ability/95/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 130,
+          "effort": 2,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "jolteon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/135/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/135.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/135.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/135.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/leafeon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "leafeon",
+            "url": "https://pokeapi.co/api/v2/pokemon/470/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Cells similar to those of plants have been found in its fur.\nIts hard tail can fell a large tree with one stroke, and the tail's\nsharpness exceeds even that of a sword crafted by a master.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/leafeon": {
+      "id": 470,
+      "name": "leafeon",
+      "height": 10,
+      "weight": 255,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "grass",
+            "url": "https://pokeapi.co/api/v2/type/12/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "leaf-guard",
+            "url": "https://pokeapi.co/api/v2/ability/102/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "chlorophyll",
+            "url": "https://pokeapi.co/api/v2/ability/34/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 130,
+          "effort": 2,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "leafeon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/470/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/470.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/470.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/470.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/mime-jr": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/57/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "mime-jr",
+            "url": "https://pokeapi.co/api/v2/pokemon/439/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Known to turn up in bustling marketplaces now and again.\nIt mimics people much as a child would, then watches how they\nreact, eyes sparkling.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/mime-jr": {
+      "id": 439,
+      "name": "mime-jr",
+      "height": 6,
+      "weight": 130,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "psychic",
+            "url": "https://pokeapi.co/api/v2/type/14/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "fairy",
+            "url": "https://pokeapi.co/api/v2/type/18/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "soundproof",
+            "url": "https://pokeapi.co/api/v2/ability/43/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "filter",
+            "url": "https://pokeapi.co/api/v2/ability/111/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "technician",
+            "url": "https://pokeapi.co/api/v2/ability/101/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 20,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 25,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 45,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 70,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 90,
+          "effort": 1,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "mime-jr",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/439/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/439.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/439.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/439.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/mr-mime": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/57/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "mr-mime",
+            "url": "https://pokeapi.co/api/v2/pokemon/122/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "mr-mime-galar",
+            "url": "https://pokeapi.co/api/v2/pokemon/10168/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "The behavior of this clown-like Pokémon reminds one of\npantomime. It creates invisible walls using a force emitted\nfrom its fingertips.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/mr-mime": {
+      "id": 122,
+      "name": "mr-mime",
+      "height": 13,
+      "weight": 545,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "psychic",
+            "url": "https://pokeapi.co/api/v2/type/14/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "fairy",
+            "url": "https://pokeapi.co/api/v2/type/18/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "soundproof",
+            "url": "https://pokeapi.co/api/v2/ability/43/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "filter",
+            "url": "https://pokeapi.co/api/v2/ability/111/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "technician",
+            "url": "https://pokeapi.co/api/v2/ability/101/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 40,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 45,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 100,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 120,
+          "effort": 2,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 90,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "mr-mime",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/122/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/122.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/122.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/122.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/122.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/mr-rime": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/57/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "mr-rime",
+            "url": "https://pokeapi.co/api/v2/pokemon/866/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Its amusing movements make it very popular.\nIt releases its psychic power from the pattern\non its belly.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "shield",
+            "url": "https://pokeapi.co/api/v2/version/34/"
+          }
+        }
+      ]
+    },
+    "pokemon/mr-rime": {
+      "id": 866,
+      "name": "mr-rime",
+      "height": 15,
+      "weight": 582,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "ice",
+            "url": "https://pokeapi.co/api/v2/type/15/"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "psychic",
+            "url": "https://pokeapi.co/api/v2/type/14/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "tangled-feet",
+            "url": "https://pokeapi.co/api/v2/ability/77/"
+          }
+        },
+        {
+          "is_hidden": false,
+          "slot": 2,
+          "ability": {
+            "name": "screen-cleaner",
+            "url": "https://pokeapi.co/api/v2/ability/251/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "ice-body",
+            "url": "https://pokeapi.co/api/v2/ability/115/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 80,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 85,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 75,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 3,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 100,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 70,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "mr-rime",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/866/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/866.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/866.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/866.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/silcoon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/135/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "silcoon",
+            "url": "https://pokeapi.co/api/v2/pokemon/266/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Wraps itself in thin strings of silk while it stores energy for\nevolution. It can't extend its limbs and its movement is slow,\nbut its eyes keep a sharp lookout—Silcoon is always on guard.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/silcoon": {
+      "id": 266,
+      "name": "silcoon",
+      "height": 6,
+      "weight": 100,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "bug",
+            "url": "https://pokeapi.co/api/v2/type/7/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "shed-skin",
+            "url": "https://pokeapi.co/api/v2/ability/61/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 50,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 35,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 55,
+          "effort": 2,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 25,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 25,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 15,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "silcoon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/266/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/266.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/266.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/266.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/sylveon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "sylveon",
+            "url": "https://pokeapi.co/api/v2/pokemon/700/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "It emits a soothing aura from its ribbon-shaped organs. It wraps\nthese appendages around quarrelers to instantly restore calm to\nthe situation.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/sylveon": {
+      "id": 700,
+      "name": "sylveon",
+      "height": 10,
+      "weight": 235,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "fairy",
+            "url": "https://pokeapi.co/api/v2/type/18/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "cute-charm",
+            "url": "https://pokeapi.co/api/v2/ability/56/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "pixilate",
+            "url": "https://pokeapi.co/api/v2/ability/182/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 130,
+          "effort": 2,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "sylveon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/700/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/700.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/700.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/umbreon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "umbreon",
+            "url": "https://pokeapi.co/api/v2/pokemon/197/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "It is most active in the wee hours of the night, when moonlight\nbathes the land. Its large eyes can pierce the darkness and\nperceive prey with absolute clarity.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/umbreon": {
+      "id": 197,
+      "name": "umbreon",
+      "height": 10,
+      "weight": 270,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "dark",
+            "url": "https://pokeapi.co/api/v2/type/17/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "synchronize",
+            "url": "https://pokeapi.co/api/v2/ability/28/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "inner-focus",
+            "url": "https://pokeapi.co/api/v2/ability/39/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 130,
+          "effort": 2,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "umbreon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/197/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-ii/gold-and-silver/197.png"
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/197.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/vaporeon": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/67/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "vaporeon",
+            "url": "https://pokeapi.co/api/v2/pokemon/134/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Tests show that its cells closely resemble water molecules, which\nperhaps explains its ability to conceal its form while submerged.\nI believe the origins of mermaid folklore lie with this Pokémon.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/vaporeon": {
+      "id": 134,
+      "name": "vaporeon",
+      "height": 10,
+      "weight": 290,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "water",
+            "url": "https://pokeapi.co/api/v2/type/11/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "water-absorb",
+            "url": "https://pokeapi.co/api/v2/ability/11/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "hydration",
+            "url": "https://pokeapi.co/api/v2/ability/93/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 130,
+          "effort": 2,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 60,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 110,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 95,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 65,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "vaporeon",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/134/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/134.png"
+                },
+                "red-and-green": {
+                  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/134.png"
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/134.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png"
+          }
+        }
+      }
+    },
+    "pokemon-species/wurmple": {
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/135/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "wurmple",
+            "url": "https://pokeapi.co/api/v2/pokemon/265/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Likes sap and is abundant in the wild. Why it evolves into\nvarious different forms is unknown. One cannot tell from a\nWurmple's appearance which form it will take when it evolves.",
+          "language": {
+            "name": "en",
+            "url": "https://pokeapi.co/api/v2/language/9/"
+          },
+          "version": {
+            "name": "legends-arceus",
+            "url": "https://pokeapi.co/api/v2/version/39/"
+          }
+        }
+      ]
+    },
+    "pokemon/wurmple": {
+      "id": 265,
+      "name": "wurmple",
+      "height": 3,
+      "weight": 36,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "bug",
+            "url": "https://pokeapi.co/api/v2/type/7/"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "is_hidden": false,
+          "slot": 1,
+          "ability": {
+            "name": "shield-dust",
+            "url": "https://pokeapi.co/api/v2/ability/19/"
+          }
+        },
+        {
+          "is_hidden": true,
+          "slot": 3,
+          "ability": {
+            "name": "run-away",
+            "url": "https://pokeapi.co/api/v2/ability/50/"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "base_stat": 45,
+          "effort": 1,
+          "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
+          }
+        },
+        {
+          "base_stat": 45,
+          "effort": 0,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "base_stat": 35,
+          "effort": 0,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        },
+        {
+          "base_stat": 20,
+          "effort": 0,
+          "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+          }
+        },
+        {
+          "base_stat": 30,
+          "effort": 0,
+          "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+          }
+        },
+        {
+          "base_stat": 20,
+          "effort": 0,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "species": {
+        "name": "wurmple",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/265/"
+      },
+      "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/265.png",
+        "other": {
+          "official-artwork": {
+            "versions": {
+              "generation-i": {
+                "red-and-blue": {
+                  "front_default": null
+                },
+                "red-and-green": {
+                  "front_default": null
+                }
+              },
+              "generation-ii": {
+                "gold-and-silver": {
+                  "front_default": null
+                }
+              }
+            },
+            "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/265.png",
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/265.png"
+          }
+        }
+      }
+    },
+    "evolution-chain/40": {
+      "id": 40,
+      "baby_trigger_item": null,
+      "chain": {
+        "is_baby": false,
+        "species": {
+          "name": "gastly",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/92/"
+        },
+        "evolution_details": [],
+        "evolves_to": [
+          {
+            "is_baby": false,
+            "species": {
+              "name": "haunter",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/93/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "red-blue",
+                  "url": "https://pokeapi.co/api/v2/version-group/1/"
+                },
+                "is_default": true,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": 25,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": [
+              {
+                "is_baby": false,
+                "species": {
+                  "name": "gengar",
+                  "url": "https://pokeapi.co/api/v2/pokemon-species/94/"
+                },
+                "evolution_details": [
+                  {
+                    "version_group": {
+                      "name": "red-blue",
+                      "url": "https://pokeapi.co/api/v2/version-group/1/"
+                    },
+                    "is_default": true,
+                    "item": null,
+                    "trigger": {
+                      "name": "trade",
+                      "url": "https://pokeapi.co/api/v2/evolution-trigger/2/"
+                    },
+                    "gender": null,
+                    "held_item": null,
+                    "known_move": null,
+                    "known_move_type": null,
+                    "location": null,
+                    "min_level": null,
+                    "min_happiness": null,
+                    "min_beauty": null,
+                    "min_affection": null,
+                    "near_special_rock": false,
+                    "needs_multiplayer": false,
+                    "needs_overworld_rain": false,
+                    "party_species": null,
+                    "party_type": null,
+                    "relative_physical_stats": null,
+                    "time_of_day": "",
+                    "trade_species": null,
+                    "turn_upside_down": false,
+                    "region": null,
+                    "required_pokemon_form": null,
+                    "evolved_pokemon_form": null,
+                    "used_move": null,
+                    "min_move_count": null,
+                    "min_steps": null,
+                    "min_damage_taken": null,
+                    "allowed_natures": null,
+                    "condition_expression": null
+                  }
+                ],
+                "evolves_to": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "evolution-chain/67": {
+      "id": 67,
+      "baby_trigger_item": null,
+      "chain": {
+        "is_baby": false,
+        "species": {
+          "name": "eevee",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/133/"
+        },
+        "evolution_details": [],
+        "evolves_to": [
+          {
+            "is_baby": false,
+            "species": {
+              "name": "vaporeon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/134/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "red-blue",
+                  "url": "https://pokeapi.co/api/v2/version-group/1/"
+                },
+                "is_default": true,
+                "item": {
+                  "name": "water-stone",
+                  "url": "https://pokeapi.co/api/v2/item/84/"
+                },
+                "trigger": {
+                  "name": "use-item",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/3/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "jolteon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/135/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "red-blue",
+                  "url": "https://pokeapi.co/api/v2/version-group/1/"
+                },
+                "is_default": true,
+                "item": {
+                  "name": "thunder-stone",
+                  "url": "https://pokeapi.co/api/v2/item/83/"
+                },
+                "trigger": {
+                  "name": "use-item",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/3/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "flareon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/136/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "red-blue",
+                  "url": "https://pokeapi.co/api/v2/version-group/1/"
+                },
+                "is_default": true,
+                "item": {
+                  "name": "fire-stone",
+                  "url": "https://pokeapi.co/api/v2/item/82/"
+                },
+                "trigger": {
+                  "name": "use-item",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/3/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "espeon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/196/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "gold-silver",
+                  "url": "https://pokeapi.co/api/v2/version-group/3/"
+                },
+                "is_default": true,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": 160,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "day",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "umbreon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/197/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "gold-silver",
+                  "url": "https://pokeapi.co/api/v2/version-group/3/"
+                },
+                "is_default": true,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": 160,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "night",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "leafeon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/470/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "diamond-pearl",
+                  "url": "https://pokeapi.co/api/v2/version-group/8/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "eterna-forest",
+                  "url": "https://pokeapi.co/api/v2/location/8/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "black-white",
+                  "url": "https://pokeapi.co/api/v2/version-group/11/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "pinwheel-forest",
+                  "url": "https://pokeapi.co/api/v2/location/375/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "x-y",
+                  "url": "https://pokeapi.co/api/v2/version-group/15/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "kalos-route-20",
+                  "url": "https://pokeapi.co/api/v2/location/650/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "sword-shield",
+                  "url": "https://pokeapi.co/api/v2/version-group/20/"
+                },
+                "is_default": true,
+                "item": {
+                  "name": "leaf-stone",
+                  "url": "https://pokeapi.co/api/v2/item/85/"
+                },
+                "trigger": {
+                  "name": "use-item",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/3/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "omega-ruby-alpha-sapphire",
+                  "url": "https://pokeapi.co/api/v2/version-group/16/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "petalburg-woods",
+                  "url": "https://pokeapi.co/api/v2/location/438/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "sun-moon",
+                  "url": "https://pokeapi.co/api/v2/version-group/17/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "lush-jungle",
+                  "url": "https://pokeapi.co/api/v2/location/750/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "glaceon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/471/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "diamond-pearl",
+                  "url": "https://pokeapi.co/api/v2/version-group/8/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "sinnoh-route-217",
+                  "url": "https://pokeapi.co/api/v2/location/48/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "black-white",
+                  "url": "https://pokeapi.co/api/v2/version-group/11/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "twist-mountain",
+                  "url": "https://pokeapi.co/api/v2/location/380/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "x-y",
+                  "url": "https://pokeapi.co/api/v2/version-group/15/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "frost-cavern",
+                  "url": "https://pokeapi.co/api/v2/location/640/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "sword-shield",
+                  "url": "https://pokeapi.co/api/v2/version-group/20/"
+                },
+                "is_default": true,
+                "item": {
+                  "name": "ice-stone",
+                  "url": "https://pokeapi.co/api/v2/item/885/"
+                },
+                "trigger": {
+                  "name": "use-item",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/3/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "omega-ruby-alpha-sapphire",
+                  "url": "https://pokeapi.co/api/v2/version-group/16/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "shoal-cave",
+                  "url": "https://pokeapi.co/api/v2/location/445/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "sun-moon",
+                  "url": "https://pokeapi.co/api/v2/version-group/17/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": {
+                  "name": "mount-lanakila",
+                  "url": "https://pokeapi.co/api/v2/location/775/"
+                },
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": true,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "sylveon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/700/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "x-y",
+                  "url": "https://pokeapi.co/api/v2/version-group/15/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": {
+                  "name": "fairy",
+                  "url": "https://pokeapi.co/api/v2/type/18/"
+                },
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": 2,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "sword-shield",
+                  "url": "https://pokeapi.co/api/v2/version-group/20/"
+                },
+                "is_default": true,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": {
+                  "name": "fairy",
+                  "url": "https://pokeapi.co/api/v2/type/18/"
+                },
+                "location": null,
+                "min_level": null,
+                "min_happiness": 160,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": {
+                  "name": "eevee",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/133/"
+                },
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          }
+        ]
+      }
+    },
+    "evolution-chain/135": {
+      "id": 135,
+      "baby_trigger_item": null,
+      "chain": {
+        "is_baby": false,
+        "species": {
+          "name": "wurmple",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/265/"
+        },
+        "evolution_details": [],
+        "evolves_to": [
+          {
+            "is_baby": false,
+            "species": {
+              "name": "silcoon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/266/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "ruby-sapphire",
+                  "url": "https://pokeapi.co/api/v2/version-group/5/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": 7,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": {
+                  "expression": "PID 16 >> 10 % 4 <=",
+                  "percentage_chance": 50,
+                  "variables": [
+                    {
+                      "name": "personality-value",
+                      "url": "https://pokeapi.co/api/v2/evolution-variable/2/"
+                    }
+                  ]
+                }
+              },
+              {
+                "version_group": {
+                  "name": "x-y",
+                  "url": "https://pokeapi.co/api/v2/version-group/15/"
+                },
+                "is_default": true,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": 7,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": {
+                  "expression": "EC 16 >> 10 % 4 <=",
+                  "percentage_chance": 50,
+                  "variables": [
+                    {
+                      "name": "encryption-constant",
+                      "url": "https://pokeapi.co/api/v2/evolution-variable/1/"
+                    }
+                  ]
+                }
+              }
+            ],
+            "evolves_to": [
+              {
+                "is_baby": false,
+                "species": {
+                  "name": "beautifly",
+                  "url": "https://pokeapi.co/api/v2/pokemon-species/267/"
+                },
+                "evolution_details": [
+                  {
+                    "version_group": {
+                      "name": "ruby-sapphire",
+                      "url": "https://pokeapi.co/api/v2/version-group/5/"
+                    },
+                    "is_default": true,
+                    "item": null,
+                    "trigger": {
+                      "name": "level-up",
+                      "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                    },
+                    "gender": null,
+                    "held_item": null,
+                    "known_move": null,
+                    "known_move_type": null,
+                    "location": null,
+                    "min_level": 10,
+                    "min_happiness": null,
+                    "min_beauty": null,
+                    "min_affection": null,
+                    "near_special_rock": false,
+                    "needs_multiplayer": false,
+                    "needs_overworld_rain": false,
+                    "party_species": null,
+                    "party_type": null,
+                    "relative_physical_stats": null,
+                    "time_of_day": "",
+                    "trade_species": null,
+                    "turn_upside_down": false,
+                    "region": null,
+                    "required_pokemon_form": null,
+                    "evolved_pokemon_form": null,
+                    "used_move": null,
+                    "min_move_count": null,
+                    "min_steps": null,
+                    "min_damage_taken": null,
+                    "allowed_natures": null,
+                    "condition_expression": null
+                  }
+                ],
+                "evolves_to": []
+              }
+            ]
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "cascoon",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/268/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "ruby-sapphire",
+                  "url": "https://pokeapi.co/api/v2/version-group/5/"
+                },
+                "is_default": false,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": 7,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": {
+                  "expression": "PID 16 >> 10 % 5 >=",
+                  "percentage_chance": 50,
+                  "variables": [
+                    {
+                      "name": "personality-value",
+                      "url": "https://pokeapi.co/api/v2/evolution-variable/2/"
+                    }
+                  ]
+                }
+              },
+              {
+                "version_group": {
+                  "name": "x-y",
+                  "url": "https://pokeapi.co/api/v2/version-group/15/"
+                },
+                "is_default": true,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": 7,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": {
+                  "expression": "EC 16 >> 10 % 5 >=",
+                  "percentage_chance": 50,
+                  "variables": [
+                    {
+                      "name": "encryption-constant",
+                      "url": "https://pokeapi.co/api/v2/evolution-variable/1/"
+                    }
+                  ]
+                }
+              }
+            ],
+            "evolves_to": [
+              {
+                "is_baby": false,
+                "species": {
+                  "name": "dustox",
+                  "url": "https://pokeapi.co/api/v2/pokemon-species/269/"
+                },
+                "evolution_details": [
+                  {
+                    "version_group": {
+                      "name": "ruby-sapphire",
+                      "url": "https://pokeapi.co/api/v2/version-group/5/"
+                    },
+                    "is_default": true,
+                    "item": null,
+                    "trigger": {
+                      "name": "level-up",
+                      "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                    },
+                    "gender": null,
+                    "held_item": null,
+                    "known_move": null,
+                    "known_move_type": null,
+                    "location": null,
+                    "min_level": 10,
+                    "min_happiness": null,
+                    "min_beauty": null,
+                    "min_affection": null,
+                    "near_special_rock": false,
+                    "needs_multiplayer": false,
+                    "needs_overworld_rain": false,
+                    "party_species": null,
+                    "party_type": null,
+                    "relative_physical_stats": null,
+                    "time_of_day": "",
+                    "trade_species": null,
+                    "turn_upside_down": false,
+                    "region": null,
+                    "required_pokemon_form": null,
+                    "evolved_pokemon_form": null,
+                    "used_move": null,
+                    "min_move_count": null,
+                    "min_steps": null,
+                    "min_damage_taken": null,
+                    "allowed_natures": null,
+                    "condition_expression": null
+                  }
+                ],
+                "evolves_to": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "evolution-chain/442": {
+      "id": 442,
+      "baby_trigger_item": null,
+      "chain": {
+        "is_baby": false,
+        "species": {
+          "name": "applin",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/840/"
+        },
+        "evolution_details": [],
+        "evolves_to": [
+          {
+            "is_baby": false,
+            "species": {
+              "name": "flapple",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/841/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "sword-shield",
+                  "url": "https://pokeapi.co/api/v2/version-group/20/"
+                },
+                "is_default": true,
+                "item": {
+                  "name": "tart-apple",
+                  "url": "https://pokeapi.co/api/v2/item/1175/"
+                },
+                "trigger": {
+                  "name": "use-item",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/3/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "appletun",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/842/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "sword-shield",
+                  "url": "https://pokeapi.co/api/v2/version-group/20/"
+                },
+                "is_default": true,
+                "item": {
+                  "name": "sweet-apple",
+                  "url": "https://pokeapi.co/api/v2/item/1174/"
+                },
+                "trigger": {
+                  "name": "use-item",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/3/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": []
+          },
+          {
+            "is_baby": false,
+            "species": {
+              "name": "dipplin",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/1011/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "the-teal-mask",
+                  "url": "https://pokeapi.co/api/v2/version-group/26/"
+                },
+                "is_default": true,
+                "item": {
+                  "name": "syrupy-apple",
+                  "url": "https://pokeapi.co/api/v2/item/2109/"
+                },
+                "trigger": {
+                  "name": "use-item",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/3/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": null,
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": [
+              {
+                "is_baby": false,
+                "species": {
+                  "name": "hydrapple",
+                  "url": "https://pokeapi.co/api/v2/pokemon-species/1019/"
+                },
+                "evolution_details": [
+                  {
+                    "version_group": {
+                      "name": "the-indigo-disk",
+                      "url": "https://pokeapi.co/api/v2/version-group/27/"
+                    },
+                    "is_default": true,
+                    "item": null,
+                    "trigger": {
+                      "name": "level-up",
+                      "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                    },
+                    "gender": null,
+                    "held_item": null,
+                    "known_move": {
+                      "name": "dragon-cheer",
+                      "url": "https://pokeapi.co/api/v2/move/913/"
+                    },
+                    "known_move_type": null,
+                    "location": null,
+                    "min_level": null,
+                    "min_happiness": null,
+                    "min_beauty": null,
+                    "min_affection": null,
+                    "near_special_rock": false,
+                    "needs_multiplayer": false,
+                    "needs_overworld_rain": false,
+                    "party_species": null,
+                    "party_type": null,
+                    "relative_physical_stats": null,
+                    "time_of_day": "",
+                    "trade_species": null,
+                    "turn_upside_down": false,
+                    "region": null,
+                    "required_pokemon_form": null,
+                    "evolved_pokemon_form": null,
+                    "used_move": null,
+                    "min_move_count": null,
+                    "min_steps": null,
+                    "min_damage_taken": null,
+                    "allowed_natures": null,
+                    "condition_expression": null
+                  }
+                ],
+                "evolves_to": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "evolution-chain/66": {
+      "id": 66,
+      "baby_trigger_item": null,
+      "chain": {
+        "is_baby": false,
+        "species": {
+          "name": "ditto",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/132/"
+        },
+        "evolution_details": [],
+        "evolves_to": []
+      }
+    },
+    "evolution-chain/57": {
+      "id": 57,
+      "baby_trigger_item": {
+        "name": "odd-incense",
+        "url": "https://pokeapi.co/api/v2/item/291/"
+      },
+      "chain": {
+        "is_baby": true,
+        "species": {
+          "name": "mime-jr",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/439/"
+        },
+        "evolution_details": [],
+        "evolves_to": [
+          {
+            "is_baby": false,
+            "species": {
+              "name": "mr-mime",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/122/"
+            },
+            "evolution_details": [
+              {
+                "version_group": {
+                  "name": "diamond-pearl",
+                  "url": "https://pokeapi.co/api/v2/version-group/8/"
+                },
+                "is_default": true,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": {
+                  "name": "mimic",
+                  "url": "https://pokeapi.co/api/v2/move/102/"
+                },
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": null,
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": null,
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              },
+              {
+                "version_group": {
+                  "name": "sword-shield",
+                  "url": "https://pokeapi.co/api/v2/version-group/20/"
+                },
+                "is_default": true,
+                "item": null,
+                "trigger": {
+                  "name": "level-up",
+                  "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                },
+                "gender": null,
+                "held_item": null,
+                "known_move": {
+                  "name": "mimic",
+                  "url": "https://pokeapi.co/api/v2/move/102/"
+                },
+                "known_move_type": null,
+                "location": null,
+                "min_level": null,
+                "min_happiness": null,
+                "min_beauty": null,
+                "min_affection": null,
+                "near_special_rock": false,
+                "needs_multiplayer": false,
+                "needs_overworld_rain": false,
+                "party_species": null,
+                "party_type": null,
+                "relative_physical_stats": null,
+                "time_of_day": "",
+                "trade_species": null,
+                "turn_upside_down": false,
+                "region": {
+                  "name": "galar",
+                  "url": "https://pokeapi.co/api/v2/region/8/"
+                },
+                "required_pokemon_form": null,
+                "evolved_pokemon_form": {
+                  "name": "mr-mime-galar",
+                  "url": "https://pokeapi.co/api/v2/pokemon-form/10327/"
+                },
+                "used_move": null,
+                "min_move_count": null,
+                "min_steps": null,
+                "min_damage_taken": null,
+                "allowed_natures": null,
+                "condition_expression": null
+              }
+            ],
+            "evolves_to": [
+              {
+                "is_baby": false,
+                "species": {
+                  "name": "mr-rime",
+                  "url": "https://pokeapi.co/api/v2/pokemon-species/866/"
+                },
+                "evolution_details": [
+                  {
+                    "version_group": {
+                      "name": "sword-shield",
+                      "url": "https://pokeapi.co/api/v2/version-group/20/"
+                    },
+                    "is_default": true,
+                    "item": null,
+                    "trigger": {
+                      "name": "level-up",
+                      "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+                    },
+                    "gender": null,
+                    "held_item": null,
+                    "known_move": null,
+                    "known_move_type": null,
+                    "location": null,
+                    "min_level": 42,
+                    "min_happiness": null,
+                    "min_beauty": null,
+                    "min_affection": null,
+                    "near_special_rock": false,
+                    "needs_multiplayer": false,
+                    "needs_overworld_rain": false,
+                    "party_species": null,
+                    "party_type": null,
+                    "relative_physical_stats": null,
+                    "time_of_day": "",
+                    "trade_species": null,
+                    "turn_upside_down": false,
+                    "region": null,
+                    "required_pokemon_form": {
+                      "name": "mr-mime-galar",
+                      "url": "https://pokeapi.co/api/v2/pokemon-form/10327/"
+                    },
+                    "evolved_pokemon_form": null,
+                    "used_move": null,
+                    "min_move_count": null,
+                    "min_steps": null,
+                    "min_damage_taken": null,
+                    "allowed_natures": null,
+                    "condition_expression": null
+                  }
+                ],
+                "evolves_to": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "evolution-chain/202": {
+      "id": 202,
+      "baby_trigger_item": null,
+      "chain": {
+        "is_baby": false,
+        "species": {
+          "name": "deoxys",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/386/"
+        },
+        "evolution_details": [],
+        "evolves_to": []
+      }
+    }
+  }
+}

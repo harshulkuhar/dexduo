@@ -14,7 +14,7 @@ The name is **DexDuo**, selected by the owner. The six specifications below defi
 | Landscape iPhone support | [Layout](prd/06-iphone-landscape.md) | `codex/iphone-landscape` | Rename and cleanup |
 | Robotic spoken entries | [Speech](prd/02-spoken-entries.md) | `codex/robotic-entries` | Layout controls |
 | Lens flash during speech | [Lens](prd/03-lens-flash.md) | `codex/lens-flash` | Speech playback state |
-| Evolution chains | [Evolution](prd/04-evolution-chains.md) | `codex/evolution-chains` | Layout paging |
+| Evolution chains | [Evolution](prd/04-evolution-chains.md) | `codex/evolution-chains` | Landscape details |
 | Weaknesses and resistances | [Type chart](prd/05-type-matchups.md) | `codex/type-matchups` | Existing detail panel; standalone grid |
 
 ## Existing behavior to preserve
@@ -29,7 +29,7 @@ The name is **DexDuo**, selected by the owner. The six specifications below defi
 
 ## Interaction rules
 
-App-owned screens never scroll. Info, Stats, Evolution and Types are fixed detail tabs. Long entries, long ability lists and evolution branches use explicit previous/next page controls. The Types tab shows all 18 matchups together in a responsive grid. Each page shows its position and preserves access to search and primary actions. Apple-owned Photos and camera interfaces retain their system behavior.
+The app shell, toolbar, detail tabs and artwork remain fixed. Info, Stats and Evolution scroll vertically within the right LCD, replacing detail pagination. Types shows all 18 matchups together without scrolling. Search and scanner result paging remain separate. Apple-owned Photos and camera interfaces retain their system behavior.
 
 Ordinary iPhones run in landscape. A Duo retains its existing cover and interior behavior. Insets protect controls around camera cutouts, while the red shell fills the display. Layout uses available space instead of shrinking a tablet-sized canvas until text and buttons become unusable.
 
@@ -46,7 +46,7 @@ Add small, testable components for speech state, evolution decoding and type mul
 1. Finish the DexDuo rename, including project/module identifiers and repository identity.
 2. Remove unused code and redundant scaffolding on `codex/cleanup`; retain regression coverage.
 3. Deliver these PRDs on `codex/dexduo-prds`.
-4. Implement the responsive type-matchup grid first, as selected by the owner. Then implement landscape layout, speech and its lens feedback, and evolution. The type grid fits the existing detail panel without waiting for the broader layout rewrite.
+4. Implement the responsive type-matchup grid first, as selected by the owner. Then implement landscape layout and evolution with contained detail scrolling, followed by speech and its lens feedback. The type grid fits the existing detail panel without waiting for the broader layout rewrite.
 
 The preparation stack is delivered through [rename PR #1](https://github.com/harshulkuhar/dexduo/pull/1), [cleanup PR #2](https://github.com/harshulkuhar/dexduo/pull/2) and [documentation PR #3](https://github.com/harshulkuhar/dexduo/pull/3). The type grid is delivered through [PR #4](https://github.com/harshulkuhar/dexduo/pull/4). Use one PR per completed feature. After each merge, pull main, pull each remaining active feature branch, merge the latest main into it and push; also synchronize before starting implementation. See [repository guidelines](../AGENTS.md).
 
@@ -60,7 +60,7 @@ The owner has authorized branch work, PR creation and merging, and explicitly re
 | Cleanup | Removed code has no callers or has coverage in the real test target; scanner/search/fold behavior still passes |
 | Layout | No clipped or unreachable controls at compact and large landscape sizes, keyboard visible and hidden, and supported text sizes |
 | Speech/lens | Audible robotic treatment, offline operation, correct cancellation, synchronized light and reduced-motion behavior |
-| Evolution | Complete linear and branching families; conditions, selection, paging, offline cache and failure retry |
+| Evolution | Complete linear and branching families; conditions, selection, contained scrolling, offline cache and failure retry |
 | Types | All 18 standard attacking types visible together; correct multipliers, reference colors, matching sprite badges and explicit type-only scope |
 | Regressions | Full search, import, candidate lookup, failed lookup, cached artwork and repeated fold/unfold checks |
 

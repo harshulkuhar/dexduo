@@ -68,12 +68,13 @@ private struct TypeMatchupTile: View {
 struct PokemonTypeBadge: View {
     let name: String
     var fontSize: CGFloat = 10
+    var compact = false
 
     var body: some View {
         let rgb = PokemonType(rawValue: name)?.rgb ?? 0xAAAA99
-        Text(name.uppercased())
-            .font(.system(size: fontSize, weight: .bold, design: .monospaced)).tracking(2)
-            .padding(.horizontal, 14).padding(.vertical, 7)
+        Text(compact ? (PokemonType(rawValue: name)?.abbreviation ?? String(name.prefix(3)).uppercased()) : name.uppercased())
+            .font(.system(size: fontSize, weight: .bold, design: .monospaced)).tracking(compact ? 0 : 2)
+            .padding(.horizontal, compact ? 5 : 14).padding(.vertical, compact ? 2 : 7)
             .background(TypePalette.color(rgb), in: Capsule())
             .foregroundStyle(TypePalette.foreground(rgb))
             .accessibilityLabel("\(name.capitalized) type")

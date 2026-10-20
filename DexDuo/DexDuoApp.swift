@@ -18,10 +18,11 @@ private let lcd = DexAppearance.lcd
 struct DexDuoView: View {
     @StateObject private var store = DexStore()
     @StateObject private var presentation = DevicePresentation()
+    @StateObject private var evolution = EvolutionModel()
     @Environment(\.scenePhase) private var scenePhase
     @State private var opened = false
     @State private var scanning = false
-    @State private var tab = "Info"
+    @State private var tab = DetailTab.info
     @State private var compactPanel = "Pokémon"
     @FocusState private var searchFocused: Bool
     private var hardwareControlsCover: Bool { presentation.state.profile == .duo }
@@ -41,6 +42,7 @@ struct DexDuoView: View {
                 Color.clear
             }
         }
+        .environmentObject(evolution)
         .background(DeviceProfileProbe(presentation: presentation).frame(width: 0, height: 0).accessibilityHidden(true))
         .onChange(of: presentation.state.profile) { _, _ in applyDeviceState() }
         .onChange(of: presentation.state.isFolded) { _, _ in applyDeviceState() }
@@ -228,58 +230,14 @@ struct DexDuoView: View {
                     }
                 }.background(lcd, in: RoundedRectangle(cornerRadius: 10))
             }
-            if let error = store.error {
-                VStack(alignment: .leading) { Text(error); Button("Retry") { Task { await store.start() } } }.font(.footnote).padding().background(.white, in: RoundedRectangle(cornerRadius: 8))
-            }
             if store.query.isEmpty {
-            HStack(spacing: 8) {
-                ForEach(["Info", "Stats", "Types"], id: \.self) { label in
-                    Button { tab = label } label: { Text(label.uppercased()).font(.system(size: 12, weight: .bold, design: .monospaced)).tracking(2).frame(maxWidth: .infinity).padding(.vertical, 14).background(tab == label ? Color.cyan : Color(red: 0.16, green: 0.39, blue: 0.52), in: RoundedRectangle(cornerRadius: 5)).foregroundStyle(tab == label ? ink : .white) }.accessibilityIdentifier("detailTab-\(label.lowercased())")
-                }
-            }
-            VStack(alignment: .leading, spacing: 10) {
-                if let pokemon = store.pokemon {
-                    Text(pokemon.title).font(.system(size: 23, weight: .bold, design: .monospaced)).lineLimit(1).minimumScaleFactor(0.65)
-                    Rectangle().fill(ink.opacity(0.2)).frame(height: 1)
-                    if tab == "Info" {
-                        Text(store.entryText)
-                            .font(.system(size: 15)).lineLimit(7).minimumScaleFactor(0.8)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                        if !store.entryVersion.isEmpty {
-                            Text("DEXDUO · " + store.entryVersion.uppercased()).font(.system(size: 9, design: .monospaced)).foregroundStyle(ink.opacity(0.6))
-                        }
-                        infoRow("HEIGHT", String(format: "%.1f m", Double(pokemon.height) / 10))
-                        infoRow("WEIGHT", String(format: "%.1f kg", Double(pokemon.weight) / 10))
-                    } else if tab == "Types" {
-                        TypeMatchupsView(defendingTypes: pokemon.types.map { $0.type.name })
-                    } else {
-                        VStack(spacing: 6) {
-                            ForEach(pokemon.stats, id: \.stat.name) { stat in
-                                HStack {
-                                    Text(stat.stat.title).font(.system(size: 11, design: .monospaced)).frame(width: 105, alignment: .leading)
-                                    ProgressView(value: Double(stat.base_stat), total: 255).tint(ink)
-                                    Text("\(stat.base_stat)").font(.caption.monospaced()).frame(width: 28)
-                                }
-                            }
-                        }
-                        infoRow("BASE STAT TOTAL", "\(pokemon.baseStatTotal)")
-                        Rectangle().fill(ink.opacity(0.2)).frame(height: 1)
-                        Text("ABILITIES").font(.system(size: 10, design: .monospaced)).foregroundStyle(ink.opacity(0.6))
-                        Text(pokemon.abilities.map { $0.ability.title }.joined(separator: " · "))
-                            .font(.system(size: 13, design: .monospaced)).lineLimit(2).minimumScaleFactor(0.8)
-                    }
-                }
-            }.foregroundStyle(ink).padding(tab == "Types" ? 12 : 20).frame(maxWidth: .infinity).frame(height: 300, alignment: .topLeading)
-                .background(lcd.gradient, in: RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(.black.opacity(0.35), lineWidth: 3))
+                DexDetails(store: store, tab: $tab).frame(height: 352)
             }
             Button { scanning = true } label: { Label("SCAN POKÉMON", systemImage: "viewfinder").font(.system(size: 15, weight: .bold, design: .monospaced)).tracking(1).frame(maxWidth: .infinity).padding(20).foregroundStyle(ink).background(Color.cyan.gradient, in: RoundedRectangle(cornerRadius: 10)).compositingGroup().shadow(color: .black.opacity(0.2), radius: 0, y: 4) }
             HStack { Text("CARDS & SCREEN IMAGES").font(.system(size: 9, weight: .bold, design: .monospaced)).tracking(1); Spacer(); Link("Data: PokéAPI ↗", destination: URL(string: "https://pokeapi.co")!).font(.caption) }.foregroundStyle(.white.opacity(0.7))
         }
     }
-    private func infoRow(_ label: String, _ value: String) -> some View {
-        HStack { Text(label).font(.caption.monospaced()).opacity(0.6); Spacer(); Text(value).font(.system(.body, design: .monospaced).bold()) }
-    }
+
 }
 
 /// Keep UIKit in portrait for both displays. The inner instrument panel is
