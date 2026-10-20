@@ -180,7 +180,7 @@ struct DexDuoView: View {
                     RoundedRectangle(cornerRadius: 10).fill(lcd.gradient)
                     VStack(spacing: 10) {
                         HStack {
-                            Text(store.pokemon.map { String(format: "No. %04d", $0.id) } ?? "CONNECTING")
+                            Text(store.pokemon.map { String(format: "No. %04d", $0.nationalNumber) } ?? "CONNECTING")
                             Spacer(); Image(systemName: "waveform.path")
                         }.font(.system(size: 12, weight: .medium, design: .monospaced)).foregroundStyle(ink.opacity(0.7))
                         if let pokemon = store.pokemon {
