@@ -148,7 +148,7 @@ final class PhoneLayoutTests: XCTestCase {
         let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
         let model = EvolutionModel(repository: repository)
         let store = DexStore()
-        for species in ["geodude", "gastly", "eevee", "wurmple", "applin", "ditto"] {
+        for species in ["pikachu", "kirlia", "snorunt", "geodude", "gastly", "eevee", "wurmple", "applin", "ditto"] {
             store.pokemon = try await repository.member(for: species)
             await model.load(for: species)
             for size in [CGSize(width: 312, height: 307), CGSize(width: 341, height: 286)] {

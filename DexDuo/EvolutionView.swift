@@ -24,9 +24,7 @@ struct EvolutionView: View {
                                         .disabled(model.choosing != nil).accessibilityIdentifier("evolutionRetrySelection")
                                 }
                             }
-                            Text("Species family · default forms").font(.system(size: 11, design: .monospaced))
-                                .foregroundStyle(DexAppearance.ink.opacity(0.7))
-                            EvolutionTree(link: chain.chain, model: model, store: store)
+                            EvolutionTree(link: chain.tree, model: model, store: store)
                             if chain.chain.evolves_to.isEmpty {
                                 Text("No known evolutions.").font(.system(size: fontSize)).accessibilityIdentifier("evolutionStandalone")
                             }
@@ -39,7 +37,10 @@ struct EvolutionView: View {
                         }
                         .task(id: chain.id) {
                             restored = false
-                            let target = model.scrollAnchor ?? store.pokemon?.species.name
+                            let selected = chain.tree.flattened.first {
+                                $0.id == store.pokemon?.name || model.members[$0.id]?.name == store.pokemon?.name
+                            }?.id
+                            let target = model.scrollAnchor ?? selected ?? store.pokemon?.species.name
                             await Task.yield()
                             guard !Task.isCancelled else { return }
                             if let target { proxy.scrollTo(target, anchor: .top) }
@@ -59,53 +60,47 @@ struct EvolutionView: View {
                 ProgressView("Loading evolution family…").font(.system(size: 14)).frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-        .task(id: store.pokemon?.species.name) { if let species = store.pokemon?.species.name { await model.load(for: species) } }
+        .task(id: store.pokemon?.name) { if let species = store.pokemon?.species.name { await model.load(for: species) } }
         .onDisappear { model.cancel() }
     }
 }
 
 private struct EvolutionCondition: View {
-    let link: EvolutionLink
+    let link: EvolutionBranch
     @ScaledMetric(relativeTo: .body) private var fontSize: CGFloat = 14
 
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            Image(systemName: "arrow.down").font(.system(size: 18)).accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(Array(link.conditions.enumerated()), id: \.offset) { index, condition in
-                    if index > 0 {
-                        Text("or").foregroundStyle(DexAppearance.ink.opacity(0.7))
-                    }
-                    Text(condition).fixedSize(horizontal: false, vertical: true)
-                }
-            }.font(.system(size: fontSize))
+            Image(systemName: "arrow.turn.down.right").font(.system(size: 18)).accessibilityHidden(true)
+            Text(link.conditionText)
+                .font(.system(size: fontSize)).fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }.frame(maxWidth: .infinity, alignment: .leading)
             .accessibilityElement(children: .combine)
-            .accessibilityLabel("Evolve into \(link.species.title): " + link.conditions.joined(separator: "; or "))
+            .accessibilityLabel("Evolve into \(link.title): \(link.conditionText)")
             .accessibilityIdentifier("evolutionCondition-\(link.id)")
     }
 }
 
 private struct EvolutionTree: View {
-    let link: EvolutionLink
+    let link: EvolutionBranch
     @ObservedObject var model: EvolutionModel
     @ObservedObject var store: DexStore
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             EvolutionNode(link: link, model: model, store: store)
-            if !link.evolves_to.isEmpty {
+            if !link.children.isEmpty {
                 VStack(alignment: .leading, spacing: 12) {
-                    ForEach(link.evolves_to) { child in
+                    ForEach(link.children) { child in
                         VStack(alignment: .leading, spacing: 8) {
                             EvolutionCondition(link: child)
                             EvolutionTree(link: child, model: model, store: store)
                         }
                     }
-                }.padding(.leading, link.evolves_to.count > 1 ? 12 : 0)
+                }.padding(.leading, link.children.count > 1 ? 12 : 0)
                     .overlay(alignment: .leading) {
-                        if link.evolves_to.count > 1 {
+                        if link.children.count > 1 {
                             Rectangle().fill(DexAppearance.ink.opacity(0.25)).frame(width: 1).accessibilityHidden(true)
                         }
                     }
@@ -115,11 +110,13 @@ private struct EvolutionTree: View {
 }
 
 private struct EvolutionNode: View {
-    let link: EvolutionLink
+    let link: EvolutionBranch
     @ObservedObject var model: EvolutionModel
     @ObservedObject var store: DexStore
     @ScaledMetric(relativeTo: .body) private var fontSize: CGFloat = 14
-    private var selected: Bool { store.pokemon?.species.name == link.id }
+    private var selected: Bool {
+        store.pokemon?.name == (model.members[link.id]?.name ?? link.id)
+    }
     private var number: Int? { link.species.url.split(separator: "/").last.flatMap { Int($0) } }
 
     var body: some View {
@@ -134,7 +131,7 @@ private struct EvolutionNode: View {
                 .overlay(RoundedRectangle(cornerRadius: 6).strokeBorder(selected ? Color.cyan : DexAppearance.ink.opacity(0.25), lineWidth: selected ? 2 : 1))
                 .contentShape(Rectangle())
         }.buttonStyle(.plain).disabled(model.choosing != nil || store.loading)
-            .accessibilityLabel("\(link.species.title), \(number.map { String(format: "number %04d", $0) } ?? "number unavailable")\(selected ? ", selected" : "")")
+            .accessibilityLabel("\(link.title), \(number.map { String(format: "number %04d", $0) } ?? "number unavailable")\(selected ? ", selected" : "")")
             .accessibilityValue(model.members[link.id]?.types.map { $0.type.title }.joined(separator: ", ") ?? "Types unavailable")
             .accessibilityAddTraits(selected ? .isSelected : [])
             .accessibilityIdentifier("evolutionNode-\(link.id)")
@@ -152,7 +149,7 @@ private struct EvolutionNode: View {
     private var metadata: some View {
         VStack(alignment: .leading, spacing: 3) {
             if let number { Text(String(format: "#%04d", number)).font(.system(size: 10, design: .monospaced)) }
-            Text(link.species.title).font(.system(size: fontSize, weight: .semibold))
+            Text(link.title).font(.system(size: fontSize, weight: .semibold))
                 .fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.leading)
             if let member = model.members[link.id] {
                 HStack(spacing: 4) { ForEach(member.types, id: \.type.name) { PokemonTypeBadge(name: $0.type.name, compact: true) } }

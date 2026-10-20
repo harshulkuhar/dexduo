@@ -68,28 +68,73 @@ final class EvolutionUITests: XCTestCase {
         reveal(trade, in: scroll)
         XCTAssertFalse(app.buttons["evolutionBack"].exists)
     }
-    func testGeodudeRequirementsWrapWithinLCDWithoutDrillDown() throws {
+    func testGeodudeHasSeparateNormalAndAlolanRoutes() throws {
         let app = XCUIApplication(); try open(app)
         select("geodude", in: app)
         app.buttons["detailTab-evolution"].tap()
         let scroll = app.scrollViews["evolutionScroll"]
         XCTAssertTrue(scroll.waitForExistence(timeout: 30), app.debugDescription)
         let level = app.descendants(matching: .any).matching(identifier: "evolutionCondition-graveler").firstMatch
-        let trade = app.descendants(matching: .any).matching(identifier: "evolutionCondition-golem").firstMatch
-        XCTAssertTrue(level.label.contains("Level 25"))
-        XCTAssertTrue(level.label.contains("Required form: Geodude Alola"))
-        XCTAssertTrue(trade.label.contains("Trade"))
-        XCTAssertFalse(level.label.contains("Methods"))
-        XCTAssertFalse(trade.label.contains("Methods"))
-        for condition in [level, trade] {
-            XCTAssertGreaterThan(condition.frame.width, 200)
-            XCTAssertGreaterThanOrEqual(condition.frame.minX, scroll.frame.minX)
-            XCTAssertLessThanOrEqual(condition.frame.maxX, scroll.frame.maxX)
+        let regional = app.descendants(matching: .any).matching(identifier: "evolutionCondition-graveler-alola").firstMatch
+        XCTAssertEqual(level.label, "Evolve into Graveler: Level 25")
+        XCTAssertEqual(regional.label, "Evolve into Graveler Alola: Level 25 (Geodude Alola)")
+        for name in ["graveler", "golem", "graveler-alola", "golem-alola"] {
+            let node = app.buttons["evolutionNode-\(name)"]
+            reveal(node, in: scroll)
+            XCTAssertGreaterThanOrEqual(node.frame.minX, scroll.frame.minX)
+            XCTAssertLessThanOrEqual(node.frame.maxX, scroll.frame.maxX)
         }
-        reveal(app.buttons["evolutionNode-graveler"], in: scroll)
-        capture(name: "Geodude inline level and regional requirements")
-        reveal(app.buttons["evolutionNode-golem"], in: scroll)
-        XCTAssertFalse(app.buttons["evolutionCondition-golem"].exists)
+        capture(name: "Separate Geodude form routes")
+    }
+    func testPikachuBranchesUseOnlyStoneAndRegionLabels() throws {
+        let app = XCUIApplication(); try open(app)
+        select("pikachu", in: app)
+        app.buttons["detailTab-evolution"].tap()
+        let scroll = app.scrollViews["evolutionScroll"]
+        XCTAssertTrue(scroll.waitForExistence(timeout: 30), app.debugDescription)
+        let normal = app.descendants(matching: .any).matching(identifier: "evolutionCondition-raichu").firstMatch
+        let alola = app.descendants(matching: .any).matching(identifier: "evolutionCondition-raichu-alola").firstMatch
+        XCTAssertEqual(normal.label, "Evolve into Raichu: Thunder Stone")
+        XCTAssertEqual(alola.label, "Evolve into Raichu Alola: Thunder Stone (Alola)")
+        XCTAssertNotEqual(normal.frame, alola.frame)
+        let regional = app.buttons["evolutionNode-raichu-alola"]
+        reveal(regional, in: scroll)
+        capture(name: "Pikachu separate Raichu and Alolan Raichu branches")
+        let position = regional.frame
+        regional.tap()
+        XCTAssertTrue(app.staticTexts["RAICHU ALOLA"].waitForExistence(timeout: 20))
+        XCTAssertTrue(regional.isSelected)
+        XCTAssertEqual(regional.value as? String, "Electric, Psychic")
+        XCTAssertTrue(app.buttons["detailTab-evolution"].isSelected)
+        XCTAssertEqual(regional.frame.minY, position.minY, accuracy: 8)
+        XCTAssertEqual(app.buttons.matching(identifier: "evolutionNode-pikachu").count, 1)
+        XCTAssertTrue(app.staticTexts["No. 0026"].exists)
+        app.buttons["Previous Pokémon"].tap()
+        XCTAssertTrue(app.staticTexts["PIKACHU"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.staticTexts["No. 0025"].exists)
+    }
+    func testKirliaAndSnoruntHaveSeparateGenderRestrictedArrows() throws {
+        let app = XCUIApplication(); try open(app)
+        for (name, first, second, firstRequirement, secondRequirement) in [
+            ("kirlia", "gardevoir", "gallade", "Level 30", "Dawn Stone (male)"),
+            ("snorunt", "glalie", "froslass", "Level 42", "Dawn Stone (female)")
+        ] {
+            select(name, in: app)
+            app.buttons["detailTab-evolution"].tap()
+            let scroll = app.scrollViews["evolutionScroll"]
+            XCTAssertTrue(scroll.waitForExistence(timeout: 30))
+            let firstArrow = app.descendants(matching: .any).matching(identifier: "evolutionCondition-\(first)").firstMatch
+            let secondArrow = app.descendants(matching: .any).matching(identifier: "evolutionCondition-\(second)").firstMatch
+            XCTAssertTrue(firstArrow.label.hasSuffix(firstRequirement))
+            XCTAssertTrue(secondArrow.label.hasSuffix(secondRequirement))
+            XCTAssertNotEqual(firstArrow.frame, secondArrow.frame)
+            reveal(app.buttons["evolutionNode-\(first)"], in: scroll)
+            reveal(app.buttons["evolutionNode-\(second)"], in: scroll)
+            capture(name: "\(name) separate evolution arrows")
+        }
+        app.buttons["evolutionNode-froslass"].tap()
+        XCTAssertTrue(app.staticTexts["FROSLASS"].waitForExistence(timeout: 20))
+        XCTAssertEqual(app.buttons["evolutionNode-froslass"].value as? String, "Ice, Ghost")
     }
     func testEveryEeveeBranchIsReachableAndOnlyLCDScrolls() throws {
         let app = XCUIApplication(); try open(app)
