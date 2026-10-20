@@ -1,6 +1,6 @@
 # Delivery checkpoint
 
-Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
+Updated 2026-10-21. Local checkout: `/Users/nonu/Workspace/dexduo`.
 
 ## Delivered
 
@@ -16,6 +16,21 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 - [PR #9](https://github.com/harshulkuhar/dexduo/pull/9): Read/Stop, persistent Auto-read and local robotic speech; see [the spoken-entry PRD and measured latency](prd/02-spoken-entries.md).
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
+
+## Evolution connector follow-up
+
+Branch `codex/evolution-connectors`. Direct evolutions keep aligned cards and use straight down arrows. Forks share a vertical trunk and long right-pointing arrows, with each requirement centered above its shaft and its destination card to the right. Sibling cards share a column, and direct stages within a branch stay aligned. The final trunk ends at the last sibling junction rather than extending through that sibling's descendants. Labels wrap and increase the row height; the arrow space scales with text size and adapts to the LCD width.
+
+The signed build is installed on the Air. The owner confirms that Kirlia's Level 30/Gardevoir and Dawn Stone (male)/Gallade branches match the supplied sketch. The data, regional routes, artwork caches, selection/Retry and scroll restoration are unchanged.
+
+Verification:
+
+- **29 focused unit/component checks pass on iPhone 18 Pro**, covering connector geometry, wrapped captions, compact/notched/accessibility renders, all 19 species branch splits, form routing, offline cache, stale responses, cancellation and selection Retry.
+- **All eight evolution UI cases and four additional phone regressions pass** on a dedicated iPhone 18 Pro Simulator. They cover Gastly, Eevee's eight outcomes, Kirlia/Snorunt, regional Pikachu/Geodude routes, Wurmple/Applin continuations, fixed panels, member selection/scroll retention, both landscape directions, cover/artwork retention, search, type-grid selection and scanner Import/cancel/Retake/reopening. An initial shared-Simulator launch attempt failed while another task was using that device; the final isolated run passes.
+- **23 evolution unit checks and all six selected Duo UI cases pass**: fixed UIKit orientation/profile, continuing branches, Eevee traversal, Kirlia/Snorunt, separate Raichu outcomes and direct-chain selection/retained position.
+- The unsigned generic-iOS Release and signed Air Debug builds pass. Phone UI screenshots and compact/accessibility renders were inspected outside Git. The required dead-code-removal skill traced all new consumers, removed the obsolete curved-arrow/uniform-indentation/decorative-trunk renderer and an unused test-helper argument; no further unused declaration qualified for deletion. Scroll anchors, cancellation, caches and accessibility identifiers retain their consumers.
+
+Actual repeated Duo fold cycles and physical Duo verification remain pending. No screenshots, recordings or personal signing settings are included.
 
 ## Embedded camera follow-up
 
@@ -93,12 +108,12 @@ The original feature’s early UI runs exposed an identifier collision and narro
 ## Pending validation
 
 - At least 20 actual Duo fold/unfold cycles, including during search and recognition. The orientation UI test and simulated hinge transitions passed; repeated physical fold cycles remain unverified. The earlier DeviceHub menu automation lacked macOS assistive access, and the public simctl IO commands do not provide hinge control.
-- Physical iPhone camera, cutouts, touch targets and cold/warm recognition performance. No physical iPhone was connected for this delivery.
+- Physical Air camera preview, Capture and Retake are owner-verified in both landscape directions; the revised evolution layout is also owner-verified. Actual card/screen recognition accuracy, cold/warm recognition performance, longer camera sessions and other hardware checks remain pending.
 - Audition at least ten spoken entries on a physical iPhone for intelligibility, robotic character, unusual names and speaker/headphone output. Simulator first requests measured roughly 0.9–2.03 seconds and immediate warm requests roughly 0.15–0.25 seconds for the short sample; these do not verify hardware or long-entry performance. Speaking-lens brightness and perceived audio synchronization remain unverified on hardware.
 
 ## Remaining feature branches
 
-`codex/embedded-camera` is the current fix. `codex/evolution-connectors` follows after its checks and merge; no other active feature branches remain. Completed branches remain as history.
+`codex/embedded-camera` is merged. `codex/evolution-connectors` is the current fix; no other active feature branches remain. Completed branches remain as history.
 
 ## Next steps
 

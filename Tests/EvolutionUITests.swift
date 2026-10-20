@@ -36,6 +36,11 @@ final class EvolutionUITests: XCTestCase {
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
+    private func assertBranch(_ child: XCUIElement, from parent: XCUIElement, in scroll: XCUIElement) {
+        XCTAssertGreaterThan(child.frame.minX - parent.frame.minX, 70)
+        XCTAssertLessThan(child.frame.width, parent.frame.width)
+        XCTAssertLessThanOrEqual(child.frame.maxX, scroll.frame.maxX)
+    }
     func testVerticalChartShowsRequirementsAndRetainsMemberSelection() throws {
         let app = XCUIApplication(); try open(app)
         select("gastly", in: app)
@@ -128,8 +133,19 @@ final class EvolutionUITests: XCTestCase {
             XCTAssertTrue(firstArrow.label.hasSuffix(firstRequirement))
             XCTAssertTrue(secondArrow.label.hasSuffix(secondRequirement))
             XCTAssertNotEqual(firstArrow.frame, secondArrow.frame)
-            reveal(app.buttons["evolutionNode-\(first)"], in: scroll)
-            reveal(app.buttons["evolutionNode-\(second)"], in: scroll)
+            let firstNode = app.buttons["evolutionNode-\(first)"]
+            let secondNode = app.buttons["evolutionNode-\(second)"]
+            let parent = app.buttons["evolutionNode-\(name)"]
+            reveal(firstNode, in: scroll)
+            assertBranch(firstNode, from: parent, in: scroll)
+            XCTAssertGreaterThan(firstArrow.frame.minX, parent.frame.minX)
+            XCTAssertLessThan(firstArrow.frame.maxX, firstNode.frame.minX)
+            XCTAssertLessThan(firstArrow.frame.maxY, firstNode.frame.midY)
+            let column = firstNode.frame.minX
+            reveal(secondNode, in: scroll)
+            XCTAssertEqual(secondNode.frame.minX, column, accuracy: 1)
+            XCTAssertLessThan(secondArrow.frame.maxX, secondNode.frame.minX)
+            XCTAssertLessThan(secondArrow.frame.maxY, secondNode.frame.midY)
             capture(name: "\(name) separate evolution arrows")
         }
         app.buttons["evolutionNode-froslass"].tap()
@@ -149,7 +165,13 @@ final class EvolutionUITests: XCTestCase {
         XCTAssertTrue(details.frame.insetBy(dx: -2, dy: -2).contains(scroll.frame))
         XCTAssertGreaterThan(scroll.frame.minY, tabFrame.maxY)
         let names = ["vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"]
-        for name in names { reveal(app.buttons["evolutionNode-\(name)"], in: scroll) }
+        var column: CGFloat?
+        for name in names {
+            let node = app.buttons["evolutionNode-\(name)"]
+            reveal(node, in: scroll)
+            assertBranch(node, from: app.buttons["evolutionNode-eevee"], in: scroll)
+            if let column { XCTAssertEqual(node.frame.minX, column, accuracy: 1) } else { column = node.frame.minX }
+        }
         XCTAssertEqual(artwork.frame, artworkFrame)
         XCTAssertEqual(app.buttons["detailTab-evolution"].frame, tabFrame)
         XCTAssertEqual(app.scrollViews.count, 1)
@@ -176,6 +198,27 @@ final class EvolutionUITests: XCTestCase {
         XCTAssertTrue(scroll.waitForExistence(timeout: 30))
         for name in ["flapple", "appletun", "dipplin", "hydrapple"] { reveal(app.buttons["evolutionNode-\(name)"], in: scroll) }
         capture(name: "Applin branching stages")
+    }
+    func testContinuingBranchesStayInTheirOwnColumns() throws {
+        let app = XCUIApplication(); try open(app)
+        for (species, branches) in [
+            ("wurmple", [("silcoon", "beautifly"), ("cascoon", "dustox")]),
+            ("applin", [("dipplin", "hydrapple")])
+        ] {
+            select(species, in: app); app.buttons["detailTab-evolution"].tap()
+            let scroll = app.scrollViews["evolutionScroll"]
+            XCTAssertTrue(scroll.waitForExistence(timeout: 30))
+            for (branch, continuation) in branches {
+                let child = app.buttons["evolutionNode-\(branch)"]
+                reveal(child, in: scroll)
+                assertBranch(child, from: app.buttons["evolutionNode-\(species)"], in: scroll)
+                let column = child.frame.minX
+                let next = app.buttons["evolutionNode-\(continuation)"]
+                reveal(next, in: scroll)
+                XCTAssertEqual(next.frame.minX, column, accuracy: 1)
+            }
+            capture(name: "\(species) aligned branch continuations")
+        }
     }
     func testInfoStatsScrollAndTypesStayFixedInBothDirections() throws {
         let app = XCUIApplication(); try open(app)
