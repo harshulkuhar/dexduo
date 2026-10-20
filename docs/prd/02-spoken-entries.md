@@ -1,6 +1,6 @@
 # 02 — Robotic spoken entries
 
-Status: planned. Branch: `codex/robotic-entries`. Depends on the landscape layout controls.
+Status: implemented in [PR #9](https://github.com/harshulkuhar/dexduo/pull/9) on `codex/robotic-entries`; iPhone 18 Pro and Duo Simulator validation recorded below. Physical-device audition remains pending.
 
 ## Experience
 
@@ -35,3 +35,15 @@ No generated audio files are committed. Record audition outcomes as text. Native
 ## Source
 
 [Apple: writing synthesized speech to audio buffers](https://developer.apple.com/documentation/avfaudio/avspeechsynthesizer/write(_:tobuffercallback:)). The processing and lifecycle rules above are DexDuo design decisions.
+
+## Delivery notes
+
+The scene owns `EntrySpeech`; `DexStore.spokenEntry` is populated only from successfully loaded, nonempty English text. Selection-start events cancel narration before entry fetches (including evolution metadata). Scanner results may wait for scanner dismissal; folding or backgrounding discards pending narration.
+
+Native synthesis callbacks may arrive on the main thread. They copy PCM into a bounded asynchronous writer; engine setup, file I/O and sample processing run on the serial audio queue. Synthesis spools to a temporary CAF file, then playback reads 100 ms blocks with at most two seconds queued. An overfull preparation queue fails explicitly rather than dropping speech. Cancellation invalidates native work immediately and removes temporary audio. The output level comes from the post-effect mixer, capped at 30 updates/second; the lens visual remains a separate feature.
+
+Simulator first-request preparation measured 2.03 seconds after a device restart, then 0.25 seconds on the same driver. A later full-suite process measured 0.90 seconds followed by 0.15 seconds. These measurements use the short “Pikachu. It stores electricity in its cheeks.” sample and do not establish physical-device latency or long-entry performance. Ring modulation, headroom and phase continuity are tested with synthetic PCM; perceived voice character and ten-entry speaker/headphone audition remain unverified.
+
+The full phone run passed 58 unit/component tests and all 14 then-existing phone UI cases (the Duo-only case was skipped on the phone). After adding direct application/scene lifecycle coverage, all 59 unit/component tests and the two speech UI cases passed again on iPhone 18 Pro. The final settings layout adds a third speech UI case for accessibility sizes; all three pass on the phone. Duo native voice/playback, cancellation, orientation, tree and speech controls were also exercised. See the delivery checkpoint for the final Duo run.
+
+Early native tests exposed synchronous work inside the synthesis callback and audio-engine construction before session activation; both were corrected before the passing native and lifecycle runs. On Duo, Home did not reliably background the target app (it reported foreground state 4). The background UI test now activates Settings and asserts the application is actually backgrounded before testing silent return. All five final Duo UI checks passed. Repeated actual folds and physical speaker/headphone behavior remain separate checks.

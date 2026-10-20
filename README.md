@@ -10,6 +10,7 @@ Planned features and acceptance criteria: [release PRD](docs/PRD.md). Branch sta
 - Ordinary iPhones support both landscape directions, with a compact toolbar, equal artwork/details panels and a fixed app shell. Info, Stats and Evolution scroll vertically inside the right LCD; the toolbar, tabs and artwork stay fixed. Accessibility sizes use full-width Artwork/Details pages; all 18 types remain visible. Search temporarily replaces the panels with paged autocomplete results while the keyboard is open.
 - Duo retains its fixed UIKit orientation, automatic cover switching and retained artwork. A temporary missing hinge update does not change its device profile.
 - PokéAPI autocomplete, official artwork, types, English DexDuo entries, height, weight, abilities, six base stats and base stat total.
+- Local robotic narration of the selected name and complete English entry. Info has Read/Stop and Audio settings; Auto-read defaults on for explicit selections and is remembered. Launch, cover opening and foregrounding stay silent. Folding, closing the cover, opening the scanner, backgrounding or an audio interruption stops playback. VoiceOver suppresses Auto-read while manual Read remains available.
 - Responsive 18-type defensive grid with combined dual-type multipliers, reference colors and matching sprite type badges. Chart data is bundled for offline use; abilities/items are excluded.
 - Evolution families with official-artwork thumbnails, colored type badges, a selected-member highlight and tappable evolution methods. Straight families use a horizontal chart when readable; branching families scroll as one connected tree. Cached families work offline, and failed member selections retain the current Pokémon with Retry. Form and game conditions are shown when supplied; this is not an exhaustive game-specific evolution guide.
 - Previous/next controls, request ordering protection, cached JSON and artwork. Selected artwork remains loaded through folding.
@@ -25,6 +26,8 @@ The Core ML package is approximately 176 MB; most weights/linear computation use
 The exploratory visual benchmark achieved 46/60 top-one matches. It performed well on clean artwork, but poorly on full card photos and full-scene screenshots. Keep one Pokémon prominent in the image. The initial automatic threshold (score >=0.90, margin >=0.20) made 42 correct automatic lookups and no lookups on the 30 negative examples. Scores are not calibrated confidence, and the model is not a guaranteed Pokémon-presence detector. See [the full benchmark and limits](Evaluation/README.md).
 
 Separate regional/Mega/other form recognition, live camera inference, object detection, crop editing and a custom app icon are not implemented.
+
+Narration uses an installed English system voice, a restrained 70 Hz ring-modulation effect and local audio playback. With an English voice installed, narration needs no network connection. Missing English text disables Read; unavailable voices or audio output show retry guidance. Temporary PCM files are deleted after playback/cancellation, and decoded playback is bounded to about two seconds. Physical-device voice audition and speaker/headphone checks remain pending; native pronunciation of some Pokémon names may be imperfect.
 
 ## App identity
 
