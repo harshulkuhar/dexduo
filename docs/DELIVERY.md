@@ -17,6 +17,20 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 
+## Speaking lens
+
+Implemented on `codex/lens-flash`. The existing 36-point phone and 56-point Duo interior lenses now share a soft cyan halo driven by post-effect mixer audio. The envelope has a 40 ms attack and 120 ms release, with at most 30 published updates per second. Normal opacity is capped at 35%, with maximum blur of 5/8 points; Reduce Motion uses a steady 15% halo. Preparation stays idle. Stop, completion, failure and existing cancellation paths clear the light immediately. The closed cover, lens artwork, layout and scanner actions are unchanged.
+
+Verification:
+
+- All **69 unit/component tests pass on iPhone 18 Pro**. New coverage includes synthetic-PCM envelope timing and buffer-size equivalence, invalid levels, playback gating and render comparisons at both lens sizes. The existing recognition, type, evolution, search identity, profile/orientation and artwork tests remain green. Native engine checks verify actual nonzero output, bounded levels, publication cadence, cancellation and temporary-file cleanup.
+- All **seven selected phone UI cases pass**, covering the four speech cases plus both landscape directions/retained artwork/type visibility, search and scanner import/confirmation. A final focused run passes **11 unit/component cases and two UI cases** after strengthening nonzero-level cancellation assertions and sustained-playback captures. Playback checks wait for the native engine's started event, rather than only the Stop label.
+- **17 focused unit/component cases pass on the actual Duo Simulator destination. All five selected Duo UI cases pass across the initial and focused final runs**: fixed UIKit orientation/profile, accessible settings, automatic narration/scanner cancellation, unchanged speaking-lens frame/scanner action, and confirmed background cancellation. The initial background check failed because activating an already-running Settings instance left XCTest reporting DexDuo as foreground. Relaunching Settings and waiting for an actual background state resolved the test; the final run also passes the ten strengthened speech lifecycle cases.
+- Idle/speaking screenshots and short playback clips from iPhone 18 Pro and the actual Duo inner display were inspected outside Git. Pixel comparisons verify the blue center and rim stay unchanged, louder levels affect only the halo, idle/preparing/stopped renders match, and Reduce Motion stays steady. No screenshots, recordings or generated audio are committed.
+- The unsigned generic-iOS Release build passes. The required dead-code-removal skill traced all new consumers and project references, removing an unnecessary render-test dependency argument introduced during implementation. No unused app declaration qualified for deletion. Final whitespace, project-source and no-media checks pass; no timers, display links, settings or assets were added.
+
+Physical-device lens brightness, perceived audio synchronization and actual repeated hinge cycles remain pending. See the [lens specification](prd/03-lens-flash.md) and outstanding checks below.
+
 ## Concise evolution labels and separate outcomes
 
 [PR #11](https://github.com/harshulkuhar/dexduo/pull/11), branch `codex/evolution-branches`. The chart now shows one arrow and card per distinct outcome, including forms of the same species. “Thunder Stone” and “Thunder Stone (Alola)” lead to separate Raichu cards. Kirlia and Snorunt each have two arrows, retaining the male-only Gallade and female-only Froslass requirements. Shared ancestors appear once; source-form constraints keep regional continuations on the correct route.
@@ -64,18 +78,14 @@ The original feature’s early UI runs exposed an identifier collision and narro
 
 - At least 20 actual Duo fold/unfold cycles, including during search and recognition. The orientation UI test and simulated hinge transitions passed; repeated physical fold cycles remain unverified. The earlier DeviceHub menu automation lacked macOS assistive access, and the public simctl IO commands do not provide hinge control.
 - Physical iPhone camera, cutouts, touch targets and cold/warm recognition performance. No physical iPhone was connected for this delivery.
-- Audition at least ten spoken entries on a physical iPhone for intelligibility, robotic character, unusual names and speaker/headphone output. Simulator first requests measured roughly 0.9–2.03 seconds and immediate warm requests roughly 0.15–0.25 seconds for the short sample; these do not verify hardware or long-entry performance. Lens brightness/synchronization remains part of the upcoming lens feature.
+- Audition at least ten spoken entries on a physical iPhone for intelligibility, robotic character, unusual names and speaker/headphone output. Simulator first requests measured roughly 0.9–2.03 seconds and immediate warm requests roughly 0.15–0.25 seconds for the short sample; these do not verify hardware or long-entry performance. Speaking-lens brightness and perceived audio synchronization remain unverified on hardware.
 
 ## Remaining feature branches
 
-| Branch | State |
-| --- | --- |
-| `codex/lens-flash` | Planned |
-
-These branches are pulled, merged with `origin/main` and pushed after each feature merge. Completed delivery branches remain as history.
+The speaking lens is the final planned feature. After its PR merges, no active feature branches remain to synchronize; pull the merged `main`. Completed delivery branches remain as history.
 
 ## Next steps
 
-Deliver the speaking lens through its own PR. Complete the outstanding physical-device and actual fold checks when available.
+Complete the outstanding physical-device and actual fold checks when available.
 
 Ignored recognition test images can be restored with `python3 Tools/download_test_fixtures.py`; model weights use Git LFS. Screenshots, recordings and visual evidence remain outside Git.

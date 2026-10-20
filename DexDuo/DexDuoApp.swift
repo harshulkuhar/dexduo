@@ -20,6 +20,7 @@ struct DexDuoView: View {
     @StateObject private var presentation = DevicePresentation()
     @StateObject private var evolution = EvolutionModel()
     @StateObject private var speech = EntrySpeech()
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
     @State private var opened = false
     @State private var scanning = false
@@ -112,7 +113,10 @@ struct DexDuoView: View {
                 Circle().fill(.cyan.gradient).frame(width: 56, height: 56)
                     .overlay(alignment: .topLeading) { Circle().fill(.white.opacity(0.7)).frame(width: 15).offset(x: 12, y: 9) }
                     .overlay(Circle().stroke(Color.white.opacity(0.85), lineWidth: 5)).compositingGroup().shadow(color: .black.opacity(0.4), radius: 2, y: 4)
+                    .modifier(SpeakingLensGlow(speaking: speech.state == .speaking, outputLevel: speech.outputLevel, reduceMotion: reduceMotion, maximumBlur: 8))
             }.accessibilityLabel("Open Pokémon scanner")
+                .accessibilityIdentifier("scannerLens")
+                .accessibilityValue(speech.state == .speaking ? "Speaking" : "Idle")
             HStack(spacing: 7) { ForEach([Color.red, .yellow, .green], id: \.self) { color in Circle().fill(color.gradient).frame(width: 11, height: 11).overlay(Circle().stroke(.black.opacity(0.5), lineWidth: 1)) } }.padding(.leading, 5)
             Spacer()
             if !hardwareControlsCover {

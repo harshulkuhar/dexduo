@@ -11,6 +11,8 @@ enum DexAppearance {
 struct PhoneDexView: View {
     @ObservedObject var store: DexStore
     @ObservedObject var presentation: DevicePresentation
+    @EnvironmentObject private var speech: EntrySpeech
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var textSize
     @Binding var opened: Bool
     @Binding var scanning: Bool
@@ -78,6 +80,7 @@ struct PhoneDexView: View {
                 HStack(spacing: 7) {
                     Circle().fill(.cyan.gradient).frame(width: 36, height: 36)
                         .overlay(Circle().stroke(.white.opacity(0.9), lineWidth: 3))
+                        .modifier(SpeakingLensGlow(speaking: speech.state == .speaking, outputLevel: speech.outputLevel, reduceMotion: reduceMotion, maximumBlur: 5))
                     if !textSize.isAccessibilitySize {
                         HStack(spacing: 3) {
                             ForEach([Color.red, .yellow, .green], id: \.self) { color in
@@ -87,6 +90,8 @@ struct PhoneDexView: View {
                     }
                 }.frame(minWidth: 44, minHeight: 44)
             }.accessibilityLabel("Open Pokémon scanner")
+                .accessibilityIdentifier("scannerLens")
+                .accessibilityValue(speech.state == .speaking ? "Speaking" : "Idle")
             HStack(spacing: 6) {
                 Image(systemName: "magnifyingglass").accessibilityHidden(true)
                 TextField("Search Pokémon…", text: $store.query)

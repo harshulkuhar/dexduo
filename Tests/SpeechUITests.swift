@@ -1,6 +1,12 @@
 import XCTest
 
 final class SpeechUITests: XCTestCase {
+    private func waitForLens(_ app: XCUIApplication, value: String) {
+        let lens = app.buttons["scannerLens"]
+        XCTAssertTrue(lens.waitForExistence(timeout: 5))
+        let expected = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value == %@", value), object: lens)
+        XCTAssertEqual(XCTWaiter.wait(for: [expected], timeout: 20), .completed, "Lens must reflect actual playback: \(value)")
+    }
     private func setAutoRead(_ enabled: Bool, in app: XCUIApplication) {
         let toggle = app.switches["autoRead"]
         XCTAssertTrue(toggle.waitForExistence(timeout: 5))
@@ -33,15 +39,19 @@ final class SpeechUITests: XCTestCase {
         app.buttons["audioSettings"].tap()
         XCTAssertEqual(toggle.value as? String, "0")
         setAutoRead(true, in: app); app.buttons["audioSettingsDone"].tap()
-        read.tap(); XCUIDevice.shared.press(.home)
-        print("DexDuo state after Home: \(app.state.rawValue)")
-        XCUIApplication(bundleIdentifier: "com.apple.Preferences").activate()
-        XCTAssertTrue(app.state == .runningBackground || app.state == .runningBackgroundSuspended, "The app must actually leave the foreground before testing background cancellation")
+        read.tap(); waitForLens(app, value: "Speaking"); XCUIDevice.shared.press(.home)
+        let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
+        settings.terminate(); settings.launch()
+        let background = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
+            app.state == .runningBackground || app.state == .runningBackgroundSuspended
+        }, object: app)
+        XCTAssertEqual(XCTWaiter.wait(for: [background], timeout: 5), .completed,
+                       "The app must actually leave the foreground before testing background cancellation")
         app.activate()
-        XCTAssertTrue(read.waitForExistence(timeout: 5)); XCTAssertEqual(read.label, "Read")
+        XCTAssertTrue(read.waitForExistence(timeout: 5)); XCTAssertEqual(read.label, "Read"); waitForLens(app, value: "Idle")
         if app.buttons["phoneCoverButton"].exists {
-            read.tap(); app.buttons["phoneCoverButton"].tap(); app.buttons["phoneCover"].tap()
-            XCTAssertEqual(read.label, "Read")
+            read.tap(); waitForLens(app, value: "Speaking"); app.buttons["phoneCoverButton"].tap(); app.buttons["phoneCover"].tap()
+            XCTAssertEqual(read.label, "Read"); waitForLens(app, value: "Idle")
         }
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = "Info with robotic audio controls"; attachment.lifetime = .keepAlways; add(attachment)
@@ -56,13 +66,45 @@ final class SpeechUITests: XCTestCase {
         let match = app.buttons["searchCandidate-gastly"]
         XCTAssertTrue(match.waitForExistence(timeout: 10)); match.tap()
         let stop = app.buttons["entryRead"]
-        let speaking = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == 'Stop'"), object: stop)
-        XCTAssertEqual(XCTWaiter.wait(for: [speaking], timeout: 15), .completed)
-        if app.buttons["phoneScan"].exists { app.buttons["phoneScan"].tap() }
-        else { app.buttons["Open Pokémon scanner"].tap() }
+        waitForLens(app, value: "Speaking")
+        XCTAssertEqual(stop.label, "Stop")
+        app.buttons["scannerLens"].tap()
         XCTAssertTrue(app.buttons["Done"].waitForExistence(timeout: 5)); app.buttons["Done"].tap()
-        XCTAssertTrue(stop.waitForExistence(timeout: 5)); XCTAssertEqual(stop.label, "Read")
+        XCTAssertTrue(stop.waitForExistence(timeout: 5)); XCTAssertEqual(stop.label, "Read"); waitForLens(app, value: "Idle")
     }
+    func testSpeakingLensRetainsFrameAndScannerAction() throws {
+        let app = XCUIApplication(); try open(app)
+        let lens = app.buttons["scannerLens"], read = app.buttons["entryRead"]
+        let phone = app.buttons["phoneCoverButton"].exists
+        let orientations: [UIDeviceOrientation] = phone ? [.landscapeLeft, .landscapeRight] : [.landscapeLeft]
+        for orientation in orientations {
+            XCUIDevice.shared.orientation = orientation
+            waitForLens(app, value: "Idle")
+            let idleFrame = lens.frame
+            XCTAssertGreaterThanOrEqual(idleFrame.width, 44); XCTAssertGreaterThanOrEqual(idleFrame.height, 44)
+            let idle = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            idle.name = "Lens idle \(orientation.rawValue)"; idle.lifetime = .keepAlways; add(idle)
+            print("DexDuo lens idle capture \(orientation.rawValue)")
+            let unexpectedStart = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value != 'Idle'"), object: lens)
+            unexpectedStart.isInverted = true
+            XCTAssertEqual(XCTWaiter.wait(for: [unexpectedStart], timeout: 1), .completed)
+            read.tap(); waitForLens(app, value: "Speaking")
+            XCTAssertEqual(lens.frame, idleFrame, "The glow must not move or resize the scanner control")
+            print("DexDuo lens playback capture \(orientation.rawValue)")
+            let speaking = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            speaking.name = "Lens actual playback \(orientation.rawValue)"; speaking.lifetime = .keepAlways; add(speaking)
+            let unexpectedStop = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value != 'Speaking'"), object: lens)
+            unexpectedStop.isInverted = true
+            XCTAssertEqual(XCTWaiter.wait(for: [unexpectedStop], timeout: 2), .completed, "Playback must remain active while observing the halo")
+            read.tap(); waitForLens(app, value: "Idle")
+            XCTAssertEqual(lens.frame, idleFrame)
+        }
+        read.tap(); waitForLens(app, value: "Speaking"); lens.tap()
+        let done = app.buttons["Done"]
+        XCTAssertTrue(done.waitForExistence(timeout: 5)); done.tap()
+        waitForLens(app, value: "Idle"); XCTAssertEqual(read.label, "Read")
+    }
+
     func testAccessibilityAudioSettingsKeepsDoneReachable() throws {
         let app = XCUIApplication()
         app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
