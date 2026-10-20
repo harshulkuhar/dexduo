@@ -1,6 +1,6 @@
 # 04 — Evolution families and scrollable details
 
-Status: implemented in [PR #7](https://github.com/harshulkuhar/dexduo/pull/7); iPhone 18 Pro and Duo Simulator validation passed. Original branch: `codex/evolution-chains`. The vertical chart and inline requirements follow-up is [PR #10](https://github.com/harshulkuhar/dexduo/pull/10), branch `codex/evolution-inline-requirements`.
+Status: implemented in [PR #7](https://github.com/harshulkuhar/dexduo/pull/7); iPhone 18 Pro and Duo Simulator validation passed. Original branch: `codex/evolution-chains`. The vertical chart and inline requirements follow-up is [PR #10](https://github.com/harshulkuhar/dexduo/pull/10), branch `codex/evolution-inline-requirements`. Concise labels and distinct form outcomes are delivered in [PR #11](https://github.com/harshulkuhar/dexduo/pull/11), branch `codex/evolution-branches`.
 
 ## Experience
 

@@ -19,7 +19,7 @@ The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) 
 
 ## Concise evolution labels and separate outcomes
 
-Branch: `codex/evolution-branches`. The chart now shows one arrow and card per distinct outcome, including forms of the same species. “Thunder Stone” and “Thunder Stone (Alola)” lead to separate Raichu cards. Kirlia and Snorunt each have two arrows, retaining the male-only Gallade and female-only Froslass requirements. Shared ancestors appear once; source-form constraints keep regional continuations on the correct route.
+[PR #11](https://github.com/harshulkuhar/dexduo/pull/11), branch `codex/evolution-branches`. The chart now shows one arrow and card per distinct outcome, including forms of the same species. “Thunder Stone” and “Thunder Stone (Alola)” lead to separate Raichu cards. Kirlia and Snorunt each have two arrows, retaining the male-only Gallade and female-only Froslass requirements. Shared ancestors appear once; source-form constraints keep regional continuations on the correct route.
 
 Removed introduction-version paragraphs, redundant ordinary source/result-form prose and the family subtitle. Prefer supplied default methods per outcome; retain available requirements when no default exists. Form nodes resolve through Pokémon-form metadata to their own artwork/types. The left panel and previous/next controls use National Dex numbers, including after selecting a regional form.
 
