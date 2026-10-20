@@ -19,7 +19,7 @@ The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) 
 
 ## Evolution connector follow-up
 
-Branch `codex/evolution-connectors`. Direct evolutions keep aligned cards and use straight down arrows. Forks share a vertical trunk and long right-pointing arrows, with each requirement centered above its shaft and its destination card to the right. Sibling cards share a column, and direct stages within a branch stay aligned. The final trunk ends at the last sibling junction rather than extending through that sibling's descendants. Labels wrap and increase the row height; the arrow space scales with text size and adapts to the LCD width.
+[PR #14](https://github.com/harshulkuhar/dexduo/pull/14), branch `codex/evolution-connectors`. Direct evolutions keep aligned cards and use straight down arrows. Forks share a vertical trunk and long right-pointing arrows, with each requirement centered above its shaft and its destination card to the right. Sibling cards share a column, and direct stages within a branch stay aligned. The final trunk ends at the last sibling junction rather than extending through that sibling's descendants. Labels wrap and increase the row height; the arrow space scales with text size and adapts to the LCD width.
 
 The signed build is installed on the Air. The owner confirms that Kirlia's Level 30/Gardevoir and Dawn Stone (male)/Gallade branches match the supplied sketch. The data, regional routes, artwork caches, selection/Retry and scroll restoration are unchanged.
 
@@ -113,7 +113,7 @@ The original feature’s early UI runs exposed an identifier collision and narro
 
 ## Remaining feature branches
 
-`codex/embedded-camera` is merged. `codex/evolution-connectors` is the current fix; no other active feature branches remain. Completed branches remain as history.
+`codex/embedded-camera` and `codex/evolution-connectors` are delivered through PRs #13 and #14. No remaining active feature branches need synchronization after this merge. Completed branches remain as history.
 
 ## Next steps
 
