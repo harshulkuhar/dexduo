@@ -6,6 +6,7 @@
 - After every PR merge, pull the latest `main`, then pull each remaining active feature branch, merge `origin/main` into it, and push the updated branch. Update tracking branches as needed. Also synchronize from main before starting the next feature.
 - Preserve shared history when merging dependent PRs. Do not discard uncommitted work, reset branches or force-push to perform synchronization.
 - Keep the active branch inventory and outstanding validation in `docs/DELIVERY.md` current.
+- Before opening every PR, read and run the [dead-code-removal skill](.agents/skills/dead-code-removal/SKILL.md). Apply it to the final proposed changes, remove confirmed dead code, and record the findings and relevant verification in the PR. A clean audit is valid when nothing is unused.
 
 ## Validation and assets
 
