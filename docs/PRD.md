@@ -29,7 +29,7 @@ The name is **DexDuo**, selected by the owner. The six specifications below defi
 
 ## Interaction rules
 
-The app shell, toolbar, detail tabs and artwork remain fixed. Info, Stats and Evolution scroll vertically within the right LCD, replacing detail pagination. Types shows all 18 matchups together without scrolling. Search and scanner result paging remain separate. Apple-owned Photos and camera interfaces retain their system behavior.
+The app shell, toolbar, detail tabs and artwork remain fixed. Info, Stats and Evolution scroll vertically within the right LCD, replacing detail pagination. Types shows all 18 matchups together without scrolling. Search and scanner result paging remain separate. Photos retains its system picker. Rear-camera capture is embedded inside the scanner’s green preview; see [the camera follow-up](prd/07-embedded-camera.md).
 
 Ordinary iPhones run in landscape. A Duo retains its existing cover and interior behavior. Insets protect controls around camera cutouts, while the red shell fills the display. Layout uses available space instead of shrinking a tablet-sized canvas until text and buttons become unusable.
 

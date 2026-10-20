@@ -113,6 +113,10 @@ actor PokemonRecognitionService {
         self.recognize = recognize
     }
     func cancel() { _ = generation.advance(); task?.cancel(); task = nil; working = false }
+    func reset() {
+        cancel(); image = nil; candidates = []; retryCandidate = nil
+        message = "Point at one Pokémon, then press Capture."
+    }
     func showMessage(_ value: String) { message = value }
     func analyze(_ image: UIImage, select: @escaping (String) async -> Bool, dismiss: @escaping () -> Void) {
         cancel(); let token = generation.current

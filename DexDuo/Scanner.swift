@@ -1,6 +1,5 @@
 import SwiftUI
 import PhotosUI
-import AVFoundation
 
 enum ScannerLayout { case duo, phone }
 
@@ -10,25 +9,41 @@ struct ScannerView: View {
     var layout = ScannerLayout.duo
     @StateObject private var scanner = ScannerModel()
     @State private var item: PhotosPickerItem?
-    @State private var camera = false
+    @StateObject private var camera = CameraController()
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.dynamicTypeSize) private var textSize
+    @State private var importing = false
     @State private var importTask: Task<Void, Never>?
     @State private var importGeneration = ScanGeneration()
     var body: some View {
         Group {
-            if layout == .phone {
-                PhoneScannerContent(scanner: scanner, item: $item,
-                    openCamera: { Task { await openCamera() } }, choose: choose,
+            if layout == .phone || textSize.isAccessibilitySize {
+                PhoneScannerContent(scanner: scanner, camera: camera,
+                    capture: capture, retake: retake, importPhoto: openImport, choose: choose,
                     done: { stop(); isPresented = false })
             } else { duoContent }
         }
-        .sheet(isPresented: $camera) { CameraPicker { photo in analyze(photo) } }
+        .photosPicker(isPresented: $importing, selection: $item, matching: .images)
+        .onAppear { camera.open() }
+        .onChange(of: importing) { _, shown in
+            if !shown { camera.endImport(selected: item != nil) }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .background { background() }
+            else if phase == .active { camera.setActive(true) }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in background() }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in camera.setActive(true) }
         .onChange(of: item) { _, value in
+            guard let value else { return }
+            camera.endImport(selected: true)
             importTask?.cancel(); scanner.cancel()
             let token = importGeneration.advance()
             importTask = Task {
                 do {
-                    guard let data = try await value?.loadTransferable(type: Data.self), !Task.isCancelled, isPresented,
-                          importGeneration.accepts(token), let photo = UIImage(data: data) else { return }
+                    let data = try await value.loadTransferable(type: Data.self)
+                    guard !Task.isCancelled, isPresented, importGeneration.accepts(token) else { return }
+                    guard let data, let photo = UIImage(data: data) else { throw RecognitionError.invalidImage }
                     analyze(photo)
                 } catch {
                     if !Task.isCancelled && importGeneration.accepts(token) { scanner.showMessage("Couldn’t open this image. Please try another.") }
@@ -43,20 +58,13 @@ struct ScannerView: View {
             GeometryReader { space in
                 let scale = min(space.size.width / 380, space.size.height / 680)
                 VStack(spacing: 10) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 22).fill(Color.black.opacity(0.08))
-                        if let image = scanner.image { Image(uiImage: image).resizable().scaledToFit().padding(12) }
-                        else { Image(systemName: "viewfinder").font(.system(size: 100, weight: .ultraLight)).foregroundStyle(.secondary) }
-                    }.frame(height: 130)
+                    ScannerPreview(scanner: scanner, camera: camera).frame(height: 130)
                     Text("CARD & SCREEN SCANNER").font(.caption.monospaced().bold())
-                    Text(scanner.message).multilineTextAlignment(.center).font(.system(size: 14)).lineLimit(3).frame(height: 50)
+                    Text((scanner.image == nil && camera.phase != .frozen) ? (camera.message ?? "Point at one Pokémon, then press Capture.") : scanner.message).multilineTextAlignment(.center).font(.system(size: 14)).lineLimit(3).frame(height: 50)
                         .accessibilityIdentifier("scanMessage")
                     if scanner.working { ProgressView("Identifying Pokémon…") }
-                    HStack {
-                        Button { Task { await openCamera() } } label: { Label("Camera", systemImage: "camera.fill") }
-                        PhotosPicker(selection: $item, matching: .images) { Label("Import", systemImage: "photo") }
-                            .accessibilityIdentifier("scanImport")
-                    }.buttonStyle(.borderedProminent).disabled(scanner.working)
+                    ScannerCaptureControls(camera: camera, hasImage: scanner.image != nil, working: scanner.working,
+                        capture: capture, retake: retake, importPhoto: openImport)
                     ForEach(scanner.candidates.prefix(3)) { candidate in
                         Button { choose(candidate) } label: {
                             HStack { Text(scanner.retryCandidate == candidate ? "Retry " + candidate.name : candidate.name); Spacer(); Image(systemName: "chevron.right") }.padding(8)
@@ -73,35 +81,23 @@ struct ScannerView: View {
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { stop(); isPresented = false } } }
         }
     }
-    private func stop() { importTask?.cancel(); _ = importGeneration.advance(); scanner.cancel() }
+    private func stop() { camera.close(); importTask?.cancel(); _ = importGeneration.advance(); scanner.cancel() }
+    private func background() {
+        camera.setActive(false)
+        importTask?.cancel(); _ = importGeneration.advance()
+        if scanner.working || (item != nil && scanner.image == nil) {
+            scanner.cancel(); scanner.showMessage("Scan paused. Retake or import an image to try again.")
+        }
+    }
     private func analyze(_ image: UIImage) { guard isPresented else { return }; scanner.analyze(image, select: { await store.select($0) }, dismiss: { isPresented = false }) }
     private func choose(_ candidate: PokemonLabel) { guard isPresented else { return }; scanner.choose(candidate, select: { await store.select($0) }, dismiss: { isPresented = false }) }
-    private func openCamera() async {
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            scanner.showMessage("The Simulator has no camera. Use Import to test a card photo or screenshot."); return
-        }
-        let allowed = await AVCaptureDevice.requestAccess(for: .video)
-        guard isPresented else { return }
-        if allowed { camera = true }
-        else { scanner.showMessage("Camera access is off. Enable it for DexDuo in Settings, or import a photo.") }
+    private func capture() {
+        Task { if let image = await camera.capture() { analyze(image) } }
     }
-}
-
-struct CameraPicker: UIViewControllerRepresentable {
-    let completion: (UIImage) -> Void
-    @Environment(\.dismiss) private var dismiss
-    func makeCoordinator() -> Coordinator { Coordinator(self) }
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let picker = UIImagePickerController(); picker.sourceType = .camera; picker.cameraDevice = .rear; picker.delegate = context.coordinator; return picker
+    private func retake() {
+        importTask?.cancel(); _ = importGeneration.advance(); scanner.reset(); camera.retake()
     }
-    func updateUIViewController(_ controller: UIImagePickerController, context: Context) {}
-    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        let parent: CameraPicker
-        init(_ parent: CameraPicker) { self.parent = parent }
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-            parent.dismiss()
-            if let image = info[.originalImage] as? UIImage { parent.completion(image) }
-        }
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) { parent.dismiss() }
+    private func openImport() {
+        item = nil; camera.beginImport(); importing = true
     }
 }
