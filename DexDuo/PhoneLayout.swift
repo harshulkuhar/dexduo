@@ -8,8 +8,7 @@ struct DeviceProfileState {
     private(set) var profile: DeviceProfile = .unresolved
     private(set) var isFolded = true
 
-    mutating func observe(isPhone: Bool, attached: Bool, hasHinge: Bool, closed: Bool?) {
-        guard attached else { return }
+    mutating func observe(isPhone: Bool, hasHinge: Bool, closed: Bool?) {
         if hasHinge {
             profile = .duo
             if let closed { isFolded = closed }
@@ -28,7 +27,6 @@ struct PhoneLayoutMetrics {
     let size: CGSize
     var contentWidth: CGFloat { max(0, size.width - Self.margin * 2) }
     var panelWidth: CGFloat { max(0, (contentWidth - Self.spacing * 2 - Self.dividerWidth) / 2) }
-    var bodyHeight: CGFloat { max(0, size.height - 16 - Self.toolbarHeight - Self.spacing) }
 
     static func visibleHeight(bounds: CGRect, keyboard: CGRect?) -> CGFloat {
         guard let keyboard, keyboard.intersects(bounds) else { return bounds.height }

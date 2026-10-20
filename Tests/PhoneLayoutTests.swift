@@ -6,24 +6,21 @@ import SwiftUI
 final class PhoneLayoutTests: XCTestCase {
     func testPhoneTabletAndLatchedDuoProfiles() {
         var state = DeviceProfileState()
-        state.observe(isPhone: true, attached: false, hasHinge: false, closed: nil)
         XCTAssertEqual(state.profile, .unresolved)
-        state.observe(isPhone: true, attached: true, hasHinge: false, closed: nil)
+        state.observe(isPhone: true, hasHinge: false, closed: nil)
         XCTAssertEqual(state.profile, .phone)
-        state.observe(isPhone: true, attached: true, hasHinge: true, closed: nil)
+        state.observe(isPhone: true, hasHinge: true, closed: nil)
         XCTAssertEqual(state.profile, .duo)
         XCTAssertTrue(state.isFolded)
-        state.observe(isPhone: true, attached: true, hasHinge: true, closed: false)
+        state.observe(isPhone: true, hasHinge: true, closed: false)
         XCTAssertFalse(state.isFolded)
-        state.observe(isPhone: true, attached: true, hasHinge: false, closed: nil)
+        state.observe(isPhone: true, hasHinge: false, closed: nil)
         XCTAssertEqual(state.profile, .duo)
         XCTAssertFalse(state.isFolded)
-        state.observe(isPhone: true, attached: false, hasHinge: true, closed: true)
-        XCTAssertFalse(state.isFolded)
-        state.observe(isPhone: true, attached: true, hasHinge: true, closed: true)
+        state.observe(isPhone: true, hasHinge: true, closed: true)
         XCTAssertTrue(state.isFolded)
         var tablet = DeviceProfileState()
-        tablet.observe(isPhone: false, attached: true, hasHinge: false, closed: nil)
+        tablet.observe(isPhone: false, hasHinge: false, closed: nil)
         XCTAssertEqual(tablet.profile, .tablet)
     }
 
@@ -33,8 +30,8 @@ final class PhoneLayoutTests: XCTestCase {
         var state = DeviceProfileState()
         for _ in 0..<20 {
             for closed in [false, true] {
-                state.observe(isPhone: true, attached: true, hasHinge: true, closed: closed)
-                state.observe(isPhone: true, attached: true, hasHinge: false, closed: nil)
+                state.observe(isPhone: true, hasHinge: true, closed: closed)
+                state.observe(isPhone: true, hasHinge: false, closed: nil)
                 XCTAssertEqual(state.profile, .duo)
                 XCTAssertEqual(state.isFolded, closed)
                 XCTAssertEqual(state.profile.orientationMask, .portrait)
@@ -45,7 +42,8 @@ final class PhoneLayoutTests: XCTestCase {
     func testAllTypesFitCompactAndNotchedPhonePanels() {
         for size in [CGSize(width: 667, height: 375), CGSize(width: 724, height: 354), CGSize(width: 832, height: 419)] {
             let metrics = PhoneLayoutMetrics(size: size)
-            let grid = CGSize(width: metrics.panelWidth - 16, height: metrics.bodyHeight - 44 - 8 - 16 - 21)
+            let bodyHeight = size.height - 16 - PhoneLayoutMetrics.toolbarHeight - PhoneLayoutMetrics.spacing
+            let grid = CGSize(width: metrics.panelWidth - 16, height: bodyHeight - 44 - 8 - 16 - 21)
             XCTAssertNotNil(TypeGridArrangement.fitting(in: grid), "\(size)")
             let center = PhoneLayoutMetrics.margin + metrics.panelWidth + PhoneLayoutMetrics.spacing + PhoneLayoutMetrics.dividerWidth / 2
             XCTAssertEqual(center, size.width / 2, accuracy: 0.001)
@@ -98,10 +96,11 @@ final class PhoneLayoutTests: XCTestCase {
                 .padding(insets), size: size, name: "interior-\(Int(size.width))")
             let metrics = PhoneLayoutMetrics(size: CGSize(width: size.width - insets.leading - insets.trailing,
                                                           height: size.height - insets.bottom))
+            let bodyHeight = size.height - insets.bottom - 16 - PhoneLayoutMetrics.toolbarHeight - PhoneLayoutMetrics.spacing
             try render(PhoneDetails(store: store, tab: .constant(.types)),
-                       size: CGSize(width: metrics.panelWidth, height: metrics.bodyHeight), name: "types-\(Int(size.width))", checkTypes: true)
+                       size: CGSize(width: metrics.panelWidth, height: bodyHeight), name: "types-\(Int(size.width))", checkTypes: true)
             try render(PhoneDetails(store: store, tab: .constant(.stats)),
-                       size: CGSize(width: metrics.panelWidth, height: metrics.bodyHeight), name: "stats-\(Int(size.width))")
+                       size: CGSize(width: metrics.panelWidth, height: bodyHeight), name: "stats-\(Int(size.width))")
         }
     }
 
