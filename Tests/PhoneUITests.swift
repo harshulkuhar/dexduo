@@ -69,10 +69,10 @@ final class PhoneUITests: XCTestCase {
         let candidate = app.buttons["scanCandidate-196"]
         XCTAssertTrue(candidate.waitForExistence(timeout: 40)); candidate.tap()
         XCTAssertTrue(app.staticTexts["ESPEON"].waitForExistence(timeout: 20))
-        XCTAssertEqual(app.scrollViews.count, 0)
+        XCTAssertTrue(app.scrollViews["infoScroll"].exists)
     }
 
-    func testAccessibilityPagesExposeEntryMeasurementsStatsAndTypes() throws {
+    func testAccessibilityScrollingExposesEntryMeasurementsStatsAndTypes() throws {
         let app = XCUIApplication()
         app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
         try open(app)
@@ -82,22 +82,19 @@ final class PhoneUITests: XCTestCase {
         picker.buttons["Details"].tap()
         let entry = app.staticTexts["phoneEntryText"]
         XCTAssertTrue(entry.waitForExistence(timeout: 5)); XCTAssertTrue(entry.isHittable)
-        for _ in 0..<20 {
-            let next = app.buttons["infoNextPage"]
-            if !next.exists || !next.isEnabled { break }
-            XCTAssertTrue(next.isHittable); next.tap()
+        let info = app.scrollViews["infoScroll"]
+        for _ in 0..<12 {
+            if app.descendants(matching: .any).matching(identifier: "pokemonHeight").firstMatch.isHittable { break }
+            info.swipeUp()
         }
-        XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS[c] '0.4 m'")).firstMatch.isHittable)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "pokemonHeight").firstMatch.isHittable)
         app.buttons["detailTab-stats"].tap()
-        var abilitiesSeen = false
-        for _ in 0..<20 {
-            let abilities = app.staticTexts["phoneAbilities"]
-            abilitiesSeen = abilitiesSeen || (abilities.exists && abilities.isHittable)
-            let next = app.buttons["statsNextPage"]
-            if !next.exists || !next.isEnabled { break }
-            XCTAssertTrue(next.isHittable); next.tap()
+        let stats = app.scrollViews["statsScroll"]
+        for _ in 0..<12 {
+            if app.staticTexts["phoneAbilities"].isHittable { break }
+            stats.swipeUp()
         }
-        XCTAssertTrue(abilitiesSeen)
+        XCTAssertTrue(app.staticTexts["phoneAbilities"].isHittable)
         app.buttons["detailTab-types"].tap(); assertAllTypes(app)
         XCTAssertEqual(app.scrollViews.count, 0)
     }

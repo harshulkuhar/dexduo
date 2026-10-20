@@ -61,27 +61,7 @@ final class PhoneLayoutTests: XCTestCase {
         XCTAssertEqual(PhoneLayoutMetrics.resultCapacity(height: 307, maximum: 8), 6)
     }
 
-    func testWordPagesRetainAllTextAndHandleLongTokens() {
-        let input = "One  two\nthree four five six seven eight nine."
-        let pages = TextPages.paginate(input) { $0.count <= 15 }
-        XCTAssertTrue(pages.allSatisfy { $0.count <= 15 })
-        XCTAssertEqual(pages.joined(separator: " "), input.split(whereSeparator: \.isWhitespace).joined(separator: " "))
-        XCTAssertEqual(TextPages.paginate("") { _ in true }, [""])
-        let token = String(repeating: "é", count: 101)
-        let parts = TextPages.paginate(token) { $0.count <= 10 }
-        XCTAssertEqual(parts.joined(), token)
-        XCTAssertTrue(parts.allSatisfy { $0.count <= 10 })
-    }
 
-    func testMeasuredEntryPagesFitRegularAndAccessibilityText() {
-        let text = String(repeating: "A long English species entry preserves every word and punctuation. ", count: 20)
-        for (width, height, font) in [(CGFloat(296), CGFloat(110), CGFloat(14)), (CGFloat(643), CGFloat(80), CGFloat(43))] {
-            let pages = PhoneText.pages(text, width: width, height: height, fontSize: font)
-            XCTAssertGreaterThan(pages.count, 1)
-            XCTAssertEqual(pages.joined(separator: " "), text.split(whereSeparator: \.isWhitespace).joined(separator: " "))
-            for page in pages { XCTAssertLessThanOrEqual(PhoneText.height(page, width: width, fontSize: font), height) }
-        }
-    }
 }
 
 // Render the actual phone components at their intended point sizes, independently
@@ -97,9 +77,9 @@ final class PhoneLayoutTests: XCTestCase {
             let metrics = PhoneLayoutMetrics(size: CGSize(width: size.width - insets.leading - insets.trailing,
                                                           height: size.height - insets.bottom))
             let bodyHeight = size.height - insets.bottom - 16 - PhoneLayoutMetrics.toolbarHeight - PhoneLayoutMetrics.spacing
-            try render(PhoneDetails(store: store, tab: .constant(.types)),
+            try render(DexDetails(store: store, tab: .constant(.types)),
                        size: CGSize(width: metrics.panelWidth, height: bodyHeight), name: "types-\(Int(size.width))", checkTypes: true)
-            try render(PhoneDetails(store: store, tab: .constant(.stats)),
+            try render(DexDetails(store: store, tab: .constant(.stats)),
                        size: CGSize(width: metrics.panelWidth, height: bodyHeight), name: "stats-\(Int(size.width))")
         }
     }
@@ -108,11 +88,11 @@ final class PhoneLayoutTests: XCTestCase {
         let store = try makeStore()
         try render(PhoneDexView(store: store, presentation: DevicePresentation(), opened: .constant(true)).environment(\.dynamicTypeSize, .accessibility5),
                    size: CGSize(width: 667, height: 375), name: "interior-accessibility")
-        try render(PhoneDetails(store: store, tab: .constant(.types)).environment(\.dynamicTypeSize, .accessibility5),
+        try render(DexDetails(store: store, tab: .constant(.types)).environment(\.dynamicTypeSize, .accessibility5),
                    size: CGSize(width: 643, height: 255), name: "types-accessibility", checkTypes: true)
-        try render(PhoneDetails(store: store, tab: .constant(.stats)).environment(\.dynamicTypeSize, .accessibility5),
+        try render(DexDetails(store: store, tab: .constant(.stats)).environment(\.dynamicTypeSize, .accessibility5),
                    size: CGSize(width: 643, height: 255), name: "stats-accessibility")
-        try render(PhoneDetails(store: store, tab: .constant(.info)).environment(\.dynamicTypeSize, .accessibility5),
+        try render(DexDetails(store: store, tab: .constant(.info)).environment(\.dynamicTypeSize, .accessibility5),
                    size: CGSize(width: 643, height: 255), name: "info-accessibility")
     }
 
@@ -162,6 +142,22 @@ final class PhoneLayoutTests: XCTestCase {
         XCTAssertEqual(scanner.retryCandidate, labels[0])
         try render(PhoneScannerContent(scanner: scanner, item: .constant(nil), openCamera: {}, choose: { _ in }, done: {})
             .environment(\.dynamicTypeSize, .accessibility5), size: CGSize(width: 667, height: 375), name: "scanner-retry-accessibility")
+    }
+
+    func testEvolutionChartsRenderAtCompactNotchedAndAccessibilitySizes() async throws {
+        let repository = EvolutionRepository(api: try EvolutionFixtureAPI())
+        let model = EvolutionModel(repository: repository)
+        let store = DexStore()
+        for species in ["gastly", "eevee", "wurmple", "applin", "ditto"] {
+            store.pokemon = try await repository.member(for: species)
+            await model.load(for: species)
+            for size in [CGSize(width: 312, height: 307), CGSize(width: 341, height: 286)] {
+                try render(DexDetails(store: store, tab: .constant(.evolution)).environmentObject(model),
+                           size: size, name: "evolution-\(species)-\(Int(size.width))")
+            }
+        }
+        try render(DexDetails(store: store, tab: .constant(.evolution)).environmentObject(model)
+            .environment(\.dynamicTypeSize, .accessibility5), size: CGSize(width: 643, height: 255), name: "evolution-accessibility")
     }
 
     private func textField(in view: UIView) -> UITextField? {

@@ -38,29 +38,7 @@ struct PhoneLayoutMetrics {
     }
 }
 
-enum PhoneDetailTab: String, CaseIterable {
-    case info = "Info", stats = "Stats", types = "Types"
-}
-
-enum TextPages {
-    /// Greedy word wrapping; oversized tokens split at grapheme boundaries without losing characters.
-    static func paginate(_ text: String, fits: (String) -> Bool) -> [String] {
-        let words = text.split(whereSeparator: \.isWhitespace).map(String.init)
-        guard !words.isEmpty else { return [""] }
-        var pages: [String] = []
-        var current = ""
-        for word in words {
-            let candidate = current.isEmpty ? word : current + " " + word
-            if fits(candidate) { current = candidate; continue }
-            if !current.isEmpty { pages.append(current); current = "" }
-            if fits(word) { current = word; continue }
-            for character in word {
-                let next = current + String(character)
-                if !current.isEmpty && !fits(next) { pages.append(current); current = "" }
-                current.append(character)
-            }
-        }
-        if !current.isEmpty { pages.append(current) }
-        return pages
-    }
+enum DetailTab: String, CaseIterable {
+    case info, stats, types, evolution
+    var title: String { self == .evolution ? "EVO" : rawValue.uppercased() }
 }

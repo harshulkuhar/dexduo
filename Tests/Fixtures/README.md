@@ -6,3 +6,5 @@
 Pokémon artwork belongs to its respective owners. These fixtures are for prototype evaluation.
 
 Images are local-only and ignored by Git. After cloning, run `python3 Tools/download_test_fixtures.py` before building the test targets.
+
+`Evolution.json` contains text-only PokéAPI snapshots reduced to app-consumed fields, with retrieval date and source URLs. Artwork remains a URL; no image bytes are bundled in this fixture. Evolution tests inject these responses and synthesize thumbnails in memory when needed.

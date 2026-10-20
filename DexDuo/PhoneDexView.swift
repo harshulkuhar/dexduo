@@ -14,7 +14,7 @@ struct PhoneDexView: View {
     @Environment(\.dynamicTypeSize) private var textSize
     @Binding var opened: Bool
     @State private var scanning = false
-    @State private var tab = PhoneDetailTab.info
+    @State private var tab = DetailTab.info
     @State private var panel = "Artwork"
     @State private var searchPage = 0
     @State private var keyboardFrame: CGRect?
@@ -37,13 +37,13 @@ struct PhoneDexView: View {
                             }.pickerStyle(.segmented).frame(height: 44)
                                 .accessibilityIdentifier("phonePanelPicker")
                             if panel == "Artwork" { PhoneArtworkPanel(store: store) }
-                            else { PhoneDetails(store: store, tab: $tab) }
+                            else { DexDetails(store: store, tab: $tab) }
                         } else {
                             HStack(spacing: 8) {
                                 PhoneArtworkPanel(store: store).frame(width: metrics.panelWidth)
                                 RoundedRectangle(cornerRadius: 1).fill(.black.opacity(0.25)).frame(width: 2)
                                     .accessibilityHidden(true)
-                                PhoneDetails(store: store, tab: $tab).frame(width: metrics.panelWidth)
+                                DexDetails(store: store, tab: $tab).frame(width: metrics.panelWidth)
                             }
                         }
                     }
