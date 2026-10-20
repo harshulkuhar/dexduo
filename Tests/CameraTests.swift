@@ -19,6 +19,7 @@ private final class TestCameraDriver: CameraDriving {
         return nil
     }
     func stop() { stops += 1 }
+    func detachPreview(_ layer: AVCaptureVideoPreviewLayer) { layer.session = nil }
     func capture(rotation: CGFloat) async throws -> UIImage {
         captures += 1; self.rotation = rotation
         return try await withCheckedThrowingContinuation { photo = $0 }
@@ -145,6 +146,24 @@ private final class TestCameraDriver: CameraDriving {
         XCTAssertEqual(camera.phase, .live); XCTAssertFalse(scanner.working)
         camera.close()
     }
+    func testPreviewDisconnectDoesNotWaitForBusyCameraQueue() async {
+        let queue = DispatchQueue(label: "camera-test.busy")
+        let gate = DispatchSemaphore(value: 0)
+        queue.async { gate.wait() }
+        let driver = NativeCameraDriver(queue: queue)
+        let layer = AVCaptureVideoPreviewLayer(session: driver.session)
+        let disconnected = expectation(description: "Preview disconnect completes after camera work")
+        let start = Date()
+        driver.stop()
+        driver.detachPreview(layer)
+        XCTAssertLessThan(Date().timeIntervalSince(start), 0.1)
+        XCTAssertTrue(layer.session === driver.session, "Detach must queue behind pending camera work")
+        queue.async { disconnected.fulfill() }
+        gate.signal()
+        await fulfillment(of: [disconnected], timeout: 2)
+        XCTAssertNil(layer.session)
+    }
+
     func testEmbeddedPreviewUsesWholeFrame() async throws {
         let (camera, driver) = await live()
         let host = UIHostingController(rootView: CameraPreview(camera: camera))

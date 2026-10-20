@@ -94,6 +94,33 @@ final class ScannerUITests: XCTestCase {
         app.buttons["Done"].tap()
     }
 
+    func testDoneWithoutCaptureReturnsPromptlyFromScanAndLens() {
+        let app = XCUIApplication(); app.launch()
+        let cover = app.buttons["phoneCover"]
+        if cover.waitForExistence(timeout: 4) { cover.tap() }
+        XCTAssertTrue(app.textFields["pokemonSearch"].waitForExistence(timeout: 15))
+        for identifier in ["phoneScan", "scannerLens"] {
+            // Duo uses its lens; ordinary phones expose both entry points.
+            if !app.buttons[identifier].exists { continue }
+            for waitForLive in [false, true] {
+                app.buttons[identifier].tap()
+                let done = app.buttons["Done"]
+                XCTAssertTrue(done.waitForExistence(timeout: 5))
+                if waitForLive {
+                    let capture = app.buttons["scanCapture"]
+                    let ready = NSPredicate { _, _ in capture.isEnabled || app.staticTexts["scanMessage"].label.contains("Simulator") }
+                    XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: ready, object: nil)], timeout: 15), .completed)
+                }
+                let start = Date()
+                done.tap()
+                XCTAssertTrue(app.textFields["pokemonSearch"].waitForExistence(timeout: 5))
+                let elapsed = Date().timeIntervalSince(start)
+                print("SCANNER_DONE_SECONDS entry=\(identifier) live=\(waitForLive) elapsed=\(elapsed)")
+                XCTAssertLessThan(elapsed, 2, "Done must not wait for native camera shutdown")
+            }
+        }
+    }
+
     func testAccessibleScannerControlsOnBothPages() {
         let app = XCUIApplication()
         app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
