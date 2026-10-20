@@ -1,6 +1,51 @@
 import XCTest
 import UIKit
+import SwiftUI
 @testable import DexDuo
+
+final class EvolutionConnectorTests: XCTestCase {
+    func testArrowSpaceAdaptsWithoutSqueezingCards() {
+        XCTAssertEqual(EvolutionForkRow.gutter(lcdWidth: 240), 80)
+        XCTAssertEqual(EvolutionForkRow.gutter(lcdWidth: 296), 132)
+        XCTAssertEqual(EvolutionForkRow.gutter(lcdWidth: 320), 132)
+        XCTAssertEqual(EvolutionForkRow.gutter(lcdWidth: 600, preferred: 400), 270)
+    }
+    func testWrappedRequirementsStayAboveTheirArrowAndLeftOfTheirCard() {
+        for (width, preferred, captionHeight, cardHeight) in [
+            (240.0, 132.0, 68.0, 90.0), (338, 132, 34, 68), (640, 280, 160, 150)
+        ] {
+            let gutter = EvolutionForkRow.gutter(lcdWidth: width, preferred: preferred)
+            let frames = EvolutionForkRow.frames(width: width, gutter: gutter, captionHeight: captionHeight, cardHeight: cardHeight)
+            XCTAssertLessThan(frames.caption.maxX, frames.card.minX)
+            XCTAssertEqual(frames.caption.maxY + 6, frames.card.midY, accuracy: 0.01)
+            XCTAssertGreaterThanOrEqual(frames.caption.minY, 0)
+            XCTAssertGreaterThanOrEqual(frames.card.minY, 0)
+            XCTAssertEqual(frames.card.maxX, width)
+            XCTAssertEqual(frames.caption.height, captionHeight)
+        }
+    }
+    func testTrunkStopsAtLastSiblingRatherThanItsDescendants() {
+        // Uneven families: the final sibling may itself continue far below the fork.
+        let junctions = [CGPoint(x: 45, y: 80), CGPoint(x: 45, y: 230), CGPoint(x: 45, y: 480)]
+        let path = EvolutionBranchLines(junctions: junctions).path(in: CGRect(x: 0, y: 0, width: 350, height: 900))
+        var moves: [CGPoint] = [], lines: [CGPoint] = []
+        path.cgPath.applyWithBlock { element in
+            switch element.pointee.type {
+            case .moveToPoint: moves.append(element.pointee.points[0])
+            case .addLineToPoint: lines.append(element.pointee.points[0])
+            default: XCTFail("Evolution forks use straight segments")
+            }
+        }
+        XCTAssertEqual(moves.first, CGPoint(x: 12, y: 0))
+        XCTAssertEqual(lines.first, CGPoint(x: 12, y: 480))
+        for junction in junctions { XCTAssertTrue(lines.contains(junction)) }
+        XCTAssertEqual(path.boundingRect.maxY, 484, "The trunk must not extend to the subtree bottom")
+        XCTAssertLessThanOrEqual(path.boundingRect.maxX, 45)
+    }
+    func testNoDanglingTrunkForAbsentChildren() {
+        XCTAssertTrue(EvolutionBranchLines(junctions: []).path(in: CGRect(x: 0, y: 0, width: 300, height: 300)).isEmpty)
+    }
+}
 
 actor EvolutionFixtureAPI: DexFetching {
     private let responses: [String: Data]
