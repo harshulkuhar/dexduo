@@ -140,7 +140,9 @@ final class EvolutionTests: XCTestCase {
         try await Task.sleep(for: .milliseconds(20)); cancelled.cancel()
         await load.value
         XCTAssertNil(cancelled.chain)
-        XCTAssertFalse(cancelled.loading)
+        XCTAssertNil(cancelled.error)
+        XCTAssertTrue(cancelled.members.isEmpty)
+        XCTAssertTrue(cancelled.thumbnails.isEmpty)
     }
     func testUnavailableFamilyRetriesAndMissingThumbnailsDoNotBlockNodes() async throws {
         let api = try EvolutionFixtureAPI(stripArtwork: false)

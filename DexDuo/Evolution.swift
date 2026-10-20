@@ -169,7 +169,6 @@ actor EvolutionRepository: EvolutionFetching {
     @Published private(set) var chain: EvolutionChain?
     @Published private(set) var members: [String: Pokemon] = [:]
     @Published private(set) var thumbnails: [String: UIImage] = [:]
-    @Published private(set) var loading = false
     @Published private(set) var error: String?
     @Published private(set) var choosing: String?
     @Published private(set) var failedMember: String?
@@ -197,12 +196,12 @@ actor EvolutionRepository: EvolutionFetching {
         if let choosing, choosing != species { cancelSelection() }
         let sameFamily = chain?.chain.flattened.contains { $0.id == species } == true
         if !sameFamily { chain = nil; members = [:]; thumbnails = [:]; scrollAnchor = nil; selectionError = nil; failedMember = nil }
-        loading = !sameFamily; error = nil
+        error = nil
         do {
             let value = try await repository.family(for: species)
             guard loadGeneration == token, !Task.isCancelled else { return }
             if chain?.id != value.id { scrollAnchor = nil }
-            chain = value; loading = false
+            chain = value
             let links = value.chain.flattened
             for start in stride(from: 0, to: links.count, by: 4) {
                 guard loadGeneration == token, !Task.isCancelled else { return }
@@ -235,7 +234,7 @@ actor EvolutionRepository: EvolutionFetching {
             }
         } catch {
             guard loadGeneration == token, !Task.isCancelled else { return }
-            loading = false; self.error = "Evolution data is unavailable. Connect to the internet and retry; saved families work offline."
+            self.error = "Evolution data is unavailable. Connect to the internet and retry; saved families work offline."
         }
     }
 
@@ -264,5 +263,5 @@ actor EvolutionRepository: EvolutionFetching {
     private func cancelSelection() {
         selectionGeneration = UUID(); selectionTask?.cancel(); selectionTask = nil; choosing = nil
     }
-    func cancel() { loadGeneration = UUID(); cancelSelection(); loading = false }
+    func cancel() { loadGeneration = UUID(); cancelSelection() }
 }
