@@ -7,7 +7,7 @@ final class TypeChartTests: XCTestCase {
     }
 
     private func multipliers(_ names: [String]) throws -> [PokemonType: Double] {
-        Dictionary(uniqueKeysWithValues: try chart().matchups(defending: names).map { ($0.type, $0.multiplier) })
+        Dictionary(uniqueKeysWithValues: try chart().matchups(defending: names).map { ($0.type, $0.effectiveness.rawValue) })
     }
 
     func testEverySingleTypeRelationshipAgainstPinnedSource() throws {
@@ -24,7 +24,7 @@ final class TypeChartTests: XCTestCase {
             guard let attackerName = byID[values[0]], let attacker = PokemonType(rawValue: attackerName),
                   let defenderName = byID[values[1]], PokemonType(rawValue: defenderName) != nil else { continue }
             let actual = try chart.matchups(defending: [defenderName]).first { $0.type == attacker }
-            XCTAssertEqual(try XCTUnwrap(actual).multiplier, try XCTUnwrap(Double(values[2])) / 100, "\(attackerName) against \(defenderName)")
+            XCTAssertEqual(try XCTUnwrap(actual).effectiveness.rawValue, try XCTUnwrap(Double(values[2])) / 100, "\(attackerName) against \(defenderName)")
             verified += 1
         }
         XCTAssertEqual(verified, 324)

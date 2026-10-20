@@ -1,10 +1,9 @@
 import Foundation
 
-enum PokemonType: String, Codable, CaseIterable, Identifiable {
+enum PokemonType: String, Decodable, CaseIterable {
     case normal, fire, water, electric, grass, ice, fighting, poison, ground
     case flying, psychic, bug, rock, ghost, dragon, dark, steel, fairy
 
-    var id: String { rawValue }
     var title: String { rawValue.capitalized }
     var abbreviation: String { String(rawValue.prefix(3)).uppercased() }
 
@@ -69,11 +68,9 @@ enum TypeEffectiveness: Double {
     }
 }
 
-struct TypeMatchup: Identifiable, Equatable {
+struct TypeMatchup: Equatable {
     let type: PokemonType
     let effectiveness: TypeEffectiveness
-    var id: PokemonType { type }
-    var multiplier: Double { effectiveness.rawValue }
 }
 
 struct TypeChart {

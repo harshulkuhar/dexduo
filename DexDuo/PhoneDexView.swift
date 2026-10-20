@@ -108,7 +108,7 @@ struct PhoneDexView: View {
                 Text("Cover").font(.system(size: 14, weight: .semibold))
                     .frame(width: 52, height: 44).background(DexAppearance.bezel, in: RoundedRectangle(cornerRadius: 8))
             }.accessibilityIdentifier("phoneCoverButton")
-        }.font(.system(size: 14)).frame(height: 44)
+        }.font(.system(size: 14)).frame(height: PhoneLayoutMetrics.toolbarHeight)
     }
 
     private var searchResults: some View {
