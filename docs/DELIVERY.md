@@ -12,6 +12,7 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 - [PR #5](https://github.com/harshulkuhar/dexduo/pull/5): landscape iPhone support; merged.
 - [PR #6](https://github.com/harshulkuhar/dexduo/pull/6): unused helpers, conformances and redundant cover state; merged.
 - [PR #7](https://github.com/harshulkuhar/dexduo/pull/7): EVO tab and scrollable Info/Stats/Evolution inside the right LCD; available Simulator checks complete. Types remains fixed. See [the updated PRD](prd/04-evolution-chains.md).
+- [PR #8](https://github.com/harshulkuhar/dexduo/pull/8): removed unused evolution loading state, two forwarding view helpers and an unused screenshot-helper argument. The versioned [dead-code-removal skill](../.agents/skills/dead-code-removal/SKILL.md) is required before every PR by `AGENTS.md`.
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 
@@ -26,6 +27,7 @@ Xcode 27.1, with `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer` set 
 - Evolution unit tests cover default-variety identifiers, alternative and compound requirements, regional restrictions, unknown conditions, coalesced requests, cache reuse while the API is unavailable, missing thumbnails, stale completions, selection Retry and cancellation during the entry fetch. Entry data now commits together so cancellation retains the previous complete entry.
 - An **unsigned Release build for generic physical iOS devices passes**. This confirms compilation, not physical-device execution.
 - Offline type-chart generation consistency, project source references, whitespace and no-added-image checks pass. JSON fixtures retain source URLs and contain no image bytes.
+- The subsequent dead-code cleanup reran 19 affected unit/component tests and four Evolution UI tests on iPhone 18 Pro, plus the two Duo UI checks above; all passed. The unsigned Release build and skill validator also passed. The earlier full-suite counts remain the feature baseline.
 
 Early UI runs exposed an identifier collision and narrow condition labels; those were fixed. Scroll automation was corrected to avoid overshooting nodes, and layout assertions now wait for native orientation transitions to settle. The passing suite includes these changes. Existing Simulator metadata/appearance diagnostics remain in logs outside Git; no test failure is treated as a pass.
 

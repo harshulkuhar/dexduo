@@ -63,8 +63,10 @@ struct EvolutionView: View {
                                                                      fontSize: fontSize, accessibility: textSize.isAccessibilitySize) {
                                     HStack(alignment: .center, spacing: 4) {
                                         ForEach(Array(linear.enumerated()), id: \.element.id) { index, link in
-                                            if index > 0 { condition(link, horizontal: true).frame(width: 44) }
-                                            node(link, column: true).frame(maxWidth: .infinity)
+                                            if index > 0 {
+                                                EvolutionCondition(link: link, horizontal: true) { method = link }.frame(width: 44)
+                                            }
+                                            EvolutionNode(link: link, model: model, store: store, column: true).frame(maxWidth: .infinity)
                                         }
                                     }
                                 } else {
@@ -110,12 +112,6 @@ struct EvolutionView: View {
         .onChange(of: store.pokemon?.species.name) { _, _ in method = nil }
     }
 
-    private func node(_ link: EvolutionLink, column: Bool) -> some View {
-        EvolutionNode(link: link, model: model, store: store, column: column)
-    }
-    private func condition(_ link: EvolutionLink, horizontal: Bool) -> some View {
-        EvolutionCondition(link: link, horizontal: horizontal) { method = link }
-    }
 }
 
 private struct EvolutionCondition: View {
