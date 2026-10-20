@@ -24,7 +24,7 @@ extension DeviceProfile {
         self.window = window
         var next = state
         next.observe(isPhone: UIDevice.current.userInterfaceIdiom == .phone,
-                     attached: true, hasHinge: hasHinge, closed: closed)
+                     hasHinge: hasHinge, closed: closed)
         let changedProfile = next.profile != state.profile
         if next.profile != state.profile || next.isFolded != state.isFolded { state = next }
         Self.sceneProfiles[ObjectIdentifier(scene)] = next.profile

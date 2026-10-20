@@ -9,7 +9,7 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 - [PR #2](https://github.com/harshulkuhar/dexduo/pull/2): cleanup; merged into `main`.
 - [PR #3](https://github.com/harshulkuhar/dexduo/pull/3): [release and feature PRDs](PRD.md); merged into `main`.
 - [PR #4](https://github.com/harshulkuhar/dexduo/pull/4): responsive type grid and shared sprite-badge colors; merged into `main`.
-- [PR #5](https://github.com/harshulkuhar/dexduo/pull/5): landscape iPhone support; implementation and available Simulator validation complete.
+- [PR #5](https://github.com/harshulkuhar/dexduo/pull/5): landscape iPhone support; merged into `main` with available Simulator validation complete.
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 
@@ -25,6 +25,12 @@ The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) 
 - Offline generator consistency, model package checksums, 1,025 labels, project/scheme references, Python syntax, whitespace and no-committed-photo checks pass.
 
 The phone tests exposed startup publication/orientation, border bounds and scanner accessibility-identifier issues; those fixes are included in the passing runs. An earlier unit run exited unexpectedly during model inference; a fresh boot and the final iPhone 18 Pro run passed both real-model tests. Test logs, result bundles and visual evidence remain outside Git. No reference images, captures or recordings are committed.
+
+## Maintenance cleanup
+
+Removed unused type identity/multiplier helpers, the test-only body-height helper, unused encoding/hash/equality conformances, and unused singleton configuration arguments. Cover control follows the existing device profile directly; the unreachable Open branch in the interior header is removed. Detached-window rejection remains in the scene observer.
+
+After cleanup, all 34 unit tests and five targeted iPhone 18 Pro UI tests pass (cover/artwork retention, both landscape directions, search, type selection, scanner import/confirmation and automatic lookup). The separate Duo presentation/orientation UI regression passes too. The offline 324-relationship chart check and whitespace/source-reference checks pass. The full eight-test phone run above belongs to the landscape feature; this cleanup reran the five affected UI cases. No visual assets were added.
 
 ## Pending validation
 

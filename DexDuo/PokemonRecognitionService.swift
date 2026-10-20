@@ -43,8 +43,8 @@ actor PokemonRecognitionService {
     static let shared = PokemonRecognitionService()
     private var model: MLModel?
     private var labels: [PokemonLabel]?
-    private let bundle: Bundle
-    init(bundle: Bundle = .main) { self.bundle = bundle }
+    private let bundle = Bundle.main
+    private init() {}
 
     private func loadLabels() throws -> [PokemonLabel] {
         if let labels { return labels }
