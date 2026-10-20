@@ -4,7 +4,7 @@ Status: implemented in [PR #5](https://github.com/harshulkuhar/dexduo/pull/5). B
 
 ## Requirement
 
-Ordinary iPhones use DexDuo in landscape only. Every app-owned screen fits without scrolling. Preserve Duo's portrait cover, landscape interior presentation, fixed fold orientation and retained artwork. The red shell fills the display, interactive content respects safe areas, and the divider between equal panels is centered within the usable content width.
+Ordinary iPhones use DexDuo in landscape only. The app shell fits without scrolling. The approved evolution update allows vertical scrolling inside the right LCD for Info, Stats and Evolution; Types remains fixed. Preserve Duo's portrait cover, landscape interior presentation, fixed fold orientation and retained artwork. The red shell fills the display, interactive content respects safe areas, and the divider between equal panels is centered within the usable content width.
 
 ## Orientation architecture
 
@@ -18,7 +18,7 @@ On an ordinary phone, cold launch shows a text-free cover sized for landscape, w
 
 Replace the oversized design-canvas `scaleEffect` approach in the interior and scanner with sizes derived from available safe width and height. Use two equal content panels and a narrow centered divider when space allows. Reduce decorative header/artwork space before reducing readable text or tap targets.
 
-Use at least 14-point normal body text and 44-point primary hit areas. The 44-point toolbar contains the lens/indicator cluster, search, Scan and Cover. Use 12-point horizontal margins and 8-point spacing. Detail tabs are Info, Stats and Types; evolution and speech controls belong to later features. The artwork, number, name, separately colored type badges and previous/next controls remain on the left. The all-18-type grid remains on the right. Long names wrap appropriately; long descriptions and conditions use word-boundary paging with visible page controls. Stats and abilities may use separate pages on compact heights. Do not truncate away content as a substitute for scrolling.
+Use at least 14-point normal body text and 44-point primary hit areas. The 44-point toolbar contains the lens/indicator cluster, search, Scan and Cover. Use 12-point horizontal margins and 8-point spacing. Detail tabs are Info, Stats, Types and EVO. Speech controls belong to a later feature. The artwork, number, name, separately colored type badges and previous/next controls remain on the left. The all-18-type grid remains on the right. Long names wrap appropriately. Info displays the complete entry followed by height and weight; Stats displays all six stats, their total and abilities. These contents and the evolution family scroll inside the bounded LCD, with fixed tabs and artwork. Do not truncate away content.
 
 At large accessibility sizes, switch to an explicit single-panel pager (Artwork / Details) rather than shrinking the entire interface. All content and actions remain reachable through buttons. Test Dynamic Type through XXXL and accessibility sizes with this alternative layout; VoiceOver must read complete names, values and page state.
 
@@ -32,20 +32,20 @@ Autocomplete, clear/retype, paste, submit, dismissal and a failed search must wo
 
 Use a compact landscape arrangement for image preview, Camera/Import, message, up to three candidate choices, Retry and Done. Page candidate choices if text size requires it. Preserve the selected photo and retry state while switching pages. Do not reduce the entire portrait scanner canvas to unreadable dimensions.
 
-System Photos/camera screens follow Apple's layout behavior; the no-scroll requirement applies to DexDuo-owned views. Recognition and generation-token cancellation behavior are unchanged.
+System Photos/camera screens follow Apple's layout behavior; the scanner remains fixed; contained scrolling is limited to the three detail tabs. Recognition and generation-token cancellation behavior are unchanged.
 
 ## Acceptance and tests
 
 | Configuration | Checks |
 | --- | --- |
-| 667×375 landscape | All tabs/actions reachable; descriptions and abilities paginate; no overlap |
+| 667×375 landscape | All tabs/actions reachable; descriptions and abilities scroll inside the LCD; no overlap |
 | 812×375 notched landscape | Both landscape directions; safe-area clearances and centered divider |
 | Larger ordinary iPhone | Uses available width; no large dead margins or scaled-down controls |
 | Duo folded | Full red text-free cover, no interior flash, no orientation animation |
 | Duo unfolded | Equal panels, retained sprite, complete search and scanner behavior |
 | Accessibility sizes | Single-panel paging, readable labels and full VoiceOver content |
 
-Unit tests cover layout capacity/page boundaries and capability-specific orientation policy. UI tests cover typing multiple characters, clear/retype, keyboard result selection, all detail pages, import/candidate selection, failed lookup retry and both phone landscape directions. Check control bounds and absence of app-owned scroll views.
+Unit tests cover layout capacity/page boundaries and capability-specific orientation policy. UI tests cover typing multiple characters, clear/retype, keyboard result selection, complete detail content, import/candidate selection, failed lookup retry and both phone landscape directions. Check control bounds, containment of detail scroll views, fixed artwork/tabs and the absence of scrolling in Types.
 
 Repeat at least 20 Duo fold/unfold cycles, including during search and recognition; confirm no late lookup, rotation or sprite reload. Compare the known simulator fold artifacts with system apps so platform rendering issues are not mistaken for layout regressions.
 
