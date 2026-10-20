@@ -1,6 +1,6 @@
 # 03 — Speaking lens
 
-Status: implemented on `codex/lens-flash`; delivery verification is recorded in [the checkpoint](../DELIVERY.md). Depends on spoken-entry playback.
+Status: delivered in [PR #12](https://github.com/harshulkuhar/dexduo/pull/12) on `codex/lens-flash`; delivery verification is recorded in [the checkpoint](../DELIVERY.md). Depends on spoken-entry playback.
 
 ## Appearance
 

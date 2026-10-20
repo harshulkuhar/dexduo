@@ -19,7 +19,7 @@ The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) 
 
 ## Speaking lens
 
-Implemented on `codex/lens-flash`. The existing 36-point phone and 56-point Duo interior lenses now share a soft cyan halo driven by post-effect mixer audio. The envelope has a 40 ms attack and 120 ms release, with at most 30 published updates per second. Normal opacity is capped at 35%, with maximum blur of 5/8 points; Reduce Motion uses a steady 15% halo. Preparation stays idle. Stop, completion, failure and existing cancellation paths clear the light immediately. The closed cover, lens artwork, layout and scanner actions are unchanged.
+[PR #12](https://github.com/harshulkuhar/dexduo/pull/12), branch `codex/lens-flash`. The existing 36-point phone and 56-point Duo interior lenses now share a soft cyan halo driven by post-effect mixer audio. The envelope has a 40 ms attack and 120 ms release, with at most 30 published updates per second. Normal opacity is capped at 35%, with maximum blur of 5/8 points; Reduce Motion uses a steady 15% halo. Preparation stays idle. Stop, completion, failure and existing cancellation paths clear the light immediately. The closed cover, lens artwork, layout and scanner actions are unchanged.
 
 Verification:
 
@@ -82,7 +82,7 @@ The original feature’s early UI runs exposed an identifier collision and narro
 
 ## Remaining feature branches
 
-The speaking lens is the final planned feature. After its PR merges, no active feature branches remain to synchronize; pull the merged `main`. Completed delivery branches remain as history.
+The speaking lens completes the planned feature branches. No active feature branches remain to synchronize; the merged `main` is the working baseline. Completed delivery branches remain as history.
 
 ## Next steps
 
