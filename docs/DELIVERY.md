@@ -13,7 +13,7 @@ Updated 2026-10-20. Local checkout: `/Users/nonu/Workspace/dexduo`.
 - [PR #6](https://github.com/harshulkuhar/dexduo/pull/6): unused helpers, conformances and redundant cover state; merged.
 - [PR #7](https://github.com/harshulkuhar/dexduo/pull/7): EVO tab and scrollable Info/Stats/Evolution inside the right LCD; available Simulator checks complete. Types remains fixed. See [the updated PRD](prd/04-evolution-chains.md).
 - [PR #8](https://github.com/harshulkuhar/dexduo/pull/8): removed unused evolution loading state, two forwarding view helpers and an unused screenshot-helper argument. The versioned [dead-code-removal skill](../.agents/skills/dead-code-removal/SKILL.md) is required before every PR by `AGENTS.md`.
-- Robotic entries: Read/Stop, persistent Auto-read and local effected speech; see [the spoken-entry PRD and measured latency](prd/02-spoken-entries.md).
+- [PR #9](https://github.com/harshulkuhar/dexduo/pull/9): Read/Stop, persistent Auto-read and local robotic speech; see [the spoken-entry PRD and measured latency](prd/02-spoken-entries.md).
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 

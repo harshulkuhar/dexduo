@@ -1,6 +1,6 @@
 # 02 — Robotic spoken entries
 
-Status: implemented on `codex/robotic-entries`; iPhone 18 Pro and Duo Simulator validation recorded below. Physical-device audition remains pending.
+Status: implemented in [PR #9](https://github.com/harshulkuhar/dexduo/pull/9) on `codex/robotic-entries`; iPhone 18 Pro and Duo Simulator validation recorded below. Physical-device audition remains pending.
 
 ## Experience
 
