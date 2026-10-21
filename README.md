@@ -91,3 +91,10 @@ Manual checks: search a full name and clear/retype; import artwork without text;
 - [Original device design reference](https://archives.bulbagarden.net/wiki/File:Ash_Original_Pok%C3%A9dex.png): visual reference.
 
 Unofficial fan prototype.
+
+## Support and policies
+
+Support: [kuharharshul@gmail.com](mailto:kuharharshul@gmail.com).
+[Website](https://harshulkuhar.github.io/dexduo/), [privacy](https://harshulkuhar.github.io/dexduo/privacy/), [terms](https://harshulkuhar.github.io/dexduo/terms/) and [support](https://harshulkuhar.github.io/dexduo/support/) are plain static pages in `site/`. The Pages workflow publishes only that directory from main. Run `python3 Tools/check_site.py` to check local links and document structure. Support & About is at the bottom of Info on phone and Duo.
+
+See [submission setup](docs/APP_STORE_SETUP.md) for account and hardware work still required.

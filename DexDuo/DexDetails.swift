@@ -67,6 +67,7 @@ private struct DexInfo: View {
                         measurement("Height", String(format: "%.1f m", Double(pokemon.height) / 10))
                         measurement("Weight", String(format: "%.1f kg", Double(pokemon.weight) / 10))
                     }
+                    SupportAboutView()
                 }.frame(maxWidth: .infinity, alignment: .leading).padding(.trailing, 6).padding(.bottom, 4)
             }.scrollIndicators(.visible).accessibilityIdentifier("infoScroll")
         }
