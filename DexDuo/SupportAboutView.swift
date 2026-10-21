@@ -9,10 +9,14 @@ enum DexSupport {
 }
 
 struct SupportAboutView: View {
+    @Environment(\.tipStore) private var tips
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Divider()
             Text("Support & About").font(.headline)
+            if let tips {
+                Button("Leave a tip") { tips.showManual() }.frame(minHeight: 44).accessibilityIdentifier("manualTip")
+            }
             Text(DexSupport.email).textSelection(.enabled).accessibilityIdentifier("supportEmail")
             Link("Email support", destination: URL(string: "mailto:\(DexSupport.email)?subject=DexDuo%20support")!).frame(minHeight: 44)
             Link("Support website", destination: DexSupport.support).frame(minHeight: 44)

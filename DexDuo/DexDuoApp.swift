@@ -8,7 +8,18 @@ import SwiftUI
 
 @main struct DexDuoApp: App {
     @UIApplicationDelegateAdaptor(OrientationDelegate.self) private var delegate
-    var body: some Scene { WindowGroup { DexDuoView() } }
+    @StateObject private var tips: TipStore
+    init() {
+        var preferences = UserDefaults.standard
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--test-tips") {
+            preferences = UserDefaults(suiteName: "DexDuoUITips")!
+            if ProcessInfo.processInfo.arguments.contains("--reset-tip-state") { preferences.removePersistentDomain(forName: "DexDuoUITips") }
+        }
+        #endif
+        _tips = StateObject(wrappedValue: TipStore(defaults: preferences))
+    }
+    var body: some Scene { WindowGroup { DexDuoView().environmentObject(tips).environment(\.tipStore, tips) } }
 }
 
 private let shell = DexAppearance.shell
@@ -16,6 +27,7 @@ private let ink = DexAppearance.ink
 private let lcd = DexAppearance.lcd
 
 struct DexDuoView: View {
+    @EnvironmentObject private var tips: TipStore
     @StateObject private var store = DexStore()
     @StateObject private var presentation = DevicePresentation()
     @StateObject private var evolution = EvolutionModel()
@@ -33,10 +45,10 @@ struct DexDuoView: View {
             LinearGradient(colors: [Color(red: 0.87, green: 0.14, blue: 0.20), shell, Color(red: 0.49, green: 0.03, blue: 0.08)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
             switch presentation.state.profile {
             case .phone:
-                PhoneDexView(store: store, presentation: presentation, opened: $opened, scanning: $scanning)
+                PhoneDexView(store: store, presentation: presentation, opened: $opened, scanning: $scanning).accessibilityHidden(tips.presented).overlay { tipOverlay }
             case .duo, .tablet:
                 ZStack {
-                    if opened { FixedInterior { interior }.accessibilityElement(children: .contain).accessibilityIdentifier("duoInterior") }
+                    if opened { FixedInterior { interior.accessibilityHidden(tips.presented).overlay { tipOverlay } }.accessibilityElement(children: .contain).accessibilityIdentifier("duoInterior") }
                     if !opened { cover.ignoresSafeArea(.container, edges: .all) }
                 }.ignoresSafeArea(.container, edges: .horizontal)
                     .accessibilityElement(children: .contain).accessibilityIdentifier(presentation.state.profile == .duo ? "duoPresentation" : "tabletPresentation")
@@ -52,19 +64,38 @@ struct DexDuoView: View {
         .onChange(of: presentation.state.isFolded) { _, _ in applyDeviceState() }
         .onChange(of: scenePhase) { _, phase in
             updateSpeechContext()
-            if phase == .active { presentation.requestLandscapeIfNeeded() }
+            if phase == .active { presentation.requestLandscapeIfNeeded(); tips.foreground(); considerTip() }
+            else if phase == .background { tips.background() }
         }
-        .onChange(of: opened) { _, _ in updateSpeechContext() }
+        .onChange(of: opened) { _, value in
+            if !value { tips.presented = false }
+            considerTip(); updateSpeechContext()
+        }
+        .onChange(of: tips.presented) { _, _ in updateSpeechContext() }
         .onChange(of: scanning) { _, _ in updateSpeechContext() }
         // Keyboard presentation must not change the instrument coordinate system
         // or replace the focused field through the wide/compact layout branch.
         .ignoresSafeArea(.keyboard)
         .statusBarHidden(true)
         .preferredColorScheme(.light)
-        .task { speech.observe(store); updateSpeechContext(); await store.start() }
+        .task {
+            speech.observe(store); updateSpeechContext()
+            if scenePhase == .active { tips.foreground() }
+            async let entries: () = store.start()
+            await tips.start(); considerTip(); await entries
+        }
         .onDisappear { speech.stop() }
     }
-    private func updateSpeechContext() { speech.context(open: opened, active: scenePhase == .active, scanning: scanning) }
+    private func updateSpeechContext() { speech.context(open: opened && !tips.presented, active: scenePhase == .active, scanning: scanning) }
+    private func considerTip() { if scenePhase == .active { tips.consider(open: opened, busy: scanning || searchFocused) } }
+    @ViewBuilder private var tipOverlay: some View {
+        if tips.presented {
+            ZStack {
+                Color.black.opacity(0.4).contentShape(Rectangle()).onTapGesture { }
+                TipPanel(store: tips)
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
     private func applyDeviceState() {
         guard hardwareControlsCover else { return }
         var transaction = Transaction(animation: nil)

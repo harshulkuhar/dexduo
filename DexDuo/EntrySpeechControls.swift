@@ -4,6 +4,7 @@ struct EntrySpeechControls: View {
     @ObservedObject var store: DexStore
     @EnvironmentObject private var speech: EntrySpeech
     @State private var settings = false
+    @Environment(\.tipStore) private var tips
 
     var body: some View {
         HStack(spacing: 8) {
@@ -34,7 +35,8 @@ struct EntrySpeechControls: View {
                         Button("Done") { settings = false }.font(.system(size: 14)).frame(minHeight: 44).accessibilityIdentifier("audioSettingsDone")
                     }.padding(16).frame(width: 280, height: 260).presentationCompactAdaptation(.popover)
                 }
-        }
+        }.onChange(of: settings) { _, value in tips?.settingsActive = value }
+            .onDisappear { tips?.settingsActive = false }
     }
     private var status: String {
         if speech.state == .preparing { return "Preparing…" }

@@ -1,0 +1,64 @@
+{
+  "identifier": "28E300F1-03A5-455F-AA10-DA560118C7A6",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "0.99",
+      "familyShareable": false,
+      "internalID": "0EF3F83E-A4C6-486C-8CFA-A706ADC59268",
+      "localizations": [
+        {
+          "description": "Optional support; no features unlocked.",
+          "displayName": "Small tip",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.harshulkuhar.dexduo.tip.small",
+      "referenceName": "Small tip",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "2.99",
+      "familyShareable": false,
+      "internalID": "0C2B673C-FE6F-4448-9C63-05FCC9243BD4",
+      "localizations": [
+        {
+          "description": "Optional support; no features unlocked.",
+          "displayName": "Medium tip",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.harshulkuhar.dexduo.tip.medium",
+      "referenceName": "Medium tip",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "4.99",
+      "familyShareable": false,
+      "internalID": "6AB713B0-599D-4E1E-A0E5-801C5A76235F",
+      "localizations": [
+        {
+          "description": "Optional support; no features unlocked.",
+          "displayName": "Large tip",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.harshulkuhar.dexduo.tip.large",
+      "referenceName": "Large tip",
+      "type": "Consumable"
+    }
+  ],
+  "settings": {
+    "_applicationInternalID": "",
+    "_developerTeamID": "",
+    "_failTransactionsEnabled": false,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}
