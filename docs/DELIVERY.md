@@ -150,3 +150,11 @@ Remaining release work: optional tips, then original App Store showcase exports.
 Six policy/purchase tests pass on phone and Duo, including native local StoreKit repeat purchases. Phone and Duo normal/accessibility popup checks, manual access and relaunch suppression pass. Actual Simulator-display captures were inspected outside Git; XCTest landscape attachments have incorrect image metadata and are not used as visual evidence. Speech/scanner and phone keyboard regressions pass. Final narration-pause checks and the unsigned Release build are recorded in the PR. Dead-code audit removed temporary capture checkpoints; no remaining unused declarations qualify for deletion. No signing changes or captured media are included.
 
 The support website is merged through PR #17; all four deployed HTTPS pages return 200. Optional-tip account/product setup and real-purchase/hardware checks remain pending. Showcase assets are the next feature and will start from synchronized main.
+
+## App Store showcase
+
+`codex/app-store-showcase` delivers original capture/composition tools and six English concepts. Both iPhone 18 Pro and Duo capture harness runs pass, including genuine imported-image classification, actual speech playback, Kirlia branches and Gyarados defenses. The folded Duo cover was separately verified in Device Hub and captured from display 1. Twenty-five accepted-size opaque RGB PNG variants and a Duo-first contact sheet are exported outside Git. Full-size phone/landscape/Duo samples and the contact sheet were visually inspected; regeneration and metadata checks pass.
+
+The dead-code-removal audit removed unused rendering return calculations. The capture harness is registered only in a temporary project, so it adds no app or ordinary-test scaffolding. No captured images, recordings or photographs are committed. The unsigned Release build passes. Remaining account, content-rights, iPad and hardware checks are documented in APP_STORE_SETUP.md.
+
+Release branch inventory: app icon, support website and optional tips are merged. Showcase is the final release-assets feature; no other active feature branches remain to synchronize after its merge.
