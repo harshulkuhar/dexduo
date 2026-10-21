@@ -19,7 +19,7 @@ The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) 
 
 ## Cover-style app icon
 
-Branch `codex/app-icon`. Added the original red-cover AppIcon and a dependency-free Swift/Core Graphics generator (`swift Tools/render_app_icon.swift`). The universal icon is an opaque RGB 1024×1024 PNG, with system corner masking, registered in Debug and Release. The existing in-app covers are unchanged.
+[PR #16](https://github.com/harshulkuhar/dexduo/pull/16), branch `codex/app-icon`. Added the original red-cover AppIcon and a dependency-free Swift/Core Graphics generator (`swift Tools/render_app_icon.swift`). The universal icon is an opaque RGB 1024×1024 PNG, with system corner masking, registered in Debug and Release. The existing in-app covers are unchanged.
 
 Simulator and unsigned Release builds pass. The icon was installed and visually inspected on iPhone 18 Pro and Duo Home Screens; the lens, lights, seam and triangle remain visible at icon size. Regeneration is byte-identical and PNG metadata confirms no alpha channel. The dead-code-removal audit found no unused code; the generator and asset registration have consumers. Only the original product icon is committed, not screenshots or reference art.
 
