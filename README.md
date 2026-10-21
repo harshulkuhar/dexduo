@@ -104,3 +104,7 @@ See [submission setup](docs/APP_STORE_SETUP.md) for account and hardware work st
 Support & About offers repeatable consumable tips through StoreKit 2. Apple supplies localized prices; tips unlock nothing. An automatic offer is eligible only in the first foreground session of a local calendar day after opening the cover. Busy/unavailable offers are skipped for that day. A verified successful tip suppresses automatic offers on this installation; manual tipping remains available. Daily/supporter state is local and can reset on reinstall.
 
 For local testing, `Tests/LocalTips.storekit` is copied only into test bundles, never the app. `TipTests` uses `SKTestSession` to activate it; `TipUITests` uses isolated Debug-only preferences. To preview purchases manually, select this file in Xcode’s scheme → Run → Options → StoreKit Configuration; set it back to None for account/sandbox validation. Do not commit a production scheme that forces the test catalog. Live purchasing still requires App Store Connect product, banking and tax setup.
+
+## Release showcase
+
+Original six-concept capture/composition tools and instructions are in [App Store showcase](docs/APP_STORE_SHOWCASE.md). Captures, PNG exports and the contact sheet live outside Git under `/Users/nonu/Workspace/dexduo-artifacts/app-store/`. The capture harness is added only to a temporary test project and does not ship in the app.
