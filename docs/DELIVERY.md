@@ -136,3 +136,9 @@ The original feature’s early UI runs exposed an identifier collision and narro
 Complete the outstanding physical-device and actual fold checks when available.
 
 Ignored recognition test images can be restored with `python3 Tools/download_test_fixtures.py`; model weights use Git LFS. Screenshots, recordings and visual evidence remain outside Git.
+
+## Release support website
+
+`codex/privacy-site` adds the four static pages, a site-only Pages workflow and inline Support & About in the shared Info LCD. Local page/link validation, mobile/desktop browser inspection and keyboard focus checks pass. The support-link UI test passes on iPhone 18 Pro and Duo; the unsigned Release build passes. The initial popover design failed its visibility test and was removed in favor of the requested inline section; obsolete presentation state and dismissal controls are gone. Final dead-code audit found no additional unused declarations. Deployment HTTPS checks follow the merge.
+
+Remaining release work: optional tips, then original App Store showcase exports. These branches will start from synchronized main. Financial account setup and physical-device validation remain owner tasks.

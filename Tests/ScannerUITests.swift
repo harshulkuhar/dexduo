@@ -94,6 +94,20 @@ final class ScannerUITests: XCTestCase {
         app.buttons["Done"].tap()
     }
 
+    func testSupportAboutLinks() {
+        let app = XCUIApplication(); launch(app)
+        XCTAssertTrue(app.buttons["detailTab-info"].waitForExistence(timeout: 15))
+        app.buttons["detailTab-info"].tap()
+        let info = app.scrollViews["infoScroll"]
+        let email = app.staticTexts["supportEmail"]
+        for _ in 0..<5 where !email.isHittable { info.swipeUp() }
+        XCTAssertEqual(email.label, "kuharharshul@gmail.com")
+        let terms = app.descendants(matching: .any).matching(identifier: "supportTerms").firstMatch
+        for _ in 0..<5 where !terms.isHittable { info.swipeUp() }
+        XCTAssertTrue(terms.isHittable)
+        XCTAssertTrue(app.textFields["pokemonSearch"].exists)
+    }
+
     func testDoneWithoutCaptureReturnsPromptlyFromScanAndLens() {
         let app = XCUIApplication(); app.launch()
         let cover = app.buttons["phoneCover"]
