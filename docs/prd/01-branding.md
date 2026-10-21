@@ -27,3 +27,7 @@ Use DexDuo consistently for the app and its codebase. This includes the checkout
 6. No photos are staged; cache paths and Python conversion/benchmark instructions use the current source folder.
 
 Static project/scheme checks, Swift parsing, package/label validation and the old-name scan have passed. Xcode 27.1 builds the renamed app and test targets. Simulator runtime checks remain pending while the iOS runtime downloads.
+
+## Cover-style icon follow-up
+
+The icon uses the existing text-free cover identity, adapted to a square canvas. Generate it with `swift Tools/render_app_icon.swift`; the asset catalog uses a single opaque 1024×1024 iOS AppIcon. Keep captures and marketing exports outside Git. The generator is original code-drawn artwork, not a captured screen or a competitor asset.

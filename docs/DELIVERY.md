@@ -17,6 +17,14 @@ Updated 2026-10-21. Local checkout: `/Users/nonu/Workspace/dexduo`.
 
 The owner authorized feature PR creation and merging. [AGENTS.md](../AGENTS.md) records the workflow: one PR per completed feature, then pull and synchronize every remaining feature branch after each merge.
 
+## Cover-style app icon
+
+Branch `codex/app-icon`. Added the original red-cover AppIcon and a dependency-free Swift/Core Graphics generator (`swift Tools/render_app_icon.swift`). The universal icon is an opaque RGB 1024×1024 PNG, with system corner masking, registered in Debug and Release. The existing in-app covers are unchanged.
+
+Simulator and unsigned Release builds pass. The icon was installed and visually inspected on iPhone 18 Pro and Duo Home Screens; the lens, lights, seam and triangle remain visible at icon size. Regeneration is byte-identical and PNG metadata confirms no alpha channel. The dead-code-removal audit found no unused code; the generator and asset registration have consumers. Only the original product icon is committed, not screenshots or reference art.
+
+Remaining work, in order: `codex/privacy-site`, `codex/optional-tips`, `codex/app-store-showcase`. Branches are created from synchronized main when their work starts. Physical-device checks are deferred tonight.
+
 ## Prompt scanner dismissal
 
 [PR #15](https://github.com/harshulkuhar/dexduo/pull/15), branch `codex/scanner-dismissal`. Reproduced Scan/blue lens → Done without taking a photograph on the connected Air. Four baseline runs took **10.30–10.34 seconds**. After moving preview-session disconnection from the main thread to the existing camera queue, the final four runs took **1.84–1.85 seconds** and passed the two-second regression gate. These end-to-end XCTest measurements include tap/idle handling and waiting for the entry's search field; they are not raw animation timings.
