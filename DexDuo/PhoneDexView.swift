@@ -11,6 +11,7 @@ enum DexAppearance {
 struct PhoneDexView: View {
     @ObservedObject var store: DexStore
     @ObservedObject var presentation: DevicePresentation
+    @Environment(\.tipStore) private var tips
     @EnvironmentObject private var speech: EntrySpeech
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var textSize
@@ -72,6 +73,8 @@ struct PhoneDexView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in keyboardFrame = nil }
         .onChange(of: store.query) { _, _ in searchPage = 0 }
+        .onChange(of: searchFocused) { _, value in tips?.searchActive = value }
+        .onChange(of: opened) { _, value in if !value { tips?.searchActive = false } }
     }
 
     private var toolbar: some View {

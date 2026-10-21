@@ -142,3 +142,11 @@ Ignored recognition test images can be restored with `python3 Tools/download_tes
 `codex/privacy-site` adds the four static pages, a site-only Pages workflow and inline Support & About in the shared Info LCD. Local page/link validation, mobile/desktop browser inspection and keyboard focus checks pass. The support-link UI test passes on iPhone 18 Pro and Duo; the unsigned Release build passes. The initial popover design failed its visibility test and was removed in favor of the requested inline section; obsolete presentation state and dismissal controls are gone. Final dead-code audit found no additional unused declarations. Deployment HTTPS checks follow the merge.
 
 Remaining release work: optional tips, then original App Store showcase exports. These branches will start from synchronized main. Financial account setup and physical-device validation remain owner tasks.
+
+## Optional tips
+
+`codex/optional-tips` adds one app-owned StoreKit manager, a local calendar/session policy and a shared support panel. The three consumables use Apple-localized prices and unlock nothing. Support & About retains manual access; verified success persists suppression before finishing transactions. Test catalog/resources are confined to test targets, and Debug-only UI-test preferences are isolated from normal installs.
+
+Six policy/purchase tests pass on phone and Duo, including native local StoreKit repeat purchases. Phone and Duo normal/accessibility popup checks, manual access and relaunch suppression pass. Actual Simulator-display captures were inspected outside Git; XCTest landscape attachments have incorrect image metadata and are not used as visual evidence. Speech/scanner and phone keyboard regressions pass. Final narration-pause checks and the unsigned Release build are recorded in the PR. Dead-code audit removed temporary capture checkpoints; no remaining unused declarations qualify for deletion. No signing changes or captured media are included.
+
+The support website is merged through PR #17; all four deployed HTTPS pages return 200. Optional-tip account/product setup and real-purchase/hardware checks remain pending. Showcase assets are the next feature and will start from synchronized main.

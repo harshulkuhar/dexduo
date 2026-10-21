@@ -98,3 +98,9 @@ Support: [kuharharshul@gmail.com](mailto:kuharharshul@gmail.com).
 [Website](https://harshulkuhar.github.io/dexduo/), [privacy](https://harshulkuhar.github.io/dexduo/privacy/), [terms](https://harshulkuhar.github.io/dexduo/terms/) and [support](https://harshulkuhar.github.io/dexduo/support/) are plain static pages in `site/`. The Pages workflow publishes only that directory from main. Run `python3 Tools/check_site.py` to check local links and document structure. Support & About is at the bottom of Info on phone and Duo.
 
 See [submission setup](docs/APP_STORE_SETUP.md) for account and hardware work still required.
+
+## Optional tips
+
+Support & About offers repeatable consumable tips through StoreKit 2. Apple supplies localized prices; tips unlock nothing. An automatic offer is eligible only in the first foreground session of a local calendar day after opening the cover. Busy/unavailable offers are skipped for that day. A verified successful tip suppresses automatic offers on this installation; manual tipping remains available. Daily/supporter state is local and can reset on reinstall.
+
+For local testing, `Tests/LocalTips.storekit` is copied only into test bundles, never the app. `TipTests` uses `SKTestSession` to activate it; `TipUITests` uses isolated Debug-only preferences. To preview purchases manually, select this file in Xcode’s scheme → Run → Options → StoreKit Configuration; set it back to None for account/sandbox validation. Do not commit a production scheme that forces the test catalog. Live purchasing still requires App Store Connect product, banking and tax setup.
