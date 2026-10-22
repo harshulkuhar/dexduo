@@ -162,3 +162,7 @@ Release branch inventory: app icon, support website and optional tips are merged
 ## Release identity alignment
 
 `codex/release-identity` aligns Debug/Release with the App Store Connect record: bundle ID `com.dexduo.app`, version `1.0`, build `1`. Test bundle identifiers use the new app prefix. Tip product identifiers remain unchanged. No development-team, provisioning or signing settings are committed. The dead-code-removal audit found no unused code in this configuration/documentation change. Unsigned Release build passes; the built Info.plist confirms the new bundle ID, version and build number. Owner authorization for the official Xcode Cloud GitHub app remains separate.
+
+## Header and search creative assets
+
+`codex/store-header-search` adds a reproducible generator and upload instructions for a 3840×1646 header, 3840×2560 search-result asset and 5244×2950 universal alternative. They reuse genuine Duo captures; exports and the review sheet remain outside Git. Dimensions, opaque RGB output and byte-identical regeneration are verified, and designs are visually inspected. The unsigned Release build passes; app sources and signing settings are unchanged. Required dead-code audit traced all imports and rendering helpers; all are used, including Image.Resampling for the review sheet. No code qualified for deletion. App Store placement/crop preview remains an account-side step. No other active Codex feature branches remain after this delivery; the collaborator’s release-xcloud branch is separate release work.
