@@ -158,3 +158,7 @@ The support website is merged through PR #17; all four deployed HTTPS pages retu
 The dead-code-removal audit removed unused rendering return calculations. The capture harness is registered only in a temporary project, so it adds no app or ordinary-test scaffolding. No captured images, recordings or photographs are committed. The unsigned Release build passes. Remaining account, content-rights, iPad and hardware checks are documented in APP_STORE_SETUP.md.
 
 Release branch inventory: app icon, support website and optional tips are merged. Showcase is the final release-assets feature; no other active feature branches remain to synchronize after its merge.
+
+## Release identity alignment
+
+`codex/release-identity` aligns Debug/Release with the App Store Connect record: bundle ID `com.dexduo.app`, version `1.0`, build `1`. Test bundle identifiers use the new app prefix. Tip product identifiers remain unchanged. No development-team, provisioning or signing settings are committed. The dead-code-removal audit found no unused code in this configuration/documentation change. Unsigned Release build passes; the built Info.plist confirms the new bundle ID, version and build number. Owner authorization for the official Xcode Cloud GitHub app remains separate.

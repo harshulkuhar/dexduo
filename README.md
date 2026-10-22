@@ -32,7 +32,7 @@ Narration uses an installed English system voice, a restrained 70 Hz ring-modula
 
 ## App identity
 
-The app, Xcode project, shared scheme and Swift module are named `DexDuo`. The app bundle identifier is `com.harshulkuhar.dexduo`. This identity change installs DexDuo as a separate app from earlier builds; their sandboxed caches and permissions do not transfer automatically.
+The app, Xcode project, shared scheme and Swift module are named `DexDuo`. The app bundle identifier is `com.dexduo.app` and the marketing version is `1.0`. This identity change installs DexDuo as a separate app from earlier builds; their sandboxed caches and permissions do not transfer automatically.
 
 ## Type chart data
 

@@ -8,3 +8,11 @@
 - Run TestFlight, a submission-eligible Xcode archive validation, physical camera/speech/performance checks and actual Duo hardware tests when available. Simulator results do not replace hardware validation.
 
 No financial details or agreements are handled by development automation. [Apple screenshot requirements](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications) and [review guidelines](https://developer.apple.com/app-store/review/guidelines/) remain the submission authority.
+
+## Release identity and Xcode Cloud
+
+The app uses bundle ID `com.dexduo.app`, marketing version `1.0` and build number `1`. Use the matching existing App Store Connect record and its Apple Developer team. The prior bundle ID may already belong to another team; the repository alone cannot establish its ownership. Changing bundle ID creates a separate installed app, so old caches/preferences do not migrate automatically.
+
+The consumable product IDs remain `com.harshulkuhar.dexduo.tip.small`, `.medium` and `.large`; product IDs do not need to share the bundle-ID prefix. Create them under the new app record exactly as configured in the code.
+
+The GitHub owner should follow [Apple’s Xcode Cloud connection flow](https://developer.apple.com/documentation/xcode/connecting-xcode-cloud-to-github): authorize the official [Xcode Cloud GitHub app](https://github.com/apps/xcode-cloud), choose **Only select repositories**, and select **harshulkuhar/dexduo**. Return to App Store Connect/Xcode to finish the workflow and choose the correct app/team. This permission is separate from inviting a human collaborator; no collaborator access is required simply to connect Apple’s app. GitHub owner authorization and Apple account configuration are not performed by the source-code change.
